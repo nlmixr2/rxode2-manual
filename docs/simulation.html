@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Simulation | rxode2 user manual</title>
+  <meta name="description" content="This book is the user manual for rxode2" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Simulation | rxode2 user manual" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book is the user manual for rxode2" />
+  <meta name="github-repo" content="nlmixr2/rxode2-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Simulation | rxode2 user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for rxode2" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2022-09-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="output.html"/>
+<link rel="next" href="examples.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.24/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>2</b> Authors and Acknowledgments</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="author.html"><a href="author.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a></li>
+<li class="chapter" data-level="2.2" data-path="author.html"><a href="author.html#contributors"><i class="fa fa-check"></i><b>2.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3" data-path="author.html"><a href="author.html#rxode-acknowledgments"><i class="fa fa-check"></i><b>2.3</b> RxODE acknowledgments:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="related.html"><a href="related.html"><i class="fa fa-check"></i><b>3</b> Related R packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="related.html"><a href="related.html#ode-solving"><i class="fa fa-check"></i><b>3.1</b> ODE solving</a></li>
+<li class="chapter" data-level="3.2" data-path="related.html"><a href="related.html#pk-solved-systems"><i class="fa fa-check"></i><b>3.2</b> PK Solved systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="related.html"><a href="related.html#the-following-packages-for-solved-pk-systems-are-on-cran"><i class="fa fa-check"></i><b>3.2.1</b> The following packages for solved PK systems are on CRAN</a></li>
+<li class="chapter" data-level="3.2.2" data-path="related.html"><a href="related.html#non-cran-libraries"><i class="fa fa-check"></i><b>3.2.2</b> Non-CRAN libraries:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>4</b> Installation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>4.0.1</b> Windows</a></li>
+<li class="chapter" data-level="4.0.2" data-path="install.html"><a href="install.html#mac-osx"><i class="fa fa-check"></i><b>4.0.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="4.0.3" data-path="install.html"><a href="install.html#linux"><i class="fa fa-check"></i><b>4.0.3</b> Linux</a></li>
+<li class="chapter" data-level="4.1" data-path="install.html"><a href="install.html#development-version"><i class="fa fa-check"></i><b>4.1</b> Development Version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode2"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in rxode2</a></li>
+<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> rxode2 syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="syntax.html"><a href="syntax.html#example"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="syntax.html"><a href="syntax.html#syntax-1"><i class="fa fa-check"></i><b>6.2</b> Syntax</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="syntax.html"><a href="syntax.html#identifiers"><i class="fa fa-check"></i><b>6.2.1</b> Identifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="syntax.html"><a href="syntax.html#logical-operators"><i class="fa fa-check"></i><b>6.3</b> Logical Operators</a></li>
+<li class="chapter" data-level="6.4" data-path="syntax.html"><a href="syntax.html#cmt-changing-compartment-numbers-for-states"><i class="fa fa-check"></i><b>6.4</b> cmt() changing compartment numbers for states</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="syntax.html"><a href="syntax.html#how-rxode2-numbers-compartments"><i class="fa fa-check"></i><b>6.4.1</b> How rxode2 numbers compartments</a></li>
+<li class="chapter" data-level="6.4.2" data-path="syntax.html"><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt"><i class="fa fa-check"></i><b>6.4.2</b> Changing compartments by pre-declaring with <code>cmt()</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="syntax.html"><a href="syntax.html#appending-compartments-to-the-model-with-cmt"><i class="fa fa-check"></i><b>6.4.3</b> Appending compartments to the model with <code>cmt()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="events.html"><a href="events.html"><i class="fa fa-check"></i><b>7</b> rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="events.html"><a href="events.html#rxode2-event-tables"><i class="fa fa-check"></i><b>7.1</b> rxode2 event tables</a></li>
+<li class="chapter" data-level="7.2" data-path="events.html"><a href="events.html#bolusadditive-doses"><i class="fa fa-check"></i><b>7.2</b> Bolus/Additive Doses</a></li>
+<li class="chapter" data-level="7.3" data-path="events.html"><a href="events.html#infusion-doses"><i class="fa fa-check"></i><b>7.3</b> Infusion Doses</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="events.html"><a href="events.html#constant-infusion-in-terms-of-duration-and-rate"><i class="fa fa-check"></i><b>7.3.1</b> Constant Infusion (in terms of duration and rate)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="events.html"><a href="events.html#modeled-rate-and-duration-of-infusion"><i class="fa fa-check"></i><b>7.3.2</b> Modeled Rate and Duration of Infusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="events.html"><a href="events.html#steady-state"><i class="fa fa-check"></i><b>7.4</b> Steady State</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="events.html"><a href="events.html#steady-state-for-complex-dosing"><i class="fa fa-check"></i><b>7.4.1</b> Steady state for complex dosing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="events.html"><a href="events.html#steady-state-for-constant-infusion-or-zero-order-processes"><i class="fa fa-check"></i><b>7.4.2</b> Steady state for constant infusion or zero order processes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="events.html"><a href="events.html#reset-events"><i class="fa fa-check"></i><b>7.5</b> Reset Events</a></li>
+<li class="chapter" data-level="7.6" data-path="events.html"><a href="events.html#turning-off-compartments"><i class="fa fa-check"></i><b>7.6</b> Turning off compartments</a></li>
+<li class="chapter" data-level="7.7" data-path="events.html"><a href="events.html#classic-et"><i class="fa fa-check"></i><b>7.7</b> Classic rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="events.html"><a href="events.html#bolus-dose-examples"><i class="fa fa-check"></i><b>7.7.1</b> Bolus Dose Examples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="events.html"><a href="events.html#infusion-event-examples"><i class="fa fa-check"></i><b>7.7.2</b> Infusion Event Examples</a></li>
+<li class="chapter" data-level="7.7.3" data-path="events.html"><a href="events.html#steady-state-for-classic-rxode-evid-example"><i class="fa fa-check"></i><b>7.7.3</b> Steady State for classic RxODE EVID example</a></li>
+<li class="chapter" data-level="7.7.4" data-path="events.html"><a href="events.html#turning-off-a-compartment-with-classic-rxode-evid"><i class="fa fa-check"></i><b>7.7.4</b> Turning off a compartment with classic RxODE EVID</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="events.html"><a href="events.html#datasets-for-rxode2-nlmixr"><i class="fa fa-check"></i><b>7.8</b> Datasets for rxode2 &amp; nlmixr</a></li>
+<li class="chapter" data-level="7.9" data-path="events.html"><a href="events.html#columns-described-by-type-of-use"><i class="fa fa-check"></i><b>7.9</b> Columns Described by Type of Use</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="events.html"><a href="events.html#subject-identification-columns"><i class="fa fa-check"></i><b>7.9.1</b> Subject Identification Columns</a></li>
+<li class="chapter" data-level="7.9.2" data-path="events.html"><a href="events.html#observation-columns"><i class="fa fa-check"></i><b>7.9.2</b> Observation Columns</a></li>
+<li class="chapter" data-level="7.9.3" data-path="events.html"><a href="events.html#dosing-columns"><i class="fa fa-check"></i><b>7.9.3</b> Dosing Columns</a></li>
+<li class="chapter" data-level="7.9.4" data-path="events.html"><a href="events.html#covariate-columns"><i class="fa fa-check"></i><b>7.9.4</b> Covariate Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="events.html"><a href="events.html#details-for-specific-dataset-columns"><i class="fa fa-check"></i><b>7.10</b> Details for Specific Dataset Columns</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="events.html"><a href="events.html#amt-column"><i class="fa fa-check"></i><b>7.10.1</b> <code>AMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.2" data-path="events.html"><a href="events.html#censlimit-columns"><i class="fa fa-check"></i><b>7.10.2</b> <code>CENS</code>/<code>LIMIT</code> Columns</a></li>
+<li class="chapter" data-level="7.10.3" data-path="events.html"><a href="events.html#cmt-column"><i class="fa fa-check"></i><b>7.10.3</b> <code>CMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.4" data-path="events.html"><a href="events.html#dur-column"><i class="fa fa-check"></i><b>7.10.4</b> <code>DUR</code> Column</a></li>
+<li class="chapter" data-level="7.10.5" data-path="events.html"><a href="events.html#dv-column"><i class="fa fa-check"></i><b>7.10.5</b> <code>DV</code> Column</a></li>
+<li class="chapter" data-level="7.10.6" data-path="events.html"><a href="events.html#dvid-column"><i class="fa fa-check"></i><b>7.10.6</b> <code>DVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.7" data-path="events.html"><a href="events.html#evid-column"><i class="fa fa-check"></i><b>7.10.7</b> <code>EVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.8" data-path="events.html"><a href="events.html#id-column"><i class="fa fa-check"></i><b>7.10.8</b> <code>ID</code> Column</a></li>
+<li class="chapter" data-level="7.10.9" data-path="events.html"><a href="events.html#rate-column"><i class="fa fa-check"></i><b>7.10.9</b> <code>RATE</code> Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="et.html"><a href="et.html"><i class="fa fa-check"></i><b>8</b> Easily creating rxode2 events</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="et.html"><a href="et.html#adding-doses-to-the-event-table"><i class="fa fa-check"></i><b>8.1</b> Adding doses to the event table</a></li>
+<li class="chapter" data-level="8.2" data-path="et.html"><a href="et.html#adding-sampling-to-an-event-table"><i class="fa fa-check"></i><b>8.2</b> Adding sampling to an event table</a></li>
+<li class="chapter" data-level="8.3" data-path="et.html"><a href="et.html#expand-the-event-table-to-a-multi-subject-event-table."><i class="fa fa-check"></i><b>8.3</b> Expand the event table to a multi-subject event table.</a></li>
+<li class="chapter" data-level="8.4" data-path="et.html"><a href="et.html#add-doses-and-samples-within-a-sampling-window"><i class="fa fa-check"></i><b>8.4</b> Add doses and samples within a sampling window</a></li>
+<li class="chapter" data-level="8.5" data-path="et.html"><a href="et.html#combining-event-tables"><i class="fa fa-check"></i><b>8.5</b> Combining event tables</a></li>
+<li class="chapter" data-level="8.6" data-path="et.html"><a href="et.html#sequencing-event-tables"><i class="fa fa-check"></i><b>8.6</b> Sequencing event tables</a></li>
+<li class="chapter" data-level="8.7" data-path="et.html"><a href="et.html#repeating-event-tables"><i class="fa fa-check"></i><b>8.7</b> Repeating event tables</a></li>
+<li class="chapter" data-level="8.8" data-path="et.html"><a href="et.html#combining-event-tables-with-rbind"><i class="fa fa-check"></i><b>8.8</b> Combining event tables with rbind</a></li>
+<li class="chapter" data-level="8.9" data-path="et.html"><a href="et.html#expanding-events"><i class="fa fa-check"></i><b>8.9</b> Expanding events</a></li>
+<li class="chapter" data-level="8.10" data-path="et.html"><a href="et.html#event-tables-in-rstudio-notebooks"><i class="fa fa-check"></i><b>8.10</b> Event tables in Rstudio Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="solve.html"><a href="solve.html"><i class="fa fa-check"></i><b>9</b> Solving and solving options</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#rxcontrol"><i class="fa fa-check"></i><b>9.1.1</b> rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> rxode2 output</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="output.html"><a href="output.html#using-rxode2-data-frames"><i class="fa fa-check"></i><b>10.1</b> Using rxode2 data frames</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="output.html"><a href="output.html#creating-an-interactive-data-frame"><i class="fa fa-check"></i><b>10.1.1</b> Creating an interactive data frame</a></li>
+<li class="chapter" data-level="10.1.2" data-path="output.html"><a href="output.html#rxode2-solved-object-properties"><i class="fa fa-check"></i><b>10.1.2</b> rxode2 solved object properties</a></li>
+<li class="chapter" data-level="10.1.3" data-path="output.html"><a href="output.html#using-the-solved-object-as-a-simple-data-frame"><i class="fa fa-check"></i><b>10.1.3</b> Using the solved object as a simple data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="output.html"><a href="output.html#updating-the-data-set-interactively"><i class="fa fa-check"></i><b>10.2</b> Updating the data-set interactively</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="output.html"><a href="output.html#modifying-initial-conditions"><i class="fa fa-check"></i><b>10.2.1</b> Modifying initial conditions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="output.html"><a href="output.html#modifying-observation-times-for-rxode2"><i class="fa fa-check"></i><b>10.2.2</b> Modifying observation times for rxode2</a></li>
+<li class="chapter" data-level="10.2.3" data-path="output.html"><a href="output.html#modifying-simulation-parameters"><i class="fa fa-check"></i><b>10.2.3</b> Modifying simulation parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#single-subject-solving"><i class="fa fa-check"></i><b>11.1</b> Single Subject solving</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="simulation.html"><a href="simulation.html#summary-of-single-solve-vs-multiple-subject-solving"><i class="fa fa-check"></i><b>11.1.1</b> Summary of Single solve vs Multiple subject solving</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#population-simulations-with-rxode2"><i class="fa fa-check"></i><b>11.2</b> Population Simulations with rxode2</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="simulation.html"><a href="simulation.html#simulation-of-variability-with-rxode2"><i class="fa fa-check"></i><b>11.2.1</b> Simulation of Variability with rxode2</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#simulation-of-clinical-trials"><i class="fa fa-check"></i><b>11.3</b> Simulation of Clinical Trials</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="simulation.html"><a href="simulation.html#simulation-from-inverse-wishart-correlations"><i class="fa fa-check"></i><b>11.3.1</b> Simulation from inverse Wishart correlations</a></li>
+<li class="chapter" data-level="11.3.2" data-path="simulation.html"><a href="simulation.html#simulate-using-variancestandard-deviation-standard-errors"><i class="fa fa-check"></i><b>11.3.2</b> Simulate using variance/standard deviation standard errors</a></li>
+<li class="chapter" data-level="11.3.3" data-path="simulation.html"><a href="simulation.html#simulate-without-uncertainty-in-omega-or-sigma-parameters"><i class="fa fa-check"></i><b>11.3.3</b> Simulate without uncertainty in <code>omega</code> or <code>sigma</code> parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="simulation.html"><a href="simulation.html#using-prior-data-for-solving"><i class="fa fa-check"></i><b>11.4</b> Using prior data for solving</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>12</b> Examples</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="examples.html"><a href="examples.html#prediction-only-models"><i class="fa fa-check"></i><b>12.1</b> Prediction only models</a></li>
+<li class="chapter" data-level="12.2" data-path="examples.html"><a href="examples.html#solved-compartment-models"><i class="fa fa-check"></i><b>12.2</b> Solved compartment models</a></li>
+<li class="chapter" data-level="12.3" data-path="examples.html"><a href="examples.html#mixing-solved-systems-and-odes"><i class="fa fa-check"></i><b>12.3</b> Mixing Solved Systems and ODEs</a></li>
+<li class="chapter" data-level="12.4" data-path="examples.html"><a href="examples.html#weight-based-dosing"><i class="fa fa-check"></i><b>12.4</b> Weight based dosing</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="examples.html"><a href="examples.html#creating-a-2-compartment-model-in-rxode2"><i class="fa fa-check"></i><b>12.4.1</b> Creating a 2-compartment model in rxode2</a></li>
+<li class="chapter" data-level="12.4.2" data-path="examples.html"><a href="examples.html#simulating-covariates"><i class="fa fa-check"></i><b>12.4.2</b> Simulating Covariates</a></li>
+<li class="chapter" data-level="12.4.3" data-path="examples.html"><a href="examples.html#creating-weight-based-event-table"><i class="fa fa-check"></i><b>12.4.3</b> Creating weight based event table</a></li>
+<li class="chapter" data-level="12.4.4" data-path="examples.html"><a href="examples.html#solving-daptomycin-simulation"><i class="fa fa-check"></i><b>12.4.4</b> Solving Daptomycin simulation</a></li>
+<li class="chapter" data-level="12.4.5" data-path="examples.html"><a href="examples.html#daptomycin-reference"><i class="fa fa-check"></i><b>12.4.5</b> Daptomycin Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="examples.html"><a href="examples.html#inter-occasion-and-other-nesting-examples"><i class="fa fa-check"></i><b>12.5</b> Inter-occasion and other nesting examples</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="examples.html"><a href="examples.html#event-table"><i class="fa fa-check"></i><b>12.5.1</b> Event table</a></li>
+<li class="chapter" data-level="12.5.2" data-path="examples.html"><a href="examples.html#rxode2-model"><i class="fa fa-check"></i><b>12.5.2</b> rxode2 model</a></li>
+<li class="chapter" data-level="12.5.3" data-path="examples.html"><a href="examples.html#uncertainty-in-model-parameters"><i class="fa fa-check"></i><b>12.5.3</b> Uncertainty in Model parameters</a></li>
+<li class="chapter" data-level="12.5.4" data-path="examples.html"><a href="examples.html#nesting-variability"><i class="fa fa-check"></i><b>12.5.4</b> Nesting Variability</a></li>
+<li class="chapter" data-level="12.5.5" data-path="examples.html"><a href="examples.html#unexplained-variability"><i class="fa fa-check"></i><b>12.5.5</b> Unexplained variability</a></li>
+<li class="chapter" data-level="12.5.6" data-path="examples.html"><a href="examples.html#solving-the-problem"><i class="fa fa-check"></i><b>12.5.6</b> Solving the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="examples.html"><a href="examples.html#transit-compartment-models"><i class="fa fa-check"></i><b>12.6</b> Transit compartment models</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html"><i class="fa fa-check"></i><b>13</b> Advanced &amp; Miscellaneous Topics</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#covariates-in-rxode2"><i class="fa fa-check"></i><b>13.1</b> Covariates in rxode2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#individual-covariates"><i class="fa fa-check"></i><b>13.1.1</b> Individual Covariates</a></li>
+<li class="chapter" data-level="13.1.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#time-varying-covariates"><i class="fa fa-check"></i><b>13.1.2</b> Time Varying Covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#shiny-and-rxode2"><i class="fa fa-check"></i><b>13.2</b> Shiny and rxode2</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#facilities-for-generating-r-shiny-applications"><i class="fa fa-check"></i><b>13.2.1</b> Facilities for generating R shiny applications</a></li>
+<li class="chapter" data-level="13.2.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#exploring-parameter-fits-graphically-using-shiny"><i class="fa fa-check"></i><b>13.2.2</b> Exploring parameter fits graphically using shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-rxode2-with-a-pipeline"><i class="fa fa-check"></i><b>13.3</b> Using rxode2 with a pipeline</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#setting-up-the-rxode2-model-for-the-pipeline"><i class="fa fa-check"></i><b>13.3.1</b> Setting up the rxode2 model for the pipeline</a></li>
+<li class="chapter" data-level="13.3.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-one-event-table"><i class="fa fa-check"></i><b>13.3.2</b> Simulating one event table</a></li>
+<li class="chapter" data-level="13.3.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-multiple-subjects-from-a-single-event-table"><i class="fa fa-check"></i><b>13.3.3</b> Simulating multiple subjects from a single event table</a></li>
+<li class="chapter" data-level="13.3.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#summarizing-the-simulation-output"><i class="fa fa-check"></i><b>13.3.4</b> Summarizing the simulation output</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#speeding-up-rxode2"><i class="fa fa-check"></i><b>13.4</b> Speeding up rxode2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#increasing-rxode2-speed-by-multi-subject-parallel-solving"><i class="fa fa-check"></i><b>13.4.1</b> Increasing rxode2 speed by multi-subject parallel solving</a></li>
+<li class="chapter" data-level="13.4.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#a-real-life-example"><i class="fa fa-check"></i><b>13.4.2</b> A real life example</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#integrating-rxode2-models-in-your-package"><i class="fa fa-check"></i><b>13.5</b> Integrating rxode2 models in your package</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-pre-compiled-models-in-your-packages"><i class="fa fa-check"></i><b>13.5.1</b> Using Pre-compiled models in your packages</a></li>
+<li class="chapter" data-level="13.5.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-models-in-a-already-present-package"><i class="fa fa-check"></i><b>13.5.2</b> Using Models in a already present package</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#stiff-odes-with-jacobian-specification"><i class="fa fa-check"></i><b>13.6</b> Stiff ODEs with Jacobian Specification</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rxode2 user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Simulation<a href="simulation.html#simulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="single-subject-solving" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Single Subject solving<a href="simulation.html#single-subject-solving" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Originally, rxode2 was only created to solve ODEs for one individual.
+That is a single system without any changes in individual parameters.</p>
+<p>Of course this is still supported, the classic examples are found in
+<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-intro.html">rxode2
+intro</a>.</p>
+<p>This article discusses the differences between multiple subject and
+single subject solving. There are three differences:</p>
+<ul>
+<li>Single solving does not solve each ID in parallel</li>
+<li>Single solving lacks the <code>id</code> column in parameters(<code>$params</code>) as
+well as in the actual dataset.</li>
+<li>Single solving allows parameter exploration easier because each
+parameter can be modified. With multiple subject solves, you have to
+make sure to update each individual parameter.</li>
+</ul>
+<p>The first obvious difference is in speed; With multiple subjects you
+can run each subject ID in parallel. For more information and
+examples of the speed gains with multiple subject solving see the
+<a href="rxode2-speed.html">Speeding up rxode2</a> vignette.</p>
+<p>The next difference is the amount of information output in the final data.</p>
+<p>Taking the 2 compartment indirect response model originally in the
+tutorial:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="simulation.html#cb149-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb149-2"><a href="simulation.html#cb149-2" aria-hidden="true"></a>mod1 &lt;-<span class="kw">rxode2</span>({</span>
+<span id="cb149-3"><a href="simulation.html#cb149-3" aria-hidden="true"></a>    KA=<span class="fl">2.94E-01</span></span>
+<span id="cb149-4"><a href="simulation.html#cb149-4" aria-hidden="true"></a>    CL=<span class="fl">1.86E+01</span></span>
+<span id="cb149-5"><a href="simulation.html#cb149-5" aria-hidden="true"></a>    V2=<span class="fl">4.02E+01</span></span>
+<span id="cb149-6"><a href="simulation.html#cb149-6" aria-hidden="true"></a>    Q=<span class="fl">1.05E+01</span></span>
+<span id="cb149-7"><a href="simulation.html#cb149-7" aria-hidden="true"></a>    V3=<span class="fl">2.97E+02</span></span>
+<span id="cb149-8"><a href="simulation.html#cb149-8" aria-hidden="true"></a>    Kin=<span class="dv">1</span></span>
+<span id="cb149-9"><a href="simulation.html#cb149-9" aria-hidden="true"></a>    Kout=<span class="dv">1</span></span>
+<span id="cb149-10"><a href="simulation.html#cb149-10" aria-hidden="true"></a>    EC50=<span class="dv">200</span></span>
+<span id="cb149-11"><a href="simulation.html#cb149-11" aria-hidden="true"></a>    C2 =<span class="st"> </span>centr<span class="op">/</span>V2</span>
+<span id="cb149-12"><a href="simulation.html#cb149-12" aria-hidden="true"></a>    C3 =<span class="st"> </span>peri<span class="op">/</span>V3</span>
+<span id="cb149-13"><a href="simulation.html#cb149-13" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot</span>
+<span id="cb149-14"><a href="simulation.html#cb149-14" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3</span>
+<span id="cb149-15"><a href="simulation.html#cb149-15" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3</span>
+<span id="cb149-16"><a href="simulation.html#cb149-16" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff</span>
+<span id="cb149-17"><a href="simulation.html#cb149-17" aria-hidden="true"></a>    <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb149-18"><a href="simulation.html#cb149-18" aria-hidden="true"></a>})</span>
+<span id="cb149-19"><a href="simulation.html#cb149-19" aria-hidden="true"></a></span>
+<span id="cb149-20"><a href="simulation.html#cb149-20" aria-hidden="true"></a>et &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&#39;mg&#39;</span>, <span class="dt">time.units=</span><span class="st">&#39;hours&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb149-21"><a href="simulation.html#cb149-21" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">addl=</span><span class="dv">9</span>, <span class="dt">ii=</span><span class="dv">12</span>) <span class="op">%&gt;%</span></span>
+<span id="cb149-22"><a href="simulation.html#cb149-22" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">20000</span>, <span class="dt">nbr.doses=</span><span class="dv">5</span>, <span class="dt">start.time=</span><span class="dv">120</span>, <span class="dt">dosing.interval=</span><span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb149-23"><a href="simulation.html#cb149-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">240</span>) <span class="co"># sampling</span></span></code></pre></div>
+<p>Now a simple solve</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="simulation.html#cb150-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod1, et)</span>
+<span id="cb150-2"><a href="simulation.html#cb150-2" aria-hidden="true"></a>x</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters (x$params): ──
+#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 
+#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 
+#&gt; ── Initial Conditions (x$inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="simulation.html#cb152-1" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 
+#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="simulation.html#cb154-1" aria-hidden="true"></a><span class="kw">plot</span>(x, C2, eff)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p>To better see the differences between the single solve, you can solve
+for 2 individuals</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="simulation.html#cb155-1" aria-hidden="true"></a>x2 &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod1, et <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">params=</span><span class="kw">data.frame</span>(<span class="dt">CL=</span><span class="kw">c</span>(<span class="fl">18.6</span>, <span class="fl">7.6</span>)))</span>
+<span id="cb155-2"><a href="simulation.html#cb155-2" aria-hidden="true"></a><span class="kw">print</span>(x2)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt; # A tibble: 2 × 9
+#&gt;   id       KA    CL    V2     Q    V3   Kin  Kout  EC50
+#&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 1     0.294  18.6  40.2  10.5   297     1     1   200
+#&gt; 2 2     0.294   7.6  40.2  10.5   297     1     1   200
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 482 × 8
+#&gt;      id time    C2    C3  depot centr  peri   eff
+#&gt;   &lt;int&gt;  [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1    0   0   0     10000     0     0   1   
+#&gt; 2     1    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3     1    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4     1    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5     1    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6     1    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 476 more rows</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="simulation.html#cb157-1" aria-hidden="true"></a><span class="kw">plot</span>(x2, C2, eff)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p>By observing the two solves, you can see:</p>
+<ul>
+<li>A multiple subject solve contains the <code>id</code> column both in the data
+frame and then data frame of parameters for each subject.</li>
+</ul>
+<p>The last feature that is not as obvious, modifying the individual
+parameters. For single subject data, you can modify the rxode2 data
+frame changing initial conditions and parameter values as if they were
+part of the data frame, as described in the <a href="https://nlmixr2.github.io/rxode2/articles/rxode2-data-frame.html">rxode2 Data
+Frames</a>.</p>
+<p>For multiple subject solving, this feature still works, but requires
+care when supplying each individual’s parameter value, otherwise you
+may change the solve and drop parameter for key individuals.</p>
+<div id="summary-of-single-solve-vs-multiple-subject-solving" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Summary of Single solve vs Multiple subject solving<a href="simulation.html#summary-of-single-solve-vs-multiple-subject-solving" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="40%" />
+<col width="49%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Single Subject Solve</th>
+<th>Multiple Subject Solve</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parallel</td>
+<td>None</td>
+<td>Each Subject</td>
+</tr>
+<tr class="even">
+<td>$params</td>
+<td>data.frame with one parameter value</td>
+<td>data.frame with one parameter per subject (w/ID column)</td>
+</tr>
+<tr class="odd">
+<td>solved data</td>
+<td>Can modify individual parameters with $ syntax</td>
+<td>Have to modify all the parameters to update solved object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="population-simulations-with-rxode2" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Population Simulations with rxode2<a href="simulation.html#population-simulations-with-rxode2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="simulation-of-variability-with-rxode2" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Simulation of Variability with rxode2<a href="simulation.html#simulation-of-variability-with-rxode2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In pharmacometrics the nonlinear-mixed effect modeling software (like
+nlmixr) characterizes the between-subject variability. With this
+between subject variability you can simulate new subjects.</p>
+<p>Assuming that you have a 2-compartment, indirect response model, you
+can set create an rxode2 model describing this system below:</p>
+<div id="setting-up-the-rxode2-model" class="section level4 hasAnchor" number="11.2.1.1">
+<h4><span class="header-section-number">11.2.1.1</span> Setting up the rxode2 model<a href="simulation.html#setting-up-the-rxode2-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="simulation.html#cb158-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb158-2"><a href="simulation.html#cb158-2" aria-hidden="true"></a></span>
+<span id="cb158-3"><a href="simulation.html#cb158-3" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">32</span>)</span>
+<span id="cb158-4"><a href="simulation.html#cb158-4" aria-hidden="true"></a><span class="kw">rxSetSeed</span>(<span class="dv">32</span>)</span>
+<span id="cb158-5"><a href="simulation.html#cb158-5" aria-hidden="true"></a></span>
+<span id="cb158-6"><a href="simulation.html#cb158-6" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb158-7"><a href="simulation.html#cb158-7" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb158-8"><a href="simulation.html#cb158-8" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>prop.err);</span>
+<span id="cb158-9"><a href="simulation.html#cb158-9" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb158-10"><a href="simulation.html#cb158-10" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl) <span class="co">## This is coded as a variable in the model</span></span>
+<span id="cb158-11"><a href="simulation.html#cb158-11" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb158-12"><a href="simulation.html#cb158-12" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb158-13"><a href="simulation.html#cb158-13" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb158-14"><a href="simulation.html#cb158-14" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb158-15"><a href="simulation.html#cb158-15" aria-hidden="true"></a>})</span></code></pre></div>
+</div>
+<div id="adding-the-parameter-estimates" class="section level4 hasAnchor" number="11.2.1.2">
+<h4><span class="header-section-number">11.2.1.2</span> Adding the parameter estimates<a href="simulation.html#adding-the-parameter-estimates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The next step is to get the parameters into R so that you can start the simulation:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="simulation.html#cb159-1" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">TCl=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb159-2"><a href="simulation.html#cb159-2" aria-hidden="true"></a>           <span class="dt">Q=</span><span class="fl">1.05E+01</span>, <span class="dt">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb159-3"><a href="simulation.html#cb159-3" aria-hidden="true"></a>           <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>, <span class="dt">prop.err=</span><span class="dv">0</span>)      <span class="co"># effects</span></span></code></pre></div>
+<p>In this case, I use <code>lotri</code> to specify the omega since it uses similar
+lower-triangular matrix specification as nlmixr (also similar to
+NONMEM):</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="simulation.html#cb160-1" aria-hidden="true"></a><span class="co">### the column names of the omega matrix need to match the parameters specified by rxode2</span></span>
+<span id="cb160-2"><a href="simulation.html#cb160-2" aria-hidden="true"></a>omega &lt;-<span class="st"> </span><span class="kw">lotri</span>(eta.Cl <span class="op">~</span><span class="st"> </span><span class="fl">0.4</span><span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb160-3"><a href="simulation.html#cb160-3" aria-hidden="true"></a>omega</span></code></pre></div>
+<pre><code>#&gt;        eta.Cl
+#&gt; eta.Cl   0.16</code></pre>
+</div>
+<div id="simulating" class="section level4 hasAnchor" number="11.2.1.3">
+<h4><span class="header-section-number">11.2.1.3</span> Simulating<a href="simulation.html#simulating" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The next step to simulate is to create the dosing regimen for overall simulation:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="simulation.html#cb162-1" aria-hidden="true"></a>ev &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb162-2"><a href="simulation.html#cb162-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">10000</span>, <span class="dt">cmt=</span><span class="st">&quot;centr&quot;</span>)</span></code></pre></div>
+<p>If you wish, you can also add sampling times (though now rxode2 can fill these in for you):</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="simulation.html#cb163-1" aria-hidden="true"></a>ev &lt;-<span class="st"> </span>ev <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">et</span>(<span class="dv">0</span>,<span class="dv">48</span>, <span class="dt">length.out=</span><span class="dv">100</span>)</span></code></pre></div>
+<p>Note the <code>et</code> takes similar arguments as <code>seq</code> when adding sampling
+times. There are more methods to adding sampling times and events to
+make complex dosing regimens (See <a href="rxode2-events.html">the event
+vignette</a>). This includes ways to add variability
+to the <a href="rxode2-events.html#add-doses-and-samples-within-a-sampling-window">both the sampling and dosing
+times</a>).</p>
+<p>Once this is complete you can simulate using the <code>rxSolve</code> routine:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="simulation.html#cb164-1" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod,theta,ev,<span class="dt">omega=</span>omega,<span class="dt">nSub=</span><span class="dv">100</span>)</span></code></pre></div>
+<p>To quickly look and customize your simulation you use the default
+<code>plot</code> routine. Since this is an rxode2 object, it will create a
+<code>ggplot2</code> object that you can modify as you wish. The extra parameter
+to the <code>plot</code> tells <code>rxode2</code>/<code>R</code> what piece of information you are
+interested in plotting. In this case, we are interested in looking at
+the derived parameter <code>C2</code>:</p>
+</div>
+<div id="checking-the-simulation-with-plot" class="section level4 hasAnchor" number="11.2.1.4">
+<h4><span class="header-section-number">11.2.1.4</span> Checking the simulation with <code>plot</code><a href="simulation.html#checking-the-simulation-with-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="simulation.html#cb165-1" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb165-2"><a href="simulation.html#cb165-2" aria-hidden="true"></a><span class="co">### The plots from rxode2 are ggplots so they can be modified with</span></span>
+<span id="cb165-3"><a href="simulation.html#cb165-3" aria-hidden="true"></a><span class="co">### standard ggplot commands.</span></span>
+<span id="cb165-4"><a href="simulation.html#cb165-4" aria-hidden="true"></a><span class="kw">plot</span>(sim, C2, <span class="dt">log=</span><span class="st">&quot;y&quot;</span>) <span class="op">+</span></span>
+<span id="cb165-5"><a href="simulation.html#cb165-5" aria-hidden="true"></a><span class="st">    </span><span class="kw">ylab</span>(<span class="st">&quot;Central Compartment&quot;</span>) </span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+<p>Of course this additional parameter could also be a state value, like <code>eff</code>:</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="simulation.html#cb166-1" aria-hidden="true"></a><span class="co">### They also takes many of the standard plot arguments; See ?plot</span></span>
+<span id="cb166-2"><a href="simulation.html#cb166-2" aria-hidden="true"></a><span class="kw">plot</span>(sim, eff, <span class="dt">ylab=</span><span class="st">&quot;Effect&quot;</span>)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p>Or you could even look at the two side-by-side:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="simulation.html#cb167-1" aria-hidden="true"></a><span class="kw">plot</span>(sim, C2, eff)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p>Or stack them with <code>patchwork</code></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="simulation.html#cb168-1" aria-hidden="true"></a><span class="kw">library</span>(patchwork)</span>
+<span id="cb168-2"><a href="simulation.html#cb168-2" aria-hidden="true"></a><span class="kw">plot</span>(sim, C2, <span class="dt">log=</span><span class="st">&quot;y&quot;</span>) <span class="op">/</span><span class="st"> </span><span class="kw">plot</span>(sim, eff)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+</div>
+<div id="processing-the-data-to-create-summary-plots" class="section level4 hasAnchor" number="11.2.1.5">
+<h4><span class="header-section-number">11.2.1.5</span> Processing the data to create summary plots<a href="simulation.html#processing-the-data-to-create-summary-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Usually in pharmacometric simulations it is not enough to simply
+simulate the system. We have to do something easier to digest, like
+look at the central and extreme tendencies of the simulation.</p>
+<p>Since the <code>rxode2</code> solve object is a type of <a href="rxode2-data-frame.html">data
+frame</a></p>
+<p>It is now straightforward to perform calculations and generate plots
+with the simulated data. You can</p>
+<p>Below, the 5th, 50th, and 95th percentiles
+of the simulated data are plotted.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="simulation.html#cb169-1" aria-hidden="true"></a><span class="kw">confint</span>(sim, <span class="st">&quot;C2&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>) <span class="op">%&gt;%</span></span>
+<span id="cb169-2"><a href="simulation.html#cb169-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">plot</span>(<span class="dt">ylab=</span><span class="st">&quot;Central Concentration&quot;</span>, <span class="dt">log=</span><span class="st">&quot;y&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</code></pre>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="simulation.html#cb172-1" aria-hidden="true"></a><span class="kw">confint</span>(sim, <span class="st">&quot;eff&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>) <span class="op">%&gt;%</span></span>
+<span id="cb172-2"><a href="simulation.html#cb172-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">plot</span>(<span class="dt">ylab=</span><span class="st">&quot;Effect&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</code></pre>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p>Note that you can see the parameters that were simulated for the example</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="simulation.html#cb175-1" aria-hidden="true"></a><span class="kw">head</span>(sim<span class="op">$</span>param)</span></code></pre></div>
+<pre><code>#&gt;   sim.id   V2 prop.err  V3  TCl     eta.Cl    KA    Q Kin Kout EC50
+#&gt; 1      1 40.2        0 297 18.6 -0.2332273 0.294 10.5   1    1  200
+#&gt; 2      2 40.2        0 297 18.6 -0.3097188 0.294 10.5   1    1  200
+#&gt; 3      3 40.2        0 297 18.6 -0.1103929 0.294 10.5   1    1  200
+#&gt; 4      4 40.2        0 297 18.6  0.3790298 0.294 10.5   1    1  200
+#&gt; 5      5 40.2        0 297 18.6 -0.2001559 0.294 10.5   1    1  200
+#&gt; 6      6 40.2        0 297 18.6  0.1855595 0.294 10.5   1    1  200</code></pre>
+</div>
+<div id="simulation-of-unexplained-variability-sigma" class="section level4 hasAnchor" number="11.2.1.6">
+<h4><span class="header-section-number">11.2.1.6</span> Simulation of unexplained variability (sigma)<a href="simulation.html#simulation-of-unexplained-variability-sigma" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In addition to conveniently simulating between subject variability,
+you can also easily simulate unexplained variability.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="simulation.html#cb177-1" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb177-2"><a href="simulation.html#cb177-2" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb177-3"><a href="simulation.html#cb177-3" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
+<span id="cb177-4"><a href="simulation.html#cb177-4" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb177-5"><a href="simulation.html#cb177-5" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl) <span class="co">## This is coded as a variable in the model</span></span>
+<span id="cb177-6"><a href="simulation.html#cb177-6" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb177-7"><a href="simulation.html#cb177-7" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb177-8"><a href="simulation.html#cb177-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb177-9"><a href="simulation.html#cb177-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb177-10"><a href="simulation.html#cb177-10" aria-hidden="true"></a>  e =<span class="st"> </span>eff<span class="op">+</span>eff.err</span>
+<span id="cb177-11"><a href="simulation.html#cb177-11" aria-hidden="true"></a>  cp =<span class="st"> </span>centr<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>cp.err)</span>
+<span id="cb177-12"><a href="simulation.html#cb177-12" aria-hidden="true"></a>})</span>
+<span id="cb177-13"><a href="simulation.html#cb177-13" aria-hidden="true"></a></span>
+<span id="cb177-14"><a href="simulation.html#cb177-14" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">TCl=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb177-15"><a href="simulation.html#cb177-15" aria-hidden="true"></a>           <span class="dt">Q=</span><span class="fl">1.05E+01</span>, <span class="dt">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb177-16"><a href="simulation.html#cb177-16" aria-hidden="true"></a>           <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
+<span id="cb177-17"><a href="simulation.html#cb177-17" aria-hidden="true"></a></span>
+<span id="cb177-18"><a href="simulation.html#cb177-18" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">lotri</span>(eff.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>, cp.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>)</span>
+<span id="cb177-19"><a href="simulation.html#cb177-19" aria-hidden="true"></a></span>
+<span id="cb177-20"><a href="simulation.html#cb177-20" aria-hidden="true"></a></span>
+<span id="cb177-21"><a href="simulation.html#cb177-21" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma)</span>
+<span id="cb177-22"><a href="simulation.html#cb177-22" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">confint</span>(sim, <span class="kw">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>));</span></code></pre></div>
+<pre><code>#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</code></pre>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="simulation.html#cb180-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+</div>
+<div id="simulation-of-individuals" class="section level4 hasAnchor" number="11.2.1.7">
+<h4><span class="header-section-number">11.2.1.7</span> Simulation of Individuals<a href="simulation.html#simulation-of-individuals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sometimes you may want to match the dosing and observations of
+individuals in a clinical trial. To do this you will have to create a
+data.frame using the <code>rxode2</code> event specification as well as an <code>ID</code>
+column to indicate an individual. The rxode2 event vignette talks more about
+how these datasets should be created.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="simulation.html#cb181-1" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb181-2"><a href="simulation.html#cb181-2" aria-hidden="true"></a>ev1 &lt;-<span class="st"> </span><span class="kw">eventTable</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb181-3"><a href="simulation.html#cb181-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">nbr.doses=</span><span class="dv">1</span>, <span class="dt">dosing.to=</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb181-4"><a href="simulation.html#cb181-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.sampling</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="dt">length.out=</span><span class="dv">10</span>));</span>
+<span id="cb181-5"><a href="simulation.html#cb181-5" aria-hidden="true"></a></span>
+<span id="cb181-6"><a href="simulation.html#cb181-6" aria-hidden="true"></a>ev2 &lt;-<span class="st"> </span><span class="kw">eventTable</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb181-7"><a href="simulation.html#cb181-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">5000</span>, <span class="dt">nbr.doses=</span><span class="dv">1</span>, <span class="dt">dosing.to=</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb181-8"><a href="simulation.html#cb181-8" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.sampling</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="dt">length.out=</span><span class="dv">8</span>));</span>
+<span id="cb181-9"><a href="simulation.html#cb181-9" aria-hidden="true"></a></span>
+<span id="cb181-10"><a href="simulation.html#cb181-10" aria-hidden="true"></a>dat &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">data.frame</span>(<span class="dt">ID=</span><span class="dv">1</span>, ev1<span class="op">$</span><span class="kw">get.EventTable</span>()),</span>
+<span id="cb181-11"><a href="simulation.html#cb181-11" aria-hidden="true"></a>             <span class="kw">data.frame</span>(<span class="dt">ID=</span><span class="dv">2</span>, ev2<span class="op">$</span><span class="kw">get.EventTable</span>()))</span>
+<span id="cb181-12"><a href="simulation.html#cb181-12" aria-hidden="true"></a></span>
+<span id="cb181-13"><a href="simulation.html#cb181-13" aria-hidden="true"></a></span>
+<span id="cb181-14"><a href="simulation.html#cb181-14" aria-hidden="true"></a><span class="co">### Note the number of subject is not needed since it is determined by the data</span></span>
+<span id="cb181-15"><a href="simulation.html#cb181-15" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, dat, <span class="dt">omega=</span>omega, <span class="dt">sigma=</span>sigma)</span>
+<span id="cb181-16"><a href="simulation.html#cb181-16" aria-hidden="true"></a></span>
+<span id="cb181-17"><a href="simulation.html#cb181-17" aria-hidden="true"></a>sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(id, time, e, cp)</span></code></pre></div>
+<pre><code>#&gt;    id          time         e         cp
+#&gt; 1   1  0.000000 [h] 1.0444940 5227.28602
+#&gt; 2   1  5.333333 [h] 0.7186017  513.87177
+#&gt; 3   1 10.666667 [h] 1.2883307  101.02653
+#&gt; 4   1 16.000000 [h] 0.8259603  106.42998
+#&gt; 5   1 21.333333 [h] 0.8209345  197.54042
+#&gt; 6   1 26.666667 [h] 1.1566976  103.53138
+#&gt; 7   1 32.000000 [h] 1.1361974  151.14445
+#&gt; 8   1 37.333333 [h] 0.8207058  150.22830
+#&gt; 9   1 42.666667 [h] 0.7685176   81.82299
+#&gt; 10  1 48.000000 [h] 1.0482719   76.25287
+#&gt; 11  2  0.000000 [h] 0.6760207 4393.70285
+#&gt; 12  2  6.857143 [h] 0.9278252   64.17252
+#&gt; 13  2 13.714286 [h] 1.7870333   49.54396
+#&gt; 14  2 20.571429 [h] 0.8339921   38.91878
+#&gt; 15  2 27.428571 [h] 0.8989828   32.64892
+#&gt; 16  2 34.285714 [h] 0.9293400   25.13497
+#&gt; 17  2 41.142857 [h] 1.3691292   21.36848
+#&gt; 18  2 48.000000 [h] 0.5910913    5.68595</code></pre>
+</div>
+</div>
+</div>
+<div id="simulation-of-clinical-trials" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Simulation of Clinical Trials<a href="simulation.html#simulation-of-clinical-trials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By either using a simple single event table, or data from a clinical
+trial as described above, a complete clinical trial simulation can be
+performed.</p>
+<p>Typically in clinical trial simulations you want to account for the
+uncertainty in the fixed parameter estimates, and even the uncertainty
+in both your between subject variability as well as the unexplained
+variability.</p>
+<p><code>rxode2</code> allows you to account for these uncertainties by simulating
+multiple virtual “studies,” specified by the parameter <code>nStud</code>. Each
+of these studies samples a realization of fixed effect parameters and
+covariance matrices for the between subject variability(<code>omega</code>) and
+unexplained variabilities (<code>sigma</code>). Depending on the information you
+have from the models, there are a few strategies for simulating a
+realization of the <code>omega</code> and <code>sigma</code> matrices.</p>
+<p>The first strategy occurs when either there is not any standard errors
+for standard deviations (or related parameters), or there is a modeled
+correlation in the model you are simulating from. In that case the
+suggested strategy is to use the inverse Wishart (parameterized to
+scale to the conjugate prior)/<a href="https://en.wikipedia.org/wiki/Scaled_inverse_chi-squared_distribution">scaled inverse chi
+distribution</a>.
+this approach uses a single parameter to inform the variability of the
+covariance matrix sampled (the degrees of freedom).</p>
+<p>The second strategy occurs if you have standard errors on the
+variance/standard deviation with no modeled correlations in the
+covariance matrix. In this approach you perform separate simulations
+for the standard deviations and the correlation matrix. First you
+simulate the variance/standard deviation components in the <code>thetaMat</code>
+multivariate normal simulation. After simulation and transformation
+to standard deviations, a correlation matrix is simulated using the
+degrees of freedom of your covariance matrix. Combining the simulated
+standard deviation with the simulated correlation matrix will give a
+simulated covariance matrix. For smaller dimension covariance matrices
+(dimension &lt; 10x10) it is recommended you use the <code>lkj</code> distribution
+to simulate the correlation matrix. For higher dimension covariance
+matrices it is suggested you use the inverse wishart distribution
+(transformed to a correlation matrix) for the simulations.</p>
+<p>The covariance/variance prior is simulated from <code>rxode2</code>s <code>cvPost()</code>
+function.</p>
+<div id="simulation-from-inverse-wishart-correlations" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Simulation from inverse Wishart correlations<a href="simulation.html#simulation-from-inverse-wishart-correlations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An example of this simulation is below:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="simulation.html#cb183-1" aria-hidden="true"></a><span class="co">### Creating covariance matrix</span></span>
+<span id="cb183-2"><a href="simulation.html#cb183-2" aria-hidden="true"></a>tmp &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">8</span><span class="op">^</span><span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb183-3"><a href="simulation.html#cb183-3" aria-hidden="true"></a>tMat &lt;-<span class="st"> </span><span class="kw">tcrossprod</span>(tmp, tmp) <span class="op">/</span><span class="st"> </span>(<span class="dv">8</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb183-4"><a href="simulation.html#cb183-4" aria-hidden="true"></a><span class="kw">dimnames</span>(tMat) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="ot">NULL</span>, <span class="kw">names</span>(theta))</span>
+<span id="cb183-5"><a href="simulation.html#cb183-5" aria-hidden="true"></a></span>
+<span id="cb183-6"><a href="simulation.html#cb183-6" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma, <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb183-7"><a href="simulation.html#cb183-7" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">10</span>, <span class="dt">dfObs=</span><span class="dv">100</span>)</span>
+<span id="cb183-8"><a href="simulation.html#cb183-8" aria-hidden="true"></a></span>
+<span id="cb183-9"><a href="simulation.html#cb183-9" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="simulation.html#cb185-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
+<p>If you wish you can see what <code>omega</code> and <code>sigma</code> was used for each
+virtual study by accessing them in the solved data object with
+<code>$omega.list</code> and <code>$sigma.list</code>:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="simulation.html#cb186-1" aria-hidden="true"></a><span class="kw">head</span>(sim<span class="op">$</span>omega.list)</span></code></pre></div>
+<pre><code>#&gt; [[1]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.1676778
+#&gt; 
+#&gt; [[2]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.2917085
+#&gt; 
+#&gt; [[3]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.1776813
+#&gt; 
+#&gt; [[4]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.1578682
+#&gt; 
+#&gt; [[5]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.1845614
+#&gt; 
+#&gt; [[6]]
+#&gt;           eta.Cl
+#&gt; eta.Cl 0.3282268</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="simulation.html#cb188-1" aria-hidden="true"></a><span class="kw">head</span>(sim<span class="op">$</span>sigma.list)</span></code></pre></div>
+<pre><code>#&gt; [[1]]
+#&gt;             eff.err      cp.err
+#&gt; eff.err 0.112416983 0.004197039
+#&gt; cp.err  0.004197039 0.097293971
+#&gt; 
+#&gt; [[2]]
+#&gt;              eff.err       cp.err
+#&gt; eff.err  0.084311199 -0.006277998
+#&gt; cp.err  -0.006277998  0.122140938
+#&gt; 
+#&gt; [[3]]
+#&gt;            eff.err     cp.err
+#&gt; eff.err 0.09834771 0.01060251
+#&gt; cp.err  0.01060251 0.10024751
+#&gt; 
+#&gt; [[4]]
+#&gt;             eff.err      cp.err
+#&gt; eff.err 0.125556975 0.007690868
+#&gt; cp.err  0.007690868 0.090991261
+#&gt; 
+#&gt; [[5]]
+#&gt;            eff.err     cp.err
+#&gt; eff.err  0.1116261 -0.0184748
+#&gt; cp.err  -0.0184748  0.1320288
+#&gt; 
+#&gt; [[6]]
+#&gt;             eff.err      cp.err
+#&gt; eff.err 0.093539238 0.007270049
+#&gt; cp.err  0.007270049 0.098648424</code></pre>
+<p>You can also see the parameter realizations from the <code>$params</code> data frame.</p>
+</div>
+<div id="simulate-using-variancestandard-deviation-standard-errors" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Simulate using variance/standard deviation standard errors<a href="simulation.html#simulate-using-variancestandard-deviation-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lets assume we wish to simulate from <a href="https://github.com/UUPharmacometrics/xpose/blob/master/inst/extdata/run001.lst">the nonmem run included in
+xpose</a></p>
+<p>First we setup the model:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="simulation.html#cb190-1" aria-hidden="true"></a>rx1 &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb190-2"><a href="simulation.html#cb190-2" aria-hidden="true"></a>  cl &lt;-<span class="st"> </span>tcl<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>crcl.cl<span class="op">*</span>(CLCR<span class="dv">-65</span>)) <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(eta.cl)</span>
+<span id="cb190-3"><a href="simulation.html#cb190-3" aria-hidden="true"></a>  v &lt;-<span class="st"> </span>tv <span class="op">*</span><span class="st"> </span>WT <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(eta.v)</span>
+<span id="cb190-4"><a href="simulation.html#cb190-4" aria-hidden="true"></a>  ka &lt;-<span class="st"> </span>tka <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(eta.ka)</span>
+<span id="cb190-5"><a href="simulation.html#cb190-5" aria-hidden="true"></a>  ipred &lt;-<span class="st"> </span><span class="kw">linCmt</span>()</span>
+<span id="cb190-6"><a href="simulation.html#cb190-6" aria-hidden="true"></a>  obs &lt;-<span class="st"> </span>ipred <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>prop.sd) <span class="op">+</span><span class="st"> </span>add.sd </span>
+<span id="cb190-7"><a href="simulation.html#cb190-7" aria-hidden="true"></a>})</span></code></pre></div>
+<p>Next we input the estimated parameters:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="simulation.html#cb191-1" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">tcl=</span><span class="fl">2.63E+01</span>, <span class="dt">tv=</span><span class="fl">1.35E+00</span>, <span class="dt">tka=</span><span class="fl">4.20E+00</span>, <span class="dt">tlag=</span><span class="fl">2.08E-01</span>,</span>
+<span id="cb191-2"><a href="simulation.html#cb191-2" aria-hidden="true"></a>           <span class="dt">prop.sd=</span><span class="fl">2.05E-01</span>, <span class="dt">add.sd=</span><span class="fl">1.06E-02</span>, <span class="dt">crcl.cl=</span><span class="fl">7.17E-03</span>,</span>
+<span id="cb191-3"><a href="simulation.html#cb191-3" aria-hidden="true"></a>           <span class="co">## Note that since we are using the separation strategy the ETA variances are here too</span></span>
+<span id="cb191-4"><a href="simulation.html#cb191-4" aria-hidden="true"></a>           <span class="dt">eta.cl=</span><span class="fl">7.30E-02</span>,  <span class="dt">eta.v=</span><span class="fl">3.80E-02</span>, <span class="dt">eta.ka=</span><span class="fl">1.91E+00</span>)</span></code></pre></div>
+<p>And also their covariances; To me, the easiest way to create a named
+covariance matrix is to use <code>lotri()</code>:</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="simulation.html#cb192-1" aria-hidden="true"></a>thetaMat &lt;-<span class="st"> </span><span class="kw">lotri</span>(</span>
+<span id="cb192-2"><a href="simulation.html#cb192-2" aria-hidden="true"></a>    tcl <span class="op">+</span><span class="st"> </span>tv <span class="op">+</span><span class="st"> </span>tka <span class="op">+</span><span class="st"> </span>tlag <span class="op">+</span><span class="st"> </span>prop.sd <span class="op">+</span><span class="st"> </span>add.sd <span class="op">+</span><span class="st"> </span>crcl.cl <span class="op">+</span><span class="st"> </span>eta.cl <span class="op">+</span><span class="st"> </span>eta.v <span class="op">+</span><span class="st"> </span>eta.ka <span class="op">~</span></span>
+<span id="cb192-3"><a href="simulation.html#cb192-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">c</span>(<span class="fl">7.95E-01</span>,</span>
+<span id="cb192-4"><a href="simulation.html#cb192-4" aria-hidden="true"></a>          <span class="fl">2.05E-02</span>, <span class="fl">1.92E-03</span>,</span>
+<span id="cb192-5"><a href="simulation.html#cb192-5" aria-hidden="true"></a>          <span class="fl">7.22E-02</span>, <span class="fl">-8.30E-03</span>, <span class="fl">6.55E-01</span>,</span>
+<span id="cb192-6"><a href="simulation.html#cb192-6" aria-hidden="true"></a>          <span class="fl">-3.45E-03</span>, <span class="fl">-6.42E-05</span>, <span class="fl">3.22E-03</span>, <span class="fl">2.47E-04</span>,</span>
+<span id="cb192-7"><a href="simulation.html#cb192-7" aria-hidden="true"></a>          <span class="fl">8.71E-04</span>, <span class="fl">2.53E-04</span>, <span class="fl">-4.71E-03</span>, <span class="fl">-5.79E-05</span>, <span class="fl">5.04E-04</span>,</span>
+<span id="cb192-8"><a href="simulation.html#cb192-8" aria-hidden="true"></a>          <span class="fl">6.30E-04</span>, <span class="fl">-3.17E-06</span>, <span class="fl">-6.52E-04</span>, <span class="fl">-1.53E-05</span>, <span class="fl">-3.14E-05</span>, <span class="fl">1.34E-05</span>,</span>
+<span id="cb192-9"><a href="simulation.html#cb192-9" aria-hidden="true"></a>          <span class="fl">-3.30E-04</span>, <span class="fl">5.46E-06</span>, <span class="fl">-3.15E-04</span>, <span class="fl">2.46E-06</span>, <span class="fl">3.15E-06</span>, <span class="fl">-1.58E-06</span>, <span class="fl">2.88E-06</span>,</span>
+<span id="cb192-10"><a href="simulation.html#cb192-10" aria-hidden="true"></a>          <span class="fl">-1.29E-03</span>, <span class="fl">-7.97E-05</span>, <span class="fl">1.68E-03</span>, <span class="fl">-2.75E-05</span>, <span class="fl">-8.26E-05</span>, <span class="fl">1.13E-05</span>, <span class="fl">-1.66E-06</span>, <span class="fl">1.58E-04</span>,</span>
+<span id="cb192-11"><a href="simulation.html#cb192-11" aria-hidden="true"></a>          <span class="fl">-1.23E-03</span>, <span class="fl">-1.27E-05</span>, <span class="fl">-1.33E-03</span>, <span class="fl">-1.47E-05</span>, <span class="fl">-1.03E-04</span>, <span class="fl">1.02E-05</span>, <span class="fl">1.67E-06</span>, <span class="fl">6.68E-05</span>, <span class="fl">1.56E-04</span>,</span>
+<span id="cb192-12"><a href="simulation.html#cb192-12" aria-hidden="true"></a>          <span class="fl">7.69E-02</span>, <span class="fl">-7.23E-03</span>, <span class="fl">3.74E-01</span>, <span class="fl">1.79E-03</span>, <span class="fl">-2.85E-03</span>, <span class="fl">1.18E-05</span>, <span class="fl">-2.54E-04</span>, <span class="fl">1.61E-03</span>, <span class="fl">-9.03E-04</span>, <span class="fl">3.12E-01</span>))</span>
+<span id="cb192-13"><a href="simulation.html#cb192-13" aria-hidden="true"></a></span>
+<span id="cb192-14"><a href="simulation.html#cb192-14" aria-hidden="true"></a>evw &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb192-15"><a href="simulation.html#cb192-15" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb192-16"><a href="simulation.html#cb192-16" aria-hidden="true"></a><span class="st">    </span><span class="co">## For this problem we will simulate with sampling windows</span></span>
+<span id="cb192-17"><a href="simulation.html#cb192-17" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>),</span>
+<span id="cb192-18"><a href="simulation.html#cb192-18" aria-hidden="true"></a>       <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>),</span>
+<span id="cb192-19"><a href="simulation.html#cb192-19" aria-hidden="true"></a>       <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb192-20"><a href="simulation.html#cb192-20" aria-hidden="true"></a>       <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span>),</span>
+<span id="cb192-21"><a href="simulation.html#cb192-21" aria-hidden="true"></a>       <span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">12</span>))) <span class="op">%&gt;%</span></span>
+<span id="cb192-22"><a href="simulation.html#cb192-22" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>)</span>
+<span id="cb192-23"><a href="simulation.html#cb192-23" aria-hidden="true"></a></span>
+<span id="cb192-24"><a href="simulation.html#cb192-24" aria-hidden="true"></a><span class="co">### From the run we know that:</span></span>
+<span id="cb192-25"><a href="simulation.html#cb192-25" aria-hidden="true"></a><span class="co">###   total number of observations is: 476</span></span>
+<span id="cb192-26"><a href="simulation.html#cb192-26" aria-hidden="true"></a><span class="co">###    Total number of individuals:     74</span></span>
+<span id="cb192-27"><a href="simulation.html#cb192-27" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx1, theta, evw,  <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb192-28"><a href="simulation.html#cb192-28" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>thetaMat,</span>
+<span id="cb192-29"><a href="simulation.html#cb192-29" aria-hidden="true"></a>                <span class="co">## Match boundaries of problem</span></span>
+<span id="cb192-30"><a href="simulation.html#cb192-30" aria-hidden="true"></a>                <span class="dt">thetaLower=</span><span class="dv">0</span>, </span>
+<span id="cb192-31"><a href="simulation.html#cb192-31" aria-hidden="true"></a>                <span class="dt">sigma=</span><span class="kw">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="co">## Sigmas are standard deviations</span></span>
+<span id="cb192-32"><a href="simulation.html#cb192-32" aria-hidden="true"></a>                <span class="dt">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
+<span id="cb192-33"><a href="simulation.html#cb192-33" aria-hidden="true"></a>                <span class="dt">omega=</span><span class="kw">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="co">## etas are variances</span></span>
+<span id="cb192-34"><a href="simulation.html#cb192-34" aria-hidden="true"></a>                <span class="dt">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
+<span id="cb192-35"><a href="simulation.html#cb192-35" aria-hidden="true"></a>                <span class="dt">iCov=</span><span class="kw">data.frame</span>(<span class="dt">WT=</span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="dt">CLCR=</span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
+<span id="cb192-36"><a href="simulation.html#cb192-36" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>);</span>
+<span id="cb192-37"><a href="simulation.html#cb192-37" aria-hidden="true"></a></span>
+<span id="cb192-38"><a href="simulation.html#cb192-38" aria-hidden="true"></a><span class="kw">print</span>(sim)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt; # A tibble: 10,000 × 9
+#&gt;    sim.id id      tcl crcl.cl  eta.cl    tv   eta.v   tka  eta.ka
+#&gt;     &lt;int&gt; &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1      1 1      26.7    2.27  0.0525  2.52  0.692   4.83 -2.16  
+#&gt;  2      1 2      26.7    2.27  0.0383  2.52 -0.226   4.83 -1.49  
+#&gt;  3      1 3      26.7    2.27  0.207   2.52  0.346   4.83  0.939 
+#&gt;  4      1 4      26.7    2.27 -0.0993  2.52 -0.0124  4.83 -0.299 
+#&gt;  5      1 5      26.7    2.27 -0.308   2.52 -0.277   4.83  0.703 
+#&gt;  6      1 6      26.7    2.27  0.0300  2.52  0.278   4.83  1.36  
+#&gt;  7      1 7      26.7    2.27  0.0196  2.52  0.0696  4.83 -0.0215
+#&gt;  8      1 8      26.7    2.27 -0.233   2.52  0.0493  4.83 -0.573 
+#&gt;  9      1 9      26.7    2.27  0.693   2.52  0.277   4.83 -0.161 
+#&gt; 10      1 10     26.7    2.27 -0.0748  2.52  0.206   4.83 -0.296 
+#&gt; # … with 9,990 more rows
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; named numeric(0)
+#&gt; 
+#&gt; Simulation with uncertainty in:
+#&gt; • parameters ($thetaMat for changes)
+#&gt; • omega matrix ($omegaList)
+#&gt; • sigma matrix ($sigmaList)
+#&gt; 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 50,000 × 10
+#&gt;   sim.id    id   time    cl     v    ka   ipred     obs    WT  CLCR
+#&gt;    &lt;int&gt; &lt;int&gt;    [h] &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1      1     1 0.0155  301. 313.  0.559 0.00274 -3.08    62.2  69.3
+#&gt; 2      1     1 0.749   301. 313.  0.559 0.0760   0.736   62.2  69.3
+#&gt; 3      1     1 1.02    301. 313.  0.559 0.0845  -2.18    62.2  69.3
+#&gt; 4      1     1 3.41    301. 313.  0.559 0.0493   1.36    62.2  69.3
+#&gt; 5      1     1 7.81    301. 313.  0.559 0.00540  2.30    62.2  69.3
+#&gt; 6      1     2 0.0833 2582.  71.7 1.09  0.0376  -0.0849  35.7 105. 
+#&gt; # … with 49,994 more rows</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="simulation.html#cb194-1" aria-hidden="true"></a><span class="co">### Notice that the simulation time-points change for the individual</span></span>
+<span id="cb194-2"><a href="simulation.html#cb194-2" aria-hidden="true"></a></span>
+<span id="cb194-3"><a href="simulation.html#cb194-3" aria-hidden="true"></a><span class="co">### If you want the same sampling time-points you can do that as well:</span></span>
+<span id="cb194-4"><a href="simulation.html#cb194-4" aria-hidden="true"></a>evw &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb194-5"><a href="simulation.html#cb194-5" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb194-6"><a href="simulation.html#cb194-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="dt">length.out=</span><span class="dv">50</span>) <span class="op">%&gt;%</span></span>
+<span id="cb194-7"><a href="simulation.html#cb194-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</span>
+<span id="cb194-8"><a href="simulation.html#cb194-8" aria-hidden="true"></a></span>
+<span id="cb194-9"><a href="simulation.html#cb194-9" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx1, theta, evw,  <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb194-10"><a href="simulation.html#cb194-10" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>thetaMat,</span>
+<span id="cb194-11"><a href="simulation.html#cb194-11" aria-hidden="true"></a>                <span class="co">## Match boundaries of problem</span></span>
+<span id="cb194-12"><a href="simulation.html#cb194-12" aria-hidden="true"></a>                <span class="dt">thetaLower=</span><span class="dv">0</span>, </span>
+<span id="cb194-13"><a href="simulation.html#cb194-13" aria-hidden="true"></a>                <span class="dt">sigma=</span><span class="kw">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="co">## Sigmas are standard deviations</span></span>
+<span id="cb194-14"><a href="simulation.html#cb194-14" aria-hidden="true"></a>                <span class="dt">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
+<span id="cb194-15"><a href="simulation.html#cb194-15" aria-hidden="true"></a>                <span class="dt">omega=</span><span class="kw">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="co">## etas are variances</span></span>
+<span id="cb194-16"><a href="simulation.html#cb194-16" aria-hidden="true"></a>                <span class="dt">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
+<span id="cb194-17"><a href="simulation.html#cb194-17" aria-hidden="true"></a>                <span class="dt">iCov=</span><span class="kw">data.frame</span>(<span class="dt">WT=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="dt">CLCR=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
+<span id="cb194-18"><a href="simulation.html#cb194-18" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>,</span>
+<span id="cb194-19"><a href="simulation.html#cb194-19" aria-hidden="true"></a>                <span class="dt">resample=</span><span class="ot">TRUE</span>)</span>
+<span id="cb194-20"><a href="simulation.html#cb194-20" aria-hidden="true"></a></span>
+<span id="cb194-21"><a href="simulation.html#cb194-21" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;ipred&quot;</span>))</span></code></pre></div>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="simulation.html#cb196-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+</div>
+<div id="simulate-without-uncertainty-in-omega-or-sigma-parameters" class="section level3 hasAnchor" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Simulate without uncertainty in <code>omega</code> or <code>sigma</code> parameters<a href="simulation.html#simulate-without-uncertainty-in-omega-or-sigma-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you do not wish to sample from the prior distributions of either
+the <code>omega</code> or <code>sigma</code> matrices, you can turn off this feature by
+specifying the <code>simVariability = FALSE</code> option when solving:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="simulation.html#cb197-1" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb197-2"><a href="simulation.html#cb197-2" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb197-3"><a href="simulation.html#cb197-3" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
+<span id="cb197-4"><a href="simulation.html#cb197-4" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb197-5"><a href="simulation.html#cb197-5" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl) <span class="co">## This is coded as a variable in the model</span></span>
+<span id="cb197-6"><a href="simulation.html#cb197-6" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb197-7"><a href="simulation.html#cb197-7" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb197-8"><a href="simulation.html#cb197-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb197-9"><a href="simulation.html#cb197-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb197-10"><a href="simulation.html#cb197-10" aria-hidden="true"></a>  e =<span class="st"> </span>eff<span class="op">+</span>eff.err</span>
+<span id="cb197-11"><a href="simulation.html#cb197-11" aria-hidden="true"></a>  cp =<span class="st"> </span>centr<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>cp.err)</span>
+<span id="cb197-12"><a href="simulation.html#cb197-12" aria-hidden="true"></a>})</span>
+<span id="cb197-13"><a href="simulation.html#cb197-13" aria-hidden="true"></a></span>
+<span id="cb197-14"><a href="simulation.html#cb197-14" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">TCl=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb197-15"><a href="simulation.html#cb197-15" aria-hidden="true"></a>           <span class="dt">Q=</span><span class="fl">1.05E+01</span>, <span class="dt">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb197-16"><a href="simulation.html#cb197-16" aria-hidden="true"></a>           <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
+<span id="cb197-17"><a href="simulation.html#cb197-17" aria-hidden="true"></a></span>
+<span id="cb197-18"><a href="simulation.html#cb197-18" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">lotri</span>(eff.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>, cp.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>)</span>
+<span id="cb197-19"><a href="simulation.html#cb197-19" aria-hidden="true"></a></span>
+<span id="cb197-20"><a href="simulation.html#cb197-20" aria-hidden="true"></a></span>
+<span id="cb197-21"><a href="simulation.html#cb197-21" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma,</span>
+<span id="cb197-22"><a href="simulation.html#cb197-22" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb197-23"><a href="simulation.html#cb197-23" aria-hidden="true"></a>                <span class="dt">simVariability=</span><span class="ot">FALSE</span>)</span>
+<span id="cb197-24"><a href="simulation.html#cb197-24" aria-hidden="true"></a></span>
+<span id="cb197-25"><a href="simulation.html#cb197-25" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="simulation.html#cb199-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p>Note since realizations of <code>omega</code> and <code>sigma</code> were not simulated,
+<code>$omega.list</code> and <code>$sigma.list</code> both return <code>NULL</code>.</p>
+<div id="rxode2-multi-threaded-solving-and-simulation" class="section level5 hasAnchor" number="11.3.3.0.1">
+<h5><span class="header-section-number">11.3.3.0.1</span> rxode2 multi-threaded solving and simulation<a href="simulation.html#rxode2-multi-threaded-solving-and-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>rxode2 now supports multi-threaded solving on OpenMP supported
+compilers, including linux and windows. Mac OSX can also be supported
+By default it uses all your available cores for solving as determined
+by <code>rxCores()</code>. This may be overkill depending on your system, at a
+certain point the speed of solving is limited by things other than
+computing power.</p>
+<p>You can also speed up simulation by using the multi-cores to generate
+random deviates with the threefry simulation engine. This is
+controlled by the <code>nCoresRV</code> parameter. For example:</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="simulation.html#cb200-1" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma, <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb200-2"><a href="simulation.html#cb200-2" aria-hidden="true"></a>                <span class="dt">nCoresRV=</span><span class="dv">2</span>)</span>
+<span id="cb200-3"><a href="simulation.html#cb200-3" aria-hidden="true"></a></span>
+<span id="cb200-4"><a href="simulation.html#cb200-4" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>))</span></code></pre></div>
+<pre><code>#&gt; summarizing data...done</code></pre>
+<p>The default for this is <code>1</code> core since the result depends on the
+number of cores and the random seed you use in your simulation as well
+as the work-load each thread is sharing/architecture. However, you can always
+speed up this process with more cores if you are sure your
+collaborators have the same number of cores available to them and have
+OpenMP thread-capable compile.</p>
+</div>
+</div>
+</div>
+<div id="using-prior-data-for-solving" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Using prior data for solving<a href="simulation.html#using-prior-data-for-solving" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>rxode2 can use a <a href="rxode2-single-subject.html">single subject</a> or
+<a href="rxode2-sim-var.html">multiple subjects with a single event table</a> to
+solve ODEs. Additionally, rxode2 can use an arbitrary data frame with
+individualized events. For example when using <code>nlmixr</code>, you could use
+the <code>rxode2/vignettes/theo_sd</code> data frame</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="simulation.html#cb202-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb202-2"><a href="simulation.html#cb202-2" aria-hidden="true"></a><span class="co">### Load data from nlmixr</span></span>
+<span id="cb202-3"><a href="simulation.html#cb202-3" aria-hidden="true"></a>d &lt;-<span class="st"> </span>qs<span class="op">::</span><span class="kw">qread</span>(<span class="st">&quot;rxode2/vignettes/theo_sd.qs&quot;</span>)</span>
+<span id="cb202-4"><a href="simulation.html#cb202-4" aria-hidden="true"></a></span>
+<span id="cb202-5"><a href="simulation.html#cb202-5" aria-hidden="true"></a><span class="co">### Create rxode2 model</span></span>
+<span id="cb202-6"><a href="simulation.html#cb202-6" aria-hidden="true"></a>theo &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb202-7"><a href="simulation.html#cb202-7" aria-hidden="true"></a>    tka <span class="op">~</span><span class="st"> </span><span class="fl">0.45</span> <span class="co"># Log Ka</span></span>
+<span id="cb202-8"><a href="simulation.html#cb202-8" aria-hidden="true"></a>    tcl <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="co"># Log Cl</span></span>
+<span id="cb202-9"><a href="simulation.html#cb202-9" aria-hidden="true"></a>    tv <span class="op">~</span><span class="st"> </span><span class="fl">3.45</span>    <span class="co"># Log V</span></span>
+<span id="cb202-10"><a href="simulation.html#cb202-10" aria-hidden="true"></a>    eta.ka <span class="op">~</span><span class="st"> </span><span class="fl">0.6</span></span>
+<span id="cb202-11"><a href="simulation.html#cb202-11" aria-hidden="true"></a>    eta.cl <span class="op">~</span><span class="st"> </span><span class="fl">0.3</span></span>
+<span id="cb202-12"><a href="simulation.html#cb202-12" aria-hidden="true"></a>    eta.v <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb202-13"><a href="simulation.html#cb202-13" aria-hidden="true"></a>    ka &lt;-<span class="st"> </span><span class="kw">exp</span>(tka <span class="op">+</span><span class="st"> </span>eta.ka)</span>
+<span id="cb202-14"><a href="simulation.html#cb202-14" aria-hidden="true"></a>    cl &lt;-<span class="st"> </span><span class="kw">exp</span>(tcl <span class="op">+</span><span class="st"> </span>eta.cl)</span>
+<span id="cb202-15"><a href="simulation.html#cb202-15" aria-hidden="true"></a>    v &lt;-<span class="st"> </span><span class="kw">exp</span>(tv <span class="op">+</span><span class="st"> </span>eta.v)</span>
+<span id="cb202-16"><a href="simulation.html#cb202-16" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>ka <span class="op">*</span><span class="st"> </span>depot</span>
+<span id="cb202-17"><a href="simulation.html#cb202-17" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>ka <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>cl <span class="op">/</span><span class="st"> </span>v <span class="op">*</span><span class="st"> </span>center</span>
+<span id="cb202-18"><a href="simulation.html#cb202-18" aria-hidden="true"></a>    cp =<span class="st"> </span>center <span class="op">/</span><span class="st"> </span>v</span>
+<span id="cb202-19"><a href="simulation.html#cb202-19" aria-hidden="true"></a>})</span>
+<span id="cb202-20"><a href="simulation.html#cb202-20" aria-hidden="true"></a></span>
+<span id="cb202-21"><a href="simulation.html#cb202-21" aria-hidden="true"></a><span class="co">### Create parameter dataset</span></span>
+<span id="cb202-22"><a href="simulation.html#cb202-22" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb202-23"><a href="simulation.html#cb202-23" aria-hidden="true"></a>parsDf &lt;-<span class="st"> </span><span class="kw">tribble</span>(</span>
+<span id="cb202-24"><a href="simulation.html#cb202-24" aria-hidden="true"></a>  <span class="op">~</span><span class="st"> </span>eta.ka, <span class="op">~</span><span class="st"> </span>eta.cl, <span class="op">~</span><span class="st"> </span>eta.v, </span>
+<span id="cb202-25"><a href="simulation.html#cb202-25" aria-hidden="true"></a>  <span class="fl">0.105</span>, <span class="fl">-0.487</span>, <span class="fl">-0.080</span>,</span>
+<span id="cb202-26"><a href="simulation.html#cb202-26" aria-hidden="true"></a>  <span class="fl">0.221</span>, <span class="fl">0.144</span>, <span class="fl">0.021</span>,</span>
+<span id="cb202-27"><a href="simulation.html#cb202-27" aria-hidden="true"></a>  <span class="fl">0.368</span>, <span class="fl">0.031</span>, <span class="fl">0.058</span>,</span>
+<span id="cb202-28"><a href="simulation.html#cb202-28" aria-hidden="true"></a> <span class="fl">-0.277</span>, <span class="fl">-0.015</span>, <span class="fl">-0.007</span>,</span>
+<span id="cb202-29"><a href="simulation.html#cb202-29" aria-hidden="true"></a> <span class="fl">-0.046</span>, <span class="fl">-0.155</span>, <span class="fl">-0.142</span>,</span>
+<span id="cb202-30"><a href="simulation.html#cb202-30" aria-hidden="true"></a> <span class="fl">-0.382</span>, <span class="fl">0.367</span>, <span class="fl">0.203</span>,</span>
+<span id="cb202-31"><a href="simulation.html#cb202-31" aria-hidden="true"></a> <span class="fl">-0.791</span>, <span class="fl">0.160</span>, <span class="fl">0.047</span>,</span>
+<span id="cb202-32"><a href="simulation.html#cb202-32" aria-hidden="true"></a> <span class="fl">-0.181</span>, <span class="fl">0.168</span>, <span class="fl">0.096</span>,</span>
+<span id="cb202-33"><a href="simulation.html#cb202-33" aria-hidden="true"></a>  <span class="fl">1.420</span>, <span class="fl">0.042</span>, <span class="fl">0.012</span>,</span>
+<span id="cb202-34"><a href="simulation.html#cb202-34" aria-hidden="true"></a> <span class="fl">-0.738</span>, <span class="fl">-0.391</span>, <span class="fl">-0.170</span>,</span>
+<span id="cb202-35"><a href="simulation.html#cb202-35" aria-hidden="true"></a>  <span class="fl">0.790</span>, <span class="fl">0.281</span>, <span class="fl">0.146</span>,</span>
+<span id="cb202-36"><a href="simulation.html#cb202-36" aria-hidden="true"></a> <span class="fl">-0.527</span>, <span class="fl">-0.126</span>, <span class="fl">-0.198</span>) <span class="op">%&gt;%</span></span>
+<span id="cb202-37"><a href="simulation.html#cb202-37" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tka =</span> <span class="fl">0.451</span>, <span class="dt">tcl =</span> <span class="fl">1.017</span>, <span class="dt">tv =</span> <span class="fl">3.449</span>)</span>
+<span id="cb202-38"><a href="simulation.html#cb202-38" aria-hidden="true"></a></span>
+<span id="cb202-39"><a href="simulation.html#cb202-39" aria-hidden="true"></a><span class="co">### Now solve the dataset</span></span>
+<span id="cb202-40"><a href="simulation.html#cb202-40" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d)</span>
+<span id="cb202-41"><a href="simulation.html#cb202-41" aria-hidden="true"></a></span>
+<span id="cb202-42"><a href="simulation.html#cb202-42" aria-hidden="true"></a><span class="kw">plot</span>(solveData, cp)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="simulation.html#cb203-1" aria-hidden="true"></a><span class="kw">print</span>(solveData)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt; # A tibble: 12 × 1
+#&gt;    id   
+#&gt;    &lt;fct&gt;
+#&gt;  1 1    
+#&gt;  2 2    
+#&gt;  3 3    
+#&gt;  4 4    
+#&gt;  5 5    
+#&gt;  6 6    
+#&gt;  7 7    
+#&gt;  8 8    
+#&gt;  9 9    
+#&gt; 10 10   
+#&gt; 11 11   
+#&gt; 12 12   
+#&gt; ── Initial Conditions ($inits): ──
+#&gt;  depot center 
+#&gt;      0      0 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 132 × 8
+#&gt;      id  time    ka    cl     v    cp     depot center
+#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1     1  0     2.86  3.67  34.8  0    320.          0 
+#&gt; 2     1  0.25  2.86  3.67  34.8  4.62 157.        161.
+#&gt; 3     1  0.57  2.86  3.67  34.8  7.12  62.8       248.
+#&gt; 4     1  1.12  2.86  3.67  34.8  8.09  13.0       282.
+#&gt; 5     1  2.02  2.86  3.67  34.8  7.68   0.996     267.
+#&gt; 6     1  3.82  2.86  3.67  34.8  6.38   0.00581   222.
+#&gt; # … with 126 more rows</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="simulation.html#cb205-1" aria-hidden="true"></a><span class="co">### Of course the fasest way to solve if you don&#39;t care about the rxode2 extra parameters is</span></span>
+<span id="cb205-2"><a href="simulation.html#cb205-2" aria-hidden="true"></a></span>
+<span id="cb205-3"><a href="simulation.html#cb205-3" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d, <span class="dt">returnType=</span><span class="st">&quot;data.frame&quot;</span>)</span>
+<span id="cb205-4"><a href="simulation.html#cb205-4" aria-hidden="true"></a></span>
+<span id="cb205-5"><a href="simulation.html#cb205-5" aria-hidden="true"></a><span class="co">### solved data</span></span>
+<span id="cb205-6"><a href="simulation.html#cb205-6" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">as.tbl</span>(solveData)</span></code></pre></div>
+<pre><code>#&gt; # A tibble: 132 × 8
+#&gt;       id  time    ka    cl     v    cp   depot center
+#&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+#&gt;  1     1  0     2.86  3.67  34.8  0    3.20e+2    0  
+#&gt;  2     1  0.25  2.86  3.67  34.8  4.62 1.57e+2  161. 
+#&gt;  3     1  0.57  2.86  3.67  34.8  7.12 6.28e+1  248. 
+#&gt;  4     1  1.12  2.86  3.67  34.8  8.09 1.30e+1  282. 
+#&gt;  5     1  2.02  2.86  3.67  34.8  7.68 9.96e-1  267. 
+#&gt;  6     1  3.82  2.86  3.67  34.8  6.38 5.81e-3  222. 
+#&gt;  7     1  5.1   2.86  3.67  34.8  5.58 1.50e-4  194. 
+#&gt;  8     1  7.03  2.86  3.67  34.8  4.55 6.02e-7  158. 
+#&gt;  9     1  9.05  2.86  3.67  34.8  3.68 1.77e-9  128. 
+#&gt; 10     1 12.1   2.86  3.67  34.8  2.66 9.43e-9   92.6
+#&gt; # … with 122 more rows</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="simulation.html#cb207-1" aria-hidden="true"></a>data.table<span class="op">::</span><span class="kw">data.table</span>(solveData)</span></code></pre></div>
+<pre><code>#&gt;      id  time       ka       cl        v        cp         depot    center
+#&gt;   1:  1  0.00 2.857651 3.669297 34.81332 0.0000000  3.199920e+02   0.00000
+#&gt;   2:  1  0.25 2.857651 3.669297 34.81332 4.6240421  1.566295e+02 160.97825
+#&gt;   3:  1  0.57 2.857651 3.669297 34.81332 7.1151647  6.276731e+01 247.70249
+#&gt;   4:  1  1.12 2.857651 3.669297 34.81332 8.0922106  1.303613e+01 281.71670
+#&gt;   5:  1  2.02 2.857651 3.669297 34.81332 7.6837844  9.958446e-01 267.49803
+#&gt;  ---                                                                      
+#&gt; 128: 12  5.07 2.857651 3.669297 34.81332 5.6044213  1.636210e-04 195.10850
+#&gt; 129: 12  7.07 2.857651 3.669297 34.81332 4.5392337  5.385697e-07 158.02579
+#&gt; 130: 12  9.03 2.857651 3.669297 34.81332 3.6920276  1.882087e-09 128.53173
+#&gt; 131: 12 12.05 2.857651 3.669297 34.81332 2.6855080  8.461424e-09  93.49144
+#&gt; 132: 12 24.15 2.857651 3.669297 34.81332 0.7501667 -4.775222e-10  26.11579</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="output.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

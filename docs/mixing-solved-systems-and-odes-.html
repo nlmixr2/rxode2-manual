@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 15 Mixing Solved Systems and ODEs. | RxODE user manual</title>
+  <meta name="description" content="This book is the user manual for RxODE" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 15 Mixing Solved Systems and ODEs. | RxODE user manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is the user manual for RxODE" />
+  <meta name="github-repo" content="nlmixrdevelopment/RxODE-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 15 Mixing Solved Systems and ODEs. | RxODE user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for RxODE" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2021-02-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="solved-compartment-models.html"/>
+<link rel="next" href="advanced-miscellaneous-topics.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>2</b> Authors and Acknowledgments</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="author.html"><a href="author.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a></li>
+<li class="chapter" data-level="2.2" data-path="author.html"><a href="author.html#contributors"><i class="fa fa-check"></i><b>2.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3" data-path="author.html"><a href="author.html#rxode-acknowledgments"><i class="fa fa-check"></i><b>2.3</b> RxODE acknowledgments:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="related.html"><a href="related.html"><i class="fa fa-check"></i><b>3</b> Related R packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="related.html"><a href="related.html#ode-solving"><i class="fa fa-check"></i><b>3.1</b> ODE solving</a></li>
+<li class="chapter" data-level="3.2" data-path="related.html"><a href="related.html#pk-solved-systems"><i class="fa fa-check"></i><b>3.2</b> PK Solved systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="related.html"><a href="related.html#the-following-packages-for-solved-pk-systems-are-on-cran"><i class="fa fa-check"></i><b>3.2.1</b> The following packages for solved PK systems are on CRAN</a></li>
+<li class="chapter" data-level="3.2.2" data-path="related.html"><a href="related.html#non-cran-libraries"><i class="fa fa-check"></i><b>3.2.2</b> Non-CRAN libraries:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>4</b> Installation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>4.0.1</b> Windows</a></li>
+<li class="chapter" data-level="4.0.2" data-path="install.html"><a href="install.html#mac-osx"><i class="fa fa-check"></i><b>4.0.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="4.0.3" data-path="install.html"><a href="install.html#linux"><i class="fa fa-check"></i><b>4.0.3</b> Linux</a></li>
+<li class="chapter" data-level="4.1" data-path="install.html"><a href="install.html#development-version"><i class="fa fa-check"></i><b>4.1</b> Development Version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in RxODE</a></li>
+<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> RxODE syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="syntax.html"><a href="syntax.html#example"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="syntax.html"><a href="syntax.html#syntax-1"><i class="fa fa-check"></i><b>6.2</b> Syntax</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="syntax.html"><a href="syntax.html#identifiers"><i class="fa fa-check"></i><b>6.2.1</b> Identifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="syntax.html"><a href="syntax.html#logical-operators"><i class="fa fa-check"></i><b>6.3</b> Logical Operators</a></li>
+<li class="chapter" data-level="6.4" data-path="syntax.html"><a href="syntax.html#cmt-changing-compartment-numbers-for-states"><i class="fa fa-check"></i><b>6.4</b> cmt() changing compartment numbers for states</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="syntax.html"><a href="syntax.html#how-rxode-numbers-compartments"><i class="fa fa-check"></i><b>6.4.1</b> How RxODE numbers compartments</a></li>
+<li class="chapter" data-level="6.4.2" data-path="syntax.html"><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt"><i class="fa fa-check"></i><b>6.4.2</b> Changing compartments by pre-declaring with <code>cmt()</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="syntax.html"><a href="syntax.html#appending-compartments-to-the-model-with-cmt"><i class="fa fa-check"></i><b>6.4.3</b> Appending compartments to the model with <code>cmt()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="events.html"><a href="events.html"><i class="fa fa-check"></i><b>7</b> RxODE events</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="events.html"><a href="events.html#rxode-event-tables"><i class="fa fa-check"></i><b>7.1</b> RxODE event tables</a></li>
+<li class="chapter" data-level="7.2" data-path="events.html"><a href="events.html#bolusadditive-doses"><i class="fa fa-check"></i><b>7.2</b> Bolus/Additive Doses</a></li>
+<li class="chapter" data-level="7.3" data-path="events.html"><a href="events.html#infusion-doses"><i class="fa fa-check"></i><b>7.3</b> Infusion Doses</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="events.html"><a href="events.html#constant-infusion-in-terms-of-duration-and-rate"><i class="fa fa-check"></i><b>7.3.1</b> Constant Infusion (in terms of duration and rate)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="events.html"><a href="events.html#modeled-rate-and-duration-of-infusion"><i class="fa fa-check"></i><b>7.3.2</b> Modeled Rate and Duration of Infusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="events.html"><a href="events.html#steady-state"><i class="fa fa-check"></i><b>7.4</b> Steady State</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="events.html"><a href="events.html#steady-state-for-complex-dosing"><i class="fa fa-check"></i><b>7.4.1</b> Steady state for complex dosing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="events.html"><a href="events.html#steady-state-for-constant-infusion-or-zero-order-processes"><i class="fa fa-check"></i><b>7.4.2</b> Steady state for constant infusion or zero order processes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="events.html"><a href="events.html#reset-events"><i class="fa fa-check"></i><b>7.5</b> Reset Events</a></li>
+<li class="chapter" data-level="7.6" data-path="events.html"><a href="events.html#turning-off-compartments"><i class="fa fa-check"></i><b>7.6</b> Turning off compartments</a></li>
+<li class="chapter" data-level="7.7" data-path="events.html"><a href="events.html#classic-et"><i class="fa fa-check"></i><b>7.7</b> Classic RxODE events</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="events.html"><a href="events.html#bolus-dose-examples"><i class="fa fa-check"></i><b>7.7.1</b> Bolus Dose Examples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="events.html"><a href="events.html#infusion-event-examples"><i class="fa fa-check"></i><b>7.7.2</b> Infusion Event Examples</a></li>
+<li class="chapter" data-level="7.7.3" data-path="events.html"><a href="events.html#steady-state-for-classic-rxode-evid-example"><i class="fa fa-check"></i><b>7.7.3</b> Steady State for classic RxODE EVID example</a></li>
+<li class="chapter" data-level="7.7.4" data-path="events.html"><a href="events.html#turning-off-a-compartment-with-classic-rxode-evid"><i class="fa fa-check"></i><b>7.7.4</b> Turning off a compartment with classic RxODE EVID</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="et.html"><a href="et.html"><i class="fa fa-check"></i><b>8</b> Easily creating RxODE events</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="et.html"><a href="et.html#adding-doses-to-the-event-table"><i class="fa fa-check"></i><b>8.1</b> Adding doses to the event table</a></li>
+<li class="chapter" data-level="8.2" data-path="et.html"><a href="et.html#adding-sampling-to-an-event-table"><i class="fa fa-check"></i><b>8.2</b> Adding sampling to an event table</a></li>
+<li class="chapter" data-level="8.3" data-path="et.html"><a href="et.html#expand-the-event-table-to-a-multi-subject-event-table."><i class="fa fa-check"></i><b>8.3</b> Expand the event table to a multi-subject event table.</a></li>
+<li class="chapter" data-level="8.4" data-path="et.html"><a href="et.html#add-doses-and-samples-within-a-sampling-window"><i class="fa fa-check"></i><b>8.4</b> Add doses and samples within a sampling window</a></li>
+<li class="chapter" data-level="8.5" data-path="et.html"><a href="et.html#combining-event-tables"><i class="fa fa-check"></i><b>8.5</b> Combining event tables</a></li>
+<li class="chapter" data-level="8.6" data-path="et.html"><a href="et.html#sequencing-event-tables"><i class="fa fa-check"></i><b>8.6</b> Sequencing event tables</a></li>
+<li class="chapter" data-level="8.7" data-path="et.html"><a href="et.html#repeating-event-tables"><i class="fa fa-check"></i><b>8.7</b> Repeating event tables</a></li>
+<li class="chapter" data-level="8.8" data-path="et.html"><a href="et.html#combining-event-tables-with-rbind"><i class="fa fa-check"></i><b>8.8</b> Combining event tables with rbind</a></li>
+<li class="chapter" data-level="8.9" data-path="et.html"><a href="et.html#expanding-events"><i class="fa fa-check"></i><b>8.9</b> Expanding events</a></li>
+<li class="chapter" data-level="8.10" data-path="et.html"><a href="et.html#event-tables-in-rstudio-notebooks"><i class="fa fa-check"></i><b>8.10</b> Event tables in Rstudio Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="solve.html"><a href="solve.html"><i class="fa fa-check"></i><b>9</b> Solving and solving options</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#object"><i class="fa fa-check"></i><b>9.1.1</b> object</a></li>
+<li class="chapter" data-level="9.1.2" data-path="solve.html"><a href="solve.html#params"><i class="fa fa-check"></i><b>9.1.2</b> params</a></li>
+<li class="chapter" data-level="9.1.3" data-path="solve.html"><a href="solve.html#events-1"><i class="fa fa-check"></i><b>9.1.3</b> events</a></li>
+<li class="chapter" data-level="9.1.4" data-path="solve.html"><a href="solve.html#inits"><i class="fa fa-check"></i><b>9.1.4</b> inits</a></li>
+<li class="chapter" data-level="9.1.5" data-path="solve.html"><a href="solve.html#method"><i class="fa fa-check"></i><b>9.1.5</b> method</a></li>
+<li class="chapter" data-level="9.1.6" data-path="solve.html"><a href="solve.html#stiff"><i class="fa fa-check"></i><b>9.1.6</b> stiff</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="solve.html"><a href="solve.html#lsodadop-solving-options"><i class="fa fa-check"></i><b>9.2</b> lsoda/dop solving options</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="solve.html"><a href="solve.html#atol"><i class="fa fa-check"></i><b>9.2.1</b> atol</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solve.html"><a href="solve.html#rtol"><i class="fa fa-check"></i><b>9.2.2</b> rtol</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solve.html"><a href="solve.html#maxsteps"><i class="fa fa-check"></i><b>9.2.3</b> maxsteps</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solve.html"><a href="solve.html#hmin"><i class="fa fa-check"></i><b>9.2.4</b> hmin</a></li>
+<li class="chapter" data-level="9.2.5" data-path="solve.html"><a href="solve.html#hmax"><i class="fa fa-check"></i><b>9.2.5</b> hmax</a></li>
+<li class="chapter" data-level="9.2.6" data-path="solve.html"><a href="solve.html#hmaxsd"><i class="fa fa-check"></i><b>9.2.6</b> hmaxSd</a></li>
+<li class="chapter" data-level="9.2.7" data-path="solve.html"><a href="solve.html#hini"><i class="fa fa-check"></i><b>9.2.7</b> hini</a></li>
+<li class="chapter" data-level="9.2.8" data-path="solve.html"><a href="solve.html#maxordn"><i class="fa fa-check"></i><b>9.2.8</b> maxordn</a></li>
+<li class="chapter" data-level="9.2.9" data-path="solve.html"><a href="solve.html#maxords"><i class="fa fa-check"></i><b>9.2.9</b> maxords</a></li>
+<li class="chapter" data-level="9.2.10" data-path="solve.html"><a href="solve.html#mxhnil"><i class="fa fa-check"></i><b>9.2.10</b> mxhnil</a></li>
+<li class="chapter" data-level="9.2.11" data-path="solve.html"><a href="solve.html#hmxi"><i class="fa fa-check"></i><b>9.2.11</b> hmxi</a></li>
+<li class="chapter" data-level="9.2.12" data-path="solve.html"><a href="solve.html#istatereset"><i class="fa fa-check"></i><b>9.2.12</b> istateReset</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="solve.html"><a href="solve.html#inductive-linerization-options"><i class="fa fa-check"></i><b>9.3</b> Inductive Linerization Options</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="solve.html"><a href="solve.html#indlinmatexptype"><i class="fa fa-check"></i><b>9.3.1</b> indLinMatExpType</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solve.html"><a href="solve.html#indlinmatexporder"><i class="fa fa-check"></i><b>9.3.2</b> indLinMatExpOrder</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solve.html"><a href="solve.html#indlinphitol"><i class="fa fa-check"></i><b>9.3.3</b> indLinPhiTol</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solve.html"><a href="solve.html#indlinphim"><i class="fa fa-check"></i><b>9.3.4</b> indLinPhiM</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="solve.html"><a href="solve.html#steady-state-solving-options"><i class="fa fa-check"></i><b>9.4</b> Steady State Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="solve.html"><a href="solve.html#minss"><i class="fa fa-check"></i><b>9.4.1</b> minSS</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solve.html"><a href="solve.html#maxss"><i class="fa fa-check"></i><b>9.4.2</b> maxSS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solve.html"><a href="solve.html#strictss"><i class="fa fa-check"></i><b>9.4.3</b> strictSS</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solve.html"><a href="solve.html#infssstep"><i class="fa fa-check"></i><b>9.4.4</b> infSSstep</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solve.html"><a href="solve.html#ssatol"><i class="fa fa-check"></i><b>9.4.5</b> ssAtol</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solve.html"><a href="solve.html#ssrtol"><i class="fa fa-check"></i><b>9.4.6</b> ssRtol</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="solve.html"><a href="solve.html#rxode-numeric-stability-options"><i class="fa fa-check"></i><b>9.5</b> RxODE numeric stability options</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="solve.html"><a href="solve.html#maxatolrtolfactor"><i class="fa fa-check"></i><b>9.5.1</b> maxAtolRtolFactor</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solve.html"><a href="solve.html#statetrim"><i class="fa fa-check"></i><b>9.5.2</b> stateTrim</a></li>
+<li class="chapter" data-level="9.5.3" data-path="solve.html"><a href="solve.html#safezero"><i class="fa fa-check"></i><b>9.5.3</b> safeZero</a></li>
+<li class="chapter" data-level="9.5.4" data-path="solve.html"><a href="solve.html#sumtype"><i class="fa fa-check"></i><b>9.5.4</b> sumType</a></li>
+<li class="chapter" data-level="9.5.5" data-path="solve.html"><a href="solve.html#prodtype"><i class="fa fa-check"></i><b>9.5.5</b> prodType</a></li>
+<li class="chapter" data-level="9.5.6" data-path="solve.html"><a href="solve.html#maxwhile"><i class="fa fa-check"></i><b>9.5.6</b> maxwhile</a></li>
+<li class="chapter" data-level="9.5.7" data-path="solve.html"><a href="solve.html#transitabs"><i class="fa fa-check"></i><b>9.5.7</b> transitAbs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="solve.html"><a href="solve.html#linear-compartment-model-sensitivity-options"><i class="fa fa-check"></i><b>9.6</b> Linear compartment model sensitivity options</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="solve.html"><a href="solve.html#senstype"><i class="fa fa-check"></i><b>9.6.1</b> sensType</a></li>
+<li class="chapter" data-level="9.6.2" data-path="solve.html"><a href="solve.html#lindiff"><i class="fa fa-check"></i><b>9.6.2</b> linDiff</a></li>
+<li class="chapter" data-level="9.6.3" data-path="solve.html"><a href="solve.html#lindiffcentral"><i class="fa fa-check"></i><b>9.6.3</b> linDiffCentral</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="solve.html"><a href="solve.html#covariate-solving-options"><i class="fa fa-check"></i><b>9.7</b> Covariate Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="solve.html"><a href="solve.html#icov"><i class="fa fa-check"></i><b>9.7.1</b> iCov</a></li>
+<li class="chapter" data-level="9.7.2" data-path="solve.html"><a href="solve.html#covsinterpolation"><i class="fa fa-check"></i><b>9.7.2</b> covsInterpolation</a></li>
+<li class="chapter" data-level="9.7.3" data-path="solve.html"><a href="solve.html#addcov"><i class="fa fa-check"></i><b>9.7.3</b> addCov</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="solve.html"><a href="solve.html#simulation-options"><i class="fa fa-check"></i><b>9.8</b> Simulation options</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="solve.html"><a href="solve.html#seed"><i class="fa fa-check"></i><b>9.8.1</b> seed</a></li>
+<li class="chapter" data-level="9.8.2" data-path="solve.html"><a href="solve.html#nsim"><i class="fa fa-check"></i><b>9.8.2</b> nsim</a></li>
+<li class="chapter" data-level="9.8.3" data-path="solve.html"><a href="solve.html#thetamat"><i class="fa fa-check"></i><b>9.8.3</b> thetaMat</a></li>
+<li class="chapter" data-level="9.8.4" data-path="solve.html"><a href="solve.html#thetalower"><i class="fa fa-check"></i><b>9.8.4</b> thetaLower</a></li>
+<li class="chapter" data-level="9.8.5" data-path="solve.html"><a href="solve.html#thetaupper"><i class="fa fa-check"></i><b>9.8.5</b> thetaUpper</a></li>
+<li class="chapter" data-level="9.8.6" data-path="solve.html"><a href="solve.html#thetadf"><i class="fa fa-check"></i><b>9.8.6</b> thetaDf</a></li>
+<li class="chapter" data-level="9.8.7" data-path="solve.html"><a href="solve.html#thetaischol"><i class="fa fa-check"></i><b>9.8.7</b> thetaIsChol</a></li>
+<li class="chapter" data-level="9.8.8" data-path="solve.html"><a href="solve.html#nstud"><i class="fa fa-check"></i><b>9.8.8</b> nStud</a></li>
+<li class="chapter" data-level="9.8.9" data-path="solve.html"><a href="solve.html#omega"><i class="fa fa-check"></i><b>9.8.9</b> omega</a></li>
+<li class="chapter" data-level="9.8.10" data-path="solve.html"><a href="solve.html#omegaischol"><i class="fa fa-check"></i><b>9.8.10</b> omegaIsChol</a></li>
+<li class="chapter" data-level="9.8.11" data-path="solve.html"><a href="solve.html#omegaseparation"><i class="fa fa-check"></i><b>9.8.11</b> omegaSeparation</a></li>
+<li class="chapter" data-level="9.8.12" data-path="solve.html"><a href="solve.html#omegaxform"><i class="fa fa-check"></i><b>9.8.12</b> omegaXform</a></li>
+<li class="chapter" data-level="9.8.13" data-path="solve.html"><a href="solve.html#omegalower"><i class="fa fa-check"></i><b>9.8.13</b> omegaLower</a></li>
+<li class="chapter" data-level="9.8.14" data-path="solve.html"><a href="solve.html#omegaupper"><i class="fa fa-check"></i><b>9.8.14</b> omegaUpper</a></li>
+<li class="chapter" data-level="9.8.15" data-path="solve.html"><a href="solve.html#omegadf"><i class="fa fa-check"></i><b>9.8.15</b> omegaDf</a></li>
+<li class="chapter" data-level="9.8.16" data-path="solve.html"><a href="solve.html#nsub"><i class="fa fa-check"></i><b>9.8.16</b> nSub</a></li>
+<li class="chapter" data-level="9.8.17" data-path="solve.html"><a href="solve.html#dfsub"><i class="fa fa-check"></i><b>9.8.17</b> dfSub</a></li>
+<li class="chapter" data-level="9.8.18" data-path="solve.html"><a href="solve.html#sigma"><i class="fa fa-check"></i><b>9.8.18</b> sigma</a></li>
+<li class="chapter" data-level="9.8.19" data-path="solve.html"><a href="solve.html#sigmalower"><i class="fa fa-check"></i><b>9.8.19</b> sigmaLower</a></li>
+<li class="chapter" data-level="9.8.20" data-path="solve.html"><a href="solve.html#sigmaupper"><i class="fa fa-check"></i><b>9.8.20</b> sigmaUpper</a></li>
+<li class="chapter" data-level="9.8.21" data-path="solve.html"><a href="solve.html#sigmaxform"><i class="fa fa-check"></i><b>9.8.21</b> sigmaXform</a></li>
+<li class="chapter" data-level="9.8.22" data-path="solve.html"><a href="solve.html#sigmadf"><i class="fa fa-check"></i><b>9.8.22</b> sigmaDf</a></li>
+<li class="chapter" data-level="9.8.23" data-path="solve.html"><a href="solve.html#sigmaischol"><i class="fa fa-check"></i><b>9.8.23</b> sigmaIsChol</a></li>
+<li class="chapter" data-level="9.8.24" data-path="solve.html"><a href="solve.html#sigmaseparation"><i class="fa fa-check"></i><b>9.8.24</b> sigmaSeparation</a></li>
+<li class="chapter" data-level="9.8.25" data-path="solve.html"><a href="solve.html#dfobs"><i class="fa fa-check"></i><b>9.8.25</b> dfObs</a></li>
+<li class="chapter" data-level="9.8.26" data-path="solve.html"><a href="solve.html#resample"><i class="fa fa-check"></i><b>9.8.26</b> resample</a></li>
+<li class="chapter" data-level="9.8.27" data-path="solve.html"><a href="solve.html#resampleid"><i class="fa fa-check"></i><b>9.8.27</b> resampleID</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="solve.html"><a href="solve.html#rxode-output-options"><i class="fa fa-check"></i><b>9.9</b> RxODE output options</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="solve.html"><a href="solve.html#returntype"><i class="fa fa-check"></i><b>9.9.1</b> returnType</a></li>
+<li class="chapter" data-level="9.9.2" data-path="solve.html"><a href="solve.html#adddosing"><i class="fa fa-check"></i><b>9.9.2</b> addDosing</a></li>
+<li class="chapter" data-level="9.9.3" data-path="solve.html"><a href="solve.html#keep"><i class="fa fa-check"></i><b>9.9.3</b> keep</a></li>
+<li class="chapter" data-level="9.9.4" data-path="solve.html"><a href="solve.html#drop"><i class="fa fa-check"></i><b>9.9.4</b> drop</a></li>
+<li class="chapter" data-level="9.9.5" data-path="solve.html"><a href="solve.html#idfactor"><i class="fa fa-check"></i><b>9.9.5</b> idFactor</a></li>
+<li class="chapter" data-level="9.9.6" data-path="solve.html"><a href="solve.html#subsetnonmem"><i class="fa fa-check"></i><b>9.9.6</b> subsetNonmem</a></li>
+<li class="chapter" data-level="9.9.7" data-path="solve.html"><a href="solve.html#matrix"><i class="fa fa-check"></i><b>9.9.7</b> matrix</a></li>
+<li class="chapter" data-level="9.9.8" data-path="solve.html"><a href="solve.html#scale"><i class="fa fa-check"></i><b>9.9.8</b> scale</a></li>
+<li class="chapter" data-level="9.9.9" data-path="solve.html"><a href="solve.html#amountunits"><i class="fa fa-check"></i><b>9.9.9</b> amountUnits</a></li>
+<li class="chapter" data-level="9.9.10" data-path="solve.html"><a href="solve.html#timeunits"><i class="fa fa-check"></i><b>9.9.10</b> timeUnits</a></li>
+<li class="chapter" data-level="9.9.11" data-path="solve.html"><a href="solve.html#theta"><i class="fa fa-check"></i><b>9.9.11</b> theta</a></li>
+<li class="chapter" data-level="9.9.12" data-path="solve.html"><a href="solve.html#eta"><i class="fa fa-check"></i><b>9.9.12</b> eta</a></li>
+<li class="chapter" data-level="9.9.13" data-path="solve.html"><a href="solve.html#from"><i class="fa fa-check"></i><b>9.9.13</b> from</a></li>
+<li class="chapter" data-level="9.9.14" data-path="solve.html"><a href="solve.html#to"><i class="fa fa-check"></i><b>9.9.14</b> to</a></li>
+<li class="chapter" data-level="9.9.15" data-path="solve.html"><a href="solve.html#length.out"><i class="fa fa-check"></i><b>9.9.15</b> length.out</a></li>
+<li class="chapter" data-level="9.9.16" data-path="solve.html"><a href="solve.html#by"><i class="fa fa-check"></i><b>9.9.16</b> by</a></li>
+<li class="chapter" data-level="9.9.17" data-path="solve.html"><a href="solve.html#warnidsort"><i class="fa fa-check"></i><b>9.9.17</b> warnIdSort</a></li>
+<li class="chapter" data-level="9.9.18" data-path="solve.html"><a href="solve.html#warndrop"><i class="fa fa-check"></i><b>9.9.18</b> warnDrop</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="solve.html"><a href="solve.html#internal-rxode-options"><i class="fa fa-check"></i><b>9.10</b> Internal RxODE options</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="solve.html"><a href="solve.html#ndisplayprogress"><i class="fa fa-check"></i><b>9.10.1</b> nDisplayProgress</a></li>
+<li class="chapter" data-level="9.10.2" data-path="solve.html"><a href="solve.html#section"><i class="fa fa-check"></i><b>9.10.2</b> …</a></li>
+<li class="chapter" data-level="9.10.3" data-path="solve.html"><a href="solve.html#a"><i class="fa fa-check"></i><b>9.10.3</b> a</a></li>
+<li class="chapter" data-level="9.10.4" data-path="solve.html"><a href="solve.html#b"><i class="fa fa-check"></i><b>9.10.4</b> b</a></li>
+<li class="chapter" data-level="9.10.5" data-path="solve.html"><a href="solve.html#updateobject"><i class="fa fa-check"></i><b>9.10.5</b> updateObject</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="solve.html"><a href="solve.html#parallelthreaded-solve"><i class="fa fa-check"></i><b>9.11</b> Parallel/Threaded Solve</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="solve.html"><a href="solve.html#cores"><i class="fa fa-check"></i><b>9.11.1</b> cores</a></li>
+<li class="chapter" data-level="9.11.2" data-path="solve.html"><a href="solve.html#ncoresrv"><i class="fa fa-check"></i><b>9.11.2</b> nCoresRV</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> RxODE output</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="output.html"><a href="output.html#using-rxode-data-frames"><i class="fa fa-check"></i><b>10.1</b> Using RxODE data frames</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="output.html"><a href="output.html#creating-an-interactive-data-frame"><i class="fa fa-check"></i><b>10.1.1</b> Creating an interactive data frame</a></li>
+<li class="chapter" data-level="10.1.2" data-path="output.html"><a href="output.html#rxode-solved-object-properties"><i class="fa fa-check"></i><b>10.1.2</b> RxODE solved object properties</a></li>
+<li class="chapter" data-level="10.1.3" data-path="output.html"><a href="output.html#using-the-solved-object-as-a-simple-data-frame"><i class="fa fa-check"></i><b>10.1.3</b> Using the solved object as a simple data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="output.html"><a href="output.html#updating-the-data-set-interactively"><i class="fa fa-check"></i><b>10.2</b> Updating the data-set interactively</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="output.html"><a href="output.html#modifying-initial-conditions"><i class="fa fa-check"></i><b>10.2.1</b> Modifying initial conditions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="output.html"><a href="output.html#modifying-observation-times-for-rxode"><i class="fa fa-check"></i><b>10.2.2</b> Modifying observation times for RxODE</a></li>
+<li class="chapter" data-level="10.2.3" data-path="output.html"><a href="output.html#modifying-simulation-parameters"><i class="fa fa-check"></i><b>10.2.3</b> Modifying simulation parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a></li>
+<li class="chapter" data-level="12" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>12</b> Examples</a></li>
+<li class="chapter" data-level="13" data-path="prediction-only-models.html"><a href="prediction-only-models.html"><i class="fa fa-check"></i><b>13</b> Prediction only models</a></li>
+<li class="chapter" data-level="14" data-path="solved-compartment-models.html"><a href="solved-compartment-models.html"><i class="fa fa-check"></i><b>14</b> Solved compartment models</a></li>
+<li class="chapter" data-level="15" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html"><i class="fa fa-check"></i><b>15</b> Mixing Solved Systems and ODEs.</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#weight-based-dosing"><i class="fa fa-check"></i><b>15.1</b> Weight based dosing</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#creating-a-2-compartment-model-in-rxode"><i class="fa fa-check"></i><b>15.1.1</b> Creating a 2-compartment model in RxODE</a></li>
+<li class="chapter" data-level="15.1.2" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#simulating-covariates"><i class="fa fa-check"></i><b>15.1.2</b> Simulating Covariates</a></li>
+<li class="chapter" data-level="15.1.3" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#creating-weight-based-event-table"><i class="fa fa-check"></i><b>15.1.3</b> Creating weight based event table</a></li>
+<li class="chapter" data-level="15.1.4" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#solving-daptomycin-simulation"><i class="fa fa-check"></i><b>15.1.4</b> Solving Daptomycin simulation</a></li>
+<li class="chapter" data-level="15.1.5" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#daptomycin-reference"><i class="fa fa-check"></i><b>15.1.5</b> Daptomycin Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#inter-occasion-and-other-nesting-examples"><i class="fa fa-check"></i><b>15.2</b> Inter-occasion and other nesting examples</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#event-table"><i class="fa fa-check"></i><b>15.2.1</b> Event table</a></li>
+<li class="chapter" data-level="15.2.2" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#rxode-model"><i class="fa fa-check"></i><b>15.2.2</b> RxODE model</a></li>
+<li class="chapter" data-level="15.2.3" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#uncertainty-in-model-parameters"><i class="fa fa-check"></i><b>15.2.3</b> Uncertainty in Model parameters</a></li>
+<li class="chapter" data-level="15.2.4" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#nesting-variability"><i class="fa fa-check"></i><b>15.2.4</b> Nesting Variability</a></li>
+<li class="chapter" data-level="15.2.5" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#unexplained-variability"><i class="fa fa-check"></i><b>15.2.5</b> Unexplained variability</a></li>
+<li class="chapter" data-level="15.2.6" data-path="mixing-solved-systems-and-odes-.html"><a href="mixing-solved-systems-and-odes-.html#solving-the-problem"><i class="fa fa-check"></i><b>15.2.6</b> Solving the problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html"><i class="fa fa-check"></i><b>16</b> Advanced &amp; Miscellaneous Topics</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-rxode-with-a-pipeline"><i class="fa fa-check"></i><b>16.1</b> Using RxODE with a pipeline</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#setting-up-the-rxode-model-for-the-pipeline"><i class="fa fa-check"></i><b>16.1.1</b> Setting up the RxODE model for the pipeline</a></li>
+<li class="chapter" data-level="16.1.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-one-event-table"><i class="fa fa-check"></i><b>16.1.2</b> Simulating one event table</a></li>
+<li class="chapter" data-level="16.1.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-multiple-subjects-from-a-single-event-table"><i class="fa fa-check"></i><b>16.1.3</b> Simulating multiple subjects from a single event table</a></li>
+<li class="chapter" data-level="16.1.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#summarizing-the-simulation-output"><i class="fa fa-check"></i><b>16.1.4</b> Summarizing the simulation output</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#speeding-up-rxode"><i class="fa fa-check"></i><b>16.2</b> Speeding up RxODE</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#increasing-rxode-speed-by-multi-subject-parallel-solving"><i class="fa fa-check"></i><b>16.2.1</b> Increasing RxODE speed by multi-subject parallel solving</a></li>
+<li class="chapter" data-level="16.2.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#a-real-life-example"><i class="fa fa-check"></i><b>16.2.2</b> A real life example</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#integrating-rxode-models-in-your-package"><i class="fa fa-check"></i><b>16.3</b> Integrating RxODE models in your package</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-pre-compiled-models-in-your-packages"><i class="fa fa-check"></i><b>16.3.1</b> Using Pre-compiled models in your packages</a></li>
+<li class="chapter" data-level="16.3.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-models-in-a-already-present-package"><i class="fa fa-check"></i><b>16.3.2</b> Using Models in a already present package</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#stiff-odes-with-jacobian-specification"><i class="fa fa-check"></i><b>16.4</b> Stiff ODEs with Jacobian Specification</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RxODE user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mixing-solved-systems-and-odes." class="section level1" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Mixing Solved Systems and ODEs.</h1>
+<p>In addition to pure ODEs, you may mix solved systems and ODEs. The
+prior 2-compartment indirect response model can be simplified with a
+<code>linCmt()</code> function:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="mixing-solved-systems-and-odes-.html#cb162-1" aria-hidden="true"></a><span class="kw">library</span>(RxODE)</span>
+<span id="cb162-2"><a href="mixing-solved-systems-and-odes-.html#cb162-2" aria-hidden="true"></a><span class="co">## Setup example model</span></span>
+<span id="cb162-3"><a href="mixing-solved-systems-and-odes-.html#cb162-3" aria-hidden="true"></a>mod1 &lt;-<span class="kw">RxODE</span>({</span>
+<span id="cb162-4"><a href="mixing-solved-systems-and-odes-.html#cb162-4" aria-hidden="true"></a>    C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
+<span id="cb162-5"><a href="mixing-solved-systems-and-odes-.html#cb162-5" aria-hidden="true"></a>    C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb162-6"><a href="mixing-solved-systems-and-odes-.html#cb162-6" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb162-7"><a href="mixing-solved-systems-and-odes-.html#cb162-7" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb162-8"><a href="mixing-solved-systems-and-odes-.html#cb162-8" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb162-9"><a href="mixing-solved-systems-and-odes-.html#cb162-9" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb162-10"><a href="mixing-solved-systems-and-odes-.html#cb162-10" aria-hidden="true"></a>});</span>
+<span id="cb162-11"><a href="mixing-solved-systems-and-odes-.html#cb162-11" aria-hidden="true"></a></span>
+<span id="cb162-12"><a href="mixing-solved-systems-and-odes-.html#cb162-12" aria-hidden="true"></a><span class="co">## Seup parameters and initial conditions</span></span>
+<span id="cb162-13"><a href="mixing-solved-systems-and-odes-.html#cb162-13" aria-hidden="true"></a></span>
+<span id="cb162-14"><a href="mixing-solved-systems-and-odes-.html#cb162-14" aria-hidden="true"></a>theta &lt;-</span>
+<span id="cb162-15"><a href="mixing-solved-systems-and-odes-.html#cb162-15" aria-hidden="true"></a><span class="st">    </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">CL=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>, <span class="co"># central</span></span>
+<span id="cb162-16"><a href="mixing-solved-systems-and-odes-.html#cb162-16" aria-hidden="true"></a>      <span class="dt">Q=</span><span class="fl">1.05E+01</span>,  <span class="dt">V3=</span><span class="fl">2.97E+02</span>,              <span class="co"># peripheral</span></span>
+<span id="cb162-17"><a href="mixing-solved-systems-and-odes-.html#cb162-17" aria-hidden="true"></a>      <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)               <span class="co"># effects</span></span>
+<span id="cb162-18"><a href="mixing-solved-systems-and-odes-.html#cb162-18" aria-hidden="true"></a></span>
+<span id="cb162-19"><a href="mixing-solved-systems-and-odes-.html#cb162-19" aria-hidden="true"></a>inits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">eff=</span><span class="dv">1</span>);</span>
+<span id="cb162-20"><a href="mixing-solved-systems-and-odes-.html#cb162-20" aria-hidden="true"></a></span>
+<span id="cb162-21"><a href="mixing-solved-systems-and-odes-.html#cb162-21" aria-hidden="true"></a><span class="co">## Setup dosing event information</span></span>
+<span id="cb162-22"><a href="mixing-solved-systems-and-odes-.html#cb162-22" aria-hidden="true"></a>ev &lt;-<span class="st"> </span><span class="kw">eventTable</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb162-23"><a href="mixing-solved-systems-and-odes-.html#cb162-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">nbr.doses=</span><span class="dv">10</span>, <span class="dt">dosing.interval=</span><span class="dv">12</span>) <span class="op">%&gt;%</span></span>
+<span id="cb162-24"><a href="mixing-solved-systems-and-odes-.html#cb162-24" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">20000</span>, <span class="dt">nbr.doses=</span><span class="dv">5</span>, <span class="dt">start.time=</span><span class="dv">120</span>,<span class="dt">dosing.interval=</span><span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb162-25"><a href="mixing-solved-systems-and-odes-.html#cb162-25" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.sampling</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">240</span>);</span>
+<span id="cb162-26"><a href="mixing-solved-systems-and-odes-.html#cb162-26" aria-hidden="true"></a></span>
+<span id="cb162-27"><a href="mixing-solved-systems-and-odes-.html#cb162-27" aria-hidden="true"></a><span class="co">## Setup a mixed solved/ode system:</span></span>
+<span id="cb162-28"><a href="mixing-solved-systems-and-odes-.html#cb162-28" aria-hidden="true"></a>mod2 &lt;-<span class="st"> </span><span class="kw">RxODE</span>({</span>
+<span id="cb162-29"><a href="mixing-solved-systems-and-odes-.html#cb162-29" aria-hidden="true"></a>    <span class="co">## the order of variables do not matter, the type of compartmental</span></span>
+<span id="cb162-30"><a href="mixing-solved-systems-and-odes-.html#cb162-30" aria-hidden="true"></a>    <span class="co">## model is determined by the parameters specified.</span></span>
+<span id="cb162-31"><a href="mixing-solved-systems-and-odes-.html#cb162-31" aria-hidden="true"></a>    C2   =<span class="st"> </span><span class="kw">linCmt</span>(KA, CL, V2, Q, V3);</span>
+<span id="cb162-32"><a href="mixing-solved-systems-and-odes-.html#cb162-32" aria-hidden="true"></a>    <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span>  <span class="co">## This specifies that the effect compartment starts at 1.</span></span>
+<span id="cb162-33"><a href="mixing-solved-systems-and-odes-.html#cb162-33" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff) =<span class="st">  </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb162-34"><a href="mixing-solved-systems-and-odes-.html#cb162-34" aria-hidden="true"></a>})</span></code></pre></div>
+<p>This allows the indirect response model above to assign the
+2-compartment model to the <code>C2</code> variable and the used in the indirect
+response model.</p>
+<p>When mixing the solved systems and the ODEs, the solved system’s
+compartment is always the last compartment. This is because the
+solved system technically isn’t a compartment to be solved. Adding
+the dosing compartment to the end will not interfere with the actual
+ODE to be solved.</p>
+<p>Therefore,in the two-compartment indirect response model, the effect
+compartment is compartment #1 while the PK dosing compartment for the
+depot is compartment #2.</p>
+<p>This compartment model requires a new event table since the
+compartment number changed:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="mixing-solved-systems-and-odes-.html#cb163-1" aria-hidden="true"></a>ev &lt;-<span class="st"> </span><span class="kw">eventTable</span>(<span class="dt">amount.units=</span><span class="st">&#39;mg&#39;</span>, <span class="dt">time.units=</span><span class="st">&#39;hours&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb163-2"><a href="mixing-solved-systems-and-odes-.html#cb163-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">nbr.doses=</span><span class="dv">10</span>, <span class="dt">dosing.interval=</span><span class="dv">12</span>,<span class="dt">dosing.to=</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb163-3"><a href="mixing-solved-systems-and-odes-.html#cb163-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">20000</span>, <span class="dt">nbr.doses=</span><span class="dv">5</span>, <span class="dt">start.time=</span><span class="dv">120</span>,<span class="dt">dosing.interval=</span><span class="dv">24</span>,<span class="dt">dosing.to=</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb163-4"><a href="mixing-solved-systems-and-odes-.html#cb163-4" aria-hidden="true"></a><span class="st">    </span><span class="kw">add.sampling</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">240</span>);</span></code></pre></div>
+<p>This can be solved with the following command:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="mixing-solved-systems-and-odes-.html#cb164-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod2 <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">solve</span>(theta, ev)</span>
+<span id="cb164-2"><a href="mixing-solved-systems-and-odes-.html#cb164-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt;      CL      V2       Q      V3      KA     Kin    Kout    EC50 
+#&gt;  18.600  40.200  10.500 297.000   0.294   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; eff 
+#&gt;   1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 3
+#&gt;    time    C2   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0 249.   1   
+#&gt; 2     1 121.   1.35
+#&gt; 3     2  60.3  1.38
+#&gt; 4     3  31.0  1.28
+#&gt; 5     4  17.0  1.18
+#&gt; 6     5  10.2  1.11
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<p>Note this solving did not require specifying the effect compartment
+initial condition to be <code>1</code>. Rather, this is already pre-specified by <code>eff(0)=1</code>.</p>
+<p>This can be solved for different initial conditions easily:</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="mixing-solved-systems-and-odes-.html#cb166-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod2 <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">solve</span>(theta, ev,<span class="kw">c</span>(<span class="dt">eff=</span><span class="dv">2</span>))</span>
+<span id="cb166-2"><a href="mixing-solved-systems-and-odes-.html#cb166-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt;      CL      V2       Q      V3      KA     Kin    Kout    EC50 
+#&gt;  18.600  40.200  10.500 297.000   0.294   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; eff 
+#&gt;   2 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 3
+#&gt;    time    C2   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0 249.   2   
+#&gt; 2     1 121.   1.93
+#&gt; 3     2  60.3  1.67
+#&gt; 4     3  31.0  1.41
+#&gt; 5     4  17.0  1.23
+#&gt; 6     5  10.2  1.13
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<p>The RxODE detective also does not require you to specify the variables
+in the <code>linCmt()</code> function if they are already defined in the block.
+Therefore, the following function will also work to solve the same
+system.</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="mixing-solved-systems-and-odes-.html#cb168-1" aria-hidden="true"></a>mod3 &lt;-<span class="st"> </span><span class="kw">RxODE</span>({</span>
+<span id="cb168-2"><a href="mixing-solved-systems-and-odes-.html#cb168-2" aria-hidden="true"></a>    KA=<span class="fl">2.94E-01</span>;</span>
+<span id="cb168-3"><a href="mixing-solved-systems-and-odes-.html#cb168-3" aria-hidden="true"></a>    CL=<span class="fl">1.86E+01</span>;</span>
+<span id="cb168-4"><a href="mixing-solved-systems-and-odes-.html#cb168-4" aria-hidden="true"></a>    V2=<span class="fl">4.02E+01</span>;</span>
+<span id="cb168-5"><a href="mixing-solved-systems-and-odes-.html#cb168-5" aria-hidden="true"></a>    Q=<span class="fl">1.05E+01</span>;</span>
+<span id="cb168-6"><a href="mixing-solved-systems-and-odes-.html#cb168-6" aria-hidden="true"></a>    V3=<span class="fl">2.97E+02</span>;</span>
+<span id="cb168-7"><a href="mixing-solved-systems-and-odes-.html#cb168-7" aria-hidden="true"></a>    Kin=<span class="dv">1</span>;</span>
+<span id="cb168-8"><a href="mixing-solved-systems-and-odes-.html#cb168-8" aria-hidden="true"></a>    Kout=<span class="dv">1</span>;</span>
+<span id="cb168-9"><a href="mixing-solved-systems-and-odes-.html#cb168-9" aria-hidden="true"></a>    EC50=<span class="dv">200</span>;</span>
+<span id="cb168-10"><a href="mixing-solved-systems-and-odes-.html#cb168-10" aria-hidden="true"></a>    <span class="co">## The linCmt() picks up the variables from above</span></span>
+<span id="cb168-11"><a href="mixing-solved-systems-and-odes-.html#cb168-11" aria-hidden="true"></a>    C2   =<span class="st"> </span><span class="kw">linCmt</span>();</span>
+<span id="cb168-12"><a href="mixing-solved-systems-and-odes-.html#cb168-12" aria-hidden="true"></a>    <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span>  <span class="co">## This specifies that the effect compartment starts at 1.</span></span>
+<span id="cb168-13"><a href="mixing-solved-systems-and-odes-.html#cb168-13" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff) =<span class="st">  </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb168-14"><a href="mixing-solved-systems-and-odes-.html#cb168-14" aria-hidden="true"></a>})</span>
+<span id="cb168-15"><a href="mixing-solved-systems-and-odes-.html#cb168-15" aria-hidden="true"></a></span>
+<span id="cb168-16"><a href="mixing-solved-systems-and-odes-.html#cb168-16" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod3 <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">solve</span>(ev)</span>
+<span id="cb168-17"><a href="mixing-solved-systems-and-odes-.html#cb168-17" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 
+#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; eff 
+#&gt;   1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 3
+#&gt;    time    C2   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0 249.   1   
+#&gt; 2     1 121.   1.35
+#&gt; 3     2  60.3  1.38
+#&gt; 4     3  31.0  1.28
+#&gt; 5     4  17.0  1.18
+#&gt; 6     5  10.2  1.11
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<p>Note that you do not specify the parameters when solving the system
+since they are built into the model, but you can override the parameters:</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="mixing-solved-systems-and-odes-.html#cb170-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod3 <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">solve</span>(<span class="kw">c</span>(<span class="dt">KA=</span><span class="dv">10</span>),ev)</span>
+<span id="cb170-2"><a href="mixing-solved-systems-and-odes-.html#cb170-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt;    KA    CL    V2     Q    V3   Kin  Kout  EC50 
+#&gt;  10.0  18.6  40.2  10.5 297.0   1.0   1.0 200.0 
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; eff 
+#&gt;   1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 3
+#&gt;    time    C2   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0 249.   1   
+#&gt; 2     1 121.   1.35
+#&gt; 3     2  60.3  1.38
+#&gt; 4     3  31.0  1.28
+#&gt; 5     4  17.0  1.18
+#&gt; 6     5  10.2  1.11
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<div id="weight-based-dosing" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Weight based dosing</h2>
+<p>This is an example model for weight based dosing of
+daptomycin. Daptomycin is a cyclic lipopeptide antibiotic from
+fermented <em>Streptomyces roseosporus</em>.</p>
+<p>There are 3 stages for weight-based dosing simulations:
+- Create RxODE model
+- Simulate Covariates
+- Create event table with weight-based dosing (merged back to covariates)</p>
+<div id="creating-a-2-compartment-model-in-rxode" class="section level3" number="15.1.1">
+<h3><span class="header-section-number">15.1.1</span> Creating a 2-compartment model in RxODE</h3>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="mixing-solved-systems-and-odes-.html#cb172-1" aria-hidden="true"></a><span class="kw">library</span>(RxODE)</span>
+<span id="cb172-2"><a href="mixing-solved-systems-and-odes-.html#cb172-2" aria-hidden="true"></a></span>
+<span id="cb172-3"><a href="mixing-solved-systems-and-odes-.html#cb172-3" aria-hidden="true"></a><span class="co">## Note the time covariate is not included in the simulation</span></span>
+<span id="cb172-4"><a href="mixing-solved-systems-and-odes-.html#cb172-4" aria-hidden="true"></a>m1 &lt;-<span class="st"> </span><span class="kw">RxODE</span>({</span>
+<span id="cb172-5"><a href="mixing-solved-systems-and-odes-.html#cb172-5" aria-hidden="true"></a>  CL <span class="op">~</span><span class="st"> </span>(<span class="dv">1</span><span class="fl">-0.2</span><span class="op">*</span>SEX)<span class="op">*</span>(<span class="fl">0.807+0.00514</span><span class="op">*</span>(CRCL<span class="fl">-91.2</span>))<span class="op">*</span><span class="kw">exp</span>(eta.cl)</span>
+<span id="cb172-6"><a href="mixing-solved-systems-and-odes-.html#cb172-6" aria-hidden="true"></a>  V1 <span class="op">~</span><span class="st"> </span><span class="fl">4.8</span><span class="op">*</span><span class="kw">exp</span>(eta.v1)</span>
+<span id="cb172-7"><a href="mixing-solved-systems-and-odes-.html#cb172-7" aria-hidden="true"></a>  Q <span class="op">~</span><span class="st"> </span>(<span class="fl">3.46+0.0593</span><span class="op">*</span>(WT<span class="fl">-75.1</span>))<span class="op">*</span><span class="kw">exp</span>(eta.q);</span>
+<span id="cb172-8"><a href="mixing-solved-systems-and-odes-.html#cb172-8" aria-hidden="true"></a>  V2 <span class="op">~</span><span class="st"> </span><span class="fl">1.93</span><span class="op">*</span>(<span class="fl">3.13+0.0458</span><span class="op">*</span>(WT<span class="fl">-75.1</span>))<span class="op">*</span><span class="kw">exp</span>(eta.v2)</span>
+<span id="cb172-9"><a href="mixing-solved-systems-and-odes-.html#cb172-9" aria-hidden="true"></a>  A1 <span class="op">~</span><span class="st"> </span>centr;</span>
+<span id="cb172-10"><a href="mixing-solved-systems-and-odes-.html#cb172-10" aria-hidden="true"></a>  A2 <span class="op">~</span><span class="st"> </span>peri;</span>
+<span id="cb172-11"><a href="mixing-solved-systems-and-odes-.html#cb172-11" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) <span class="op">~</span><span class="st"> </span><span class="op">-</span><span class="st"> </span>A1<span class="op">*</span>(CL<span class="op">/</span>V1 <span class="op">+</span><span class="st"> </span>Q<span class="op">/</span>V1) <span class="op">+</span><span class="st"> </span>A2<span class="op">*</span>Q<span class="op">/</span>V2;</span>
+<span id="cb172-12"><a href="mixing-solved-systems-and-odes-.html#cb172-12" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri) <span class="op">~</span><span class="st"> </span>A1<span class="op">*</span>Q<span class="op">/</span>V1 <span class="op">-</span><span class="st"> </span>A2<span class="op">*</span>Q<span class="op">/</span>V2;</span>
+<span id="cb172-13"><a href="mixing-solved-systems-and-odes-.html#cb172-13" aria-hidden="true"></a>  DV =<span class="st"> </span>centr <span class="op">/</span><span class="st"> </span>V1 <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>prop.err)</span>
+<span id="cb172-14"><a href="mixing-solved-systems-and-odes-.html#cb172-14" aria-hidden="true"></a>})</span></code></pre></div>
+</div>
+<div id="simulating-covariates" class="section level3" number="15.1.2">
+<h3><span class="header-section-number">15.1.2</span> Simulating Covariates</h3>
+<p>This simulation correlates age, sex, and weight. Since we will be
+using weight based dosing, this needs to be simulated first</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="mixing-solved-systems-and-odes-.html#cb173-1" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb173-2"><a href="mixing-solved-systems-and-odes-.html#cb173-2" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb173-3"><a href="mixing-solved-systems-and-odes-.html#cb173-3" aria-hidden="true"></a>nsub=<span class="dv">30</span></span>
+<span id="cb173-4"><a href="mixing-solved-systems-and-odes-.html#cb173-4" aria-hidden="true"></a><span class="co">### Simulate Weight based on age and gender</span></span>
+<span id="cb173-5"><a href="mixing-solved-systems-and-odes-.html#cb173-5" aria-hidden="true"></a>AGE&lt;-<span class="kw">round</span>(<span class="kw">runif</span>(nsub,<span class="dt">min=</span><span class="dv">18</span>,<span class="dt">max=</span><span class="dv">70</span>))</span>
+<span id="cb173-6"><a href="mixing-solved-systems-and-odes-.html#cb173-6" aria-hidden="true"></a>SEX&lt;-<span class="kw">round</span>(<span class="kw">runif</span>(nsub,<span class="dt">min=</span><span class="dv">0</span>,<span class="dt">max=</span><span class="dv">1</span>))</span>
+<span id="cb173-7"><a href="mixing-solved-systems-and-odes-.html#cb173-7" aria-hidden="true"></a>HTm&lt;-<span class="kw">round</span>(<span class="kw">rnorm</span>(nsub,<span class="fl">176.3</span>,<span class="fl">0.17</span><span class="op">*</span><span class="kw">sqrt</span>(<span class="dv">4482</span>)),<span class="dt">digits=</span><span class="dv">1</span>)</span>
+<span id="cb173-8"><a href="mixing-solved-systems-and-odes-.html#cb173-8" aria-hidden="true"></a>HTf&lt;-<span class="kw">round</span>(<span class="kw">rnorm</span>(nsub,<span class="fl">162.2</span>,<span class="fl">0.16</span><span class="op">*</span><span class="kw">sqrt</span>(<span class="dv">4857</span>)),<span class="dt">digits=</span><span class="dv">1</span>)</span>
+<span id="cb173-9"><a href="mixing-solved-systems-and-odes-.html#cb173-9" aria-hidden="true"></a>WTm&lt;-<span class="kw">round</span>(<span class="kw">exp</span>(<span class="fl">3.28+1.92</span><span class="op">*</span><span class="kw">log</span>(HTm<span class="op">/</span><span class="dv">100</span>))<span class="op">*</span><span class="kw">exp</span>(<span class="kw">rnorm</span>(nsub,<span class="dv">0</span>,<span class="fl">0.14</span>)),<span class="dt">digits=</span><span class="dv">1</span>)</span>
+<span id="cb173-10"><a href="mixing-solved-systems-and-odes-.html#cb173-10" aria-hidden="true"></a>WTf&lt;-<span class="kw">round</span>(<span class="kw">exp</span>(<span class="fl">3.49+1.45</span><span class="op">*</span><span class="kw">log</span>(HTf<span class="op">/</span><span class="dv">100</span>))<span class="op">*</span><span class="kw">exp</span>(<span class="kw">rnorm</span>(nsub,<span class="dv">0</span>,<span class="fl">0.17</span>)),<span class="dt">digits=</span><span class="dv">1</span>)</span>
+<span id="cb173-11"><a href="mixing-solved-systems-and-odes-.html#cb173-11" aria-hidden="true"></a>WT&lt;-<span class="kw">ifelse</span>(SEX<span class="op">==</span><span class="dv">1</span>,WTf,WTm)</span>
+<span id="cb173-12"><a href="mixing-solved-systems-and-odes-.html#cb173-12" aria-hidden="true"></a>CRCL&lt;-<span class="kw">round</span>(<span class="kw">runif</span>(nsub,<span class="dv">30</span>,<span class="dv">140</span>))</span>
+<span id="cb173-13"><a href="mixing-solved-systems-and-odes-.html#cb173-13" aria-hidden="true"></a><span class="co">## id is in lower case to match the event table</span></span>
+<span id="cb173-14"><a href="mixing-solved-systems-and-odes-.html#cb173-14" aria-hidden="true"></a>cov.df &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">id=</span><span class="kw">seq_along</span>(AGE), <span class="dt">AGE=</span>AGE, <span class="dt">SEX=</span>SEX, <span class="dt">WT=</span>WT, <span class="dt">CRCL=</span>CRCL)</span>
+<span id="cb173-15"><a href="mixing-solved-systems-and-odes-.html#cb173-15" aria-hidden="true"></a><span class="kw">print</span>(cov.df)</span></code></pre></div>
+<pre><code>#&gt; # A tibble: 30 x 5
+#&gt;       id   AGE   SEX    WT  CRCL
+#&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1     1    66     1  49.4    83
+#&gt;  2     2    67     1  52.5    79
+#&gt;  3     3    33     0  97.9    37
+#&gt;  4     4    61     1  63.8    66
+#&gt;  5     5    51     0  71.8   127
+#&gt;  6     6    45     1  69.6   132
+#&gt;  7     7    56     0  61      73
+#&gt;  8     8    25     0  57.7    47
+#&gt;  9     9    52     1  58.7    65
+#&gt; 10    10    55     1  73.1    64
+#&gt; # ... with 20 more rows</code></pre>
+</div>
+<div id="creating-weight-based-event-table" class="section level3" number="15.1.3">
+<h3><span class="header-section-number">15.1.3</span> Creating weight based event table</h3>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="mixing-solved-systems-and-odes-.html#cb175-1" aria-hidden="true"></a>s&lt;-<span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="kw">seq</span>(<span class="dv">2</span>,<span class="dv">24</span>,<span class="dt">by=</span><span class="dv">1</span>))</span>
+<span id="cb175-2"><a href="mixing-solved-systems-and-odes-.html#cb175-2" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">lapply</span>(s, <span class="cf">function</span>(x){.x &lt;-<span class="st"> </span><span class="fl">0.1</span> <span class="op">*</span><span class="st"> </span>x; <span class="kw">c</span>(x <span class="op">-</span><span class="st"> </span>.x, x <span class="op">+</span><span class="st"> </span>.x)})</span>
+<span id="cb175-3"><a href="mixing-solved-systems-and-odes-.html#cb175-3" aria-hidden="true"></a></span>
+<span id="cb175-4"><a href="mixing-solved-systems-and-odes-.html#cb175-4" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">et</span>() <span class="op">%&gt;%</span></span>
+<span id="cb175-5"><a href="mixing-solved-systems-and-odes-.html#cb175-5" aria-hidden="true"></a><span class="st">    </span><span class="co">## Specify the id and weight based dosing from covariate data.frame</span></span>
+<span id="cb175-6"><a href="mixing-solved-systems-and-odes-.html#cb175-6" aria-hidden="true"></a><span class="st">    </span><span class="co">## This requires RxODE XXX </span></span>
+<span id="cb175-7"><a href="mixing-solved-systems-and-odes-.html#cb175-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">id=</span>cov.df<span class="op">$</span>id, <span class="dt">amt=</span><span class="dv">6</span><span class="op">*</span>cov.df<span class="op">$</span>WT, <span class="dt">rate=</span><span class="dv">6</span> <span class="op">*</span><span class="st"> </span>cov.df<span class="op">$</span>WT) <span class="op">%&gt;%</span></span>
+<span id="cb175-8"><a href="mixing-solved-systems-and-odes-.html#cb175-8" aria-hidden="true"></a><span class="st">    </span><span class="co">## Sampling is added for each ID</span></span>
+<span id="cb175-9"><a href="mixing-solved-systems-and-odes-.html#cb175-9" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(s) <span class="op">%&gt;%</span></span>
+<span id="cb175-10"><a href="mixing-solved-systems-and-odes-.html#cb175-10" aria-hidden="true"></a><span class="st">    </span>as.data.frame <span class="op">%&gt;%</span></span>
+<span id="cb175-11"><a href="mixing-solved-systems-and-odes-.html#cb175-11" aria-hidden="true"></a><span class="st">    </span><span class="co">## Merge the event table with the covarite information</span></span>
+<span id="cb175-12"><a href="mixing-solved-systems-and-odes-.html#cb175-12" aria-hidden="true"></a><span class="st">    </span><span class="kw">merge</span>(cov.df, <span class="dt">by=</span><span class="st">&quot;id&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb175-13"><a href="mixing-solved-systems-and-odes-.html#cb175-13" aria-hidden="true"></a><span class="st">    </span>as_tibble</span>
+<span id="cb175-14"><a href="mixing-solved-systems-and-odes-.html#cb175-14" aria-hidden="true"></a></span>
+<span id="cb175-15"><a href="mixing-solved-systems-and-odes-.html#cb175-15" aria-hidden="true"></a></span>
+<span id="cb175-16"><a href="mixing-solved-systems-and-odes-.html#cb175-16" aria-hidden="true"></a>e</span></code></pre></div>
+<pre><code>#&gt; # A tibble: 900 x 12
+#&gt;       id    low  time   high cmt         amt  rate  evid   AGE   SEX    WT  CRCL
+#&gt;    &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1     1  0     0      0     (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  2     1 NA     0     NA     (default)  296.  296.     1    66     1  49.4    83
+#&gt;  3     1  0.225 0.246  0.275 (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  4     1  0.45  0.516  0.55  (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  5     1  0.675 0.729  0.825 (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  6     1  0.9   0.921  1.1   (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  7     1  1.35  1.42   1.65  (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  8     1  1.8   1.82   2.2   (obs)       NA    NA      0    66     1  49.4    83
+#&gt;  9     1  2.7   2.97   3.3   (obs)       NA    NA      0    66     1  49.4    83
+#&gt; 10     1  3.6   3.87   4.4   (obs)       NA    NA      0    66     1  49.4    83
+#&gt; # ... with 890 more rows</code></pre>
+</div>
+<div id="solving-daptomycin-simulation" class="section level3" number="15.1.4">
+<h3><span class="header-section-number">15.1.4</span> Solving Daptomycin simulation</h3>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="mixing-solved-systems-and-odes-.html#cb177-1" aria-hidden="true"></a>data &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(m1, e,</span>
+<span id="cb177-2"><a href="mixing-solved-systems-and-odes-.html#cb177-2" aria-hidden="true"></a>             <span class="co">## Lotri uses lower-triangular matrix rep. for named matrix</span></span>
+<span id="cb177-3"><a href="mixing-solved-systems-and-odes-.html#cb177-3" aria-hidden="true"></a>             <span class="dt">omega=</span><span class="kw">lotri</span>(eta.cl <span class="op">~</span><span class="st"> </span><span class="fl">.306</span>, </span>
+<span id="cb177-4"><a href="mixing-solved-systems-and-odes-.html#cb177-4" aria-hidden="true"></a>                         eta.q <span class="op">~</span><span class="fl">0.0652</span>,</span>
+<span id="cb177-5"><a href="mixing-solved-systems-and-odes-.html#cb177-5" aria-hidden="true"></a>                         eta.v1 <span class="op">~</span>.<span class="dv">567</span>,</span>
+<span id="cb177-6"><a href="mixing-solved-systems-and-odes-.html#cb177-6" aria-hidden="true"></a>                         eta.v2 <span class="op">~</span><span class="st"> </span><span class="fl">.191</span>),</span>
+<span id="cb177-7"><a href="mixing-solved-systems-and-odes-.html#cb177-7" aria-hidden="true"></a>             <span class="dt">sigma=</span><span class="kw">lotri</span>(prop.err <span class="op">~</span><span class="st"> </span><span class="fl">0.15</span>),</span>
+<span id="cb177-8"><a href="mixing-solved-systems-and-odes-.html#cb177-8" aria-hidden="true"></a>             <span class="dt">addDosing =</span> <span class="ot">TRUE</span>, <span class="dt">addCov =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb177-9"><a href="mixing-solved-systems-and-odes-.html#cb177-9" aria-hidden="true"></a></span>
+<span id="cb177-10"><a href="mixing-solved-systems-and-odes-.html#cb177-10" aria-hidden="true"></a><span class="kw">print</span>(data)</span></code></pre></div>
+<pre><code>#&gt; ______________________________ Solved RxODE object _____________________________
+#&gt; -- Parameters ($params): -------------------------------------------------------
+#&gt; # A tibble: 30 x 5
+#&gt;    id     eta.cl  eta.v1   eta.q  eta.v2
+#&gt;    &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 1      0.563   0.580   0.0360 -0.246 
+#&gt;  2 2      0.0341  0.406  -0.139  -0.481 
+#&gt;  3 3     -0.447   0.0952 -0.185  -0.249 
+#&gt;  4 4     -0.988   0.248  -0.131  -0.449 
+#&gt;  5 5      0.144  -1.14    0.106   0.360 
+#&gt;  6 6     -0.689   0.407  -0.193  -0.200 
+#&gt;  7 7     -0.426  -0.706  -0.190  -0.234 
+#&gt;  8 8     -0.212   0.728   0.335   0.0665
+#&gt;  9 9      0.0884 -0.934   0.337   0.154 
+#&gt; 10 10    -0.557   1.29    0.0163 -0.140 
+#&gt; # ... with 20 more rows
+#&gt; -- Initial Conditions ($inits): ------------------------------------------------
+#&gt; centr  peri 
+#&gt;     0     0 
+#&gt; -- First part of data (object): ------------------------------------------------
+#&gt; # A tibble: 900 x 9
+#&gt;      id  evid   cmt   amt  time    DV   SEX    WT  CRCL
+#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1     1     1  296. 0      0        1  49.4    83
+#&gt; 2     1     0    NA   NA  0      0        1  49.4    83
+#&gt; 3     1     0    NA   NA  0.246  2.32     1  49.4    83
+#&gt; 4     1     0    NA   NA  0.516 19.6      1  49.4    83
+#&gt; 5     1     0    NA   NA  0.729 23.2      1  49.4    83
+#&gt; 6     1     0    NA   NA  0.921 21.1      1  49.4    83
+#&gt; # ... with 894 more rows
+#&gt; ________________________________________________________________________________</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="mixing-solved-systems-and-odes-.html#cb179-1" aria-hidden="true"></a><span class="kw">plot</span>(data, <span class="dt">log=</span><span class="st">&quot;y&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; Warning in self$trans$transform(x): NaNs produced</code></pre>
+<pre><code>#&gt; Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
+<p><img src="RxODE-manual_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+</div>
+<div id="daptomycin-reference" class="section level3" number="15.1.5">
+<h3><span class="header-section-number">15.1.5</span> Daptomycin Reference</h3>
+<p>This weight-based simulation is adapted from the Daptomycin article
+below:</p>
+<p>Dvorchik B, Arbeit RD, Chung J, Liu S, Knebel W, Kastrissios
+H. Population pharmacokinetics of daptomycin. Antimicrob Agents
+Che mother 2004; 48: 2799-2807. <a href="doi:(10.1128/AAC.48.8.2799-2807.2004" class="uri">doi:(10.1128/AAC.48.8.2799-2807.2004</a>)[<a href="https://dx.doi.org/10.1128%2FAAC.48.8.2799-2807.2004" class="uri">https://dx.doi.org/10.1128%2FAAC.48.8.2799-2807.2004</a>]</p>
+<p>This simulation example was made available from the work of Sherwin Sy
+with modifications by Matthew Fidler</p>
+</div>
+</div>
+<div id="inter-occasion-and-other-nesting-examples" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Inter-occasion and other nesting examples</h2>
+<p>More than one level of nesting is possible in RxODE; In this example
+we will be using the following uncertainties and sources of variability:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Level</th>
+<th>Variable</th>
+<th>Matrix specified</th>
+<th>Integrated Matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Model uncertainty</td>
+<td>NA</td>
+<td><code>thetaMat</code></td>
+<td><code>thetaMat</code></td>
+</tr>
+<tr class="even">
+<td align="right">Investigator</td>
+<td><code>inv.Cl</code>, <code>inv.Ka</code></td>
+<td><code>omega</code></td>
+<td><code>theta</code></td>
+</tr>
+<tr class="odd">
+<td align="right">Subject</td>
+<td><code>eta.Cl</code>, <code>eta.Ka</code></td>
+<td><code>omega</code></td>
+<td><code>omega</code></td>
+</tr>
+<tr class="even">
+<td align="right">Eye</td>
+<td><code>eye.Cl</code>, <code>eye.Ka</code></td>
+<td><code>omega</code></td>
+<td><code>omega</code></td>
+</tr>
+<tr class="odd">
+<td align="right">Occasion</td>
+<td><code>iov.Cl</code>, <code>occ.Ka</code></td>
+<td><code>omega</code></td>
+<td><code>omega</code></td>
+</tr>
+<tr class="even">
+<td align="right">Unexplained Concentration</td>
+<td><code>prop.sd</code></td>
+<td><code>sigma</code></td>
+<td><code>sigma</code></td>
+</tr>
+<tr class="odd">
+<td align="right">Unexplained Effect</td>
+<td><code>add.sd</code></td>
+<td><code>sigma</code></td>
+<td><code>sigma</code></td>
+</tr>
+</tbody>
+</table>
+<div id="event-table" class="section level3" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Event table</h3>
+<p>This event table contains nesting variables:</p>
+<ul>
+<li>inv: investigator id</li>
+<li>id: subject id</li>
+<li>eye: eye id (left or right)</li>
+<li>occ: occasion</li>
+</ul>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="mixing-solved-systems-and-odes-.html#cb182-1" aria-hidden="true"></a><span class="kw">library</span>(RxODE)</span>
+<span id="cb182-2"><a href="mixing-solved-systems-and-odes-.html#cb182-2" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb182-3"><a href="mixing-solved-systems-and-odes-.html#cb182-3" aria-hidden="true"></a></span>
+<span id="cb182-4"><a href="mixing-solved-systems-and-odes-.html#cb182-4" aria-hidden="true"></a><span class="kw">et</span>(<span class="dt">amountUnits=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnits=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-5"><a href="mixing-solved-systems-and-odes-.html#cb182-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">10000</span>, <span class="dt">addl=</span><span class="dv">9</span>,<span class="dt">ii=</span><span class="dv">12</span>,<span class="dt">cmt=</span><span class="st">&quot;depot&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-6"><a href="mixing-solved-systems-and-odes-.html#cb182-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="dt">time=</span><span class="dv">120</span>, <span class="dt">amt=</span><span class="dv">2000</span>, <span class="dt">addl=</span><span class="dv">4</span>, <span class="dt">ii=</span><span class="dv">14</span>, <span class="dt">cmt=</span><span class="st">&quot;depot&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-7"><a href="mixing-solved-systems-and-odes-.html#cb182-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">240</span>, <span class="dt">by=</span><span class="dv">4</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Assumes sampling when there is no dosing information</span></span>
+<span id="cb182-8"><a href="mixing-solved-systems-and-odes-.html#cb182-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">240</span>, <span class="dt">by=</span><span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">## adds 0.1 for separate eye</span></span>
+<span id="cb182-9"><a href="mixing-solved-systems-and-odes-.html#cb182-9" aria-hidden="true"></a><span class="st">  </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-10"><a href="mixing-solved-systems-and-odes-.html#cb182-10" aria-hidden="true"></a><span class="st">  </span><span class="co">## Add an occasion per dose</span></span>
+<span id="cb182-11"><a href="mixing-solved-systems-and-odes-.html#cb182-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">occ=</span><span class="kw">cumsum</span>(<span class="op">!</span><span class="kw">is.na</span>(amt))) <span class="op">%&gt;%</span></span>
+<span id="cb182-12"><a href="mixing-solved-systems-and-odes-.html#cb182-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">occ=</span><span class="kw">ifelse</span>(occ <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, occ)) <span class="op">%&gt;%</span></span>
+<span id="cb182-13"><a href="mixing-solved-systems-and-odes-.html#cb182-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">occ=</span><span class="dv">2</span><span class="op">-</span><span class="st"> </span>occ <span class="op">%%</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb182-14"><a href="mixing-solved-systems-and-odes-.html#cb182-14" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">eye=</span><span class="kw">ifelse</span>(<span class="kw">round</span>(time) <span class="op">==</span><span class="st"> </span>time, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb182-15"><a href="mixing-solved-systems-and-odes-.html#cb182-15" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">inv=</span><span class="kw">ifelse</span>(id <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st"> </span>as_tibble -&gt;</span>
+<span id="cb182-16"><a href="mixing-solved-systems-and-odes-.html#cb182-16" aria-hidden="true"></a><span class="st">  </span>ev</span></code></pre></div>
+</div>
+<div id="rxode-model" class="section level3" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> RxODE model</h3>
+<p>This creates the <code>RxODE</code> model with multi-level nesting. Note the
+variables <code>inv.Cl</code>, <code>inv.Ka</code>, <code>eta.Cl</code> etc; You only need one variable
+for each level of nesting.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="mixing-solved-systems-and-odes-.html#cb183-1" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">RxODE</span>({</span>
+<span id="cb183-2"><a href="mixing-solved-systems-and-odes-.html#cb183-2" aria-hidden="true"></a>  <span class="co">## Clearance with individuals</span></span>
+<span id="cb183-3"><a href="mixing-solved-systems-and-odes-.html#cb183-3" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb183-4"><a href="mixing-solved-systems-and-odes-.html#cb183-4" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>prop.sd);</span>
+<span id="cb183-5"><a href="mixing-solved-systems-and-odes-.html#cb183-5" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb183-6"><a href="mixing-solved-systems-and-odes-.html#cb183-6" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl <span class="op">+</span><span class="st"> </span>eye.Cl <span class="op">+</span><span class="st"> </span>iov.Cl <span class="op">+</span><span class="st"> </span>inv.Cl)</span>
+<span id="cb183-7"><a href="mixing-solved-systems-and-odes-.html#cb183-7" aria-hidden="true"></a>  KA =<span class="st"> </span>TKA <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(eta.Ka <span class="op">+</span><span class="st"> </span>eye.Ka <span class="op">+</span><span class="st"> </span>iov.Cl <span class="op">+</span><span class="st"> </span>inv.Ka)</span>
+<span id="cb183-8"><a href="mixing-solved-systems-and-odes-.html#cb183-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb183-9"><a href="mixing-solved-systems-and-odes-.html#cb183-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb183-10"><a href="mixing-solved-systems-and-odes-.html#cb183-10" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb183-11"><a href="mixing-solved-systems-and-odes-.html#cb183-11" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb183-12"><a href="mixing-solved-systems-and-odes-.html#cb183-12" aria-hidden="true"></a>  ef0 =<span class="st"> </span>eff <span class="op">+</span><span class="st"> </span>add.sd</span>
+<span id="cb183-13"><a href="mixing-solved-systems-and-odes-.html#cb183-13" aria-hidden="true"></a>})</span></code></pre></div>
+</div>
+<div id="uncertainty-in-model-parameters" class="section level3" number="15.2.3">
+<h3><span class="header-section-number">15.2.3</span> Uncertainty in Model parameters</h3>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="mixing-solved-systems-and-odes-.html#cb184-1" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;TKA&quot;</span>=<span class="fl">0.294</span>, <span class="st">&quot;TCl&quot;</span>=<span class="fl">18.6</span>, <span class="st">&quot;V2&quot;</span>=<span class="fl">40.2</span>,</span>
+<span id="cb184-2"><a href="mixing-solved-systems-and-odes-.html#cb184-2" aria-hidden="true"></a>           <span class="st">&quot;Q&quot;</span>=<span class="fl">10.5</span>, <span class="st">&quot;V3&quot;</span>=<span class="dv">297</span>, <span class="st">&quot;Kin&quot;</span>=<span class="dv">1</span>, <span class="st">&quot;Kout&quot;</span>=<span class="dv">1</span>, <span class="st">&quot;EC50&quot;</span>=<span class="dv">200</span>)</span>
+<span id="cb184-3"><a href="mixing-solved-systems-and-odes-.html#cb184-3" aria-hidden="true"></a></span>
+<span id="cb184-4"><a href="mixing-solved-systems-and-odes-.html#cb184-4" aria-hidden="true"></a><span class="co">## Creating covariance matrix</span></span>
+<span id="cb184-5"><a href="mixing-solved-systems-and-odes-.html#cb184-5" aria-hidden="true"></a>tmp &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">8</span><span class="op">^</span><span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb184-6"><a href="mixing-solved-systems-and-odes-.html#cb184-6" aria-hidden="true"></a>tMat &lt;-<span class="st"> </span><span class="kw">tcrossprod</span>(tmp, tmp) <span class="op">/</span><span class="st"> </span>(<span class="dv">8</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb184-7"><a href="mixing-solved-systems-and-odes-.html#cb184-7" aria-hidden="true"></a><span class="kw">dimnames</span>(tMat) &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">names</span>(theta), <span class="kw">names</span>(theta))</span>
+<span id="cb184-8"><a href="mixing-solved-systems-and-odes-.html#cb184-8" aria-hidden="true"></a></span>
+<span id="cb184-9"><a href="mixing-solved-systems-and-odes-.html#cb184-9" aria-hidden="true"></a>tMat</span></code></pre></div>
+<pre><code>#&gt;               TKA          TCl           V2            Q           V3
+#&gt; TKA   0.084901793  0.008491535 -0.028211905 -0.083460075  0.058187918
+#&gt; TCl   0.008491535  0.074011602 -0.047388281 -0.049711532  0.009450000
+#&gt; V2   -0.028211905 -0.047388281  0.094485793 -0.001142105 -0.031424916
+#&gt; Q    -0.083460075 -0.049711532 -0.001142105  0.271685090 -0.042012559
+#&gt; V3    0.058187918  0.009450000 -0.031424916 -0.042012559  0.089992792
+#&gt; Kin  -0.046169545 -0.016205743 -0.014705754  0.094478654  0.001534101
+#&gt; Kout -0.023946567 -0.040201822  0.008377087  0.062087105 -0.053276590
+#&gt; EC50 -0.017733886 -0.011145761 -0.004038295  0.025496213  0.006360558
+#&gt;               Kin         Kout         EC50
+#&gt; TKA  -0.046169545 -0.023946567 -0.017733886
+#&gt; TCl  -0.016205743 -0.040201822 -0.011145761
+#&gt; V2   -0.014705754  0.008377087 -0.004038295
+#&gt; Q     0.094478654  0.062087105  0.025496213
+#&gt; V3    0.001534101 -0.053276590  0.006360558
+#&gt; Kin   0.102223150  0.035112776  0.030704006
+#&gt; Kout  0.035112776  0.109746574  0.019060142
+#&gt; EC50  0.030704006  0.019060142  0.030188688</code></pre>
+</div>
+<div id="nesting-variability" class="section level3" number="15.2.4">
+<h3><span class="header-section-number">15.2.4</span> Nesting Variability</h3>
+<p>To specify multiple levels of nesting, you can specify it as a nested
+<code>lotri</code> matrix; When using this approach you use the condition
+operator <code>|</code> to specify what variable nesting occurs on; For the
+Bayesian simulation we need to specify how much information we have
+for each parameter; For <code>RxODE</code> this is the <code>nu</code> parameter.</p>
+<p>In this case:
+- id, <code>nu=100</code> or the model came from 100 subjects
+- eye, <code>nu=200</code> or the model came from 200 eyes
+- occ, <code>nu=200</code> or the model came from 200 occasions
+- inv, <code>nu=10</code> or the model came from 10 investigators</p>
+<p>To specify this in <code>lotri</code> you can use <code>| var(nu=X)</code>, or:</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="mixing-solved-systems-and-odes-.html#cb186-1" aria-hidden="true"></a>omega &lt;-<span class="st"> </span><span class="kw">lotri</span>(<span class="kw">lotri</span>(eta.Cl <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>,</span>
+<span id="cb186-2"><a href="mixing-solved-systems-and-odes-.html#cb186-2" aria-hidden="true"></a>                     eta.Ka <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>) <span class="op">|</span><span class="st"> </span><span class="kw">id</span>(<span class="dt">nu=</span><span class="dv">100</span>),</span>
+<span id="cb186-3"><a href="mixing-solved-systems-and-odes-.html#cb186-3" aria-hidden="true"></a>               <span class="kw">lotri</span>(eye.Cl <span class="op">~</span><span class="st"> </span><span class="fl">0.05</span>,</span>
+<span id="cb186-4"><a href="mixing-solved-systems-and-odes-.html#cb186-4" aria-hidden="true"></a>                     eye.Ka <span class="op">~</span><span class="st"> </span><span class="fl">0.05</span>) <span class="op">|</span><span class="st"> </span><span class="kw">eye</span>(<span class="dt">nu=</span><span class="dv">200</span>),</span>
+<span id="cb186-5"><a href="mixing-solved-systems-and-odes-.html#cb186-5" aria-hidden="true"></a>               <span class="kw">lotri</span>(iov.Cl <span class="op">~</span><span class="st"> </span><span class="fl">0.01</span>,</span>
+<span id="cb186-6"><a href="mixing-solved-systems-and-odes-.html#cb186-6" aria-hidden="true"></a>                     iov.Ka <span class="op">~</span><span class="st"> </span><span class="fl">0.01</span>) <span class="op">|</span><span class="st"> </span><span class="kw">occ</span>(<span class="dt">nu=</span><span class="dv">200</span>),</span>
+<span id="cb186-7"><a href="mixing-solved-systems-and-odes-.html#cb186-7" aria-hidden="true"></a>               <span class="kw">lotri</span>(inv.Cl <span class="op">~</span><span class="st"> </span><span class="fl">0.02</span>,</span>
+<span id="cb186-8"><a href="mixing-solved-systems-and-odes-.html#cb186-8" aria-hidden="true"></a>                     inv.Ka <span class="op">~</span><span class="st"> </span><span class="fl">0.02</span>) <span class="op">|</span><span class="st"> </span><span class="kw">inv</span>(<span class="dt">nu=</span><span class="dv">10</span>))</span>
+<span id="cb186-9"><a href="mixing-solved-systems-and-odes-.html#cb186-9" aria-hidden="true"></a>omega</span></code></pre></div>
+<pre><code>#&gt; $id
+#&gt;        eta.Cl eta.Ka
+#&gt; eta.Cl    0.1    0.0
+#&gt; eta.Ka    0.0    0.1
+#&gt; 
+#&gt; $eye
+#&gt;        eye.Cl eye.Ka
+#&gt; eye.Cl   0.05   0.00
+#&gt; eye.Ka   0.00   0.05
+#&gt; 
+#&gt; $occ
+#&gt;        iov.Cl iov.Ka
+#&gt; iov.Cl   0.01   0.00
+#&gt; iov.Ka   0.00   0.01
+#&gt; 
+#&gt; $inv
+#&gt;        inv.Cl inv.Ka
+#&gt; inv.Cl   0.02   0.00
+#&gt; inv.Ka   0.00   0.02
+#&gt; 
+#&gt; Properties: nu</code></pre>
+</div>
+<div id="unexplained-variability" class="section level3" number="15.2.5">
+<h3><span class="header-section-number">15.2.5</span> Unexplained variability</h3>
+<p>The last piece of variability to specify is the unexplained variability</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="mixing-solved-systems-and-odes-.html#cb188-1" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">lotri</span>(prop.sd <span class="op">~</span><span class="st"> </span><span class="fl">.25</span>,</span>
+<span id="cb188-2"><a href="mixing-solved-systems-and-odes-.html#cb188-2" aria-hidden="true"></a>               add.sd<span class="op">~</span><span class="st"> </span><span class="fl">0.125</span>)</span></code></pre></div>
+</div>
+<div id="solving-the-problem" class="section level3" number="15.2.6">
+<h3><span class="header-section-number">15.2.6</span> Solving the problem</h3>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="mixing-solved-systems-and-odes-.html#cb189-1" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev,</span>
+<span id="cb189-2"><a href="mixing-solved-systems-and-odes-.html#cb189-2" aria-hidden="true"></a>             <span class="dt">thetaMat=</span>tMat, <span class="dt">omega=</span>omega,</span>
+<span id="cb189-3"><a href="mixing-solved-systems-and-odes-.html#cb189-3" aria-hidden="true"></a>             <span class="dt">sigma=</span>sigma, <span class="dt">sigmaDf=</span><span class="dv">400</span>,</span>
+<span id="cb189-4"><a href="mixing-solved-systems-and-odes-.html#cb189-4" aria-hidden="true"></a>             <span class="dt">nStud=</span><span class="dv">400</span>)</span></code></pre></div>
+<pre><code>#&gt; unhandled error message: EE:[lsoda] 70000 steps taken before reaching tout
+#&gt;  @(lsoda.c:748</code></pre>
+<pre><code>#&gt; Warning: some ID(s) could not solve the ODEs correctly; These values are
+#&gt; replaced with &#39;NA&#39;</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="mixing-solved-systems-and-odes-.html#cb192-1" aria-hidden="true"></a><span class="kw">print</span>(s)</span></code></pre></div>
+<pre><code>#&gt; ______________________________ Solved RxODE object _____________________________
+#&gt; -- Parameters ($params): -------------------------------------------------------
+#&gt; # A tibble: 8,000 x 24
+#&gt;    sim.id id    `inv.Cl(inv==1)` `inv.Cl(inv==2)` `inv.Ka(inv==1)`
+#&gt;     &lt;int&gt; &lt;fct&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+#&gt;  1      1 1               0.0186            0.116            0.188
+#&gt;  2      1 2               0.0186            0.116            0.188
+#&gt;  3      1 3               0.0186            0.116            0.188
+#&gt;  4      1 4               0.0186            0.116            0.188
+#&gt;  5      1 5               0.0186            0.116            0.188
+#&gt;  6      1 6               0.0186            0.116            0.188
+#&gt;  7      1 7               0.0186            0.116            0.188
+#&gt;  8      1 8               0.0186            0.116            0.188
+#&gt;  9      1 9               0.0186            0.116            0.188
+#&gt; 10      1 10              0.0186            0.116            0.188
+#&gt; # ... with 7,990 more rows, and 19 more variables: inv.Ka(inv==2) &lt;dbl&gt;,
+#&gt; #   eye.Cl(eye==1) &lt;dbl&gt;, eye.Cl(eye==2) &lt;dbl&gt;, eye.Ka(eye==1) &lt;dbl&gt;,
+#&gt; #   eye.Ka(eye==2) &lt;dbl&gt;, iov.Cl(occ==1) &lt;dbl&gt;, iov.Cl(occ==2) &lt;dbl&gt;,
+#&gt; #   iov.Ka(occ==1) &lt;dbl&gt;, iov.Ka(occ==2) &lt;dbl&gt;, V2 &lt;dbl&gt;, V3 &lt;dbl&gt;, TCl &lt;dbl&gt;,
+#&gt; #   eta.Cl &lt;dbl&gt;, TKA &lt;dbl&gt;, eta.Ka &lt;dbl&gt;, Q &lt;dbl&gt;, Kin &lt;dbl&gt;, Kout &lt;dbl&gt;,
+#&gt; #   EC50 &lt;dbl&gt;
+#&gt; -- Initial Conditions ($inits): ------------------------------------------------
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; 
+#&gt; Simulation with uncertainty in:
+#&gt; * parameters (s$thetaMat for changes)
+#&gt; * omega matrix (s$omegaList)
+#&gt; 
+#&gt; -- First part of data (object): ------------------------------------------------
+#&gt; # A tibble: 976,000 x 18
+#&gt;   sim.id    id  time inv.Cl inv.Ka eye.Cl eye.Ka iov.Cl  iov.Ka    C2      C3
+#&gt;    &lt;int&gt; &lt;int&gt;   [h]  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1      1     1   0.0 0.0186  0.188 -0.104 0.0786 0.0247 -0.0530  0     0     
+#&gt; 2      1     1   0.1 0.0186  0.188 -0.296 0.0588 0.0247 -0.0530  3.00  0.0281
+#&gt; 3      1     1   4.0 0.0186  0.188 -0.104 0.0786 0.0247 -0.0530 22.4   9.90  
+#&gt; 4      1     1   4.1 0.0186  0.188 -0.296 0.0588 0.0247 -0.0530 57.9  10.1   
+#&gt; 5      1     1   8.0 0.0186  0.188 -0.104 0.0786 0.0247 -0.0530 20.1  12.4   
+#&gt; 6      1     1   8.1 0.0186  0.188 -0.296 0.0588 0.0247 -0.0530 15.6  12.4   
+#&gt; # ... with 975,994 more rows, and 7 more variables: CL &lt;dbl&gt;, KA &lt;dbl&gt;,
+#&gt; #   ef0 &lt;dbl&gt;, depot &lt;dbl&gt;, centr &lt;dbl&gt;, peri &lt;dbl&gt;, eff &lt;dbl&gt;
+#&gt; ________________________________________________________________________________</code></pre>
+<p>There are multiple investigators in a study; Each investigator has a
+number of individuals enrolled at their site. <code>RxODE</code> automatically
+determines the number of investigators and then will simulate an
+effect for each investigator. With the output, <code>inv.Cl(inv==1)</code> will
+be the <code>inv.Cl</code> for investigator 1, <code>inv.Cl(inv==2)</code> will be the
+<code>inv.Cl</code> for investigator 2, etc.</p>
+<p><code>inv.Cl(inv==1)</code>, <code>inv.Cl(inv==2)</code>, etc will be simulated for each
+study and then combined to form the between investigator
+variability. In equation form these represent the following:</p>
+<pre><code>inv.Cl = (inv == 1) * `inv.Cl(inv==1)` + (inv == 2) * `inv.Cl(inv==2)`</code></pre>
+<p>If you look at the simulated parameters you can see <code>inv.Cl(inv==1)</code>
+and <code>inv.Cl(inv==2)</code> are in the <code>s$params</code>; They are the same for each
+study:</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="mixing-solved-systems-and-odes-.html#cb195-1" aria-hidden="true"></a><span class="kw">print</span>(<span class="kw">head</span>(s<span class="op">$</span>params))</span></code></pre></div>
+<pre><code>#&gt;   sim.id id inv.Cl(inv==1) inv.Cl(inv==2) inv.Ka(inv==1) inv.Ka(inv==2)
+#&gt; 1      1  1     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt; 2      1  2     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt; 3      1  3     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt; 4      1  4     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt; 5      1  5     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt; 6      1  6     0.01864161      0.1159198      0.1878234      -0.292727
+#&gt;   eye.Cl(eye==1) eye.Cl(eye==2) eye.Ka(eye==1) eye.Ka(eye==2) iov.Cl(occ==1)
+#&gt; 1    -0.10410790    -0.29632211     0.07855205     0.05884539     0.02466606
+#&gt; 2    -0.06820792     0.06585538     0.34603340     0.20141355    -0.06976537
+#&gt; 3    -0.04885836     0.13135196    -0.13256387     0.21645151    -0.03121109
+#&gt; 4     0.20667975    -0.08775327    -0.01404241    -0.04239568    -0.08207797
+#&gt; 5     0.04877033    -0.22890756    -0.21685969     0.04846680    -0.01393029
+#&gt; 6     0.19830134    -0.33204702    -0.16960164     0.06823678    -0.17462695
+#&gt;   iov.Cl(occ==2) iov.Ka(occ==1) iov.Ka(occ==2)       V2       V3      TCl
+#&gt; 1    -0.11264526   -0.052971164   -0.106088075 39.57653 297.3736 18.81115
+#&gt; 2     0.03970507   -0.073742566    0.090882718 39.57653 297.3736 18.81115
+#&gt; 3    -0.23892944   -0.136470596    0.067412442 39.57653 297.3736 18.81115
+#&gt; 4    -0.02134625   -0.061910605   -0.072601879 39.57653 297.3736 18.81115
+#&gt; 5     0.05580236    0.099876044   -0.094708943 39.57653 297.3736 18.81115
+#&gt; 6    -0.03152016   -0.002074008   -0.004758332 39.57653 297.3736 18.81115
+#&gt;        eta.Cl       TKA      eta.Ka        Q      Kin      Kout     EC50
+#&gt; 1 -0.02740884 0.4375889  0.07529548 10.97588 1.179938 0.9161172 200.2625
+#&gt; 2 -0.11896272 0.4375889  0.07490355 10.97588 1.179938 0.9161172 200.2625
+#&gt; 3 -0.61026874 0.4375889 -0.15964154 10.97588 1.179938 0.9161172 200.2625
+#&gt; 4 -0.17447915 0.4375889 -0.19377239 10.97588 1.179938 0.9161172 200.2625
+#&gt; 5  0.26213020 0.4375889 -0.38954283 10.97588 1.179938 0.9161172 200.2625
+#&gt; 6 -0.22932331 0.4375889 -0.49123723 10.97588 1.179938 0.9161172 200.2625</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="mixing-solved-systems-and-odes-.html#cb197-1" aria-hidden="true"></a><span class="kw">print</span>(<span class="kw">head</span>(s<span class="op">$</span>params <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sim.id <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)))</span></code></pre></div>
+<pre><code>#&gt;   sim.id id inv.Cl(inv==1) inv.Cl(inv==2) inv.Ka(inv==1) inv.Ka(inv==2)
+#&gt; 1      2  1    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt; 2      2  2    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt; 3      2  3    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt; 4      2  4    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt; 5      2  5    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt; 6      2  6    -0.01105301     -0.1209402      0.3370577      0.0902204
+#&gt;   eye.Cl(eye==1) eye.Cl(eye==2) eye.Ka(eye==1) eye.Ka(eye==2) iov.Cl(occ==1)
+#&gt; 1    -0.01262553    -0.08161227   -0.238499594     0.17178813     0.08330981
+#&gt; 2    -0.06778157     0.29410669   -0.003700213    -0.03805489    -0.12869095
+#&gt; 3     0.06059738    -0.16831575   -0.085582067     0.22970053     0.05711749
+#&gt; 4    -0.13086494     0.02748735   -0.056454551    -0.23331112     0.07216869
+#&gt; 5    -0.23416424    -0.13568099   -0.436719663    -0.03106162    -0.13191139
+#&gt; 6     0.24092815     0.66166495   -0.345840539     0.13552870     0.03987511
+#&gt;   iov.Cl(occ==2) iov.Ka(occ==1) iov.Ka(occ==2)       V2       V3      TCl
+#&gt; 1   -0.148592318     0.10100830    0.050123275 40.32538 296.5826 18.65152
+#&gt; 2   -0.002200205    -0.04045931   -0.077835601 40.32538 296.5826 18.65152
+#&gt; 3   -0.185116411     0.02903611    0.076384740 40.32538 296.5826 18.65152
+#&gt; 4    0.101902663     0.04680555    0.054662894 40.32538 296.5826 18.65152
+#&gt; 5    0.103696663     0.02589958    0.100946619 40.32538 296.5826 18.65152
+#&gt; 6    0.023244426    -0.03067335   -0.009347601 40.32538 296.5826 18.65152
+#&gt;       eta.Cl        TKA      eta.Ka        Q      Kin     Kout     EC50
+#&gt; 1 -0.2518665 -0.2160777  0.33092617 11.02462 1.122102 1.022177 199.9981
+#&gt; 2  0.3495104 -0.2160777 -0.35774607 11.02462 1.122102 1.022177 199.9981
+#&gt; 3 -0.3101379 -0.2160777 -0.09014428 11.02462 1.122102 1.022177 199.9981
+#&gt; 4 -0.1665144 -0.2160777 -0.11974060 11.02462 1.122102 1.022177 199.9981
+#&gt; 5  0.3184297 -0.2160777 -0.06982612 11.02462 1.122102 1.022177 199.9981
+#&gt; 6 -0.1216137 -0.2160777  0.30275205 11.02462 1.122102 1.022177 199.9981</code></pre>
+<p>For between eye variability and between occasion variability each
+individual simulates a number of variables that become the between eye
+and between occasion variability; In the case of the eye:</p>
+<pre><code>eye.Cl = (eye == 1) * `eye.Cl(eye==1)` + (eye == 2) * `eye.Cl(eye==2)`</code></pre>
+<p>So when you look the simulation each of these variables (ie
+<code>eye.Cl(eye==1)</code>, <code>eye.Cl(eye==2)</code>, etc) they change for each
+individual and when combined make the between eye variability or the
+between occasion variability that can be seen in some pharamcometric
+models.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="solved-compartment-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="advanced-miscellaneous-topics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RxODE-manual.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

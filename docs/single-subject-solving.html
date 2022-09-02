@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Single Subject solving | RxODE user manual</title>
+  <meta name="description" content="This book is the user manual for RxODE" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Single Subject solving | RxODE user manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is the user manual for RxODE" />
+  <meta name="github-repo" content="nlmixrdevelopment/RxODE-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Single Subject solving | RxODE user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for RxODE" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2021-02-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="simulation.html"/>
+<link rel="next" href="population-simulations-with-rxode.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.17/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>2</b> Authors and Acknowledgments</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="author.html"><a href="author.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a></li>
+<li class="chapter" data-level="2.2" data-path="author.html"><a href="author.html#contributors"><i class="fa fa-check"></i><b>2.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3" data-path="author.html"><a href="author.html#rxode-acknowledgments"><i class="fa fa-check"></i><b>2.3</b> RxODE acknowledgments:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="related.html"><a href="related.html"><i class="fa fa-check"></i><b>3</b> Related R packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="related.html"><a href="related.html#ode-solving"><i class="fa fa-check"></i><b>3.1</b> ODE solving</a></li>
+<li class="chapter" data-level="3.2" data-path="related.html"><a href="related.html#pk-solved-systems"><i class="fa fa-check"></i><b>3.2</b> PK Solved systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="related.html"><a href="related.html#the-following-packages-for-solved-pk-systems-are-on-cran"><i class="fa fa-check"></i><b>3.2.1</b> The following packages for solved PK systems are on CRAN</a></li>
+<li class="chapter" data-level="3.2.2" data-path="related.html"><a href="related.html#non-cran-libraries"><i class="fa fa-check"></i><b>3.2.2</b> Non-CRAN libraries:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>4</b> Installation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>4.0.1</b> Windows</a></li>
+<li class="chapter" data-level="4.0.2" data-path="install.html"><a href="install.html#mac-osx"><i class="fa fa-check"></i><b>4.0.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="4.0.3" data-path="install.html"><a href="install.html#linux"><i class="fa fa-check"></i><b>4.0.3</b> Linux</a></li>
+<li class="chapter" data-level="4.1" data-path="install.html"><a href="install.html#development-version"><i class="fa fa-check"></i><b>4.1</b> Development Version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in RxODE</a></li>
+<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> RxODE syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="syntax.html"><a href="syntax.html#example"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="syntax.html"><a href="syntax.html#syntax-1"><i class="fa fa-check"></i><b>6.2</b> Syntax</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="syntax.html"><a href="syntax.html#identifiers"><i class="fa fa-check"></i><b>6.2.1</b> Identifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="syntax.html"><a href="syntax.html#logical-operators"><i class="fa fa-check"></i><b>6.3</b> Logical Operators</a></li>
+<li class="chapter" data-level="6.4" data-path="syntax.html"><a href="syntax.html#cmt-changing-compartment-numbers-for-states"><i class="fa fa-check"></i><b>6.4</b> cmt() changing compartment numbers for states</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="syntax.html"><a href="syntax.html#how-rxode-numbers-compartments"><i class="fa fa-check"></i><b>6.4.1</b> How RxODE numbers compartments</a></li>
+<li class="chapter" data-level="6.4.2" data-path="syntax.html"><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt"><i class="fa fa-check"></i><b>6.4.2</b> Changing compartments by pre-declaring with <code>cmt()</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="syntax.html"><a href="syntax.html#appending-compartments-to-the-model-with-cmt"><i class="fa fa-check"></i><b>6.4.3</b> Appending compartments to the model with <code>cmt()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="events.html"><a href="events.html"><i class="fa fa-check"></i><b>7</b> RxODE events</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="events.html"><a href="events.html#rxode-event-tables"><i class="fa fa-check"></i><b>7.1</b> RxODE event tables</a></li>
+<li class="chapter" data-level="7.2" data-path="events.html"><a href="events.html#bolusadditive-doses"><i class="fa fa-check"></i><b>7.2</b> Bolus/Additive Doses</a></li>
+<li class="chapter" data-level="7.3" data-path="events.html"><a href="events.html#infusion-doses"><i class="fa fa-check"></i><b>7.3</b> Infusion Doses</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="events.html"><a href="events.html#constant-infusion-in-terms-of-duration-and-rate"><i class="fa fa-check"></i><b>7.3.1</b> Constant Infusion (in terms of duration and rate)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="events.html"><a href="events.html#modeled-rate-and-duration-of-infusion"><i class="fa fa-check"></i><b>7.3.2</b> Modeled Rate and Duration of Infusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="events.html"><a href="events.html#steady-state"><i class="fa fa-check"></i><b>7.4</b> Steady State</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="events.html"><a href="events.html#steady-state-for-complex-dosing"><i class="fa fa-check"></i><b>7.4.1</b> Steady state for complex dosing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="events.html"><a href="events.html#steady-state-for-constant-infusion-or-zero-order-processes"><i class="fa fa-check"></i><b>7.4.2</b> Steady state for constant infusion or zero order processes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="events.html"><a href="events.html#reset-events"><i class="fa fa-check"></i><b>7.5</b> Reset Events</a></li>
+<li class="chapter" data-level="7.6" data-path="events.html"><a href="events.html#turning-off-compartments"><i class="fa fa-check"></i><b>7.6</b> Turning off compartments</a></li>
+<li class="chapter" data-level="7.7" data-path="events.html"><a href="events.html#classic-et"><i class="fa fa-check"></i><b>7.7</b> Classic RxODE events</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="events.html"><a href="events.html#bolus-dose-examples"><i class="fa fa-check"></i><b>7.7.1</b> Bolus Dose Examples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="events.html"><a href="events.html#infusion-event-examples"><i class="fa fa-check"></i><b>7.7.2</b> Infusion Event Examples</a></li>
+<li class="chapter" data-level="7.7.3" data-path="events.html"><a href="events.html#steady-state-for-classic-rxode-evid-example"><i class="fa fa-check"></i><b>7.7.3</b> Steady State for classic RxODE EVID example</a></li>
+<li class="chapter" data-level="7.7.4" data-path="events.html"><a href="events.html#turning-off-a-compartment-with-classic-rxode-evid"><i class="fa fa-check"></i><b>7.7.4</b> Turning off a compartment with classic RxODE EVID</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="events.html"><a href="events.html#datasets-for-rxode-nlmixr"><i class="fa fa-check"></i><b>7.8</b> Datasets for RxODE &amp; nlmixr</a></li>
+<li class="chapter" data-level="7.9" data-path="events.html"><a href="events.html#columns-described-by-type-of-use"><i class="fa fa-check"></i><b>7.9</b> Columns Described by Type of Use</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="events.html"><a href="events.html#subject-identification-columns"><i class="fa fa-check"></i><b>7.9.1</b> Subject Identification Columns</a></li>
+<li class="chapter" data-level="7.9.2" data-path="events.html"><a href="events.html#observation-columns"><i class="fa fa-check"></i><b>7.9.2</b> Observation Columns</a></li>
+<li class="chapter" data-level="7.9.3" data-path="events.html"><a href="events.html#dosing-columns"><i class="fa fa-check"></i><b>7.9.3</b> Dosing Columns</a></li>
+<li class="chapter" data-level="7.9.4" data-path="events.html"><a href="events.html#covariate-columns"><i class="fa fa-check"></i><b>7.9.4</b> Covariate Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="events.html"><a href="events.html#details-for-specific-dataset-columns"><i class="fa fa-check"></i><b>7.10</b> Details for Specific Dataset Columns</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="events.html"><a href="events.html#amt-column"><i class="fa fa-check"></i><b>7.10.1</b> <code>AMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.2" data-path="events.html"><a href="events.html#censlimit-columns"><i class="fa fa-check"></i><b>7.10.2</b> <code>CENS</code>/<code>LIMIT</code> Columns</a></li>
+<li class="chapter" data-level="7.10.3" data-path="events.html"><a href="events.html#cmt-column"><i class="fa fa-check"></i><b>7.10.3</b> <code>CMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.4" data-path="events.html"><a href="events.html#dur-column"><i class="fa fa-check"></i><b>7.10.4</b> <code>DUR</code> Column</a></li>
+<li class="chapter" data-level="7.10.5" data-path="events.html"><a href="events.html#dv-column"><i class="fa fa-check"></i><b>7.10.5</b> <code>DV</code> Column</a></li>
+<li class="chapter" data-level="7.10.6" data-path="events.html"><a href="events.html#dvid-column"><i class="fa fa-check"></i><b>7.10.6</b> <code>DVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.7" data-path="events.html"><a href="events.html#evid-column"><i class="fa fa-check"></i><b>7.10.7</b> <code>EVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.8" data-path="events.html"><a href="events.html#id-column"><i class="fa fa-check"></i><b>7.10.8</b> <code>ID</code> Column</a></li>
+<li class="chapter" data-level="7.10.9" data-path="events.html"><a href="events.html#rate-column"><i class="fa fa-check"></i><b>7.10.9</b> <code>RATE</code> Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="et.html"><a href="et.html"><i class="fa fa-check"></i><b>8</b> Easily creating RxODE events</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="et.html"><a href="et.html#adding-doses-to-the-event-table"><i class="fa fa-check"></i><b>8.1</b> Adding doses to the event table</a></li>
+<li class="chapter" data-level="8.2" data-path="et.html"><a href="et.html#adding-sampling-to-an-event-table"><i class="fa fa-check"></i><b>8.2</b> Adding sampling to an event table</a></li>
+<li class="chapter" data-level="8.3" data-path="et.html"><a href="et.html#expand-the-event-table-to-a-multi-subject-event-table."><i class="fa fa-check"></i><b>8.3</b> Expand the event table to a multi-subject event table.</a></li>
+<li class="chapter" data-level="8.4" data-path="et.html"><a href="et.html#add-doses-and-samples-within-a-sampling-window"><i class="fa fa-check"></i><b>8.4</b> Add doses and samples within a sampling window</a></li>
+<li class="chapter" data-level="8.5" data-path="et.html"><a href="et.html#combining-event-tables"><i class="fa fa-check"></i><b>8.5</b> Combining event tables</a></li>
+<li class="chapter" data-level="8.6" data-path="et.html"><a href="et.html#sequencing-event-tables"><i class="fa fa-check"></i><b>8.6</b> Sequencing event tables</a></li>
+<li class="chapter" data-level="8.7" data-path="et.html"><a href="et.html#repeating-event-tables"><i class="fa fa-check"></i><b>8.7</b> Repeating event tables</a></li>
+<li class="chapter" data-level="8.8" data-path="et.html"><a href="et.html#combining-event-tables-with-rbind"><i class="fa fa-check"></i><b>8.8</b> Combining event tables with rbind</a></li>
+<li class="chapter" data-level="8.9" data-path="et.html"><a href="et.html#expanding-events"><i class="fa fa-check"></i><b>8.9</b> Expanding events</a></li>
+<li class="chapter" data-level="8.10" data-path="et.html"><a href="et.html#event-tables-in-rstudio-notebooks"><i class="fa fa-check"></i><b>8.10</b> Event tables in Rstudio Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="solve.html"><a href="solve.html"><i class="fa fa-check"></i><b>9</b> Solving and solving options</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#object"><i class="fa fa-check"></i><b>9.1.1</b> object</a></li>
+<li class="chapter" data-level="9.1.2" data-path="solve.html"><a href="solve.html#params"><i class="fa fa-check"></i><b>9.1.2</b> params</a></li>
+<li class="chapter" data-level="9.1.3" data-path="solve.html"><a href="solve.html#events-1"><i class="fa fa-check"></i><b>9.1.3</b> events</a></li>
+<li class="chapter" data-level="9.1.4" data-path="solve.html"><a href="solve.html#inits"><i class="fa fa-check"></i><b>9.1.4</b> inits</a></li>
+<li class="chapter" data-level="9.1.5" data-path="solve.html"><a href="solve.html#method"><i class="fa fa-check"></i><b>9.1.5</b> method</a></li>
+<li class="chapter" data-level="9.1.6" data-path="solve.html"><a href="solve.html#stiff"><i class="fa fa-check"></i><b>9.1.6</b> stiff</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="solve.html"><a href="solve.html#lsodadop-solving-options"><i class="fa fa-check"></i><b>9.2</b> lsoda/dop solving options</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="solve.html"><a href="solve.html#atol"><i class="fa fa-check"></i><b>9.2.1</b> atol</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solve.html"><a href="solve.html#rtol"><i class="fa fa-check"></i><b>9.2.2</b> rtol</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solve.html"><a href="solve.html#maxsteps"><i class="fa fa-check"></i><b>9.2.3</b> maxsteps</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solve.html"><a href="solve.html#hmin"><i class="fa fa-check"></i><b>9.2.4</b> hmin</a></li>
+<li class="chapter" data-level="9.2.5" data-path="solve.html"><a href="solve.html#hmax"><i class="fa fa-check"></i><b>9.2.5</b> hmax</a></li>
+<li class="chapter" data-level="9.2.6" data-path="solve.html"><a href="solve.html#hmaxsd"><i class="fa fa-check"></i><b>9.2.6</b> hmaxSd</a></li>
+<li class="chapter" data-level="9.2.7" data-path="solve.html"><a href="solve.html#hini"><i class="fa fa-check"></i><b>9.2.7</b> hini</a></li>
+<li class="chapter" data-level="9.2.8" data-path="solve.html"><a href="solve.html#maxordn"><i class="fa fa-check"></i><b>9.2.8</b> maxordn</a></li>
+<li class="chapter" data-level="9.2.9" data-path="solve.html"><a href="solve.html#maxords"><i class="fa fa-check"></i><b>9.2.9</b> maxords</a></li>
+<li class="chapter" data-level="9.2.10" data-path="solve.html"><a href="solve.html#mxhnil"><i class="fa fa-check"></i><b>9.2.10</b> mxhnil</a></li>
+<li class="chapter" data-level="9.2.11" data-path="solve.html"><a href="solve.html#hmxi"><i class="fa fa-check"></i><b>9.2.11</b> hmxi</a></li>
+<li class="chapter" data-level="9.2.12" data-path="solve.html"><a href="solve.html#istatereset"><i class="fa fa-check"></i><b>9.2.12</b> istateReset</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="solve.html"><a href="solve.html#inductive-linerization-options"><i class="fa fa-check"></i><b>9.3</b> Inductive Linerization Options</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="solve.html"><a href="solve.html#indlinmatexptype"><i class="fa fa-check"></i><b>9.3.1</b> indLinMatExpType</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solve.html"><a href="solve.html#indlinmatexporder"><i class="fa fa-check"></i><b>9.3.2</b> indLinMatExpOrder</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solve.html"><a href="solve.html#indlinphitol"><i class="fa fa-check"></i><b>9.3.3</b> indLinPhiTol</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solve.html"><a href="solve.html#indlinphim"><i class="fa fa-check"></i><b>9.3.4</b> indLinPhiM</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="solve.html"><a href="solve.html#steady-state-solving-options"><i class="fa fa-check"></i><b>9.4</b> Steady State Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="solve.html"><a href="solve.html#minss"><i class="fa fa-check"></i><b>9.4.1</b> minSS</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solve.html"><a href="solve.html#maxss"><i class="fa fa-check"></i><b>9.4.2</b> maxSS</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solve.html"><a href="solve.html#strictss"><i class="fa fa-check"></i><b>9.4.3</b> strictSS</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solve.html"><a href="solve.html#infssstep"><i class="fa fa-check"></i><b>9.4.4</b> infSSstep</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solve.html"><a href="solve.html#ssatol"><i class="fa fa-check"></i><b>9.4.5</b> ssAtol</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solve.html"><a href="solve.html#ssrtol"><i class="fa fa-check"></i><b>9.4.6</b> ssRtol</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="solve.html"><a href="solve.html#rxode-numeric-stability-options"><i class="fa fa-check"></i><b>9.5</b> RxODE numeric stability options</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="solve.html"><a href="solve.html#maxatolrtolfactor"><i class="fa fa-check"></i><b>9.5.1</b> maxAtolRtolFactor</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solve.html"><a href="solve.html#statetrim"><i class="fa fa-check"></i><b>9.5.2</b> stateTrim</a></li>
+<li class="chapter" data-level="9.5.3" data-path="solve.html"><a href="solve.html#safezero"><i class="fa fa-check"></i><b>9.5.3</b> safeZero</a></li>
+<li class="chapter" data-level="9.5.4" data-path="solve.html"><a href="solve.html#sumtype"><i class="fa fa-check"></i><b>9.5.4</b> sumType</a></li>
+<li class="chapter" data-level="9.5.5" data-path="solve.html"><a href="solve.html#prodtype"><i class="fa fa-check"></i><b>9.5.5</b> prodType</a></li>
+<li class="chapter" data-level="9.5.6" data-path="solve.html"><a href="solve.html#maxwhile"><i class="fa fa-check"></i><b>9.5.6</b> maxwhile</a></li>
+<li class="chapter" data-level="9.5.7" data-path="solve.html"><a href="solve.html#transitabs"><i class="fa fa-check"></i><b>9.5.7</b> transitAbs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="solve.html"><a href="solve.html#linear-compartment-model-sensitivity-options"><i class="fa fa-check"></i><b>9.6</b> Linear compartment model sensitivity options</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="solve.html"><a href="solve.html#senstype"><i class="fa fa-check"></i><b>9.6.1</b> sensType</a></li>
+<li class="chapter" data-level="9.6.2" data-path="solve.html"><a href="solve.html#lindiff"><i class="fa fa-check"></i><b>9.6.2</b> linDiff</a></li>
+<li class="chapter" data-level="9.6.3" data-path="solve.html"><a href="solve.html#lindiffcentral"><i class="fa fa-check"></i><b>9.6.3</b> linDiffCentral</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="solve.html"><a href="solve.html#covariate-solving-options"><i class="fa fa-check"></i><b>9.7</b> Covariate Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="solve.html"><a href="solve.html#icov"><i class="fa fa-check"></i><b>9.7.1</b> iCov</a></li>
+<li class="chapter" data-level="9.7.2" data-path="solve.html"><a href="solve.html#covsinterpolation"><i class="fa fa-check"></i><b>9.7.2</b> covsInterpolation</a></li>
+<li class="chapter" data-level="9.7.3" data-path="solve.html"><a href="solve.html#addcov"><i class="fa fa-check"></i><b>9.7.3</b> addCov</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="solve.html"><a href="solve.html#simulation-options"><i class="fa fa-check"></i><b>9.8</b> Simulation options</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="solve.html"><a href="solve.html#seed"><i class="fa fa-check"></i><b>9.8.1</b> seed</a></li>
+<li class="chapter" data-level="9.8.2" data-path="solve.html"><a href="solve.html#nsim"><i class="fa fa-check"></i><b>9.8.2</b> nsim</a></li>
+<li class="chapter" data-level="9.8.3" data-path="solve.html"><a href="solve.html#thetamat"><i class="fa fa-check"></i><b>9.8.3</b> thetaMat</a></li>
+<li class="chapter" data-level="9.8.4" data-path="solve.html"><a href="solve.html#thetalower"><i class="fa fa-check"></i><b>9.8.4</b> thetaLower</a></li>
+<li class="chapter" data-level="9.8.5" data-path="solve.html"><a href="solve.html#thetaupper"><i class="fa fa-check"></i><b>9.8.5</b> thetaUpper</a></li>
+<li class="chapter" data-level="9.8.6" data-path="solve.html"><a href="solve.html#thetadf"><i class="fa fa-check"></i><b>9.8.6</b> thetaDf</a></li>
+<li class="chapter" data-level="9.8.7" data-path="solve.html"><a href="solve.html#thetaischol"><i class="fa fa-check"></i><b>9.8.7</b> thetaIsChol</a></li>
+<li class="chapter" data-level="9.8.8" data-path="solve.html"><a href="solve.html#nstud"><i class="fa fa-check"></i><b>9.8.8</b> nStud</a></li>
+<li class="chapter" data-level="9.8.9" data-path="solve.html"><a href="solve.html#omega"><i class="fa fa-check"></i><b>9.8.9</b> omega</a></li>
+<li class="chapter" data-level="9.8.10" data-path="solve.html"><a href="solve.html#omegaischol"><i class="fa fa-check"></i><b>9.8.10</b> omegaIsChol</a></li>
+<li class="chapter" data-level="9.8.11" data-path="solve.html"><a href="solve.html#omegaseparation"><i class="fa fa-check"></i><b>9.8.11</b> omegaSeparation</a></li>
+<li class="chapter" data-level="9.8.12" data-path="solve.html"><a href="solve.html#omegaxform"><i class="fa fa-check"></i><b>9.8.12</b> omegaXform</a></li>
+<li class="chapter" data-level="9.8.13" data-path="solve.html"><a href="solve.html#omegalower"><i class="fa fa-check"></i><b>9.8.13</b> omegaLower</a></li>
+<li class="chapter" data-level="9.8.14" data-path="solve.html"><a href="solve.html#omegaupper"><i class="fa fa-check"></i><b>9.8.14</b> omegaUpper</a></li>
+<li class="chapter" data-level="9.8.15" data-path="solve.html"><a href="solve.html#omegadf"><i class="fa fa-check"></i><b>9.8.15</b> omegaDf</a></li>
+<li class="chapter" data-level="9.8.16" data-path="solve.html"><a href="solve.html#nsub"><i class="fa fa-check"></i><b>9.8.16</b> nSub</a></li>
+<li class="chapter" data-level="9.8.17" data-path="solve.html"><a href="solve.html#dfsub"><i class="fa fa-check"></i><b>9.8.17</b> dfSub</a></li>
+<li class="chapter" data-level="9.8.18" data-path="solve.html"><a href="solve.html#sigma"><i class="fa fa-check"></i><b>9.8.18</b> sigma</a></li>
+<li class="chapter" data-level="9.8.19" data-path="solve.html"><a href="solve.html#sigmalower"><i class="fa fa-check"></i><b>9.8.19</b> sigmaLower</a></li>
+<li class="chapter" data-level="9.8.20" data-path="solve.html"><a href="solve.html#sigmaupper"><i class="fa fa-check"></i><b>9.8.20</b> sigmaUpper</a></li>
+<li class="chapter" data-level="9.8.21" data-path="solve.html"><a href="solve.html#sigmaxform"><i class="fa fa-check"></i><b>9.8.21</b> sigmaXform</a></li>
+<li class="chapter" data-level="9.8.22" data-path="solve.html"><a href="solve.html#sigmadf"><i class="fa fa-check"></i><b>9.8.22</b> sigmaDf</a></li>
+<li class="chapter" data-level="9.8.23" data-path="solve.html"><a href="solve.html#sigmaischol"><i class="fa fa-check"></i><b>9.8.23</b> sigmaIsChol</a></li>
+<li class="chapter" data-level="9.8.24" data-path="solve.html"><a href="solve.html#sigmaseparation"><i class="fa fa-check"></i><b>9.8.24</b> sigmaSeparation</a></li>
+<li class="chapter" data-level="9.8.25" data-path="solve.html"><a href="solve.html#dfobs"><i class="fa fa-check"></i><b>9.8.25</b> dfObs</a></li>
+<li class="chapter" data-level="9.8.26" data-path="solve.html"><a href="solve.html#resample"><i class="fa fa-check"></i><b>9.8.26</b> resample</a></li>
+<li class="chapter" data-level="9.8.27" data-path="solve.html"><a href="solve.html#resampleid"><i class="fa fa-check"></i><b>9.8.27</b> resampleID</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="solve.html"><a href="solve.html#rxode-output-options"><i class="fa fa-check"></i><b>9.9</b> RxODE output options</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="solve.html"><a href="solve.html#returntype"><i class="fa fa-check"></i><b>9.9.1</b> returnType</a></li>
+<li class="chapter" data-level="9.9.2" data-path="solve.html"><a href="solve.html#adddosing"><i class="fa fa-check"></i><b>9.9.2</b> addDosing</a></li>
+<li class="chapter" data-level="9.9.3" data-path="solve.html"><a href="solve.html#keep"><i class="fa fa-check"></i><b>9.9.3</b> keep</a></li>
+<li class="chapter" data-level="9.9.4" data-path="solve.html"><a href="solve.html#drop"><i class="fa fa-check"></i><b>9.9.4</b> drop</a></li>
+<li class="chapter" data-level="9.9.5" data-path="solve.html"><a href="solve.html#idfactor"><i class="fa fa-check"></i><b>9.9.5</b> idFactor</a></li>
+<li class="chapter" data-level="9.9.6" data-path="solve.html"><a href="solve.html#subsetnonmem"><i class="fa fa-check"></i><b>9.9.6</b> subsetNonmem</a></li>
+<li class="chapter" data-level="9.9.7" data-path="solve.html"><a href="solve.html#matrix"><i class="fa fa-check"></i><b>9.9.7</b> matrix</a></li>
+<li class="chapter" data-level="9.9.8" data-path="solve.html"><a href="solve.html#scale"><i class="fa fa-check"></i><b>9.9.8</b> scale</a></li>
+<li class="chapter" data-level="9.9.9" data-path="solve.html"><a href="solve.html#amountunits"><i class="fa fa-check"></i><b>9.9.9</b> amountUnits</a></li>
+<li class="chapter" data-level="9.9.10" data-path="solve.html"><a href="solve.html#timeunits"><i class="fa fa-check"></i><b>9.9.10</b> timeUnits</a></li>
+<li class="chapter" data-level="9.9.11" data-path="solve.html"><a href="solve.html#theta"><i class="fa fa-check"></i><b>9.9.11</b> theta</a></li>
+<li class="chapter" data-level="9.9.12" data-path="solve.html"><a href="solve.html#eta"><i class="fa fa-check"></i><b>9.9.12</b> eta</a></li>
+<li class="chapter" data-level="9.9.13" data-path="solve.html"><a href="solve.html#from"><i class="fa fa-check"></i><b>9.9.13</b> from</a></li>
+<li class="chapter" data-level="9.9.14" data-path="solve.html"><a href="solve.html#to"><i class="fa fa-check"></i><b>9.9.14</b> to</a></li>
+<li class="chapter" data-level="9.9.15" data-path="solve.html"><a href="solve.html#length.out"><i class="fa fa-check"></i><b>9.9.15</b> length.out</a></li>
+<li class="chapter" data-level="9.9.16" data-path="solve.html"><a href="solve.html#by"><i class="fa fa-check"></i><b>9.9.16</b> by</a></li>
+<li class="chapter" data-level="9.9.17" data-path="solve.html"><a href="solve.html#warnidsort"><i class="fa fa-check"></i><b>9.9.17</b> warnIdSort</a></li>
+<li class="chapter" data-level="9.9.18" data-path="solve.html"><a href="solve.html#warndrop"><i class="fa fa-check"></i><b>9.9.18</b> warnDrop</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="solve.html"><a href="solve.html#internal-rxode-options"><i class="fa fa-check"></i><b>9.10</b> Internal RxODE options</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="solve.html"><a href="solve.html#ndisplayprogress"><i class="fa fa-check"></i><b>9.10.1</b> nDisplayProgress</a></li>
+<li class="chapter" data-level="9.10.2" data-path="solve.html"><a href="solve.html#section"><i class="fa fa-check"></i><b>9.10.2</b> …</a></li>
+<li class="chapter" data-level="9.10.3" data-path="solve.html"><a href="solve.html#a"><i class="fa fa-check"></i><b>9.10.3</b> a</a></li>
+<li class="chapter" data-level="9.10.4" data-path="solve.html"><a href="solve.html#b"><i class="fa fa-check"></i><b>9.10.4</b> b</a></li>
+<li class="chapter" data-level="9.10.5" data-path="solve.html"><a href="solve.html#updateobject"><i class="fa fa-check"></i><b>9.10.5</b> updateObject</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="solve.html"><a href="solve.html#parallelthreaded-solve"><i class="fa fa-check"></i><b>9.11</b> Parallel/Threaded Solve</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="solve.html"><a href="solve.html#cores"><i class="fa fa-check"></i><b>9.11.1</b> cores</a></li>
+<li class="chapter" data-level="9.11.2" data-path="solve.html"><a href="solve.html#ncoresrv"><i class="fa fa-check"></i><b>9.11.2</b> nCoresRV</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> RxODE output</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="output.html"><a href="output.html#using-rxode-data-frames"><i class="fa fa-check"></i><b>10.1</b> Using RxODE data frames</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="output.html"><a href="output.html#creating-an-interactive-data-frame"><i class="fa fa-check"></i><b>10.1.1</b> Creating an interactive data frame</a></li>
+<li class="chapter" data-level="10.1.2" data-path="output.html"><a href="output.html#rxode-solved-object-properties"><i class="fa fa-check"></i><b>10.1.2</b> RxODE solved object properties</a></li>
+<li class="chapter" data-level="10.1.3" data-path="output.html"><a href="output.html#using-the-solved-object-as-a-simple-data-frame"><i class="fa fa-check"></i><b>10.1.3</b> Using the solved object as a simple data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="output.html"><a href="output.html#updating-the-data-set-interactively"><i class="fa fa-check"></i><b>10.2</b> Updating the data-set interactively</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="output.html"><a href="output.html#modifying-initial-conditions"><i class="fa fa-check"></i><b>10.2.1</b> Modifying initial conditions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="output.html"><a href="output.html#modifying-observation-times-for-rxode"><i class="fa fa-check"></i><b>10.2.2</b> Modifying observation times for RxODE</a></li>
+<li class="chapter" data-level="10.2.3" data-path="output.html"><a href="output.html#modifying-simulation-parameters"><i class="fa fa-check"></i><b>10.2.3</b> Modifying simulation parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a></li>
+<li class="chapter" data-level="12" data-path="single-subject-solving.html"><a href="single-subject-solving.html"><i class="fa fa-check"></i><b>12</b> Single Subject solving</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="single-subject-solving.html"><a href="single-subject-solving.html#summary-of-single-solve-vs-multiple-subject-solving"><i class="fa fa-check"></i><b>12.1</b> Summary of Single solve vs Multiple subject solving</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html"><i class="fa fa-check"></i><b>13</b> Population Simulations with RxODE</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#simulation-of-variability-with-rxode"><i class="fa fa-check"></i><b>13.1</b> Simulation of Variability with RxODE</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#setting-up-the-rxode-model"><i class="fa fa-check"></i><b>13.1.1</b> Setting up the RxODE model</a></li>
+<li class="chapter" data-level="13.1.2" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#adding-the-parameter-estimates"><i class="fa fa-check"></i><b>13.1.2</b> Adding the parameter estimates</a></li>
+<li class="chapter" data-level="13.1.3" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#simulating"><i class="fa fa-check"></i><b>13.1.3</b> Simulating</a></li>
+<li class="chapter" data-level="13.1.4" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#checking-the-simulation-with-plot"><i class="fa fa-check"></i><b>13.1.4</b> Checking the simulation with <code>plot</code></a></li>
+<li class="chapter" data-level="13.1.5" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#processing-the-data-to-create-summary-plots"><i class="fa fa-check"></i><b>13.1.5</b> Processing the data to create summary plots</a></li>
+<li class="chapter" data-level="13.1.6" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#simulation-of-unexplained-variability-sigma"><i class="fa fa-check"></i><b>13.1.6</b> Simulation of unexplained variability (sigma)</a></li>
+<li class="chapter" data-level="13.1.7" data-path="population-simulations-with-rxode.html"><a href="population-simulations-with-rxode.html#simulation-of-individuals"><i class="fa fa-check"></i><b>13.1.7</b> Simulation of Individuals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="simulation-of-clinical-trials.html"><a href="simulation-of-clinical-trials.html"><i class="fa fa-check"></i><b>14</b> Simulation of Clinical Trials</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="simulation-of-clinical-trials.html"><a href="simulation-of-clinical-trials.html#simulation-from-inverse-wishart-correlations"><i class="fa fa-check"></i><b>14.1</b> Simulation from inverse Wishart correlations</a></li>
+<li class="chapter" data-level="14.2" data-path="simulation-of-clinical-trials.html"><a href="simulation-of-clinical-trials.html#simulate-using-variancestandard-deviation-standard-errors"><i class="fa fa-check"></i><b>14.2</b> Simulate using variance/standard deviation standard errors</a></li>
+<li class="chapter" data-level="14.3" data-path="simulation-of-clinical-trials.html"><a href="simulation-of-clinical-trials.html#simulate-without-uncertainty-in-omega-or-sigma-parameters"><i class="fa fa-check"></i><b>14.3</b> Simulate without uncertainty in <code>omega</code> or <code>sigma</code> parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>15</b> Examples</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="examples.html"><a href="examples.html#prediction-only-models"><i class="fa fa-check"></i><b>15.1</b> Prediction only models</a></li>
+<li class="chapter" data-level="15.2" data-path="examples.html"><a href="examples.html#solved-compartment-models"><i class="fa fa-check"></i><b>15.2</b> Solved compartment models</a></li>
+<li class="chapter" data-level="15.3" data-path="examples.html"><a href="examples.html#mixing-solved-systems-and-odes"><i class="fa fa-check"></i><b>15.3</b> Mixing Solved Systems and ODEs</a></li>
+<li class="chapter" data-level="15.4" data-path="examples.html"><a href="examples.html#weight-based-dosing"><i class="fa fa-check"></i><b>15.4</b> Weight based dosing</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="examples.html"><a href="examples.html#creating-a-2-compartment-model-in-rxode"><i class="fa fa-check"></i><b>15.4.1</b> Creating a 2-compartment model in RxODE</a></li>
+<li class="chapter" data-level="15.4.2" data-path="examples.html"><a href="examples.html#simulating-covariates"><i class="fa fa-check"></i><b>15.4.2</b> Simulating Covariates</a></li>
+<li class="chapter" data-level="15.4.3" data-path="examples.html"><a href="examples.html#creating-weight-based-event-table"><i class="fa fa-check"></i><b>15.4.3</b> Creating weight based event table</a></li>
+<li class="chapter" data-level="15.4.4" data-path="examples.html"><a href="examples.html#solving-daptomycin-simulation"><i class="fa fa-check"></i><b>15.4.4</b> Solving Daptomycin simulation</a></li>
+<li class="chapter" data-level="15.4.5" data-path="examples.html"><a href="examples.html#daptomycin-reference"><i class="fa fa-check"></i><b>15.4.5</b> Daptomycin Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="examples.html"><a href="examples.html#inter-occasion-and-other-nesting-examples"><i class="fa fa-check"></i><b>15.5</b> Inter-occasion and other nesting examples</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="examples.html"><a href="examples.html#event-table"><i class="fa fa-check"></i><b>15.5.1</b> Event table</a></li>
+<li class="chapter" data-level="15.5.2" data-path="examples.html"><a href="examples.html#rxode-model"><i class="fa fa-check"></i><b>15.5.2</b> RxODE model</a></li>
+<li class="chapter" data-level="15.5.3" data-path="examples.html"><a href="examples.html#uncertainty-in-model-parameters"><i class="fa fa-check"></i><b>15.5.3</b> Uncertainty in Model parameters</a></li>
+<li class="chapter" data-level="15.5.4" data-path="examples.html"><a href="examples.html#nesting-variability"><i class="fa fa-check"></i><b>15.5.4</b> Nesting Variability</a></li>
+<li class="chapter" data-level="15.5.5" data-path="examples.html"><a href="examples.html#unexplained-variability"><i class="fa fa-check"></i><b>15.5.5</b> Unexplained variability</a></li>
+<li class="chapter" data-level="15.5.6" data-path="examples.html"><a href="examples.html#solving-the-problem"><i class="fa fa-check"></i><b>15.5.6</b> Solving the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="examples.html"><a href="examples.html#transit-compartment-models"><i class="fa fa-check"></i><b>15.6</b> Transit compartment models</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html"><i class="fa fa-check"></i><b>16</b> Advanced &amp; Miscellaneous Topics</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#covariates-in-rxode"><i class="fa fa-check"></i><b>16.1</b> Covariates in RxODE</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#individual-covariates"><i class="fa fa-check"></i><b>16.1.1</b> Individual Covariates</a></li>
+<li class="chapter" data-level="16.1.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#time-varying-covariates"><i class="fa fa-check"></i><b>16.1.2</b> Time Varying Covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#shiny-and-rxode"><i class="fa fa-check"></i><b>16.2</b> Shiny and RxODE</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#facilities-for-generating-r-shiny-applications"><i class="fa fa-check"></i><b>16.2.1</b> Facilities for generating R shiny applications</a></li>
+<li class="chapter" data-level="16.2.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#exploring-parameter-fits-graphically-using-shiny"><i class="fa fa-check"></i><b>16.2.2</b> Exploring parameter fits graphically using shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-rxode-with-a-pipeline"><i class="fa fa-check"></i><b>16.3</b> Using RxODE with a pipeline</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#setting-up-the-rxode-model-for-the-pipeline"><i class="fa fa-check"></i><b>16.3.1</b> Setting up the RxODE model for the pipeline</a></li>
+<li class="chapter" data-level="16.3.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-one-event-table"><i class="fa fa-check"></i><b>16.3.2</b> Simulating one event table</a></li>
+<li class="chapter" data-level="16.3.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-multiple-subjects-from-a-single-event-table"><i class="fa fa-check"></i><b>16.3.3</b> Simulating multiple subjects from a single event table</a></li>
+<li class="chapter" data-level="16.3.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#summarizing-the-simulation-output"><i class="fa fa-check"></i><b>16.3.4</b> Summarizing the simulation output</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#speeding-up-rxode"><i class="fa fa-check"></i><b>16.4</b> Speeding up RxODE</a>
+<ul>
+<li class="chapter" data-level="16.4.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#increasing-rxode-speed-by-multi-subject-parallel-solving"><i class="fa fa-check"></i><b>16.4.1</b> Increasing RxODE speed by multi-subject parallel solving</a></li>
+<li class="chapter" data-level="16.4.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#a-real-life-example"><i class="fa fa-check"></i><b>16.4.2</b> A real life example</a></li>
+</ul></li>
+<li class="chapter" data-level="16.5" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#integrating-rxode-models-in-your-package"><i class="fa fa-check"></i><b>16.5</b> Integrating RxODE models in your package</a>
+<ul>
+<li class="chapter" data-level="16.5.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-pre-compiled-models-in-your-packages"><i class="fa fa-check"></i><b>16.5.1</b> Using Pre-compiled models in your packages</a></li>
+<li class="chapter" data-level="16.5.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-models-in-a-already-present-package"><i class="fa fa-check"></i><b>16.5.2</b> Using Models in a already present package</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#stiff-odes-with-jacobian-specification"><i class="fa fa-check"></i><b>16.6</b> Stiff ODEs with Jacobian Specification</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RxODE user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="single-subject-solving" class="section level1" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Single Subject solving</h1>
+<p>Originally, RxODE was only created to solve ODEs for one individual.
+That is a single system without any changes in individual parameters.</p>
+<p>Of course this is still supported, the classic examples are found in
+<a href="https://nlmixrdevelopment.github.io/RxODE/articles/RxODE-intro.html">RxODE
+intro</a>.</p>
+<p>This article discusses the differences between multiple subject and
+single subject solving. There are three differences:</p>
+<ul>
+<li>Single solving does not solve each ID in parallel</li>
+<li>Single solving lacks the <code>id</code> column in parameters(<code>$params</code>) as
+well as in the actual dataset.</li>
+<li>Single solving allows parameter exploration easier because each
+parameter can be modified. With multiple subject solves, you have to
+make sure to update each individual parameter.</li>
+</ul>
+<p>The first obvious difference is in speed; With multiple subjects you
+can run each subject ID in parallel. For more information and
+examples of the speed gains with multiple subject solving see the
+<a href="RxODE-speed.html">Speeding up RxODE</a> vignette.</p>
+<p>The next difference is the amount of information output in the final data.</p>
+<p>Taking the 2 compartment indirect response model originally in the
+tutorial:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="single-subject-solving.html#cb154-1" aria-hidden="true"></a><span class="kw">library</span>(RxODE)</span>
+<span id="cb154-2"><a href="single-subject-solving.html#cb154-2" aria-hidden="true"></a>mod1 &lt;-<span class="kw">RxODE</span>({</span>
+<span id="cb154-3"><a href="single-subject-solving.html#cb154-3" aria-hidden="true"></a>    KA=<span class="fl">2.94E-01</span></span>
+<span id="cb154-4"><a href="single-subject-solving.html#cb154-4" aria-hidden="true"></a>    CL=<span class="fl">1.86E+01</span></span>
+<span id="cb154-5"><a href="single-subject-solving.html#cb154-5" aria-hidden="true"></a>    V2=<span class="fl">4.02E+01</span></span>
+<span id="cb154-6"><a href="single-subject-solving.html#cb154-6" aria-hidden="true"></a>    Q=<span class="fl">1.05E+01</span></span>
+<span id="cb154-7"><a href="single-subject-solving.html#cb154-7" aria-hidden="true"></a>    V3=<span class="fl">2.97E+02</span></span>
+<span id="cb154-8"><a href="single-subject-solving.html#cb154-8" aria-hidden="true"></a>    Kin=<span class="dv">1</span></span>
+<span id="cb154-9"><a href="single-subject-solving.html#cb154-9" aria-hidden="true"></a>    Kout=<span class="dv">1</span></span>
+<span id="cb154-10"><a href="single-subject-solving.html#cb154-10" aria-hidden="true"></a>    EC50=<span class="dv">200</span></span>
+<span id="cb154-11"><a href="single-subject-solving.html#cb154-11" aria-hidden="true"></a>    C2 =<span class="st"> </span>centr<span class="op">/</span>V2</span>
+<span id="cb154-12"><a href="single-subject-solving.html#cb154-12" aria-hidden="true"></a>    C3 =<span class="st"> </span>peri<span class="op">/</span>V3</span>
+<span id="cb154-13"><a href="single-subject-solving.html#cb154-13" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot</span>
+<span id="cb154-14"><a href="single-subject-solving.html#cb154-14" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3</span>
+<span id="cb154-15"><a href="single-subject-solving.html#cb154-15" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3</span>
+<span id="cb154-16"><a href="single-subject-solving.html#cb154-16" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff</span>
+<span id="cb154-17"><a href="single-subject-solving.html#cb154-17" aria-hidden="true"></a>    <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb154-18"><a href="single-subject-solving.html#cb154-18" aria-hidden="true"></a>})</span>
+<span id="cb154-19"><a href="single-subject-solving.html#cb154-19" aria-hidden="true"></a></span>
+<span id="cb154-20"><a href="single-subject-solving.html#cb154-20" aria-hidden="true"></a>et &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&#39;mg&#39;</span>, <span class="dt">time.units=</span><span class="st">&#39;hours&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb154-21"><a href="single-subject-solving.html#cb154-21" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">addl=</span><span class="dv">9</span>, <span class="dt">ii=</span><span class="dv">12</span>) <span class="op">%&gt;%</span></span>
+<span id="cb154-22"><a href="single-subject-solving.html#cb154-22" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">20000</span>, <span class="dt">nbr.doses=</span><span class="dv">5</span>, <span class="dt">start.time=</span><span class="dv">120</span>, <span class="dt">dosing.interval=</span><span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb154-23"><a href="single-subject-solving.html#cb154-23" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">240</span>) <span class="co"># sampling</span></span></code></pre></div>
+<p>Now a simple solve</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="single-subject-solving.html#cb155-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod1, et)</span>
+<span id="cb155-2"><a href="single-subject-solving.html#cb155-2" aria-hidden="true"></a>x</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters (x$params): ──────────────────────────────────
+#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 
+#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 
+#&gt; ── Initial Conditions (x$inits): ───────────────────────────
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 7
+#&gt;    time    C2    C3  depot centr  peri   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0   0   0     10000     0     0   1   
+#&gt; 2     1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3     2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4     3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5     4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6     5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="single-subject-solving.html#cb157-1" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 
+#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 241 x 7
+#&gt;    time    C2    C3  depot centr  peri   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     0   0   0     10000     0     0   1   
+#&gt; 2     1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3     2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4     3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5     4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6     5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="single-subject-solving.html#cb159-1" aria-hidden="true"></a><span class="kw">plot</span>(x, C2, eff)</span></code></pre></div>
+<p><img src="RxODE-manual_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p>To better see the differences between the single solve, you can solve
+for 2 individuals</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="single-subject-solving.html#cb160-1" aria-hidden="true"></a>x2 &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod1, et <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">2</span>), <span class="dt">params=</span><span class="kw">data.frame</span>(<span class="dt">CL=</span><span class="kw">c</span>(<span class="fl">18.6</span>, <span class="fl">7.6</span>)))</span></code></pre></div>
+<pre><code>#&gt; Warning: &#39;ID&#39; missing in &#39;parameters&#39; dataset
+#&gt; individual parameters are assumed to have the same order as the event dataset</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="single-subject-solving.html#cb162-1" aria-hidden="true"></a><span class="kw">print</span>(x2)</span></code></pre></div>
+<pre><code>#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ Solved RxODE object ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+#&gt; ── Parameters ($params): ───────────────────────────────────
+#&gt; # A tibble: 2 x 9
+#&gt;   id       KA    CL    V2     Q    V3   Kin  Kout  EC50
+#&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 1     0.294  18.6  40.2  10.5   297     1     1   200
+#&gt; 2 2     0.294   7.6  40.2  10.5   297     1     1   200
+#&gt; ── Initial Conditions ($inits): ────────────────────────────
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ────────────────────────────
+#&gt; # A tibble: 482 x 8
+#&gt;      id  time    C2    C3  depot centr  peri   eff
+#&gt;   &lt;int&gt;   [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1     0   0   0     10000     0     0   1   
+#&gt; 2     1     1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3     1     2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4     1     3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5     1     4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6     1     5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 476 more rows
+#&gt; ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="single-subject-solving.html#cb164-1" aria-hidden="true"></a><span class="kw">plot</span>(x2, C2, eff)</span></code></pre></div>
+<p><img src="RxODE-manual_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p>By observing the two solves, you can see:</p>
+<ul>
+<li>A multiple subject solve contains the <code>id</code> column both in the data
+frame and then data frame of parameters for each subject.</li>
+</ul>
+<p>The last feature that is not as obvious, modifying the individual
+parameters. For single subject data, you can modify the RxODE data
+frame changing initial conditions and parameter values as if they were
+part of the data frame, as described in the <a href="https://nlmixrdevelopment.github.io/RxODE/articles/RxODE-data-frame.html">RxODE Data
+Frames</a>.</p>
+<p>For multiple subject solving, this feature still works, but requires
+care when supplying each individual’s parameter value, otherwise you
+may change the solve and drop parameter for key individuals.</p>
+<div id="summary-of-single-solve-vs-multiple-subject-solving" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Summary of Single solve vs Multiple subject solving</h2>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="40%" />
+<col width="49%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Single Subject Solve</th>
+<th>Multiple Subject Solve</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parallel</td>
+<td>None</td>
+<td>Each Subject</td>
+</tr>
+<tr class="even">
+<td>$params</td>
+<td>data.frame with one parameter value</td>
+<td>data.frame with one parameter per subject (w/ID column)</td>
+</tr>
+<tr class="odd">
+<td>solved data</td>
+<td>Can modify individual parameters with $ syntax</td>
+<td>Have to modify all the parameters to update solved object</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="population-simulations-with-rxode.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RxODE-manual.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>

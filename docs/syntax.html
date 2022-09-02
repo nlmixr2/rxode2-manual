@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 rxode2 syntax | rxode2 user manual</title>
+  <meta name="description" content="This book is the user manual for rxode2" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 rxode2 syntax | rxode2 user manual" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book is the user manual for rxode2" />
+  <meta name="github-repo" content="nlmixr2/rxode2-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 rxode2 syntax | rxode2 user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for rxode2" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2022-09-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gettingStarted.html"/>
+<link rel="next" href="events.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.24/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>2</b> Authors and Acknowledgments</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="author.html"><a href="author.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a></li>
+<li class="chapter" data-level="2.2" data-path="author.html"><a href="author.html#contributors"><i class="fa fa-check"></i><b>2.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3" data-path="author.html"><a href="author.html#rxode-acknowledgments"><i class="fa fa-check"></i><b>2.3</b> RxODE acknowledgments:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="related.html"><a href="related.html"><i class="fa fa-check"></i><b>3</b> Related R packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="related.html"><a href="related.html#ode-solving"><i class="fa fa-check"></i><b>3.1</b> ODE solving</a></li>
+<li class="chapter" data-level="3.2" data-path="related.html"><a href="related.html#pk-solved-systems"><i class="fa fa-check"></i><b>3.2</b> PK Solved systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="related.html"><a href="related.html#the-following-packages-for-solved-pk-systems-are-on-cran"><i class="fa fa-check"></i><b>3.2.1</b> The following packages for solved PK systems are on CRAN</a></li>
+<li class="chapter" data-level="3.2.2" data-path="related.html"><a href="related.html#non-cran-libraries"><i class="fa fa-check"></i><b>3.2.2</b> Non-CRAN libraries:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>4</b> Installation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>4.0.1</b> Windows</a></li>
+<li class="chapter" data-level="4.0.2" data-path="install.html"><a href="install.html#mac-osx"><i class="fa fa-check"></i><b>4.0.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="4.0.3" data-path="install.html"><a href="install.html#linux"><i class="fa fa-check"></i><b>4.0.3</b> Linux</a></li>
+<li class="chapter" data-level="4.1" data-path="install.html"><a href="install.html#development-version"><i class="fa fa-check"></i><b>4.1</b> Development Version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode2"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in rxode2</a></li>
+<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> rxode2 syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="syntax.html"><a href="syntax.html#example"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="syntax.html"><a href="syntax.html#syntax-1"><i class="fa fa-check"></i><b>6.2</b> Syntax</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="syntax.html"><a href="syntax.html#identifiers"><i class="fa fa-check"></i><b>6.2.1</b> Identifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="syntax.html"><a href="syntax.html#logical-operators"><i class="fa fa-check"></i><b>6.3</b> Logical Operators</a></li>
+<li class="chapter" data-level="6.4" data-path="syntax.html"><a href="syntax.html#cmt-changing-compartment-numbers-for-states"><i class="fa fa-check"></i><b>6.4</b> cmt() changing compartment numbers for states</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="syntax.html"><a href="syntax.html#how-rxode2-numbers-compartments"><i class="fa fa-check"></i><b>6.4.1</b> How rxode2 numbers compartments</a></li>
+<li class="chapter" data-level="6.4.2" data-path="syntax.html"><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt"><i class="fa fa-check"></i><b>6.4.2</b> Changing compartments by pre-declaring with <code>cmt()</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="syntax.html"><a href="syntax.html#appending-compartments-to-the-model-with-cmt"><i class="fa fa-check"></i><b>6.4.3</b> Appending compartments to the model with <code>cmt()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="events.html"><a href="events.html"><i class="fa fa-check"></i><b>7</b> rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="events.html"><a href="events.html#rxode2-event-tables"><i class="fa fa-check"></i><b>7.1</b> rxode2 event tables</a></li>
+<li class="chapter" data-level="7.2" data-path="events.html"><a href="events.html#bolusadditive-doses"><i class="fa fa-check"></i><b>7.2</b> Bolus/Additive Doses</a></li>
+<li class="chapter" data-level="7.3" data-path="events.html"><a href="events.html#infusion-doses"><i class="fa fa-check"></i><b>7.3</b> Infusion Doses</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="events.html"><a href="events.html#constant-infusion-in-terms-of-duration-and-rate"><i class="fa fa-check"></i><b>7.3.1</b> Constant Infusion (in terms of duration and rate)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="events.html"><a href="events.html#modeled-rate-and-duration-of-infusion"><i class="fa fa-check"></i><b>7.3.2</b> Modeled Rate and Duration of Infusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="events.html"><a href="events.html#steady-state"><i class="fa fa-check"></i><b>7.4</b> Steady State</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="events.html"><a href="events.html#steady-state-for-complex-dosing"><i class="fa fa-check"></i><b>7.4.1</b> Steady state for complex dosing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="events.html"><a href="events.html#steady-state-for-constant-infusion-or-zero-order-processes"><i class="fa fa-check"></i><b>7.4.2</b> Steady state for constant infusion or zero order processes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="events.html"><a href="events.html#reset-events"><i class="fa fa-check"></i><b>7.5</b> Reset Events</a></li>
+<li class="chapter" data-level="7.6" data-path="events.html"><a href="events.html#turning-off-compartments"><i class="fa fa-check"></i><b>7.6</b> Turning off compartments</a></li>
+<li class="chapter" data-level="7.7" data-path="events.html"><a href="events.html#classic-et"><i class="fa fa-check"></i><b>7.7</b> Classic rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="events.html"><a href="events.html#bolus-dose-examples"><i class="fa fa-check"></i><b>7.7.1</b> Bolus Dose Examples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="events.html"><a href="events.html#infusion-event-examples"><i class="fa fa-check"></i><b>7.7.2</b> Infusion Event Examples</a></li>
+<li class="chapter" data-level="7.7.3" data-path="events.html"><a href="events.html#steady-state-for-classic-rxode-evid-example"><i class="fa fa-check"></i><b>7.7.3</b> Steady State for classic RxODE EVID example</a></li>
+<li class="chapter" data-level="7.7.4" data-path="events.html"><a href="events.html#turning-off-a-compartment-with-classic-rxode-evid"><i class="fa fa-check"></i><b>7.7.4</b> Turning off a compartment with classic RxODE EVID</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="events.html"><a href="events.html#datasets-for-rxode2-nlmixr"><i class="fa fa-check"></i><b>7.8</b> Datasets for rxode2 &amp; nlmixr</a></li>
+<li class="chapter" data-level="7.9" data-path="events.html"><a href="events.html#columns-described-by-type-of-use"><i class="fa fa-check"></i><b>7.9</b> Columns Described by Type of Use</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="events.html"><a href="events.html#subject-identification-columns"><i class="fa fa-check"></i><b>7.9.1</b> Subject Identification Columns</a></li>
+<li class="chapter" data-level="7.9.2" data-path="events.html"><a href="events.html#observation-columns"><i class="fa fa-check"></i><b>7.9.2</b> Observation Columns</a></li>
+<li class="chapter" data-level="7.9.3" data-path="events.html"><a href="events.html#dosing-columns"><i class="fa fa-check"></i><b>7.9.3</b> Dosing Columns</a></li>
+<li class="chapter" data-level="7.9.4" data-path="events.html"><a href="events.html#covariate-columns"><i class="fa fa-check"></i><b>7.9.4</b> Covariate Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="events.html"><a href="events.html#details-for-specific-dataset-columns"><i class="fa fa-check"></i><b>7.10</b> Details for Specific Dataset Columns</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="events.html"><a href="events.html#amt-column"><i class="fa fa-check"></i><b>7.10.1</b> <code>AMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.2" data-path="events.html"><a href="events.html#censlimit-columns"><i class="fa fa-check"></i><b>7.10.2</b> <code>CENS</code>/<code>LIMIT</code> Columns</a></li>
+<li class="chapter" data-level="7.10.3" data-path="events.html"><a href="events.html#cmt-column"><i class="fa fa-check"></i><b>7.10.3</b> <code>CMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.4" data-path="events.html"><a href="events.html#dur-column"><i class="fa fa-check"></i><b>7.10.4</b> <code>DUR</code> Column</a></li>
+<li class="chapter" data-level="7.10.5" data-path="events.html"><a href="events.html#dv-column"><i class="fa fa-check"></i><b>7.10.5</b> <code>DV</code> Column</a></li>
+<li class="chapter" data-level="7.10.6" data-path="events.html"><a href="events.html#dvid-column"><i class="fa fa-check"></i><b>7.10.6</b> <code>DVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.7" data-path="events.html"><a href="events.html#evid-column"><i class="fa fa-check"></i><b>7.10.7</b> <code>EVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.8" data-path="events.html"><a href="events.html#id-column"><i class="fa fa-check"></i><b>7.10.8</b> <code>ID</code> Column</a></li>
+<li class="chapter" data-level="7.10.9" data-path="events.html"><a href="events.html#rate-column"><i class="fa fa-check"></i><b>7.10.9</b> <code>RATE</code> Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="et.html"><a href="et.html"><i class="fa fa-check"></i><b>8</b> Easily creating rxode2 events</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="et.html"><a href="et.html#adding-doses-to-the-event-table"><i class="fa fa-check"></i><b>8.1</b> Adding doses to the event table</a></li>
+<li class="chapter" data-level="8.2" data-path="et.html"><a href="et.html#adding-sampling-to-an-event-table"><i class="fa fa-check"></i><b>8.2</b> Adding sampling to an event table</a></li>
+<li class="chapter" data-level="8.3" data-path="et.html"><a href="et.html#expand-the-event-table-to-a-multi-subject-event-table."><i class="fa fa-check"></i><b>8.3</b> Expand the event table to a multi-subject event table.</a></li>
+<li class="chapter" data-level="8.4" data-path="et.html"><a href="et.html#add-doses-and-samples-within-a-sampling-window"><i class="fa fa-check"></i><b>8.4</b> Add doses and samples within a sampling window</a></li>
+<li class="chapter" data-level="8.5" data-path="et.html"><a href="et.html#combining-event-tables"><i class="fa fa-check"></i><b>8.5</b> Combining event tables</a></li>
+<li class="chapter" data-level="8.6" data-path="et.html"><a href="et.html#sequencing-event-tables"><i class="fa fa-check"></i><b>8.6</b> Sequencing event tables</a></li>
+<li class="chapter" data-level="8.7" data-path="et.html"><a href="et.html#repeating-event-tables"><i class="fa fa-check"></i><b>8.7</b> Repeating event tables</a></li>
+<li class="chapter" data-level="8.8" data-path="et.html"><a href="et.html#combining-event-tables-with-rbind"><i class="fa fa-check"></i><b>8.8</b> Combining event tables with rbind</a></li>
+<li class="chapter" data-level="8.9" data-path="et.html"><a href="et.html#expanding-events"><i class="fa fa-check"></i><b>8.9</b> Expanding events</a></li>
+<li class="chapter" data-level="8.10" data-path="et.html"><a href="et.html#event-tables-in-rstudio-notebooks"><i class="fa fa-check"></i><b>8.10</b> Event tables in Rstudio Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="solve.html"><a href="solve.html"><i class="fa fa-check"></i><b>9</b> Solving and solving options</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#rxcontrol"><i class="fa fa-check"></i><b>9.1.1</b> rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> rxode2 output</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="output.html"><a href="output.html#using-rxode2-data-frames"><i class="fa fa-check"></i><b>10.1</b> Using rxode2 data frames</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="output.html"><a href="output.html#creating-an-interactive-data-frame"><i class="fa fa-check"></i><b>10.1.1</b> Creating an interactive data frame</a></li>
+<li class="chapter" data-level="10.1.2" data-path="output.html"><a href="output.html#rxode2-solved-object-properties"><i class="fa fa-check"></i><b>10.1.2</b> rxode2 solved object properties</a></li>
+<li class="chapter" data-level="10.1.3" data-path="output.html"><a href="output.html#using-the-solved-object-as-a-simple-data-frame"><i class="fa fa-check"></i><b>10.1.3</b> Using the solved object as a simple data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="output.html"><a href="output.html#updating-the-data-set-interactively"><i class="fa fa-check"></i><b>10.2</b> Updating the data-set interactively</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="output.html"><a href="output.html#modifying-initial-conditions"><i class="fa fa-check"></i><b>10.2.1</b> Modifying initial conditions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="output.html"><a href="output.html#modifying-observation-times-for-rxode2"><i class="fa fa-check"></i><b>10.2.2</b> Modifying observation times for rxode2</a></li>
+<li class="chapter" data-level="10.2.3" data-path="output.html"><a href="output.html#modifying-simulation-parameters"><i class="fa fa-check"></i><b>10.2.3</b> Modifying simulation parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#single-subject-solving"><i class="fa fa-check"></i><b>11.1</b> Single Subject solving</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="simulation.html"><a href="simulation.html#summary-of-single-solve-vs-multiple-subject-solving"><i class="fa fa-check"></i><b>11.1.1</b> Summary of Single solve vs Multiple subject solving</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#population-simulations-with-rxode2"><i class="fa fa-check"></i><b>11.2</b> Population Simulations with rxode2</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="simulation.html"><a href="simulation.html#simulation-of-variability-with-rxode2"><i class="fa fa-check"></i><b>11.2.1</b> Simulation of Variability with rxode2</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#simulation-of-clinical-trials"><i class="fa fa-check"></i><b>11.3</b> Simulation of Clinical Trials</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="simulation.html"><a href="simulation.html#simulation-from-inverse-wishart-correlations"><i class="fa fa-check"></i><b>11.3.1</b> Simulation from inverse Wishart correlations</a></li>
+<li class="chapter" data-level="11.3.2" data-path="simulation.html"><a href="simulation.html#simulate-using-variancestandard-deviation-standard-errors"><i class="fa fa-check"></i><b>11.3.2</b> Simulate using variance/standard deviation standard errors</a></li>
+<li class="chapter" data-level="11.3.3" data-path="simulation.html"><a href="simulation.html#simulate-without-uncertainty-in-omega-or-sigma-parameters"><i class="fa fa-check"></i><b>11.3.3</b> Simulate without uncertainty in <code>omega</code> or <code>sigma</code> parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="simulation.html"><a href="simulation.html#using-prior-data-for-solving"><i class="fa fa-check"></i><b>11.4</b> Using prior data for solving</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>12</b> Examples</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="examples.html"><a href="examples.html#prediction-only-models"><i class="fa fa-check"></i><b>12.1</b> Prediction only models</a></li>
+<li class="chapter" data-level="12.2" data-path="examples.html"><a href="examples.html#solved-compartment-models"><i class="fa fa-check"></i><b>12.2</b> Solved compartment models</a></li>
+<li class="chapter" data-level="12.3" data-path="examples.html"><a href="examples.html#mixing-solved-systems-and-odes"><i class="fa fa-check"></i><b>12.3</b> Mixing Solved Systems and ODEs</a></li>
+<li class="chapter" data-level="12.4" data-path="examples.html"><a href="examples.html#weight-based-dosing"><i class="fa fa-check"></i><b>12.4</b> Weight based dosing</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="examples.html"><a href="examples.html#creating-a-2-compartment-model-in-rxode2"><i class="fa fa-check"></i><b>12.4.1</b> Creating a 2-compartment model in rxode2</a></li>
+<li class="chapter" data-level="12.4.2" data-path="examples.html"><a href="examples.html#simulating-covariates"><i class="fa fa-check"></i><b>12.4.2</b> Simulating Covariates</a></li>
+<li class="chapter" data-level="12.4.3" data-path="examples.html"><a href="examples.html#creating-weight-based-event-table"><i class="fa fa-check"></i><b>12.4.3</b> Creating weight based event table</a></li>
+<li class="chapter" data-level="12.4.4" data-path="examples.html"><a href="examples.html#solving-daptomycin-simulation"><i class="fa fa-check"></i><b>12.4.4</b> Solving Daptomycin simulation</a></li>
+<li class="chapter" data-level="12.4.5" data-path="examples.html"><a href="examples.html#daptomycin-reference"><i class="fa fa-check"></i><b>12.4.5</b> Daptomycin Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="examples.html"><a href="examples.html#inter-occasion-and-other-nesting-examples"><i class="fa fa-check"></i><b>12.5</b> Inter-occasion and other nesting examples</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="examples.html"><a href="examples.html#event-table"><i class="fa fa-check"></i><b>12.5.1</b> Event table</a></li>
+<li class="chapter" data-level="12.5.2" data-path="examples.html"><a href="examples.html#rxode2-model"><i class="fa fa-check"></i><b>12.5.2</b> rxode2 model</a></li>
+<li class="chapter" data-level="12.5.3" data-path="examples.html"><a href="examples.html#uncertainty-in-model-parameters"><i class="fa fa-check"></i><b>12.5.3</b> Uncertainty in Model parameters</a></li>
+<li class="chapter" data-level="12.5.4" data-path="examples.html"><a href="examples.html#nesting-variability"><i class="fa fa-check"></i><b>12.5.4</b> Nesting Variability</a></li>
+<li class="chapter" data-level="12.5.5" data-path="examples.html"><a href="examples.html#unexplained-variability"><i class="fa fa-check"></i><b>12.5.5</b> Unexplained variability</a></li>
+<li class="chapter" data-level="12.5.6" data-path="examples.html"><a href="examples.html#solving-the-problem"><i class="fa fa-check"></i><b>12.5.6</b> Solving the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="examples.html"><a href="examples.html#transit-compartment-models"><i class="fa fa-check"></i><b>12.6</b> Transit compartment models</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html"><i class="fa fa-check"></i><b>13</b> Advanced &amp; Miscellaneous Topics</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#covariates-in-rxode2"><i class="fa fa-check"></i><b>13.1</b> Covariates in rxode2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#individual-covariates"><i class="fa fa-check"></i><b>13.1.1</b> Individual Covariates</a></li>
+<li class="chapter" data-level="13.1.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#time-varying-covariates"><i class="fa fa-check"></i><b>13.1.2</b> Time Varying Covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#shiny-and-rxode2"><i class="fa fa-check"></i><b>13.2</b> Shiny and rxode2</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#facilities-for-generating-r-shiny-applications"><i class="fa fa-check"></i><b>13.2.1</b> Facilities for generating R shiny applications</a></li>
+<li class="chapter" data-level="13.2.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#exploring-parameter-fits-graphically-using-shiny"><i class="fa fa-check"></i><b>13.2.2</b> Exploring parameter fits graphically using shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-rxode2-with-a-pipeline"><i class="fa fa-check"></i><b>13.3</b> Using rxode2 with a pipeline</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#setting-up-the-rxode2-model-for-the-pipeline"><i class="fa fa-check"></i><b>13.3.1</b> Setting up the rxode2 model for the pipeline</a></li>
+<li class="chapter" data-level="13.3.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-one-event-table"><i class="fa fa-check"></i><b>13.3.2</b> Simulating one event table</a></li>
+<li class="chapter" data-level="13.3.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-multiple-subjects-from-a-single-event-table"><i class="fa fa-check"></i><b>13.3.3</b> Simulating multiple subjects from a single event table</a></li>
+<li class="chapter" data-level="13.3.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#summarizing-the-simulation-output"><i class="fa fa-check"></i><b>13.3.4</b> Summarizing the simulation output</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#speeding-up-rxode2"><i class="fa fa-check"></i><b>13.4</b> Speeding up rxode2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#increasing-rxode2-speed-by-multi-subject-parallel-solving"><i class="fa fa-check"></i><b>13.4.1</b> Increasing rxode2 speed by multi-subject parallel solving</a></li>
+<li class="chapter" data-level="13.4.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#a-real-life-example"><i class="fa fa-check"></i><b>13.4.2</b> A real life example</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#integrating-rxode2-models-in-your-package"><i class="fa fa-check"></i><b>13.5</b> Integrating rxode2 models in your package</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-pre-compiled-models-in-your-packages"><i class="fa fa-check"></i><b>13.5.1</b> Using Pre-compiled models in your packages</a></li>
+<li class="chapter" data-level="13.5.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-models-in-a-already-present-package"><i class="fa fa-check"></i><b>13.5.2</b> Using Models in a already present package</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#stiff-odes-with-jacobian-specification"><i class="fa fa-check"></i><b>13.6</b> Stiff ODEs with Jacobian Specification</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rxode2 user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="syntax" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> rxode2 syntax<a href="syntax.html#syntax" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This briefly describes the syntax used to define models
+that <code>rxode2</code> will translate into R-callable compiled code. It also
+describes the communication of variables between <code>R</code> and the
+<code>rxode2</code> modeling specification.</p>
+<div id="example" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Example<a href="syntax.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>   # An rxode2 model specification (this line is a comment).
+
+   if(comed==0){   # concomitant medication (con-med)?
+      F = 1.0;     # full bioavailability w.o. con-med
+   }
+   else {
+      F = 0.80;    # 20% reduced bioavailability
+   }
+
+   C2 = centr/V2;  # concentration in the central compartment
+   C3 = peri/V3;   # concentration in the peripheral compartment
+
+   # ODE describing the PK and PD
+
+   d/dt(depot) = -KA*depot;
+   d/dt(centr) = F*KA*depot - CL*C2 - Q*C2 + Q*C3;
+   d/dt(peri)  =                      Q*C2 - Q*C3;
+   d/dt(eff)   = Kin - Kout*(1-C2/(EC50+C2))*eff;</code></pre>
+</div>
+<div id="syntax-1" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Syntax<a href="syntax.html#syntax-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An <code>rxode2</code> model specification consists of one or more
+statements optionally terminated by semi-colons <code>;</code> and
+optional comments (comments are delimited by <code>#</code> and an
+end-of-line).</p>
+<p>A block of statements is a set of statements delimited by
+curly braces, <code>{ ... }</code>.</p>
+<p>Statements can be either assignments, conditional <code>if</code>/<code>else if</code>/<code>else</code>, <code>while</code> loops (can be exited by <code>break</code>), special
+statements, or printing statements (for debugging/testing)</p>
+<p>Assignment statements can be:</p>
+<ul>
+<li><p><strong>simple</strong> assignments, where the left hand is an identifier (i.e.,
+variable)</p></li>
+<li><p>special <strong>time-derivative</strong> assignments, where the left hand
+specifies the change of the amount in the corresponding state
+variable (compartment) with respect to time e.g., <code>d/dt(depot)</code>:</p></li>
+<li><p>special <strong>initial-condition</strong> assignments where the left hand
+specifies the compartment of the initial condition being specified,
+e.g. <code>depot(0) = 0</code></p></li>
+<li><p>special model event changes including <strong>bioavailability</strong>
+(<code>f(depot)=1</code>), <strong>lag time</strong> (<code>alag(depot)=0</code>), <strong>modeled rate</strong>
+(<code>rate(depot)=2</code>) and <strong>modeled duration</strong> (<code>dur(depot)=2</code>). An
+example of these model features and the event specification for the
+modeled infusions the rxode2 data specification is found in <a href="events.html#events">rxode2
+events section</a>.</p></li>
+<li><p>special <strong>change point syntax, or model times</strong>. These model times are
+specified by <code>mtime(var)=time</code></p></li>
+<li><p>special <strong>Jacobian-derivative</strong> assignments, where the left hand
+specifies the change in the compartment ode with respect to a
+variable. For example, if <code>d/dt(y) = dy</code>, then a Jacobian for this
+compartment can be specified as <code>df(y)/dy(dy) = 1</code>. There may be
+some advantage to obtaining the solution or specifying the Jacobian
+for very stiff ODE systems. However, for the few stiff systems we
+tried with LSODA, this actually slightly slowed down the solving.</p></li>
+</ul>
+<p>Note that assignment can be done by <code>=</code>, <code>&lt;-</code> or <code>~</code>.</p>
+<p>When assigning with the <code>~</code> operator, the <strong>simple
+assignments</strong> and <strong>time-derivative</strong> assignments will not be output.</p>
+<p>Special statements can be:</p>
+<ul>
+<li><p><strong>Compartment declaration statements</strong>, which can change the default
+dosing compartment and the assumed compartment number(s) as well as
+add extra compartment names at the end (useful for multiple-endpoint
+nlmixr models); These are specified by <code>cmt(compartmentName)</code></p></li>
+<li><p><strong>Parameter declaration statements</strong>, which can make sure the input
+parameters are in a certain order instead of ordering the parameters
+by the order they are parsed. This is useful for keeping the
+parameter order the same when using 2 different ODE models. These
+are specified by <code>param(par1, par2,...)</code></p></li>
+</ul>
+<p>An example model is shown below:</p>
+<pre><code>   # simple assignment
+   C2 = centr/V2;
+
+   # time-derivative assignment
+   d/dt(centr) = F*KA*depot - CL*C2 - Q*C2 + Q*C3; </code></pre>
+<p>Expressions in assignment and <code>if</code> statements can be numeric or logical.</p>
+<p>Numeric expressions can include the following numeric operators <code>+, -, *, /, ^</code> and those mathematical functions defined in the C or the R
+math libraries (e.g., <code>fabs</code>, <code>exp</code>, <code>log</code>, <code>sin</code>, <code>abs</code>).</p>
+<p>You may also access the R’s functions in the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Numerical-analysis-subroutines">R math
+libraries</a>,
+like <code>lgammafn</code> for the log gamma function.</p>
+<p>The <code>rxode2</code> syntax is case-sensitive, i.e., <code>ABC</code> is different
+than <code>abc</code>, <code>Abc</code>, <code>ABc</code>, etc.</p>
+<div id="identifiers" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Identifiers<a href="syntax.html#identifiers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Like R, Identifiers (variable names) may consist of one or more alphanumeric,
+underscore <code>_</code> or period <code>.</code> characters, but the first character
+cannot be a digit or underscore <code>_</code>.</p>
+<p>Identifiers in a model specification can refer to:</p>
+<ul>
+<li>State variables in the dynamic system (e.g., compartments in a
+pharmacokinetics model).</li>
+<li>Implied input variable, <code>t</code> (time), <code>tlast</code> (last time point), and
+<code>podo</code> (oral dose, in the undocumented case of absorption transit
+models).</li>
+<li>Special constants like <code>pi</code> or
+<a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Mathematical-constants">R’s predefined constants</a>.</li>
+<li>Model parameters (e.g., <code>ka</code> rate of absorption, <code>CL</code> clearance, etc.)</li>
+<li>Others, as created by assignments as part of the model specification;
+these are referred as <em>LHS</em> (left-hand side) variable.</li>
+</ul>
+<p>Currently, the <code>rxode2</code> modeling language only recognizes system state
+variables and “parameters”, thus, any values that need to be passed
+from R to the ODE model (e.g., <code>age</code>) should be either passed in the
+<code>params</code> argument of the integrator function <code>rxSolve()</code> or be in the
+supplied event data-set.</p>
+<p>There are certain variable names that are in the <code>rxode2</code> event tables.
+To avoid confusion, the following event table-related items cannot be
+assigned, or used as a state but can be accessed in the rxode2 code:</p>
+<ul>
+<li><code>cmt</code></li>
+<li><code>dvid</code></li>
+<li><code>addl</code></li>
+<li><code>ss</code></li>
+<li><code>rate</code></li>
+<li><code>id</code></li>
+</ul>
+<p>However the following variables are cannot be used in a model specification:</p>
+<ul>
+<li><code>evid</code></li>
+<li><code>ii</code></li>
+</ul>
+<p>Sometimes rxode2 generates variables that are fed back to rxode2.
+Similarly, nlmixr generates some variables that are used in nlmixr
+estimation and simulation. These variables start with the either the
+<code>rx</code> or <code>nlmixr</code> prefixes. To avoid any problems, it is suggested to
+not use these variables starting with either the <code>rx</code> or <code>nlmixr</code>
+prefixes.</p>
+</div>
+</div>
+<div id="logical-operators" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Logical Operators<a href="syntax.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Logical operators support the standard R operators <code>==</code>, <code>!=</code> <code>&gt;=</code>
+<code>&lt;=</code> <code>&gt;</code> and <code>&lt;</code>. Like R these can be in <code>if()</code> or <code>while()</code>
+statements, <code>ifelse()</code> expressions. Additionally they can be in a
+standard assignment. For instance, the following is valid:</p>
+<pre><code>cov1 = covm*(sexf == &quot;female&quot;) + covm*(sexf != &quot;female&quot;)</code></pre>
+<p>Notice that you can also use character expressions in comparisons.
+This convenience comes at a cost since character comparisons are
+slower than numeric expressions. Unlike R, <code>as.numeric</code> or
+<code>as.integer</code> for these logical statements is not only not needed, but
+will cause an syntax error if you try to use the function.</p>
+</div>
+<div id="cmt-changing-compartment-numbers-for-states" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> cmt() changing compartment numbers for states<a href="syntax.html#cmt-changing-compartment-numbers-for-states" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The compartment order can be changed with the <code>cmt()</code> syntax in the
+model. To understand what the <code>cmt()</code> can do you need to understand
+how <code>rxode2</code> numbers the compartments.</p>
+<p>Below is an example of how rxode2 numbers compartments</p>
+<div id="how-rxode2-numbers-compartments" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> How rxode2 numbers compartments<a href="syntax.html#how-rxode2-numbers-compartments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>rxode2 automatically assigns compartment numbers when parsing. For
+example, with the Mavoglurant PBPK model the following model may be
+used:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="syntax.html#cb31-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb31-2"><a href="syntax.html#cb31-2" aria-hidden="true"></a>pbpk &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb31-3"><a href="syntax.html#cb31-3" aria-hidden="true"></a>    KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
+<span id="cb31-4"><a href="syntax.html#cb31-4" aria-hidden="true"></a>    KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
+<span id="cb31-5"><a href="syntax.html#cb31-5" aria-hidden="true"></a>    KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
+<span id="cb31-6"><a href="syntax.html#cb31-6" aria-hidden="true"></a>    CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
+<span id="cb31-7"><a href="syntax.html#cb31-7" aria-hidden="true"></a>    KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
+<span id="cb31-8"><a href="syntax.html#cb31-8" aria-hidden="true"></a>    KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
+<span id="cb31-9"><a href="syntax.html#cb31-9" aria-hidden="true"></a></span>
+<span id="cb31-10"><a href="syntax.html#cb31-10" aria-hidden="true"></a>    <span class="co">## Regional blood flows</span></span>
+<span id="cb31-11"><a href="syntax.html#cb31-11" aria-hidden="true"></a>    <span class="co"># Cardiac output (L/h) from White et al (1968)</span></span>
+<span id="cb31-12"><a href="syntax.html#cb31-12" aria-hidden="true"></a>    CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
+<span id="cb31-13"><a href="syntax.html#cb31-13" aria-hidden="true"></a>    QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-14"><a href="syntax.html#cb31-14" aria-hidden="true"></a>    QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-15"><a href="syntax.html#cb31-15" aria-hidden="true"></a>    QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-16"><a href="syntax.html#cb31-16" aria-hidden="true"></a>    QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-17"><a href="syntax.html#cb31-17" aria-hidden="true"></a>    QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-18"><a href="syntax.html#cb31-18" aria-hidden="true"></a>    QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-19"><a href="syntax.html#cb31-19" aria-hidden="true"></a>    QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-20"><a href="syntax.html#cb31-20" aria-hidden="true"></a>    QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-21"><a href="syntax.html#cb31-21" aria-hidden="true"></a>    QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-22"><a href="syntax.html#cb31-22" aria-hidden="true"></a>    QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-23"><a href="syntax.html#cb31-23" aria-hidden="true"></a>    <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb31-24"><a href="syntax.html#cb31-24" aria-hidden="true"></a>    QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); </span>
+<span id="cb31-25"><a href="syntax.html#cb31-25" aria-hidden="true"></a>    QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-26"><a href="syntax.html#cb31-26" aria-hidden="true"></a>    QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb31-27"><a href="syntax.html#cb31-27" aria-hidden="true"></a>    QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
+<span id="cb31-28"><a href="syntax.html#cb31-28" aria-hidden="true"></a>    QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
+<span id="cb31-29"><a href="syntax.html#cb31-29" aria-hidden="true"></a></span>
+<span id="cb31-30"><a href="syntax.html#cb31-30" aria-hidden="true"></a>    <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb31-31"><a href="syntax.html#cb31-31" aria-hidden="true"></a>    VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
+<span id="cb31-32"><a href="syntax.html#cb31-32" aria-hidden="true"></a>    VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
+<span id="cb31-33"><a href="syntax.html#cb31-33" aria-hidden="true"></a>    VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
+<span id="cb31-34"><a href="syntax.html#cb31-34" aria-hidden="true"></a>    VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
+<span id="cb31-35"><a href="syntax.html#cb31-35" aria-hidden="true"></a>    VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
+<span id="cb31-36"><a href="syntax.html#cb31-36" aria-hidden="true"></a>    VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
+<span id="cb31-37"><a href="syntax.html#cb31-37" aria-hidden="true"></a>    VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
+<span id="cb31-38"><a href="syntax.html#cb31-38" aria-hidden="true"></a>    VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
+<span id="cb31-39"><a href="syntax.html#cb31-39" aria-hidden="true"></a>    VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-40"><a href="syntax.html#cb31-40" aria-hidden="true"></a>    VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb31-41"><a href="syntax.html#cb31-41" aria-hidden="true"></a>    VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
+<span id="cb31-42"><a href="syntax.html#cb31-42" aria-hidden="true"></a>    VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
+<span id="cb31-43"><a href="syntax.html#cb31-43" aria-hidden="true"></a>    VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb31-44"><a href="syntax.html#cb31-44" aria-hidden="true"></a>    VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-45"><a href="syntax.html#cb31-45" aria-hidden="true"></a>    VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-46"><a href="syntax.html#cb31-46" aria-hidden="true"></a>    VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-47"><a href="syntax.html#cb31-47" aria-hidden="true"></a></span>
+<span id="cb31-48"><a href="syntax.html#cb31-48" aria-hidden="true"></a>    <span class="co">## Fixed parameters</span></span>
+<span id="cb31-49"><a href="syntax.html#cb31-49" aria-hidden="true"></a>    BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb31-50"><a href="syntax.html#cb31-50" aria-hidden="true"></a>    fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb31-51"><a href="syntax.html#cb31-51" aria-hidden="true"></a>    fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb31-52"><a href="syntax.html#cb31-52" aria-hidden="true"></a></span>
+<span id="cb31-53"><a href="syntax.html#cb31-53" aria-hidden="true"></a>    KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb31-54"><a href="syntax.html#cb31-54" aria-hidden="true"></a>    KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb31-55"><a href="syntax.html#cb31-55" aria-hidden="true"></a>    KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb31-56"><a href="syntax.html#cb31-56" aria-hidden="true"></a>    KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-57"><a href="syntax.html#cb31-57" aria-hidden="true"></a>    KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-58"><a href="syntax.html#cb31-58" aria-hidden="true"></a>    KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb31-59"><a href="syntax.html#cb31-59" aria-hidden="true"></a>    KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-60"><a href="syntax.html#cb31-60" aria-hidden="true"></a>    KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb31-61"><a href="syntax.html#cb31-61" aria-hidden="true"></a>    KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb31-62"><a href="syntax.html#cb31-62" aria-hidden="true"></a></span>
+<span id="cb31-63"><a href="syntax.html#cb31-63" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
+<span id="cb31-64"><a href="syntax.html#cb31-64" aria-hidden="true"></a>    S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
+<span id="cb31-65"><a href="syntax.html#cb31-65" aria-hidden="true"></a>    C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
+<span id="cb31-66"><a href="syntax.html#cb31-66" aria-hidden="true"></a></span>
+<span id="cb31-67"><a href="syntax.html#cb31-67" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
+<span id="cb31-68"><a href="syntax.html#cb31-68" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
+<span id="cb31-69"><a href="syntax.html#cb31-69" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
+<span id="cb31-70"><a href="syntax.html#cb31-70" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
+<span id="cb31-71"><a href="syntax.html#cb31-71" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
+<span id="cb31-72"><a href="syntax.html#cb31-72" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
+<span id="cb31-73"><a href="syntax.html#cb31-73" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
+<span id="cb31-74"><a href="syntax.html#cb31-74" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
+<span id="cb31-75"><a href="syntax.html#cb31-75" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
+<span id="cb31-76"><a href="syntax.html#cb31-76" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
+<span id="cb31-77"><a href="syntax.html#cb31-77" aria-hidden="true"></a><span class="st">      </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span></span>
+<span id="cb31-78"><a href="syntax.html#cb31-78" aria-hidden="true"></a><span class="st">      </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span><span class="st"> </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
+<span id="cb31-79"><a href="syntax.html#cb31-79" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
+<span id="cb31-80"><a href="syntax.html#cb31-80" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
+<span id="cb31-81"><a href="syntax.html#cb31-81" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
+<span id="cb31-82"><a href="syntax.html#cb31-82" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
+<span id="cb31-83"><a href="syntax.html#cb31-83" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
+<span id="cb31-84"><a href="syntax.html#cb31-84" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
+<span id="cb31-85"><a href="syntax.html#cb31-85" aria-hidden="true"></a><span class="st">      </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
+<span id="cb31-86"><a href="syntax.html#cb31-86" aria-hidden="true"></a><span class="st">      </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
+<span id="cb31-87"><a href="syntax.html#cb31-87" aria-hidden="true"></a><span class="st">      </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
+<span id="cb31-88"><a href="syntax.html#cb31-88" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
+<span id="cb31-89"><a href="syntax.html#cb31-89" aria-hidden="true"></a>})</span></code></pre></div>
+<p>If you look at the summary, you can see where rxode2 assigned the compartment number(s)</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="syntax.html#cb32-1" aria-hidden="true"></a><span class="kw">summary</span>(pbpk)</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.8 model named rx_045922f3fa833d4fac177cc8bf51f14e model (✔ ready). 
+#&gt; DLL: /home/matt/.cache/R/rxode2/rx_045922f3fa833d4fac177cc8bf51f14e__.rxd/rx_045922f3fa833d4fac177cc8bf51f14e_.so
+#&gt; NULL
+#&gt; 
+#&gt; Calculated Variables:
+#&gt;  [1] &quot;KbBR&quot;  &quot;KbMU&quot;  &quot;KbAD&quot;  &quot;CLint&quot; &quot;KbBO&quot;  &quot;KbRB&quot;  &quot;CO&quot;    &quot;QHT&quot;   &quot;QBR&quot;  
+#&gt; [10] &quot;QMU&quot;   &quot;QAD&quot;   &quot;QSK&quot;   &quot;QSP&quot;   &quot;QPA&quot;   &quot;QLI&quot;   &quot;QST&quot;   &quot;QGU&quot;   &quot;QHA&quot;  
+#&gt; [19] &quot;QBO&quot;   &quot;QKI&quot;   &quot;QRB&quot;   &quot;QLU&quot;   &quot;VLU&quot;   &quot;VHT&quot;   &quot;VBR&quot;   &quot;VMU&quot;   &quot;VAD&quot;  
+#&gt; [28] &quot;VSK&quot;   &quot;VSP&quot;   &quot;VPA&quot;   &quot;VLI&quot;   &quot;VST&quot;   &quot;VGU&quot;   &quot;VBO&quot;   &quot;VKI&quot;   &quot;VAB&quot;  
+#&gt; [37] &quot;VVB&quot;   &quot;VRB&quot;   &quot;fub&quot;   &quot;KbLU&quot;  &quot;KbHT&quot;  &quot;KbSK&quot;  &quot;KbSP&quot;  &quot;KbPA&quot;  &quot;KbLI&quot; 
+#&gt; [46] &quot;KbST&quot;  &quot;KbGU&quot;  &quot;KbKI&quot;  &quot;S15&quot;   &quot;C15&quot;  
+#&gt; ── rxode2 Model Syntax ──
+#&gt; rxode2({
+#&gt;     KbBR = exp(lKbBR)
+#&gt;     KbMU = exp(lKbMU)
+#&gt;     KbAD = exp(lKbAD)
+#&gt;     CLint = exp(lCLint + eta.LClint)
+#&gt;     KbBO = exp(lKbBO)
+#&gt;     KbRB = exp(lKbRB)
+#&gt;     CO = (187 * WT^0.81) * 60/1000
+#&gt;     QHT = 4 * CO/100
+#&gt;     QBR = 12 * CO/100
+#&gt;     QMU = 17 * CO/100
+#&gt;     QAD = 5 * CO/100
+#&gt;     QSK = 5 * CO/100
+#&gt;     QSP = 3 * CO/100
+#&gt;     QPA = 1 * CO/100
+#&gt;     QLI = 25.5 * CO/100
+#&gt;     QST = 1 * CO/100
+#&gt;     QGU = 14 * CO/100
+#&gt;     QHA = QLI - (QSP + QPA + QST + QGU)
+#&gt;     QBO = 5 * CO/100
+#&gt;     QKI = 19 * CO/100
+#&gt;     QRB = CO - (QHT + QBR + QMU + QAD + QSK + QLI + QBO + QKI)
+#&gt;     QLU = QHT + QBR + QMU + QAD + QSK + QLI + QBO + QKI + QRB
+#&gt;     VLU = (0.76 * WT/100)/1.051
+#&gt;     VHT = (0.47 * WT/100)/1.03
+#&gt;     VBR = (2 * WT/100)/1.036
+#&gt;     VMU = (40 * WT/100)/1.041
+#&gt;     VAD = (21.42 * WT/100)/0.916
+#&gt;     VSK = (3.71 * WT/100)/1.116
+#&gt;     VSP = (0.26 * WT/100)/1.054
+#&gt;     VPA = (0.14 * WT/100)/1.045
+#&gt;     VLI = (2.57 * WT/100)/1.04
+#&gt;     VST = (0.21 * WT/100)/1.05
+#&gt;     VGU = (1.44 * WT/100)/1.043
+#&gt;     VBO = (14.29 * WT/100)/1.99
+#&gt;     VKI = (0.44 * WT/100)/1.05
+#&gt;     VAB = (2.81 * WT/100)/1.04
+#&gt;     VVB = (5.62 * WT/100)/1.04
+#&gt;     VRB = (3.86 * WT/100)/1.04
+#&gt;     BP = 0.61
+#&gt;     fup = 0.028
+#&gt;     fub = fup/BP
+#&gt;     KbLU = exp(0.8334)
+#&gt;     KbHT = exp(1.1205)
+#&gt;     KbSK = exp(-0.5238)
+#&gt;     KbSP = exp(0.3224)
+#&gt;     KbPA = exp(0.3224)
+#&gt;     KbLI = exp(1.7604)
+#&gt;     KbST = exp(0.3224)
+#&gt;     KbGU = exp(1.2026)
+#&gt;     KbKI = exp(1.3171)
+#&gt;     S15 = VVB * BP/1000
+#&gt;     C15 = Venous_Blood/S15
+#&gt;     d/dt(Lungs) = QLU * (Venous_Blood/VVB - Lungs/KbLU/VLU)
+#&gt;     d/dt(Heart) = QHT * (Arterial_Blood/VAB - Heart/KbHT/VHT)
+#&gt;     d/dt(Brain) = QBR * (Arterial_Blood/VAB - Brain/KbBR/VBR)
+#&gt;     d/dt(Muscles) = QMU * (Arterial_Blood/VAB - Muscles/KbMU/VMU)
+#&gt;     d/dt(Adipose) = QAD * (Arterial_Blood/VAB - Adipose/KbAD/VAD)
+#&gt;     d/dt(Skin) = QSK * (Arterial_Blood/VAB - Skin/KbSK/VSK)
+#&gt;     d/dt(Spleen) = QSP * (Arterial_Blood/VAB - Spleen/KbSP/VSP)
+#&gt;     d/dt(Pancreas) = QPA * (Arterial_Blood/VAB - Pancreas/KbPA/VPA)
+#&gt;     d/dt(Liver) = QHA * Arterial_Blood/VAB + QSP * Spleen/KbSP/VSP + 
+#&gt;         QPA * Pancreas/KbPA/VPA + QST * Stomach/KbST/VST + QGU * 
+#&gt;         Gut/KbGU/VGU - CLint * fub * Liver/KbLI/VLI - QLI * Liver/KbLI/VLI
+#&gt;     d/dt(Stomach) = QST * (Arterial_Blood/VAB - Stomach/KbST/VST)
+#&gt;     d/dt(Gut) = QGU * (Arterial_Blood/VAB - Gut/KbGU/VGU)
+#&gt;     d/dt(Bones) = QBO * (Arterial_Blood/VAB - Bones/KbBO/VBO)
+#&gt;     d/dt(Kidneys) = QKI * (Arterial_Blood/VAB - Kidneys/KbKI/VKI)
+#&gt;     d/dt(Arterial_Blood) = QLU * (Lungs/KbLU/VLU - Arterial_Blood/VAB)
+#&gt;     d/dt(Venous_Blood) = QHT * Heart/KbHT/VHT + QBR * Brain/KbBR/VBR + 
+#&gt;         QMU * Muscles/KbMU/VMU + QAD * Adipose/KbAD/VAD + QSK * 
+#&gt;         Skin/KbSK/VSK + QLI * Liver/KbLI/VLI + QBO * Bones/KbBO/VBO + 
+#&gt;         QKI * Kidneys/KbKI/VKI + QRB * Rest_of_Body/KbRB/VRB - 
+#&gt;         QLU * Venous_Blood/VVB
+#&gt;     d/dt(Rest_of_Body) = QRB * (Arterial_Blood/VAB - Rest_of_Body/KbRB/VRB)
+#&gt; })</code></pre>
+<p>In this case, <code>Venous_Blood</code> is assigned to compartment <code>15</code>.
+Figuring this out can be inconvenient and also lead to re-numbering
+compartment in simulation or estimation datasets. While it is easy and
+probably clearer to specify the <a href="rxode2-events.html">compartment by
+name</a>, other tools only support compartment
+numbers. Therefore, having a way to number compartment easily can
+lead to less data modification between multiple tools.</p>
+</div>
+<div id="changing-compartments-by-pre-declaring-with-cmt" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Changing compartments by pre-declaring with <code>cmt()</code><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To add the compartments to the rxode2 model in the order you desire you
+simply need to pre-declare the compartments with <code>cmt</code>. For example
+specifying is <code>Venous_Blood</code> and <code>Skin</code> to be the 1st and 2nd
+compartments, respectively, is simple:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="syntax.html#cb34-1" aria-hidden="true"></a>pbpk2 &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb34-2"><a href="syntax.html#cb34-2" aria-hidden="true"></a>  <span class="co">## Now this is the first compartment, ie cmt=1</span></span>
+<span id="cb34-3"><a href="syntax.html#cb34-3" aria-hidden="true"></a>  <span class="kw">cmt</span>(Venous_Blood)</span>
+<span id="cb34-4"><a href="syntax.html#cb34-4" aria-hidden="true"></a>  <span class="co">## Skin may be a compartment you wish to dose to as well,</span></span>
+<span id="cb34-5"><a href="syntax.html#cb34-5" aria-hidden="true"></a>  <span class="co">##  so it is now cmt=2</span></span>
+<span id="cb34-6"><a href="syntax.html#cb34-6" aria-hidden="true"></a>  <span class="kw">cmt</span>(Skin) </span>
+<span id="cb34-7"><a href="syntax.html#cb34-7" aria-hidden="true"></a>  KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
+<span id="cb34-8"><a href="syntax.html#cb34-8" aria-hidden="true"></a>  KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
+<span id="cb34-9"><a href="syntax.html#cb34-9" aria-hidden="true"></a>  KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
+<span id="cb34-10"><a href="syntax.html#cb34-10" aria-hidden="true"></a>  CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
+<span id="cb34-11"><a href="syntax.html#cb34-11" aria-hidden="true"></a>  KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
+<span id="cb34-12"><a href="syntax.html#cb34-12" aria-hidden="true"></a>  KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
+<span id="cb34-13"><a href="syntax.html#cb34-13" aria-hidden="true"></a></span>
+<span id="cb34-14"><a href="syntax.html#cb34-14" aria-hidden="true"></a>  <span class="co">## Regional blood flows</span></span>
+<span id="cb34-15"><a href="syntax.html#cb34-15" aria-hidden="true"></a>  <span class="co"># Cardiac output (L/h) from White et al (1968)m</span></span>
+<span id="cb34-16"><a href="syntax.html#cb34-16" aria-hidden="true"></a>  CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
+<span id="cb34-17"><a href="syntax.html#cb34-17" aria-hidden="true"></a>  QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-18"><a href="syntax.html#cb34-18" aria-hidden="true"></a>  QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-19"><a href="syntax.html#cb34-19" aria-hidden="true"></a>  QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-20"><a href="syntax.html#cb34-20" aria-hidden="true"></a>  QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-21"><a href="syntax.html#cb34-21" aria-hidden="true"></a>  QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-22"><a href="syntax.html#cb34-22" aria-hidden="true"></a>  QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-23"><a href="syntax.html#cb34-23" aria-hidden="true"></a>  QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-24"><a href="syntax.html#cb34-24" aria-hidden="true"></a>  QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-25"><a href="syntax.html#cb34-25" aria-hidden="true"></a>  QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-26"><a href="syntax.html#cb34-26" aria-hidden="true"></a>  QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-27"><a href="syntax.html#cb34-27" aria-hidden="true"></a>  QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb34-28"><a href="syntax.html#cb34-28" aria-hidden="true"></a>  QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-29"><a href="syntax.html#cb34-29" aria-hidden="true"></a>  QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb34-30"><a href="syntax.html#cb34-30" aria-hidden="true"></a>  QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
+<span id="cb34-31"><a href="syntax.html#cb34-31" aria-hidden="true"></a>  QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
+<span id="cb34-32"><a href="syntax.html#cb34-32" aria-hidden="true"></a></span>
+<span id="cb34-33"><a href="syntax.html#cb34-33" aria-hidden="true"></a>  <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb34-34"><a href="syntax.html#cb34-34" aria-hidden="true"></a>  VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
+<span id="cb34-35"><a href="syntax.html#cb34-35" aria-hidden="true"></a>  VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
+<span id="cb34-36"><a href="syntax.html#cb34-36" aria-hidden="true"></a>  VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
+<span id="cb34-37"><a href="syntax.html#cb34-37" aria-hidden="true"></a>  VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
+<span id="cb34-38"><a href="syntax.html#cb34-38" aria-hidden="true"></a>  VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
+<span id="cb34-39"><a href="syntax.html#cb34-39" aria-hidden="true"></a>  VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
+<span id="cb34-40"><a href="syntax.html#cb34-40" aria-hidden="true"></a>  VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
+<span id="cb34-41"><a href="syntax.html#cb34-41" aria-hidden="true"></a>  VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
+<span id="cb34-42"><a href="syntax.html#cb34-42" aria-hidden="true"></a>  VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-43"><a href="syntax.html#cb34-43" aria-hidden="true"></a>  VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb34-44"><a href="syntax.html#cb34-44" aria-hidden="true"></a>  VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
+<span id="cb34-45"><a href="syntax.html#cb34-45" aria-hidden="true"></a>  VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
+<span id="cb34-46"><a href="syntax.html#cb34-46" aria-hidden="true"></a>  VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb34-47"><a href="syntax.html#cb34-47" aria-hidden="true"></a>  VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-48"><a href="syntax.html#cb34-48" aria-hidden="true"></a>  VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-49"><a href="syntax.html#cb34-49" aria-hidden="true"></a>  VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-50"><a href="syntax.html#cb34-50" aria-hidden="true"></a></span>
+<span id="cb34-51"><a href="syntax.html#cb34-51" aria-hidden="true"></a>  <span class="co">## Fixed parameters</span></span>
+<span id="cb34-52"><a href="syntax.html#cb34-52" aria-hidden="true"></a>  BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb34-53"><a href="syntax.html#cb34-53" aria-hidden="true"></a>  fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb34-54"><a href="syntax.html#cb34-54" aria-hidden="true"></a>  fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb34-55"><a href="syntax.html#cb34-55" aria-hidden="true"></a></span>
+<span id="cb34-56"><a href="syntax.html#cb34-56" aria-hidden="true"></a>  KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb34-57"><a href="syntax.html#cb34-57" aria-hidden="true"></a>  KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb34-58"><a href="syntax.html#cb34-58" aria-hidden="true"></a>  KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb34-59"><a href="syntax.html#cb34-59" aria-hidden="true"></a>  KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-60"><a href="syntax.html#cb34-60" aria-hidden="true"></a>  KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-61"><a href="syntax.html#cb34-61" aria-hidden="true"></a>  KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb34-62"><a href="syntax.html#cb34-62" aria-hidden="true"></a>  KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-63"><a href="syntax.html#cb34-63" aria-hidden="true"></a>  KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb34-64"><a href="syntax.html#cb34-64" aria-hidden="true"></a>  KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb34-65"><a href="syntax.html#cb34-65" aria-hidden="true"></a></span>
+<span id="cb34-66"><a href="syntax.html#cb34-66" aria-hidden="true"></a></span>
+<span id="cb34-67"><a href="syntax.html#cb34-67" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
+<span id="cb34-68"><a href="syntax.html#cb34-68" aria-hidden="true"></a>  S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
+<span id="cb34-69"><a href="syntax.html#cb34-69" aria-hidden="true"></a>  C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
+<span id="cb34-70"><a href="syntax.html#cb34-70" aria-hidden="true"></a></span>
+<span id="cb34-71"><a href="syntax.html#cb34-71" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
+<span id="cb34-72"><a href="syntax.html#cb34-72" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
+<span id="cb34-73"><a href="syntax.html#cb34-73" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
+<span id="cb34-74"><a href="syntax.html#cb34-74" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
+<span id="cb34-75"><a href="syntax.html#cb34-75" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
+<span id="cb34-76"><a href="syntax.html#cb34-76" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
+<span id="cb34-77"><a href="syntax.html#cb34-77" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
+<span id="cb34-78"><a href="syntax.html#cb34-78" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
+<span id="cb34-79"><a href="syntax.html#cb34-79" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
+<span id="cb34-80"><a href="syntax.html#cb34-80" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
+<span id="cb34-81"><a href="syntax.html#cb34-81" aria-hidden="true"></a><span class="st">    </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span><span class="st"> </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span></span>
+<span id="cb34-82"><a href="syntax.html#cb34-82" aria-hidden="true"></a><span class="st">    </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
+<span id="cb34-83"><a href="syntax.html#cb34-83" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
+<span id="cb34-84"><a href="syntax.html#cb34-84" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
+<span id="cb34-85"><a href="syntax.html#cb34-85" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
+<span id="cb34-86"><a href="syntax.html#cb34-86" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
+<span id="cb34-87"><a href="syntax.html#cb34-87" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
+<span id="cb34-88"><a href="syntax.html#cb34-88" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
+<span id="cb34-89"><a href="syntax.html#cb34-89" aria-hidden="true"></a><span class="st">    </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
+<span id="cb34-90"><a href="syntax.html#cb34-90" aria-hidden="true"></a><span class="st">    </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
+<span id="cb34-91"><a href="syntax.html#cb34-91" aria-hidden="true"></a><span class="st">    </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
+<span id="cb34-92"><a href="syntax.html#cb34-92" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
+<span id="cb34-93"><a href="syntax.html#cb34-93" aria-hidden="true"></a>})</span></code></pre></div>
+<p>You can see this change in the simple printout</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="syntax.html#cb35-1" aria-hidden="true"></a>pbpk2</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.8 model named rx_9718b92aefe73f7819e8a805a4528c23 model (✔ ready). 
+#&gt; x$state: Venous_Blood, Skin, Lungs, Heart, Brain, Muscles, Adipose, Spleen, Pancreas, Liver, Stomach, Gut, Bones, Kidneys, Arterial_Blood, Rest_of_Body
+#&gt; x$params: lKbBR, lKbMU, lKbAD, lCLint, eta.LClint, lKbBO, lKbRB, WT, BP, fup
+#&gt; x$lhs: KbBR, KbMU, KbAD, CLint, KbBO, KbRB, CO, QHT, QBR, QMU, QAD, QSK, QSP, QPA, QLI, QST, QGU, QHA, QBO, QKI, QRB, QLU, VLU, VHT, VBR, VMU, VAD, VSK, VSP, VPA, VLI, VST, VGU, VBO, VKI, VAB, VVB, VRB, fub, KbLU, KbHT, KbSK, KbSP, KbPA, KbLI, KbST, KbGU, KbKI, S15, C15</code></pre>
+<p>The first two compartments are <code>Venous_Blood</code> followed by <code>Skin</code>.</p>
+</div>
+<div id="appending-compartments-to-the-model-with-cmt" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Appending compartments to the model with <code>cmt()</code><a href="syntax.html#appending-compartments-to-the-model-with-cmt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can also append “compartments” to the model. Because of the ODE
+solving internals, you cannot add fake compartments to the model until
+after all the differential equations are defined.</p>
+<p>For example this is legal:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="syntax.html#cb37-1" aria-hidden="true"></a>ode<span class="fl">.1</span>c.ka &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb37-2"><a href="syntax.html#cb37-2" aria-hidden="true"></a>    C2 =<span class="st"> </span>center<span class="op">/</span>V;</span>
+<span id="cb37-3"><a href="syntax.html#cb37-3" aria-hidden="true"></a>    d <span class="op">/</span><span class="st"> </span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>KA <span class="op">*</span><span class="st"> </span>depot</span>
+<span id="cb37-4"><a href="syntax.html#cb37-4" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>KA <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2</span>
+<span id="cb37-5"><a href="syntax.html#cb37-5" aria-hidden="true"></a>    <span class="kw">cmt</span>(eff);</span>
+<span id="cb37-6"><a href="syntax.html#cb37-6" aria-hidden="true"></a>})</span>
+<span id="cb37-7"><a href="syntax.html#cb37-7" aria-hidden="true"></a><span class="kw">print</span>(ode<span class="fl">.1</span>c.ka)</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.8 model named rx_298819bb66277a6f5e6203ec8e1b0e13 model (✔ ready). 
+#&gt; $state: depot, center
+#&gt; $stateExtra: eff
+#&gt; $params: V, KA, CL
+#&gt; $lhs: C2</code></pre>
+<p>But compartments defined before all the differential equations is not supported; So the model below:</p>
+<pre><code>ode.1c.ka &lt;- rxode2({
+    cmt(eff);
+    C2 = center/V;
+    d / dt(depot) = -KA * depot
+    d/dt(center) = KA * depot - CL*C2
+})</code></pre>
+<p>will give an error:</p>
+<pre><code>Error in rxModelVars_(obj) : 
+  Evaluation error: Compartment &#39;eff&#39; needs differential equations defined.</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gettingStarted.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="events.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

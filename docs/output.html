@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 rxode2 output | rxode2 user manual</title>
+  <meta name="description" content="This book is the user manual for rxode2" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 rxode2 output | rxode2 user manual" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book is the user manual for rxode2" />
+  <meta name="github-repo" content="nlmixr2/rxode2-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 rxode2 output | rxode2 user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for rxode2" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2022-09-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="solve.html"/>
+<link rel="next" href="simulation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.24/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>2</b> Authors and Acknowledgments</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="author.html"><a href="author.html#authors"><i class="fa fa-check"></i><b>2.1</b> Authors</a></li>
+<li class="chapter" data-level="2.2" data-path="author.html"><a href="author.html#contributors"><i class="fa fa-check"></i><b>2.2</b> Contributors</a></li>
+<li class="chapter" data-level="2.3" data-path="author.html"><a href="author.html#rxode-acknowledgments"><i class="fa fa-check"></i><b>2.3</b> RxODE acknowledgments:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="related.html"><a href="related.html"><i class="fa fa-check"></i><b>3</b> Related R packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="related.html"><a href="related.html#ode-solving"><i class="fa fa-check"></i><b>3.1</b> ODE solving</a></li>
+<li class="chapter" data-level="3.2" data-path="related.html"><a href="related.html#pk-solved-systems"><i class="fa fa-check"></i><b>3.2</b> PK Solved systems</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="related.html"><a href="related.html#the-following-packages-for-solved-pk-systems-are-on-cran"><i class="fa fa-check"></i><b>3.2.1</b> The following packages for solved PK systems are on CRAN</a></li>
+<li class="chapter" data-level="3.2.2" data-path="related.html"><a href="related.html#non-cran-libraries"><i class="fa fa-check"></i><b>3.2.2</b> Non-CRAN libraries:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>4</b> Installation</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="install.html"><a href="install.html#windows"><i class="fa fa-check"></i><b>4.0.1</b> Windows</a></li>
+<li class="chapter" data-level="4.0.2" data-path="install.html"><a href="install.html#mac-osx"><i class="fa fa-check"></i><b>4.0.2</b> Mac OSX</a></li>
+<li class="chapter" data-level="4.0.3" data-path="install.html"><a href="install.html#linux"><i class="fa fa-check"></i><b>4.0.3</b> Linux</a></li>
+<li class="chapter" data-level="4.1" data-path="install.html"><a href="install.html#development-version"><i class="fa fa-check"></i><b>4.1</b> Development Version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode2"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in rxode2</a></li>
+<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> rxode2 syntax</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="syntax.html"><a href="syntax.html#example"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="syntax.html"><a href="syntax.html#syntax-1"><i class="fa fa-check"></i><b>6.2</b> Syntax</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="syntax.html"><a href="syntax.html#identifiers"><i class="fa fa-check"></i><b>6.2.1</b> Identifiers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="syntax.html"><a href="syntax.html#logical-operators"><i class="fa fa-check"></i><b>6.3</b> Logical Operators</a></li>
+<li class="chapter" data-level="6.4" data-path="syntax.html"><a href="syntax.html#cmt-changing-compartment-numbers-for-states"><i class="fa fa-check"></i><b>6.4</b> cmt() changing compartment numbers for states</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="syntax.html"><a href="syntax.html#how-rxode2-numbers-compartments"><i class="fa fa-check"></i><b>6.4.1</b> How rxode2 numbers compartments</a></li>
+<li class="chapter" data-level="6.4.2" data-path="syntax.html"><a href="syntax.html#changing-compartments-by-pre-declaring-with-cmt"><i class="fa fa-check"></i><b>6.4.2</b> Changing compartments by pre-declaring with <code>cmt()</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="syntax.html"><a href="syntax.html#appending-compartments-to-the-model-with-cmt"><i class="fa fa-check"></i><b>6.4.3</b> Appending compartments to the model with <code>cmt()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="events.html"><a href="events.html"><i class="fa fa-check"></i><b>7</b> rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="events.html"><a href="events.html#rxode2-event-tables"><i class="fa fa-check"></i><b>7.1</b> rxode2 event tables</a></li>
+<li class="chapter" data-level="7.2" data-path="events.html"><a href="events.html#bolusadditive-doses"><i class="fa fa-check"></i><b>7.2</b> Bolus/Additive Doses</a></li>
+<li class="chapter" data-level="7.3" data-path="events.html"><a href="events.html#infusion-doses"><i class="fa fa-check"></i><b>7.3</b> Infusion Doses</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="events.html"><a href="events.html#constant-infusion-in-terms-of-duration-and-rate"><i class="fa fa-check"></i><b>7.3.1</b> Constant Infusion (in terms of duration and rate)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="events.html"><a href="events.html#modeled-rate-and-duration-of-infusion"><i class="fa fa-check"></i><b>7.3.2</b> Modeled Rate and Duration of Infusion</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="events.html"><a href="events.html#steady-state"><i class="fa fa-check"></i><b>7.4</b> Steady State</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="events.html"><a href="events.html#steady-state-for-complex-dosing"><i class="fa fa-check"></i><b>7.4.1</b> Steady state for complex dosing</a></li>
+<li class="chapter" data-level="7.4.2" data-path="events.html"><a href="events.html#steady-state-for-constant-infusion-or-zero-order-processes"><i class="fa fa-check"></i><b>7.4.2</b> Steady state for constant infusion or zero order processes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="events.html"><a href="events.html#reset-events"><i class="fa fa-check"></i><b>7.5</b> Reset Events</a></li>
+<li class="chapter" data-level="7.6" data-path="events.html"><a href="events.html#turning-off-compartments"><i class="fa fa-check"></i><b>7.6</b> Turning off compartments</a></li>
+<li class="chapter" data-level="7.7" data-path="events.html"><a href="events.html#classic-et"><i class="fa fa-check"></i><b>7.7</b> Classic rxode2 events</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="events.html"><a href="events.html#bolus-dose-examples"><i class="fa fa-check"></i><b>7.7.1</b> Bolus Dose Examples</a></li>
+<li class="chapter" data-level="7.7.2" data-path="events.html"><a href="events.html#infusion-event-examples"><i class="fa fa-check"></i><b>7.7.2</b> Infusion Event Examples</a></li>
+<li class="chapter" data-level="7.7.3" data-path="events.html"><a href="events.html#steady-state-for-classic-rxode-evid-example"><i class="fa fa-check"></i><b>7.7.3</b> Steady State for classic RxODE EVID example</a></li>
+<li class="chapter" data-level="7.7.4" data-path="events.html"><a href="events.html#turning-off-a-compartment-with-classic-rxode-evid"><i class="fa fa-check"></i><b>7.7.4</b> Turning off a compartment with classic RxODE EVID</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="events.html"><a href="events.html#datasets-for-rxode2-nlmixr"><i class="fa fa-check"></i><b>7.8</b> Datasets for rxode2 &amp; nlmixr</a></li>
+<li class="chapter" data-level="7.9" data-path="events.html"><a href="events.html#columns-described-by-type-of-use"><i class="fa fa-check"></i><b>7.9</b> Columns Described by Type of Use</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="events.html"><a href="events.html#subject-identification-columns"><i class="fa fa-check"></i><b>7.9.1</b> Subject Identification Columns</a></li>
+<li class="chapter" data-level="7.9.2" data-path="events.html"><a href="events.html#observation-columns"><i class="fa fa-check"></i><b>7.9.2</b> Observation Columns</a></li>
+<li class="chapter" data-level="7.9.3" data-path="events.html"><a href="events.html#dosing-columns"><i class="fa fa-check"></i><b>7.9.3</b> Dosing Columns</a></li>
+<li class="chapter" data-level="7.9.4" data-path="events.html"><a href="events.html#covariate-columns"><i class="fa fa-check"></i><b>7.9.4</b> Covariate Columns</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="events.html"><a href="events.html#details-for-specific-dataset-columns"><i class="fa fa-check"></i><b>7.10</b> Details for Specific Dataset Columns</a>
+<ul>
+<li class="chapter" data-level="7.10.1" data-path="events.html"><a href="events.html#amt-column"><i class="fa fa-check"></i><b>7.10.1</b> <code>AMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.2" data-path="events.html"><a href="events.html#censlimit-columns"><i class="fa fa-check"></i><b>7.10.2</b> <code>CENS</code>/<code>LIMIT</code> Columns</a></li>
+<li class="chapter" data-level="7.10.3" data-path="events.html"><a href="events.html#cmt-column"><i class="fa fa-check"></i><b>7.10.3</b> <code>CMT</code> Column</a></li>
+<li class="chapter" data-level="7.10.4" data-path="events.html"><a href="events.html#dur-column"><i class="fa fa-check"></i><b>7.10.4</b> <code>DUR</code> Column</a></li>
+<li class="chapter" data-level="7.10.5" data-path="events.html"><a href="events.html#dv-column"><i class="fa fa-check"></i><b>7.10.5</b> <code>DV</code> Column</a></li>
+<li class="chapter" data-level="7.10.6" data-path="events.html"><a href="events.html#dvid-column"><i class="fa fa-check"></i><b>7.10.6</b> <code>DVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.7" data-path="events.html"><a href="events.html#evid-column"><i class="fa fa-check"></i><b>7.10.7</b> <code>EVID</code> Column</a></li>
+<li class="chapter" data-level="7.10.8" data-path="events.html"><a href="events.html#id-column"><i class="fa fa-check"></i><b>7.10.8</b> <code>ID</code> Column</a></li>
+<li class="chapter" data-level="7.10.9" data-path="events.html"><a href="events.html#rate-column"><i class="fa fa-check"></i><b>7.10.9</b> <code>RATE</code> Column</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="et.html"><a href="et.html"><i class="fa fa-check"></i><b>8</b> Easily creating rxode2 events</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="et.html"><a href="et.html#adding-doses-to-the-event-table"><i class="fa fa-check"></i><b>8.1</b> Adding doses to the event table</a></li>
+<li class="chapter" data-level="8.2" data-path="et.html"><a href="et.html#adding-sampling-to-an-event-table"><i class="fa fa-check"></i><b>8.2</b> Adding sampling to an event table</a></li>
+<li class="chapter" data-level="8.3" data-path="et.html"><a href="et.html#expand-the-event-table-to-a-multi-subject-event-table."><i class="fa fa-check"></i><b>8.3</b> Expand the event table to a multi-subject event table.</a></li>
+<li class="chapter" data-level="8.4" data-path="et.html"><a href="et.html#add-doses-and-samples-within-a-sampling-window"><i class="fa fa-check"></i><b>8.4</b> Add doses and samples within a sampling window</a></li>
+<li class="chapter" data-level="8.5" data-path="et.html"><a href="et.html#combining-event-tables"><i class="fa fa-check"></i><b>8.5</b> Combining event tables</a></li>
+<li class="chapter" data-level="8.6" data-path="et.html"><a href="et.html#sequencing-event-tables"><i class="fa fa-check"></i><b>8.6</b> Sequencing event tables</a></li>
+<li class="chapter" data-level="8.7" data-path="et.html"><a href="et.html#repeating-event-tables"><i class="fa fa-check"></i><b>8.7</b> Repeating event tables</a></li>
+<li class="chapter" data-level="8.8" data-path="et.html"><a href="et.html#combining-event-tables-with-rbind"><i class="fa fa-check"></i><b>8.8</b> Combining event tables with rbind</a></li>
+<li class="chapter" data-level="8.9" data-path="et.html"><a href="et.html#expanding-events"><i class="fa fa-check"></i><b>8.9</b> Expanding events</a></li>
+<li class="chapter" data-level="8.10" data-path="et.html"><a href="et.html#event-tables-in-rstudio-notebooks"><i class="fa fa-check"></i><b>8.10</b> Event tables in Rstudio Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="solve.html"><a href="solve.html"><i class="fa fa-check"></i><b>9</b> Solving and solving options</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#rxcontrol"><i class="fa fa-check"></i><b>9.1.1</b> rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> rxode2 output</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="output.html"><a href="output.html#using-rxode2-data-frames"><i class="fa fa-check"></i><b>10.1</b> Using rxode2 data frames</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="output.html"><a href="output.html#creating-an-interactive-data-frame"><i class="fa fa-check"></i><b>10.1.1</b> Creating an interactive data frame</a></li>
+<li class="chapter" data-level="10.1.2" data-path="output.html"><a href="output.html#rxode2-solved-object-properties"><i class="fa fa-check"></i><b>10.1.2</b> rxode2 solved object properties</a></li>
+<li class="chapter" data-level="10.1.3" data-path="output.html"><a href="output.html#using-the-solved-object-as-a-simple-data-frame"><i class="fa fa-check"></i><b>10.1.3</b> Using the solved object as a simple data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="output.html"><a href="output.html#updating-the-data-set-interactively"><i class="fa fa-check"></i><b>10.2</b> Updating the data-set interactively</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="output.html"><a href="output.html#modifying-initial-conditions"><i class="fa fa-check"></i><b>10.2.1</b> Modifying initial conditions</a></li>
+<li class="chapter" data-level="10.2.2" data-path="output.html"><a href="output.html#modifying-observation-times-for-rxode2"><i class="fa fa-check"></i><b>10.2.2</b> Modifying observation times for rxode2</a></li>
+<li class="chapter" data-level="10.2.3" data-path="output.html"><a href="output.html#modifying-simulation-parameters"><i class="fa fa-check"></i><b>10.2.3</b> Modifying simulation parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>11</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="simulation.html"><a href="simulation.html#single-subject-solving"><i class="fa fa-check"></i><b>11.1</b> Single Subject solving</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="simulation.html"><a href="simulation.html#summary-of-single-solve-vs-multiple-subject-solving"><i class="fa fa-check"></i><b>11.1.1</b> Summary of Single solve vs Multiple subject solving</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="simulation.html"><a href="simulation.html#population-simulations-with-rxode2"><i class="fa fa-check"></i><b>11.2</b> Population Simulations with rxode2</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="simulation.html"><a href="simulation.html#simulation-of-variability-with-rxode2"><i class="fa fa-check"></i><b>11.2.1</b> Simulation of Variability with rxode2</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="simulation.html"><a href="simulation.html#simulation-of-clinical-trials"><i class="fa fa-check"></i><b>11.3</b> Simulation of Clinical Trials</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="simulation.html"><a href="simulation.html#simulation-from-inverse-wishart-correlations"><i class="fa fa-check"></i><b>11.3.1</b> Simulation from inverse Wishart correlations</a></li>
+<li class="chapter" data-level="11.3.2" data-path="simulation.html"><a href="simulation.html#simulate-using-variancestandard-deviation-standard-errors"><i class="fa fa-check"></i><b>11.3.2</b> Simulate using variance/standard deviation standard errors</a></li>
+<li class="chapter" data-level="11.3.3" data-path="simulation.html"><a href="simulation.html#simulate-without-uncertainty-in-omega-or-sigma-parameters"><i class="fa fa-check"></i><b>11.3.3</b> Simulate without uncertainty in <code>omega</code> or <code>sigma</code> parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="simulation.html"><a href="simulation.html#using-prior-data-for-solving"><i class="fa fa-check"></i><b>11.4</b> Using prior data for solving</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>12</b> Examples</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="examples.html"><a href="examples.html#prediction-only-models"><i class="fa fa-check"></i><b>12.1</b> Prediction only models</a></li>
+<li class="chapter" data-level="12.2" data-path="examples.html"><a href="examples.html#solved-compartment-models"><i class="fa fa-check"></i><b>12.2</b> Solved compartment models</a></li>
+<li class="chapter" data-level="12.3" data-path="examples.html"><a href="examples.html#mixing-solved-systems-and-odes"><i class="fa fa-check"></i><b>12.3</b> Mixing Solved Systems and ODEs</a></li>
+<li class="chapter" data-level="12.4" data-path="examples.html"><a href="examples.html#weight-based-dosing"><i class="fa fa-check"></i><b>12.4</b> Weight based dosing</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="examples.html"><a href="examples.html#creating-a-2-compartment-model-in-rxode2"><i class="fa fa-check"></i><b>12.4.1</b> Creating a 2-compartment model in rxode2</a></li>
+<li class="chapter" data-level="12.4.2" data-path="examples.html"><a href="examples.html#simulating-covariates"><i class="fa fa-check"></i><b>12.4.2</b> Simulating Covariates</a></li>
+<li class="chapter" data-level="12.4.3" data-path="examples.html"><a href="examples.html#creating-weight-based-event-table"><i class="fa fa-check"></i><b>12.4.3</b> Creating weight based event table</a></li>
+<li class="chapter" data-level="12.4.4" data-path="examples.html"><a href="examples.html#solving-daptomycin-simulation"><i class="fa fa-check"></i><b>12.4.4</b> Solving Daptomycin simulation</a></li>
+<li class="chapter" data-level="12.4.5" data-path="examples.html"><a href="examples.html#daptomycin-reference"><i class="fa fa-check"></i><b>12.4.5</b> Daptomycin Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="examples.html"><a href="examples.html#inter-occasion-and-other-nesting-examples"><i class="fa fa-check"></i><b>12.5</b> Inter-occasion and other nesting examples</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="examples.html"><a href="examples.html#event-table"><i class="fa fa-check"></i><b>12.5.1</b> Event table</a></li>
+<li class="chapter" data-level="12.5.2" data-path="examples.html"><a href="examples.html#rxode2-model"><i class="fa fa-check"></i><b>12.5.2</b> rxode2 model</a></li>
+<li class="chapter" data-level="12.5.3" data-path="examples.html"><a href="examples.html#uncertainty-in-model-parameters"><i class="fa fa-check"></i><b>12.5.3</b> Uncertainty in Model parameters</a></li>
+<li class="chapter" data-level="12.5.4" data-path="examples.html"><a href="examples.html#nesting-variability"><i class="fa fa-check"></i><b>12.5.4</b> Nesting Variability</a></li>
+<li class="chapter" data-level="12.5.5" data-path="examples.html"><a href="examples.html#unexplained-variability"><i class="fa fa-check"></i><b>12.5.5</b> Unexplained variability</a></li>
+<li class="chapter" data-level="12.5.6" data-path="examples.html"><a href="examples.html#solving-the-problem"><i class="fa fa-check"></i><b>12.5.6</b> Solving the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="examples.html"><a href="examples.html#transit-compartment-models"><i class="fa fa-check"></i><b>12.6</b> Transit compartment models</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html"><i class="fa fa-check"></i><b>13</b> Advanced &amp; Miscellaneous Topics</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#covariates-in-rxode2"><i class="fa fa-check"></i><b>13.1</b> Covariates in rxode2</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#individual-covariates"><i class="fa fa-check"></i><b>13.1.1</b> Individual Covariates</a></li>
+<li class="chapter" data-level="13.1.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#time-varying-covariates"><i class="fa fa-check"></i><b>13.1.2</b> Time Varying Covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#shiny-and-rxode2"><i class="fa fa-check"></i><b>13.2</b> Shiny and rxode2</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#facilities-for-generating-r-shiny-applications"><i class="fa fa-check"></i><b>13.2.1</b> Facilities for generating R shiny applications</a></li>
+<li class="chapter" data-level="13.2.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#exploring-parameter-fits-graphically-using-shiny"><i class="fa fa-check"></i><b>13.2.2</b> Exploring parameter fits graphically using shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-rxode2-with-a-pipeline"><i class="fa fa-check"></i><b>13.3</b> Using rxode2 with a pipeline</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#setting-up-the-rxode2-model-for-the-pipeline"><i class="fa fa-check"></i><b>13.3.1</b> Setting up the rxode2 model for the pipeline</a></li>
+<li class="chapter" data-level="13.3.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-one-event-table"><i class="fa fa-check"></i><b>13.3.2</b> Simulating one event table</a></li>
+<li class="chapter" data-level="13.3.3" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#simulating-multiple-subjects-from-a-single-event-table"><i class="fa fa-check"></i><b>13.3.3</b> Simulating multiple subjects from a single event table</a></li>
+<li class="chapter" data-level="13.3.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#summarizing-the-simulation-output"><i class="fa fa-check"></i><b>13.3.4</b> Summarizing the simulation output</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#speeding-up-rxode2"><i class="fa fa-check"></i><b>13.4</b> Speeding up rxode2</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#increasing-rxode2-speed-by-multi-subject-parallel-solving"><i class="fa fa-check"></i><b>13.4.1</b> Increasing rxode2 speed by multi-subject parallel solving</a></li>
+<li class="chapter" data-level="13.4.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#a-real-life-example"><i class="fa fa-check"></i><b>13.4.2</b> A real life example</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#integrating-rxode2-models-in-your-package"><i class="fa fa-check"></i><b>13.5</b> Integrating rxode2 models in your package</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-pre-compiled-models-in-your-packages"><i class="fa fa-check"></i><b>13.5.1</b> Using Pre-compiled models in your packages</a></li>
+<li class="chapter" data-level="13.5.2" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#using-models-in-a-already-present-package"><i class="fa fa-check"></i><b>13.5.2</b> Using Models in a already present package</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="advanced-miscellaneous-topics.html"><a href="advanced-miscellaneous-topics.html#stiff-odes-with-jacobian-specification"><i class="fa fa-check"></i><b>13.6</b> Stiff ODEs with Jacobian Specification</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">rxode2 user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="output" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> rxode2 output<a href="output.html#output" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="using-rxode2-data-frames" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Using rxode2 data frames<a href="output.html#using-rxode2-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creating-an-interactive-data-frame" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Creating an interactive data frame<a href="output.html#creating-an-interactive-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>rxode2</code> supports returning a solved object that is a modified data-frame.
+This is done by the <code>predict()</code>, <code>solve()</code>, or <code>rxSolve()</code> methods.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="output.html#cb120-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb120-2"><a href="output.html#cb120-2" aria-hidden="true"></a><span class="kw">library</span>(units)</span>
+<span id="cb120-3"><a href="output.html#cb120-3" aria-hidden="true"></a></span>
+<span id="cb120-4"><a href="output.html#cb120-4" aria-hidden="true"></a><span class="co">### Setup example model</span></span>
+<span id="cb120-5"><a href="output.html#cb120-5" aria-hidden="true"></a>mod1 &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb120-6"><a href="output.html#cb120-6" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
+<span id="cb120-7"><a href="output.html#cb120-7" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb120-8"><a href="output.html#cb120-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb120-9"><a href="output.html#cb120-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb120-10"><a href="output.html#cb120-10" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb120-11"><a href="output.html#cb120-11" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb120-12"><a href="output.html#cb120-12" aria-hidden="true"></a>})</span>
+<span id="cb120-13"><a href="output.html#cb120-13" aria-hidden="true"></a></span>
+<span id="cb120-14"><a href="output.html#cb120-14" aria-hidden="true"></a><span class="co">### Seup parameters and initial conditions</span></span>
+<span id="cb120-15"><a href="output.html#cb120-15" aria-hidden="true"></a></span>
+<span id="cb120-16"><a href="output.html#cb120-16" aria-hidden="true"></a>theta &lt;-<span class="st"> </span></span>
+<span id="cb120-17"><a href="output.html#cb120-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">CL=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>, <span class="co"># central </span></span>
+<span id="cb120-18"><a href="output.html#cb120-18" aria-hidden="true"></a>    <span class="dt">Q=</span><span class="fl">1.05E+01</span>,  <span class="dt">V3=</span><span class="fl">2.97E+02</span>,              <span class="co"># peripheral</span></span>
+<span id="cb120-19"><a href="output.html#cb120-19" aria-hidden="true"></a>    <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)               <span class="co"># effects</span></span>
+<span id="cb120-20"><a href="output.html#cb120-20" aria-hidden="true"></a></span>
+<span id="cb120-21"><a href="output.html#cb120-21" aria-hidden="true"></a>inits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">eff=</span><span class="dv">1</span>)</span>
+<span id="cb120-22"><a href="output.html#cb120-22" aria-hidden="true"></a></span>
+<span id="cb120-23"><a href="output.html#cb120-23" aria-hidden="true"></a><span class="co">### Setup dosing event information</span></span>
+<span id="cb120-24"><a href="output.html#cb120-24" aria-hidden="true"></a>ev &lt;-<span class="st"> </span><span class="kw">eventTable</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb120-25"><a href="output.html#cb120-25" aria-hidden="true"></a><span class="st">  </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">10000</span>, <span class="dt">nbr.doses=</span><span class="dv">10</span>, <span class="dt">dosing.interval=</span><span class="dv">12</span>) <span class="op">%&gt;%</span></span>
+<span id="cb120-26"><a href="output.html#cb120-26" aria-hidden="true"></a><span class="st">  </span><span class="kw">add.dosing</span>(<span class="dt">dose=</span><span class="dv">20000</span>, <span class="dt">nbr.doses=</span><span class="dv">5</span>, <span class="dt">start.time=</span><span class="dv">120</span>,</span>
+<span id="cb120-27"><a href="output.html#cb120-27" aria-hidden="true"></a>             <span class="dt">dosing.interval=</span><span class="dv">24</span>) <span class="op">%&gt;%</span></span>
+<span id="cb120-28"><a href="output.html#cb120-28" aria-hidden="true"></a><span class="st">  </span><span class="kw">add.sampling</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">240</span>);</span>
+<span id="cb120-29"><a href="output.html#cb120-29" aria-hidden="true"></a></span>
+<span id="cb120-30"><a href="output.html#cb120-30" aria-hidden="true"></a></span>
+<span id="cb120-31"><a href="output.html#cb120-31" aria-hidden="true"></a><span class="co">### Now solve</span></span>
+<span id="cb120-32"><a href="output.html#cb120-32" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">predict</span>(mod1,theta, ev, inits)</span>
+<span id="cb120-33"><a href="output.html#cb120-33" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="output.html#cb122-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">solve</span>(mod1,theta, ev, inits)</span>
+<span id="cb122-2"><a href="output.html#cb122-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+<p>Or with <code>mattigr</code></p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="output.html#cb124-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">solve</span>(theta, ev, inits)</span>
+<span id="cb124-2"><a href="output.html#cb124-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+</div>
+<div id="rxode2-solved-object-properties" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> rxode2 solved object properties<a href="output.html#rxode2-solved-object-properties" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="using-the-solved-object-as-a-simple-data-frame" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Using the solved object as a simple data frame<a href="output.html#using-the-solved-object-as-a-simple-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The solved object acts as a <code>data.frame</code> or <code>tbl</code> that can be filtered
+by <code>dpylr</code>. For example you could filter it easily.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="output.html#cb126-1" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt; Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>#&gt; The following objects are masked from &#39;package:stats&#39;:
+#&gt; 
+#&gt;     filter, lag</code></pre>
+<pre><code>#&gt; The following objects are masked from &#39;package:base&#39;:
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="output.html#cb130-1" aria-hidden="true"></a><span class="co">### You can  drop units for comparisons and filtering</span></span>
+<span id="cb130-2"><a href="output.html#cb130-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">solve</span>(theta,ev,inits) <span class="op">%&gt;%</span></span>
+<span id="cb130-3"><a href="output.html#cb130-3" aria-hidden="true"></a><span class="st">    </span>drop_units <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(time <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span>as.tbl</span></code></pre></div>
+<pre><code>#&gt; Warning: `as.tbl()` was deprecated in dplyr 1.0.0.
+#&gt; Please use `tibble::as_tibble()` instead.
+#&gt; This warning is displayed once every 8 hours.
+#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="output.html#cb132-1" aria-hidden="true"></a><span class="co">### or keep them and compare with the proper units.</span></span>
+<span id="cb132-2"><a href="output.html#cb132-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">solve</span>(theta,ev,inits) <span class="op">%&gt;%</span></span>
+<span id="cb132-3"><a href="output.html#cb132-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">filter</span>(time <span class="op">&lt;=</span><span class="st"> </span><span class="kw">set_units</span>(<span class="dv">3</span>, hr)) <span class="op">%&gt;%</span><span class="st"> </span>as.tbl</span>
+<span id="cb132-4"><a href="output.html#cb132-4" aria-hidden="true"></a>x</span></code></pre></div>
+<pre><code>#&gt; # A tibble: 4 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</code></pre>
+</div>
+</div>
+<div id="updating-the-data-set-interactively" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Updating the data-set interactively<a href="output.html#updating-the-data-set-interactively" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>However it isn’t just a simple data object. You can use the solved
+object to update parameters on the fly, or even change the sampling
+time.</p>
+<p>First we need to recreate the original solved system:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="output.html#cb134-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span>mod1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">solve</span>(theta,ev,inits);</span>
+<span id="cb134-2"><a href="output.html#cb134-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     1 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   1   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21
+#&gt; # … with 235 more rows</code></pre>
+<div id="modifying-initial-conditions" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Modifying initial conditions<a href="output.html#modifying-initial-conditions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To examine or change initial conditions, you can use the syntax
+<code>cmt.0</code>, <code>cmt0</code>, or <code>cmt_0</code>. In the case of the <code>eff</code> compartment
+defined by the model, this is:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="output.html#cb136-1" aria-hidden="true"></a>x<span class="op">$</span>eff0</span></code></pre></div>
+<pre><code>#&gt; [1] 1</code></pre>
+<p>which shows the initial condition of the effect compartment. If you
+wished to change this initial condition to 2, this can be done easily
+by:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="output.html#cb138-1" aria-hidden="true"></a>x<span class="op">$</span>eff0 &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb138-2"><a href="output.html#cb138-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     2 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 241 × 7
+#&gt;   time    C2    C3  depot centr  peri   eff
+#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    0   0   0     10000     0     0   2   
+#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.50
+#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.37
+#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.31
+#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.27
+#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.23
+#&gt; # … with 235 more rows</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="output.html#cb140-1" aria-hidden="true"></a><span class="kw">plot</span>(x)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+</div>
+<div id="modifying-observation-times-for-rxode2" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Modifying observation times for rxode2<a href="output.html#modifying-observation-times-for-rxode2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Notice that the initial effect is now <code>2</code>.</p>
+<p>You can also change the sampling times easily by this method by
+changing <code>t</code> or <code>time</code>. For example:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="output.html#cb141-1" aria-hidden="true"></a>x<span class="op">$</span>t &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dt">length.out=</span><span class="dv">20</span>)</span>
+<span id="cb141-2"><a href="output.html#cb141-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 
+#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     2 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 20 × 7
+#&gt;    time    C2     C3  depot centr  peri   eff
+#&gt;     [h] &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 0       0   0      10000     0    0    2   
+#&gt; 2 0.263  16.8 0.0817  9255.  677.  24.3  1.79
+#&gt; 3 0.526  29.5 0.299   8566. 1187.  88.7  1.65
+#&gt; 4 0.789  38.9 0.615   7929. 1562. 183.   1.55
+#&gt; 5 1.05   45.5 1.00    7338. 1830. 298.   1.49
+#&gt; 6 1.32   50.1 1.44    6792. 2013. 427.   1.44
+#&gt; # … with 14 more rows</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="output.html#cb143-1" aria-hidden="true"></a><span class="kw">plot</span>(x)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+</div>
+<div id="modifying-simulation-parameters" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Modifying simulation parameters<a href="output.html#modifying-simulation-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can also access or change parameters by the <code>$</code> operator. For
+example, accessing <code>KA</code> can be done by:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="output.html#cb144-1" aria-hidden="true"></a>x<span class="op">$</span>KA</span></code></pre></div>
+<pre><code>#&gt; [1] 0.294</code></pre>
+<p>And you may change it by assigning it to a new value.</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="output.html#cb146-1" aria-hidden="true"></a>x<span class="op">$</span>KA &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb146-2"><a href="output.html#cb146-2" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre><code>#&gt; ── Solved rxode2 object ──
+#&gt; ── Parameters ($params): ──
+#&gt;    V2    V3    KA    CL     Q   Kin  Kout  EC50 
+#&gt;  40.2 297.0   1.0  18.6  10.5   1.0   1.0 200.0 
+#&gt; ── Initial Conditions ($inits): ──
+#&gt; depot centr  peri   eff 
+#&gt;     0     0     0     2 
+#&gt; ── First part of data (object): ──
+#&gt; # A tibble: 20 × 7
+#&gt;    time    C2    C3  depot centr   peri   eff
+#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 0       0   0     10000     0     0    2   
+#&gt; 2 0.263  52.2 0.261  7686. 2098.   77.6  1.82
+#&gt; 3 0.526  83.3 0.900  5908. 3348.  267.   1.74
+#&gt; 4 0.789  99.8 1.75   4541. 4010.  519.   1.69
+#&gt; 5 1.05  106.  2.69   3490. 4273.  800.   1.67
+#&gt; 6 1.32  106.  3.66   2683. 4272. 1086.   1.64
+#&gt; # … with 14 more rows</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="output.html#cb148-1" aria-hidden="true"></a><span class="kw">plot</span>(x)</span></code></pre></div>
+<p><img src="rxode2-manual_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p>You can access/change all the parameters, initialization(s) or events with
+the <code>$params</code>, <code>$inits</code>, <code>$events</code> accessor syntax, similar to what is
+used above.</p>
+<p>This syntax makes it easy to update and explore the effect of various
+parameters on the solved object.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="solve.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

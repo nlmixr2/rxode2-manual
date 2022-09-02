@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Related R packages | RxODE user manual</title>
+  <meta name="description" content="This book is the user manual for RxODE" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Related R packages | RxODE user manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is the user manual for RxODE" />
+  <meta name="github-repo" content="nlmixrdevelopment/RxODE-manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Related R packages | RxODE user manual" />
+  
+  <meta name="twitter:description" content="This book is the user manual for RxODE" />
+  
+
+<meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
+
+
+<meta name="date" content="2021-02-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="authors-and-acknowledgments.html"/>
+<link rel="next" href="install.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+yes
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RxODE user manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="related-r-packages" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Related R packages</h1>
+<div id="ode-solving" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> ODE solving</h2>
+<p>This is a brief comparison of pharmacometric ODE solving R packages to
+<code>RxODE</code>.</p>
+<p>There are several <a href="https://cran.r-project.org/web/views/DifferentialEquations.html">R packages for differential
+equations</a>.
+The most popular is
+<a href="https://cran.r-project.org/package=deSolve">deSolve</a>.</p>
+<p>However for pharmacometrics-specific ODE solving, there are only 2
+packages other than <a href="https://CRAN.R-project.org/package=RxODE">RxODE</a>
+released on CRAN. Each uses compiled code to have faster ODE solving.</p>
+<ul>
+<li><p><a href="https://CRAN.R-project.org/package=mrgsolve">mrgsolve</a>, which uses
+C++ lsoda solver to solve ODE systems. The user is required to write
+hybrid R/C++ code to create a mrgsolve model which is translated to
+C++ for solving.</p>
+<p>In contrast, <code>RxODE</code> has a R-like mini-language that is parsed into
+C code that solves the ODE system.</p>
+<p>Unlike <code>RxODE</code>, <code>mrgsolve</code> does not currently support symbolic
+manipulation of ODE systems, like automatic Jacobian calculation or
+forward sensitivity calculation (<code>RxODE</code> currently supports this and
+this is the basis of
+<a href="https://cran.r-project.org/package=nlmixr">nlmixr</a>’s FOCEi
+algorithm)</p></li>
+<li><p><a href="https://cran.r-project.org/package=dMod">dMod</a>, which uses a unique
+syntax to create “reactions”. These reactions create the underlying
+ODEs and then created c code for a compiled deSolve model.</p>
+<p>In contrast <code>RxODE</code> defines ODE systems at a lower level. <code>RxODE</code>’s
+parsing of the mini-language comes from C, whereas <code>dMod</code>’s parsing
+comes from R.</p>
+<p>Like <code>RxODE</code>, <code>dMod</code> supports symbolic manipulation of ODE systems
+and calculates forward sensitivities and adjoint sensitivities of
+systems.</p>
+<p>Unlike <code>RxODE</code>, <code>dMod</code> is not thread-safe since <code>deSolve</code> is not yet
+thread-safe.</p></li>
+</ul>
+<p>And there is one package that is not released on CRAN:</p>
+<ul>
+<li><p><a href="https://github.com/InsightRX/PKPDsim">PKPDsim</a> which defines models
+in an R-like syntax and converts the system to compiled code.</p>
+<p>Like <code>mrgsolve</code>, <code>PKPDsim</code> does not currently support symbolic
+manipulation of ODE systems.</p>
+<p><code>PKPDsim</code> is not thread-safe.</p></li>
+</ul>
+<p>The open pharmacometrics open source community is fairly friendly, and
+the RxODE maintainers has had positive interactions with all of the
+ODE-solving pharmacometric projects listed.</p>
+</div>
+<div id="pk-solved-systems" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> PK Solved systems</h2>
+<p><code>RxODE</code> supports 1-3 compartment models with gradients (using stan
+math’s auto-differentiation). This currently uses the same equations as
+<code>PKADVAN</code> to allow time-varying covariates.</p>
+<p><code>RxODE</code> can mix ODEs and solved systems.</p>
+<div id="the-following-packages-for-solved-pk-systems-are-on-cran" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> The following packages for solved PK systems are on CRAN</h3>
+<ul>
+<li><a href="https://CRAN.R-project.org/package=mrgsolve">mrgsolve</a> currently
+has 1-2 compartment (poly-exponential models) models built-in. The
+solved systems and ODEs cannot currently be mixed.</li>
+<li><a href="https://github.com/kestrel99/pmxTools">pmxTools</a> currently have 1-3
+compartment (super-positioning) models built-in. This is a R-only
+implementation.</li>
+<li><a href="https://cran.r-project.org/web/packages/PKPDmodels/index.html">PKPDmodels</a>
+has a one-compartment model with gradients.</li>
+</ul>
+</div>
+<div id="non-cran-libraries" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Non-CRAN libraries:</h3>
+<ul>
+<li><a href="https://github.com/abuhelwa/PKADVAN_Rpackage">PKADVAN</a> Provides 1-3
+compartment models using non-superpositioning. This allows
+time-varying covariates.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="authors-and-acknowledgments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RxODE-manual.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true
+});
+});
+</script>
+
+</body>
+
+</html>
