@@ -1,0 +1,52 @@
+# Advanced & Miscellaneous Topics
+
+This covers advanced or miscellaneous topics in `rxode2`
+
+
+## Covariates in rxode2
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/covariates.Rmd"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```
+
+## Shiny and rxode2
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/shiny.Rmd"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```
+
+## Using rxode2 with a pipeline
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/pipeline.Rmdh"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```
+
+## Speeding up rxode2
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/speed.Rmdh"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```
+
+## Integrating rxode2 models in your package
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/packages.Rmdh"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```
+
+## Stiff ODEs with Jacobian Specification 
+
+```{r echo=FALSE, results='asis'}
+cat(gsub("(^|\n) *(#+) +", "\\1###\\2 ",
+         unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/stiff.Rmdh"),
+                                  envir = environment(), quiet = TRUE))), sep="\n")
+```

@@ -1,0 +1,3 @@
+# Installation {#install}
+```{r child='rxode2/man-roxygen/rmdhunks/rxode2-install-hunk.Rmd'}
+```

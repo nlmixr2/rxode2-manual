@@ -1,0 +1,24 @@
+--- 
+title: "rxode2 user manual"
+author: "Matthew Fidler, Melissa Hallow, Wenping Wang"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: nlmixr2/rxode2-manual
+description: "This book is the user manual for rxode2"
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=2in,height=2in]{logo.png}\LARGE\\}
+  - \posttitle{\end{center}}
+urlcolor: blue
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(comment = "#>")
+options(cli.width=60)
+```
+

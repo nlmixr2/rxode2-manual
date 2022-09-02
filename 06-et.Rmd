@@ -1,0 +1,7 @@
+# Easily creating rxode2 events {#et}
+
+```{r echo=FALSE, results='asis'}
+cat(unlist(knitr::knit_child(text = gsub("rxode2-event-types.html", "#events", readLines("rxode2/vignettes/events-et.Rmdh")),
+                             envir = environment(), quiet = TRUE)), sep="\n")
+```
+

@@ -1,0 +1,26 @@
+# Solving and solving options {#solve}
+
+In general, ODEs are solved using a combination of:
+
+- A compiled model specification from `rxode2()`, specified with
+  `object=`
+
+- Input parameters, specified with `params=` (and could be blank)
+
+- Input data or event table, specified with `events=`
+
+- Initial conditions, specified by `inits=` (and possibly in the model
+  itself by `state(0)=`)
+
+
+The solving options are given in the sections below:
+
+
+## General Solving Options
+
+### rxControl
+`rxControl` Input list or rxControl type of list
+### sensCmt
+`sensCmt` Number of sensitivity compartments
+### ncmt
+`ncmt` Number of compartments

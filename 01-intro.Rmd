@@ -1,0 +1,55 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Introduction {#index}
+
+Welcome to the rxode2 user guide; **rxode2** is an R package for solving
+and simulating from ode-based models. These models are convert the rxode2
+mini-language to C and create a compiled dll for fast solving. ODE
+solving using rxode2 has a few key parts:
+
+-   `rxode2()` which creates the C code for fast ODE solving based on a
+    simple syntax (Chapter \@ref(syntax)) related to Leibnitz notation.
+
+-   The event data, which can be:
+
+    -   a `NONMEM` or `deSolve` compatible data frame (Chapter
+        \@ref(events)), or
+    -   created with `et()` or `EventTable()` for easy simulation of
+        events (Chapter \@ref(simulation))
+    -   The data frame can be augmented by adding time varying or adding
+        individual covariates (`iCov=` as needed)
+
+-   `rxSolve()` which solves the system of equations using initial
+    conditions and parameters to make predictions
+
+    -   With multiple subject data, this may be parallelized.
+    -   With single subject the output data frame is adaptive
+    -   Covariances and other metrics of uncertainty can be used to
+        simulate while solving.
+
+While this is the user guide, there are other places that you can visit
+for help:
+
+-   `rxode2` github [pkgdown
+    page](https://nlmixrdevelopment.github.io/rxode2/)
+-   `rxode2` tutorial (accessible in tutorials in Rstudio 1.3+)
+-   `rxode2` [github
+    discussions](https://github.com/nlmixrdevelopment/rxode2/discussions)
+
+This book was assembled on `r date()` with rxode2 version
+`r packageVersion("rxode2")` automatically by github actions.
+
+# Authors and Acknowledgments {#author}
+
+```{r echo=FALSE, results='asis'}
+cat(paste(gsub("^#", "##", readLines('rxode2/authors.md')), collapse="\n"), "\n\n")
+```
+
+# Related R packages {#related}
+
+```{r child='rxode2/man-roxygen/rmdhunks/related-R-chunk.Rmd'}
+```
