@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
 
 
-<meta name="date" content="2022-09-02" />
+<meta name="date" content="2022-09-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -982,10 +982,10 @@ in <code>rxControl()</code> or <code>rxSolve()</code>).</p>
 <span id="cb288-2"><a href="advanced-miscellaneous-topics.html#cb288-2" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb288-3"><a href="advanced-miscellaneous-topics.html#cb288-3" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb288-4"><a href="advanced-miscellaneous-topics.html#cb288-4" aria-hidden="true"></a><span class="co">#&gt;               expr       min        lq      mean    median        uq       max</span></span>
-<span id="cb288-5"><a href="advanced-miscellaneous-topics.html#cb288-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 266.97682 271.98221 279.83635 276.00048 280.54133 577.15897</span></span>
-<span id="cb288-6"><a href="advanced-miscellaneous-topics.html#cb288-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 264.79389 274.20431 280.84767 278.68455 281.72085 446.55749</span></span>
-<span id="cb288-7"><a href="advanced-miscellaneous-topics.html#cb288-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  22.26094  23.55035  24.28953  24.17432  24.68494  30.96074</span></span>
-<span id="cb288-8"><a href="advanced-miscellaneous-topics.html#cb288-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  13.70534  14.24199  14.97515  14.52670  15.03163  20.82500</span></span>
+<span id="cb288-5"><a href="advanced-miscellaneous-topics.html#cb288-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 263.85850 268.30330 282.50789 274.43205 286.98147 423.78887</span></span>
+<span id="cb288-6"><a href="advanced-miscellaneous-topics.html#cb288-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 262.50090 268.45086 282.54477 274.02647 282.47038 436.02653</span></span>
+<span id="cb288-7"><a href="advanced-miscellaneous-topics.html#cb288-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  22.17326  23.40593  24.64211  24.28522  24.81853  45.80003</span></span>
+<span id="cb288-8"><a href="advanced-miscellaneous-topics.html#cb288-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  13.67667  14.24154  15.25488  14.62491  15.21534  29.11538</span></span>
 <span id="cb288-9"><a href="advanced-miscellaneous-topics.html#cb288-9" aria-hidden="true"></a><span class="co">#&gt;  neval</span></span>
 <span id="cb288-10"><a href="advanced-miscellaneous-topics.html#cb288-10" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
 <span id="cb288-11"><a href="advanced-miscellaneous-topics.html#cb288-11" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
@@ -1009,14 +1009,14 @@ the solving.</p>
 <span id="cb289-8"><a href="advanced-miscellaneous-topics.html#cb289-8" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb289-9"><a href="advanced-miscellaneous-topics.html#cb289-9" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb289-10"><a href="advanced-miscellaneous-topics.html#cb289-10" aria-hidden="true"></a><span class="co">#&gt;          expr       min       lq     mean   median       uq       max neval</span></span>
-<span id="cb289-11"><a href="advanced-miscellaneous-topics.html#cb289-11" aria-hidden="true"></a><span class="co">#&gt;  runThread(1) 22.208953 24.08011 25.47372 25.62692 26.79085  31.88289   100</span></span>
-<span id="cb289-12"><a href="advanced-miscellaneous-topics.html#cb289-12" aria-hidden="true"></a><span class="co">#&gt;  runThread(2) 13.674986 14.46189 14.93097 14.81062 15.15037  25.84008   100</span></span>
-<span id="cb289-13"><a href="advanced-miscellaneous-topics.html#cb289-13" aria-hidden="true"></a><span class="co">#&gt;  runThread(3) 10.996104 11.59650 12.15067 12.02853 12.21310  20.49959   100</span></span>
-<span id="cb289-14"><a href="advanced-miscellaneous-topics.html#cb289-14" aria-hidden="true"></a><span class="co">#&gt;  runThread(4)  9.362517 10.05854 10.83383 10.40987 10.66393  18.47197   100</span></span>
-<span id="cb289-15"><a href="advanced-miscellaneous-topics.html#cb289-15" aria-hidden="true"></a><span class="co">#&gt;  runThread(5) 12.520673 13.08813 13.54767 13.52369 13.65536  21.62193   100</span></span>
-<span id="cb289-16"><a href="advanced-miscellaneous-topics.html#cb289-16" aria-hidden="true"></a><span class="co">#&gt;  runThread(6) 11.354311 11.89255 12.42905 12.33283 12.56236  19.55735   100</span></span>
-<span id="cb289-17"><a href="advanced-miscellaneous-topics.html#cb289-17" aria-hidden="true"></a><span class="co">#&gt;  runThread(7) 10.728230 11.05799 13.42176 11.46879 11.81363 183.06757   100</span></span>
-<span id="cb289-18"><a href="advanced-miscellaneous-topics.html#cb289-18" aria-hidden="true"></a><span class="co">#&gt;  runThread(8) 10.251357 10.65312 11.12700 11.04404 11.36295  16.96986   100</span></span>
+<span id="cb289-11"><a href="advanced-miscellaneous-topics.html#cb289-11" aria-hidden="true"></a><span class="co">#&gt;  runThread(1) 21.986469 24.04210 25.54477 25.64292 27.04606  31.94631   100</span></span>
+<span id="cb289-12"><a href="advanced-miscellaneous-topics.html#cb289-12" aria-hidden="true"></a><span class="co">#&gt;  runThread(2) 13.706888 14.41163 15.04645 14.82633 15.21500  24.20699   100</span></span>
+<span id="cb289-13"><a href="advanced-miscellaneous-topics.html#cb289-13" aria-hidden="true"></a><span class="co">#&gt;  runThread(3) 10.992914 11.53212 12.37624 12.02456 12.34591  20.05260   100</span></span>
+<span id="cb289-14"><a href="advanced-miscellaneous-topics.html#cb289-14" aria-hidden="true"></a><span class="co">#&gt;  runThread(4)  9.439266 10.01916 11.07245 10.40088 10.76381  17.27427   100</span></span>
+<span id="cb289-15"><a href="advanced-miscellaneous-topics.html#cb289-15" aria-hidden="true"></a><span class="co">#&gt;  runThread(5) 12.317785 13.02611 13.42279 13.41368 13.53660  21.57212   100</span></span>
+<span id="cb289-16"><a href="advanced-miscellaneous-topics.html#cb289-16" aria-hidden="true"></a><span class="co">#&gt;  runThread(6) 11.408240 11.91117 12.40691 12.28453 12.55080  18.49068   100</span></span>
+<span id="cb289-17"><a href="advanced-miscellaneous-topics.html#cb289-17" aria-hidden="true"></a><span class="co">#&gt;  runThread(7) 10.675146 11.13522 13.51505 11.50216 11.83362 178.95736   100</span></span>
+<span id="cb289-18"><a href="advanced-miscellaneous-topics.html#cb289-18" aria-hidden="true"></a><span class="co">#&gt;  runThread(8) 10.136394 10.70967 11.47652 11.07914 11.32990  30.15597   100</span></span>
 <span id="cb289-19"><a href="advanced-miscellaneous-topics.html#cb289-19" aria-hidden="true"></a><span class="kw">autoplot</span>(bench)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-188-1.png" width="100%" /></p>
 <p>There can be a suite spot in speed vs number or cores. The system type
@@ -1102,7 +1102,7 @@ automatic building of the pkgdown website.</p>
 <span id="cb290-67"><a href="advanced-miscellaneous-topics.html#cb290-67" aria-hidden="true"></a>Stoplapply &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb290-68"><a href="advanced-miscellaneous-topics.html#cb290-68" aria-hidden="true"></a>  </span>
 <span id="cb290-69"><a href="advanced-miscellaneous-topics.html#cb290-69" aria-hidden="true"></a><span class="kw">print</span>(Stoplapply <span class="op">-</span><span class="st"> </span>Startlapply)</span>
-<span id="cb290-70"><a href="advanced-miscellaneous-topics.html#cb290-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 5.655032 secs</span></span></code></pre></div>
+<span id="cb290-70"><a href="advanced-miscellaneous-topics.html#cb290-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 5.539642 secs</span></span></code></pre></div>
 <p>By applying some of the new parallel solving concepts you can simply
 run the same simulation both with less code and faster:</p>
 <div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="advanced-miscellaneous-topics.html#cb291-1" aria-hidden="true"></a>rx &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
@@ -1141,7 +1141,7 @@ run the same simulation both with less code and faster:</p>
 <span id="cb291-34"><a href="advanced-miscellaneous-topics.html#cb291-34" aria-hidden="true"></a>res &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx, ev, <span class="dt">omega=</span>omega, <span class="dt">returnType=</span><span class="st">&quot;data.table&quot;</span>)</span>
 <span id="cb291-35"><a href="advanced-miscellaneous-topics.html#cb291-35" aria-hidden="true"></a>endParallel &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb291-36"><a href="advanced-miscellaneous-topics.html#cb291-36" aria-hidden="true"></a><span class="kw">print</span>(endParallel <span class="op">-</span><span class="st"> </span>startParallel)</span>
-<span id="cb291-37"><a href="advanced-miscellaneous-topics.html#cb291-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.08192229 secs</span></span></code></pre></div>
+<span id="cb291-37"><a href="advanced-miscellaneous-topics.html#cb291-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.06850648 secs</span></span></code></pre></div>
 <p>You can see a striking time difference between the two methods; A few
 things to keep in mind:</p>
 <ul>
@@ -1534,7 +1534,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["rxode2-manual.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
