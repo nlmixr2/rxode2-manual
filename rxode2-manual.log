@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.9.2)  4 SEP 2022 14:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.4)  7 NOV 2022 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1127,22 +1127,22 @@ Chapter 5.
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-604.
+612.
 (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [14]
-Overfull \hbox (0.62442pt too wide) in paragraph at lines 705--722
+Overfull \hbox (0.62442pt too wide) in paragraph at lines 713--730
 [][] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 751--751
+Overfull \hbox (1.499pt too wide) in paragraph at lines 759--759
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 751--751
+Overfull \hbox (1.499pt too wide) in paragraph at lines 759--759
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
@@ -1154,7 +1154,7 @@ File: rxode2-manual_files/figure-latex/intro-central-1.pdf Graphic file (type p
 df)
 <use rxode2-manual_files/figure-latex/intro-central-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/intro-central-1.pdf  
-used on input line 763.
+used on input line 771.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 <rxode2-manual_files/figure-latex/intro-effect-1.pdf, id=259, 469.755pt x 325.2
 15pt>
@@ -1162,7 +1162,7 @@ File: rxode2-manual_files/figure-latex/intro-effect-1.pdf Graphic file (type pd
 f)
 <use rxode2-manual_files/figure-latex/intro-effect-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/intro-effect-1.pdf  u
-sed on input line 773.
+sed on input line 781.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 4846) has occurred while \output is active []
@@ -1177,140 +1177,140 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [19] [20]
 LaTeX Font Info:    Font shape `T1/mdput/m/it' will be
-(Font)              scaled to size 9.40002pt on input line 927.
+(Font)              scaled to size 9.40002pt on input line 935.
 [21] [22]
-Underfull \vbox (badness 10000) detected at line 1099
+Underfull \vbox (badness 10000) detected at line 1107
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1099
+Underfull \vbox (badness 10000) detected at line 1107
  []
 
 [23]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 1198--1198
-[]\T1/lmtt/m/n/10 #> rxode2 2.0.8 model named rx_045922f3fa833d4fac177cc8bf51f1
-4e model (ready).[] 
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 1206--1206
+[]\T1/lmtt/m/n/10 #> rxode2 2.0.11 model named rx_291007fc063b6ec76a6a1e5919848
+1c3 model (ready).[] 
  []
 
 
-Overfull \hbox (263.99823pt too wide) in paragraph at lines 1198--1198
-[]\T1/lmtt/m/n/10 #> DLL: /home/matt/.cache/R/rxode2/rx_045922f3fa833d4fac177cc
-8bf51f14e__.rxd/rx_045922f3fa833d4fac177cc8bf51f14e_.so[] 
+Overfull \hbox (263.99823pt too wide) in paragraph at lines 1206--1206
+[]\T1/lmtt/m/n/10 #> DLL: /home/matt/.cache/R/rxode2/rx_291007fc063b6ec76a6a1e5
+9198481c3__.rxd/rx_291007fc063b6ec76a6a1e59198481c3_.so[] 
  []
 
 
 Underfull \vbox (badness 2662) has occurred while \output is active []
 
 [24]
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>  [1] "KbBR"  "KbMU"  "KbAD"  "CLint" "KbBO"  "KbRB"  "CO" 
    "QHT"   "QBR"[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #> [10] "QMU"   "QAD"   "QSK"   "QSP"   "QPA"   "QLI"   "QST"
    "QGU"   "QHA"[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #> [19] "QBO"   "QKI"   "QRB"   "QLU"   "VLU"   "VHT"   "VBR"
    "VMU"   "VAD"[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #> [28] "VSK"   "VSP"   "VPA"   "VLI"   "VST"   "VGU"   "VBO"
    "VKI"   "VAB"[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #> [37] "VVB"   "VRB"   "fub"   "KbLU"  "KbHT"  "KbSK"  "KbSP
 "  "KbPA"  "KbLI"[] 
  []
 
 [25]
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Muscles) = QMU * (Arterial_Blood/VAB - Muscles/Kb
 MU/VMU)[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Adipose) = QAD * (Arterial_Blood/VAB - Adipose/Kb
 AD/VAD)[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (1.499pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Spleen) = QSP * (Arterial_Blood/VAB - Spleen/KbSP
 /VSP)[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Pancreas) = QPA * (Arterial_Blood/VAB - Pancreas/
 KbPA/VPA)[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Liver) = QHA * Arterial_Blood/VAB + QSP * Spleen/
 KbSP/VSP +[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>         QPA * Pancreas/KbPA/VPA + QST * Stomach/KbST/VST +
  QGU *[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>         Gut/KbGU/VGU - CLint * fub * Liver/KbLI/VLI - QLI 
 * Liver/KbLI/VLI[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Stomach) = QST * (Arterial_Blood/VAB - Stomach/Kb
 ST/VST)[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Kidneys) = QKI * (Arterial_Blood/VAB - Kidneys/Kb
 KI/VKI)[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Arterial_Blood) = QLU * (Lungs/KbLU/VLU - Arteria
 l_Blood/VAB)[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Venous_Blood) = QHT * Heart/KbHT/VHT + QBR * Brai
 n/KbBR/VBR +[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (1.499pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>         QMU * Muscles/KbMU/VMU + QAD * Adipose/KbAD/VAD + 
 QSK *[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>         Skin/KbSK/VSK + QLI * Liver/KbLI/VLI + QBO * Bones
 /KbBO/VBO +[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 1198--1198
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 1206--1206
 []\T1/lmtt/m/n/10 #>     d/dt(Rest_of_Body) = QRB * (Arterial_Blood/VAB - Rest_
 of_Body/KbRB/VRB)[] 
  []
@@ -1319,34 +1319,34 @@ of_Body/KbRB/VRB)[]
 Underfull \vbox (badness 2698) has occurred while \output is active []
 
 [26] [27]
-Underfull \vbox (badness 10000) detected at line 1312
+Underfull \vbox (badness 10000) detected at line 1320
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1312
+Underfull \vbox (badness 10000) detected at line 1320
  []
 
 [28]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 1327--1327
-[]\T1/lmtt/m/n/10 #> rxode2 2.0.8 model named rx_9718b92aefe73f7819e8a805a4528c
-23 model (ready).[] 
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 1335--1335
+[]\T1/lmtt/m/n/10 #> rxode2 2.0.11 model named rx_8538903f734422ef88399de66a046
+870 model (ready).[] 
  []
 
 
-Overfull \hbox (463.49765pt too wide) in paragraph at lines 1327--1327
+Overfull \hbox (463.49765pt too wide) in paragraph at lines 1335--1335
 []\T1/lmtt/m/n/10 #> x$state: Venous_Blood, Skin, Lungs, Heart, Brain, Muscles,
  Adipose, Spleen, Pancreas, Liver, Stomach, Gut, Bones, Kidneys, Arterial_Blood
 , Rest_of_Body[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 1327--1327
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 1335--1335
 []\T1/lmtt/m/n/10 #> x$params: lKbBR, lKbMU, lKbAD, lCLint, eta.LClint, lKbBO, 
 lKbRB, WT, BP, fup[] 
  []
 
 
-Overfull \hbox (1088.24583pt too wide) in paragraph at lines 1327--1327
+Overfull \hbox (1088.24583pt too wide) in paragraph at lines 1335--1335
 []\T1/lmtt/m/n/10 #> x$lhs: KbBR, KbMU, KbAD, CLint, KbBO, KbRB, CO, QHT, QBR, 
 QMU, QAD, QSK, QSP, QPA, QLI, QST, QGU, QHA, QBO, QKI, QRB, QLU, VLU, VHT, VBR,
  VMU, VAD, VSK, VSP, VPA, VLI, VST, VGU, VBO, VKI, VAB, VVB, VRB, fub, KbLU, Kb
@@ -1354,13 +1354,13 @@ HT, KbSK, KbSP, KbPA, KbLI, KbST, KbGU, KbKI, S15, C15[]
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 1358--1358
-[]\T1/lmtt/m/n/10 #> rxode2 2.0.8 model named rx_298819bb66277a6f5e6203ec8e1b0e
-13 model (ready).[] 
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 1366--1366
+[]\T1/lmtt/m/n/10 #> rxode2 2.0.11 model named rx_4caaa6b18411f9babd3e3aafb7840
+fd4 model (ready).[] 
  []
 
 [29]
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 1376--1376
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 1384--1384
 []  \T1/lmtt/m/n/10 Evaluation error: Compartment \TS1/lmtt/m/n/10 '\T1/lmtt/m/
 n/10 eff\TS1/lmtt/m/n/10 ' \T1/lmtt/m/n/10 needs differential equations defined
 .[] 
@@ -1371,13 +1371,13 @@ Chapter 7.
 [31
 
 ] [32]
-Underfull \hbox (badness 5741) in paragraph at lines 1573--1576
+Underfull \hbox (badness 5741) in paragraph at lines 1581--1584
 []\T1/mdput/m/n/10 (+20) These can only be ac-cessed when solv-ing with the op-
 tion com-bi-na-tion
  []
 
 
-Underfull \hbox (badness 2875) in paragraph at lines 1573--1576
+Underfull \hbox (badness 2875) in paragraph at lines 1581--1584
 \T1/lmtt/m/n/10 addDosing=TRUE \T1/mdput/m/n/10 (+20) and \T1/lmtt/m/n/10 subse
 tNonmem=FALSE\T1/mdput/m/n/10 (+20) . If you want to see the clas-sic
  []
@@ -1389,7 +1389,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-46-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-46-1.pd
-f  used on input line 1660.
+f  used on input line 1668.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1401,7 +1401,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-48-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-48-1.pd
-f  used on input line 1729.
+f  used on input line 1737.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [36 <./rxode2-manual_files/figure-latex/unnamed-chunk-48-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-50-1.pdf, id=408, 469.755pt x 3
@@ -1410,7 +1410,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-50-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-50-1.pd
-f  used on input line 1775.
+f  used on input line 1783.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1422,7 +1422,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-51-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-51-1.pd
-f  used on input line 1790.
+f  used on input line 1798.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1434,7 +1434,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-52-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-52-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-52-1.pd
-f  used on input line 1801.
+f  used on input line 1809.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 4765) has occurred while \output is active []
@@ -1447,7 +1447,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-54-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-54-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-54-1.pd
-f  used on input line 1838.
+f  used on input line 1846.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 4765) has occurred while \output is active []
@@ -1459,7 +1459,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-56-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-56-1.pd
-f  used on input line 1888.
+f  used on input line 1896.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1471,7 +1471,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-58-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-58-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-58-1.pd
-f  used on input line 1936.
+f  used on input line 1944.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [43 <./rxode2-manual_files/figure-latex/unnamed-chunk-58-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-60-1.pdf, id=484, 469.755pt x 3
@@ -1480,7 +1480,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-60-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-60-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-60-1.pd
-f  used on input line 1983.
+f  used on input line 1991.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [44 <./rxode2-manual_files/figure-latex/unnamed-chunk-60-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-61-1.pdf, id=497, 469.755pt x 3
@@ -1489,7 +1489,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-61-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-61-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-61-1.pd
-f  used on input line 2023.
+f  used on input line 2031.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [45 <./rxode2-manual_files/figure-latex/unnamed-chunk-61-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-62-1.pdf, id=513, 469.755pt x 3
@@ -1498,7 +1498,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-62-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-62-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-62-1.pd
-f  used on input line 2081.
+f  used on input line 2089.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1510,7 +1510,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-64-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-64-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-64-1.pd
-f  used on input line 2136.
+f  used on input line 2144.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [48 <./rxode2-manual_files/figure-latex/unnamed-chunk-64-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-66-1.pdf, id=540, 469.755pt x 3
@@ -1519,7 +1519,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-66-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-66-1.pd
-f  used on input line 2185.
+f  used on input line 2193.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [49 <./rxode2-manual_files/figure-latex/unnamed-chunk-66-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-68-1.pdf, id=554, 469.755pt x 3
@@ -1528,7 +1528,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-68-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-68-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-68-1.pd
-f  used on input line 2236.
+f  used on input line 2244.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1540,7 +1540,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-69-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-69-1.pd
-f  used on input line 2258.
+f  used on input line 2266.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1552,7 +1552,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-70-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-70-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-70-1.pd
-f  used on input line 2275.
+f  used on input line 2283.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1573,7 +1573,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-75-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-75-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-75-1.pd
-f  used on input line 2905.
+f  used on input line 2913.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [64 <./rxode2-manual_files/figure-latex/unnamed-chunk-75-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-77-1.pdf, id=702, 469.755pt x 3
@@ -1582,7 +1582,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-77-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-77-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-77-1.pd
-f  used on input line 2943.
+f  used on input line 2951.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [65 <./rxode2-manual_files/figure-latex/unnamed-chunk-77-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-79-1.pdf, id=714, 469.755pt x 3
@@ -1591,10 +1591,10 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-79-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-79-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-79-1.pd
-f  used on input line 2999.
+f  used on input line 3007.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Overfull \vbox (2.17291pt too high) detected at line 3012
+Overfull \vbox (2.17291pt too high) detected at line 3020
  []
 
 [66 <./rxode2-manual_files/figure-latex/unnamed-chunk-79-1.pdf>]
@@ -1604,7 +1604,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-81-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-81-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-81-1.pd
-f  used on input line 3044.
+f  used on input line 3052.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1616,7 +1616,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-83-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-83-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-83-1.pd
-f  used on input line 3105.
+f  used on input line 3113.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1628,7 +1628,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-85-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-85-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-85-1.pd
-f  used on input line 3171.
+f  used on input line 3179.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 <rxode2-manual_files/figure-latex/unnamed-chunk-86-1.pdf, id=758, 469.755pt x 3
 25.215pt>
@@ -1636,7 +1636,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-86-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-86-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-86-1.pd
-f  used on input line 3192.
+f  used on input line 3200.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1648,7 +1648,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-87-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-87-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-87-1.pd
-f  used on input line 3223.
+f  used on input line 3231.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1661,7 +1661,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-88-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-88-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-88-1.pd
-f  used on input line 3258.
+f  used on input line 3266.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 <rxode2-manual_files/figure-latex/unnamed-chunk-89-1.pdf, id=795, 469.755pt x 3
 25.215pt>
@@ -1669,7 +1669,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-89-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-89-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-89-1.pd
-f  used on input line 3274.
+f  used on input line 3282.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1681,7 +1681,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-90-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-90-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-90-1.pd
-f  used on input line 3291.
+f  used on input line 3299.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1693,7 +1693,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-91-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-91-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-91-1.pd
-f  used on input line 3317.
+f  used on input line 3325.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1705,7 +1705,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-92-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-92-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-92-1.pd
-f  used on input line 3352.
+f  used on input line 3360.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [77 <./rxode2-manual_files/figure-latex/unnamed-chunk-91-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-93-1.pdf, id=841, 469.755pt x 3
@@ -1714,7 +1714,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-93-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-93-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-93-1.pd
-f  used on input line 3366.
+f  used on input line 3374.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1726,7 +1726,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-94-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-94-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-94-1.pd
-f  used on input line 3379.
+f  used on input line 3387.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1738,7 +1738,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-95-1.pdf Graphic file (typ
 e pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-95-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-95-1.pd
-f  used on input line 3397.
+f  used on input line 3405.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1749,13 +1749,13 @@ manual_files/figure-latex/unnamed-chunk-95-1.pdf>] [82]
 File: eventTable-output-notebook-02.png Graphic file (type png)
 <use eventTable-output-notebook-02.png>
 Package pdftex.def Info: eventTable-output-notebook-02.png  used on input line 
-3520.
+3528.
 (pdftex.def)             Requested size: 344.99908pt x 170.92018pt.
 <eventTable-output-notebook-01.png, id=891, 962.59625pt x 530.98375pt>
 File: eventTable-output-notebook-01.png Graphic file (type png)
 <use eventTable-output-notebook-01.png>
 Package pdftex.def Info: eventTable-output-notebook-01.png  used on input line 
-3526.
+3534.
 (pdftex.def)             Requested size: 344.99214pt x 190.30327pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1770,68 +1770,61 @@ Chapter 9.
 ]
 Chapter 10.
 [87]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3629--3629
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3637--3637
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3629--3629
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3637--3637
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3659--3659
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3667--3667
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3659--3659
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3667--3667
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
 
 [88]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3689--3689
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3697--3697
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3689--3689
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3697--3697
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
 
 [89]
-Overfull \hbox (111.74867pt too wide) in paragraph at lines 3736--3736
-[]\T1/lmtt/m/n/10 #> Call \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 lifecycle::last_lif
-ecycle_warnings()\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 to see where this warning w
-as generated.[] 
- []
-
-
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3792--3792
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3798--3798
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3792--3792
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3798--3798
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
 
 [90]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3841--3841
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3847--3847
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3841--3841
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3847--3847
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
@@ -1842,19 +1835,19 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-106-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-106-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-106-1.p
-df  used on input line 3849.
+df  used on input line 3855.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [91]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3885--3885
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3891--3891
 []\T1/lmtt/m/n/10 #>      V2      V3      KA      CL       Q     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 3885--3885
+Overfull \hbox (1.499pt too wide) in paragraph at lines 3891--3891
 []\T1/lmtt/m/n/10 #>  40.200 297.000   0.294  18.600  10.500   1.000   1.000 20
 0.000[] 
  []
@@ -1866,7 +1859,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-107-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-107-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-107-1.p
-df  used on input line 3893.
+df  used on input line 3899.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [93 <./rxode2-manual_files/figure-latex/unnamed-chunk-107-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-109-1.pdf, id=975, 469.755pt x 
@@ -1875,32 +1868,32 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-109-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-109-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-109-1.p
-df  used on input line 3947.
+df  used on input line 3953.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [94 <./rxode2-manual_files/figure-latex/unnamed-chunk-109-1.pdf>]
 Chapter 11.
 [95
 
 ]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4051--4051
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4057--4057
 []\T1/lmtt/m/n/10 #>      KA      CL      V2       Q      V3     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4051--4051
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4057--4057
 []\T1/lmtt/m/n/10 #>   0.294  18.600  40.200  10.500 297.000   1.000   1.000 20
 0.000[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4078--4078
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4084--4084
 []\T1/lmtt/m/n/10 #>      KA      CL      V2       Q      V3     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4078--4078
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4084--4084
 []\T1/lmtt/m/n/10 #>   0.294  18.600  40.200  10.500 297.000   1.000   1.000 20
 0.000[] 
  []
@@ -1912,7 +1905,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-111-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-111-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-111-1.p
-df  used on input line 4086.
+df  used on input line 4092.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [97 <./rxode2-manual_files/figure-latex/unnamed-chunk-111-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-112-1.pdf, id=1010, 469.755pt x
@@ -1921,15 +1914,15 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-112-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-112-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-112-1.p
-df  used on input line 4128.
+df  used on input line 4134.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [98 <./rxode2-manual_files/figure-latex/unnamed-chunk-112-1.pdf>]
-Overfull \hbox (1.6255pt too wide) in paragraph at lines 4171--4172
+Overfull \hbox (1.6255pt too wide) in paragraph at lines 4177--4178
 []\T1/mdput/m/n/10 (-20) $params|  
  []
 
 [99]
-Overfull \vbox (0.56264pt too high) detected at line 4306
+Overfull \vbox (0.56264pt too high) detected at line 4312
  []
 
 [100]
@@ -1939,7 +1932,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-119-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-119-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-119-1.p
-df  used on input line 4308.
+df  used on input line 4314.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 <rxode2-manual_files/figure-latex/unnamed-chunk-120-1.pdf, id=1049, 469.755pt x
  325.215pt>
@@ -1947,7 +1940,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-120-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-120-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-120-1.p
-df  used on input line 4319.
+df  used on input line 4325.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1959,7 +1952,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-121-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-121-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-121-1.p
-df  used on input line 4329.
+df  used on input line 4335.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [102 <./rxode2-manual_files/figure-latex/unnamed-chunk-120-1.pdf> <./rxode2-man
 ual_files/figure-latex/unnamed-chunk-121-1.pdf>]
@@ -1969,10 +1962,10 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-122-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-122-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-122-1.p
-df  used on input line 4340.
+df  used on input line 4346.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Overfull \hbox (148.49857pt too wide) in paragraph at lines 4367--4367
+Overfull \hbox (148.49857pt too wide) in paragraph at lines 4373--4373
 []\T1/lmtt/m/n/10 #> ! in order to put confidence bands around the intervals, y
 ou need at least 2500 simulations[] 
  []
@@ -1983,13 +1976,13 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-123-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-123-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-123-1.p
-df  used on input line 4373.
+df  used on input line 4379.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 5302) has occurred while \output is active []
 
 [103 <./rxode2-manual_files/figure-latex/unnamed-chunk-122-1.pdf>]
-Overfull \hbox (148.49857pt too wide) in paragraph at lines 4384--4384
+Overfull \hbox (148.49857pt too wide) in paragraph at lines 4390--4390
 []\T1/lmtt/m/n/10 #> ! in order to put confidence bands around the intervals, y
 ou need at least 2500 simulations[] 
  []
@@ -2000,55 +1993,55 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-124-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-124-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-124-1.p
-df  used on input line 4390.
+df  used on input line 4396.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [104 <./rxode2-manual_files/figure-latex/unnamed-chunk-123-1.pdf>]
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #>   sim.id   V2 prop.err  V3  TCl     eta.Cl    KA    Q Kin 
 Kout EC50[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 1      1 40.2        0 297 18.6 -0.2332273 0.294 10.5   1 
    1  200[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 2      2 40.2        0 297 18.6 -0.3097188 0.294 10.5   1 
    1  200[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 3      3 40.2        0 297 18.6 -0.1103929 0.294 10.5   1 
    1  200[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 4      4 40.2        0 297 18.6  0.3790298 0.294 10.5   1 
    1  200[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 5      5 40.2        0 297 18.6 -0.2001559 0.294 10.5   1 
    1  200[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4408--4408
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4414--4414
 []\T1/lmtt/m/n/10 #> 6      6 40.2        0 297 18.6  0.1855595 0.294 10.5   1 
    1  200[] 
  []
 
 [105 <./rxode2-manual_files/figure-latex/unnamed-chunk-124-1.pdf>]
-Overfull \hbox (148.49857pt too wide) in paragraph at lines 4445--4445
+Overfull \hbox (148.49857pt too wide) in paragraph at lines 4451--4451
 []\T1/lmtt/m/n/10 #> ! in order to put confidence bands around the intervals, y
 ou need at least 2500 simulations[] 
  []
@@ -2059,7 +2052,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-126-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-126-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-126-1.p
-df  used on input line 4457.
+df  used on input line 4463.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [106 <./rxode2-manual_files/figure-latex/unnamed-chunk-126-1.pdf>] [107]
 <rxode2-manual_files/figure-latex/unnamed-chunk-128-1.pdf, id=1156, 469.755pt x
@@ -2068,128 +2061,128 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-128-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-128-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-128-1.p
-df  used on input line 4588.
+df  used on input line 4594.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [108] [109 <./rxode2-manual_files/figure-latex/unnamed-chunk-128-1.pdf>] [110]
-Underfull \vbox (badness 1496) detected at line 4741
+Underfull \vbox (badness 1496) detected at line 4745
  []
 
 [111]
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>    sim.id id      tcl crcl.cl  eta.cl    tv   eta.v   tka 
  eta.ka[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>     <int> <fct> <dbl>   <dbl>   <dbl> <dbl>   <dbl> <dbl> 
   <dbl>[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  1      1 1      26.7    2.27  0.0525  2.52  0.692   4.83 
 -2.16[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  2      1 2      26.7    2.27  0.0383  2.52 -0.226   4.83 
 -1.49[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  3      1 3      26.7    2.27  0.207   2.52  0.346   4.83 
  0.939[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  4      1 4      26.7    2.27 -0.0993  2.52 -0.0124  4.83 
 -0.299[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  5      1 5      26.7    2.27 -0.308   2.52 -0.277   4.83 
  0.703[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (1.499pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  6      1 6      26.7    2.27  0.0300  2.52  0.278   4.83 
  1.36[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  7      1 7      26.7    2.27  0.0196  2.52  0.0696  4.83 
 -0.0215[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  8      1 8      26.7    2.27 -0.233   2.52  0.0493  4.83 
 -0.573[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>  9      1 9      26.7    2.27  0.693   2.52  0.277   4.83 
 -0.161[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 10      1 10     26.7    2.27 -0.0748  2.52  0.206   4.83 
 -0.296[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>   sim.id    id   time    cl     v    ka   ipred     obs   
  WT  CLCR[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #>    <int> <int>    [h] <dbl> <dbl> <dbl>   <dbl>   <dbl> <d
 bl> <dbl>[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 1      1     1 0.0155  301. 313.  0.559 0.00274 -3.08    6
 2.2  69.3[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 2      1     1 0.749   301. 313.  0.559 0.0760   0.736   6
 2.2  69.3[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 3      1     1 1.02    301. 313.  0.559 0.0845  -2.18    6
 2.2  69.3[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 4      1     1 3.41    301. 313.  0.559 0.0493   1.36    6
 2.2  69.3[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 5      1     1 7.81    301. 313.  0.559 0.00540  2.30    6
 2.2  69.3[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 4779--4779
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 4793--4793
 []\T1/lmtt/m/n/10 #> 6      1     2 0.0833 2582.  71.7 1.09  0.0376  -0.0849  3
 5.7 105.[] 
  []
@@ -2201,35 +2194,29 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-133-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-133-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-133-1.p
-df  used on input line 4817.
+df  used on input line 4843.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[113 <./rxode2-manual_files/figure-latex/unnamed-chunk-133-1.pdf>]
-<rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf, id=1208, 469.755pt x
+[113]
+Overfull \vbox (0.1784pt too high) detected at line 4880
+ []
+
+[114 <./rxode2-manual_files/figure-latex/unnamed-chunk-133-1.pdf>]
+<rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf, id=1213, 469.755pt x
  325.215pt>
 File: rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-134-1.p
-df  used on input line 4866.
+df  used on input line 4892.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[114]
-Underfull \hbox (badness 1540) in paragraph at lines 4908--4913
+[115 <./rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf>]
+Underfull \hbox (badness 1540) in paragraph at lines 4934--4939
 \T1/mdput/m/n/10 (+20) to solve ODEs. Ad-di-tion-ally, rx-ode2 can use an ar-bi
 -trary data frame with
  []
-
-[115 <./rxode2-manual_files/figure-latex/unnamed-chunk-134-1.pdf>]
-Underfull \vbox (badness 10000) detected at line 4959
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [116]
 <rxode2-manual_files/figure-latex/unnamed-chunk-136-1.pdf, id=1237, 469.755pt x
@@ -2238,70 +2225,73 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-136-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-136-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-136-1.p
-df  used on input line 4961.
+df  used on input line 4987.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [117 <./rxode2-manual_files/figure-latex/unnamed-chunk-136-1.pdf>]
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Underfull \vbox (badness 7851) has occurred while \output is active []
+
+[118]
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>      id  time       ka       cl        v        cp        
  depot    center[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>   1:  1  0.00 2.857651 3.669297 34.81332 0.0000000  3.1999
 20e+02   0.00000[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>   2:  1  0.25 2.857651 3.669297 34.81332 4.6240421  1.5662
 95e+02 160.97825[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>   3:  1  0.57 2.857651 3.669297 34.81332 7.1151647  6.2767
 31e+01 247.70249[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>   4:  1  1.12 2.857651 3.669297 34.81332 8.0922106  1.3036
 13e+01 281.71670[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #>   5:  1  2.02 2.857651 3.669297 34.81332 7.6837844  9.9584
 46e-01 267.49803[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #> 128: 12  5.07 2.857651 3.669297 34.81332 5.6044213  1.6362
 10e-04 195.10850[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #> 129: 12  7.07 2.857651 3.669297 34.81332 4.5392337  5.3856
 97e-07 158.02579[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #> 130: 12  9.03 2.857651 3.669297 34.81332 3.6920276  1.8820
 87e-09 128.53173[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #> 131: 12 12.05 2.857651 3.669297 34.81332 2.6855080  8.4614
 24e-09  93.49144[] 
  []
 
-[118]
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
+
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 5076--5076
 []\T1/lmtt/m/n/10 #> 132: 12 24.15 2.857651 3.669297 34.81332 0.7501667 -4.7752
 22e-10  26.11579[] 
  []
@@ -2311,49 +2301,49 @@ Overfull \hbox (59.24883pt too wide) in paragraph at lines 5050--5050
 ]
 Chapter 12.
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 5078--5078
-[]\T1/lmtt/m/n/10 #> rxode2 2.0.8 model named rx_21d6b058b7fd3920488bed6007f047
-4a model (ready).[] 
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 5104--5104
+[]\T1/lmtt/m/n/10 #> rxode2 2.0.11 model named rx_0e10114a74e3a755fa455546005b6
+4e9 model (ready).[] 
  []
 
 [121] [122] [123] [124] [125] [126] [127] [128] [129]
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 5569--5569
-[]\T1/lmtt/m/n/10 #> rxode2 2.0.8 model named rx_3dc65ff0a81211c79892db87f54bcd
-81 model (ready).[] 
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 5595--5595
+[]\T1/lmtt/m/n/10 #> rxode2 2.0.11 model named rx_c0a8cbd1096a07a0112eacf070715
+69f model (ready).[] 
  []
 
 [130] [131] [132]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5703--5703
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5729--5729
 []\T1/lmtt/m/n/10 #>      CL      V2       Q      V3      KA     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5703--5703
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5729--5729
 []\T1/lmtt/m/n/10 #>  18.600  40.200  10.500 297.000   0.294   1.000   1.000 20
 0.000[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5736--5736
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5762--5762
 []\T1/lmtt/m/n/10 #>      CL      V2       Q      V3      KA     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5736--5736
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5762--5762
 []\T1/lmtt/m/n/10 #>  18.600  40.200  10.500 297.000   0.294   1.000   1.000 20
 0.000[] 
  []
 
 [133]
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5784--5784
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5810--5810
 []\T1/lmtt/m/n/10 #>      KA      CL      V2       Q      V3     Kin    Kout   
  EC50[] 
  []
 
 
-Overfull \hbox (1.499pt too wide) in paragraph at lines 5784--5784
+Overfull \hbox (1.499pt too wide) in paragraph at lines 5810--5810
 []\T1/lmtt/m/n/10 #>   0.294  18.600  40.200  10.500 297.000   1.000   1.000 20
 0.000[] 
  []
@@ -2362,87 +2352,87 @@ Overfull \hbox (1.499pt too wide) in paragraph at lines 5784--5784
 Underfull \vbox (badness 3623) has occurred while \output is active []
 
 [135] [136]
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>       id    low  time   high cmt         amt  rate  evid  
  AGE   SEX    WT  CRCL[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>    <int>  <dbl> <dbl>  <dbl> <chr>     <dbl> <dbl> <int> <
 dbl> <dbl> <dbl> <dbl>[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  1     1  0     0      0     (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  2     1 NA     0     NA     (default)  296.  296.     1  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  3     1  0.225 0.246  0.275 (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  4     1  0.45  0.516  0.55  (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  5     1  0.675 0.729  0.825 (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  6     1  0.9   0.921  1.1   (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  7     1  1.35  1.42   1.65  (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  8     1  1.8   1.82   2.2   (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #>  9     1  2.7   2.97   3.3   (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 5934--5934
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 5960--5960
 []\T1/lmtt/m/n/10 #> 10     1  3.6   3.87   4.4   (obs)       NA    NA      0  
   66     1  49.4    83[] 
  []
 
 [137]
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 5999--5999
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6025--6025
 []\T1/lmtt/m/n/10 #> Warning: Transformation introduced infinite values in cont
 inuous y-axis[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 6003--6003
-[]\T1/lmtt/m/n/10 #> Warning: Removed 1 row(s) containing missing values (geom_
-path).[] 
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 6029--6029
+[]\T1/lmtt/m/n/10 #> Warning: Removed 1 row containing missing values (\TS1/lmt
+t/m/n/10 `\T1/lmtt/m/n/10 geom_line()\TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 ).[] 
  []
 
 <rxode2-manual_files/figure-latex/unnamed-chunk-154-1.pdf, id=1352, 469.755pt x
@@ -2451,168 +2441,168 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-154-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-154-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-154-1.p
-df  used on input line 6005.
+df  used on input line 6031.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [138]
-Overfull \hbox (19.49355pt too wide) in alignment at lines 6026--6030
+Overfull \hbox (19.49355pt too wide) in alignment at lines 6052--6056
  [] [] [] [] 
  []
 
 
-Overfull \hbox (19.49355pt too wide) in alignment at lines 6030--6039
+Overfull \hbox (19.49355pt too wide) in alignment at lines 6056--6065
  [] [] [] [] 
  []
 
 [139 <./rxode2-manual_files/figure-latex/unnamed-chunk-154-1.pdf>] [140]
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #>                TKA         TCl            V2             Q
            V3[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> TKA   1.408151e-01  0.08277499  0.0180178917 -0.0470325576
   0.029172564[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> TCl   8.277499e-02  0.18104452 -0.0532724661 -0.0421074920
   0.068093695[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> V2    1.801789e-02 -0.05327247  0.0581816756  0.0001167516
   0.006496495[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> Q    -4.703256e-02 -0.04210749  0.0001167516  0.1549374667
   0.020764042[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> V3    2.917256e-02  0.06809370  0.0064964951  0.0207640421
   0.118986685[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> Kin  -3.445136e-02  0.01464937 -0.0426405263  0.1503174753
  -0.039702872[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> Kout -2.904363e-02 -0.04914350  0.0324790929  0.0069332072
   0.030349396[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6140--6140
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6166--6166
 []\T1/lmtt/m/n/10 #> EC50 -4.017336e-05  0.02850637 -0.0326094799 -0.0489119232
  -0.029606732[] 
  []
 
 [141]
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 6224--6224
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 6250--6250
 []\T1/lmtt/m/n/10 #> unhandled error message: EE:[lsoda] 70000 steps taken befo
 re reaching tout[] 
  []
 
 [142]
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6229--6229
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6255--6255
 []\T1/lmtt/m/n/10 #> Warning: some ID(s) could not solve the ODEs correctly; Th
 ese values are[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>    sim.id id    inv.Cl~1 inv.C~2 inv.K~3 inv.K~4 eye.C~5 e
 ye.C~6 eye.K~7 eye.K~8[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>     <int> <fct>    <dbl>   <dbl>   <dbl>   <dbl>   <dbl>  
  <dbl>   <dbl>   <dbl>[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  1      1 1       -0.202   0.314  -0.260   0.170  0.171  -
 0.420  -0.140  -0.472[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  2      1 2       -0.202   0.314  -0.260   0.170  0.0361  
 0.0354  0.0821 -0.418[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  3      1 3       -0.202   0.314  -0.260   0.170  0.269   
 0.0473 -0.484  -0.101[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  4      1 4       -0.202   0.314  -0.260   0.170 -0.231  -
 0.180  -0.131   0.0724[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  5      1 5       -0.202   0.314  -0.260   0.170 -0.368   
 0.129   0.501   0.172[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  6      1 6       -0.202   0.314  -0.260   0.170 -0.113  -
 0.208  -0.590  -0.334[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  7      1 7       -0.202   0.314  -0.260   0.170 -0.276   
 0.117  -0.254  -0.148[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  8      1 8       -0.202   0.314  -0.260   0.170  0.231  -
 0.0689  0.129   0.507[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>  9      1 9       -0.202   0.314  -0.260   0.170 -0.292  -
 0.344   0.107   0.232[] 
  []
 
 
-Overfull \hbox (85.49875pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (85.49875pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 10      1 10      -0.202   0.314  -0.260   0.170 -0.293   
 0.0939 -0.514  -0.185[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> # ... with 7,990 more rows, 14 more variables: \TS1/lmtt/m
 /n/10 `\T1/lmtt/m/n/10 iov.Cl(occ==1)\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 <dbl>,[
 ] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 iov.Cl(occ==2)\TS1/l
 mtt/m/n/10 ` \T1/lmtt/m/n/10 <dbl>, \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 iov.Ka(oc
 c==1)\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 <dbl>, \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/1
@@ -2620,19 +2610,19 @@ c==1)\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 <dbl>, \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/1
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   V2 <dbl>, V3 <dbl>, TCl <dbl>, eta.Cl <dbl>, TKA <dbl>
 , eta.Ka <dbl>,[] 
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   Q <dbl>, Kin <dbl>, Kout <dbl>, EC50 <dbl>, and abbrev
 iated variable names[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   1: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 inv.Cl(inv==1)\TS
 1/lmtt/m/n/10 `\T1/lmtt/m/n/10 , 2: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 inv.Cl(in
 v==2)\TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 , 3: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 i
@@ -2640,7 +2630,7 @@ nv.Ka(inv==1)\TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 ,[]
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   4: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 inv.Ka(inv==2)\TS
 1/lmtt/m/n/10 `\T1/lmtt/m/n/10 , 5: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 eye.Cl(ey
 e==1)\TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 , 6: \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 e
@@ -2648,416 +2638,416 @@ ye.Cl(eye==2)\TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 ,[]
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>   sim.id    id time inv.Cl inv.Ka eye.Cl eye.Ka  iov.Cl io
 v.Ka     C2       C3[] 
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #>    <int> <int>  [h]  <dbl>  <dbl>  <dbl>  <dbl>   <dbl>  <
 dbl>  <dbl>    <dbl>[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 1      1     1  0   -0.202 -0.260  0.171 -0.140 -0.0381 0.
 0391   0     0[] 
  []
 
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 2      1     1  0.1 -0.202 -0.260 -0.420 -0.472 -0.0381 0.
 0391  -2.95 -0.00314[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 3      1     1  4   -0.202 -0.260  0.171 -0.140 -0.0381 0.
 0391 -53.9  -2.18[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 4      1     1  4.1 -0.202 -0.260 -0.420 -0.472 -0.0381 0.
 0391 -36.2  -2.27[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 5      1     1  8   -0.202 -0.260  0.171 -0.140 -0.0381 0.
 0391 -58.0  -6.11[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> 6      1     1  8.1 -0.202 -0.260 -0.420 -0.472 -0.0381 0.
 0391 -22.8  -6.22[] 
  []
 
 [143]
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> # ... with 975,994 more rows, and 10 more variables: CL <d
 bl>, KA <dbl>,[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 6281--6281
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 6307--6307
 []\T1/lmtt/m/n/10 #> #   ef0 <dbl>, depot <dbl>, centr <dbl>, peri <dbl>, eff <
 dbl>, occ <fct>,[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 6296--6296
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 6322--6322
 []\T1/lmtt/m/n/10 inv.Cl = (inv == 1) * \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 inv.C
 l(inv==1)\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 + (inv == 2) * \TS1/lmtt/m/n/10 `\T
 1/lmtt/m/n/10 inv.Cl(inv==2)\TS1/lmtt/m/n/10 `[] 
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 6298--6301
+Underfull \hbox (badness 1571) in paragraph at lines 6324--6327
 []\T1/mdput/m/n/10 (+20) If you look at the sim-u-lated pa-ram-e-ters you can s
 ee \T1/lmtt/m/n/10 inv.Cl(inv==1) \T1/mdput/m/n/10 (+20) and
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #>   sim.id id inv.Cl(inv==1) inv.Cl(inv==2) inv.Ka(inv==1) i
 nv.Ka(inv==2)[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 1      1  1     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 2      1  2     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 3      1  3     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 4      1  4     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 5      1  5     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 6      1  6     -0.2022386      0.3144136     -0.2599115  
     0.1699445[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #>   eye.Cl(eye==1) eye.Cl(eye==2) eye.Ka(eye==1) eye.Ka(eye=
 =2) iov.Cl(occ==1)[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 1     0.17073129    -0.41996232     -0.1396676    -0.47194
 363   -0.038088093[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 2     0.03607197     0.03541692      0.0821007    -0.41780
 285   -0.137537040[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 3     0.26936860     0.04732331     -0.4842336    -0.10113
 442    0.051341682[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 4    -0.23101553    -0.17967167     -0.1311976     0.07238
 211    0.083307828[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 5    -0.36771204     0.12904386      0.5007750     0.17169
 021   -0.006988387[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 6    -0.11255970    -0.20831770     -0.5903606    -0.33404
 416    0.017359073[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #>   iov.Cl(occ==2) iov.Ka(occ==1) iov.Ka(occ==2)       V2   
     V3      TCl[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 1    -0.02640295     0.03906335     0.08082907 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 2     0.11320643    -0.05818325    -0.04738385 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 3    -0.09714493     0.11129638    -0.08423628 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 4    -0.16483538     0.02682606     0.05338649 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 5    -0.14905541    -0.12916147     0.15052921 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 6    -0.06090189    -0.03821761     0.22133375 40.30657 29
 7.0657 17.98116[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #>       eta.Cl       TKA     eta.Ka        Q       Kin     K
 out     EC50[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 1  0.1255527 -0.201923 -0.5537485 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 2 -0.4939314 -0.201923  0.1843165 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 3  0.3628319 -0.201923 -0.1429071 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 4  0.9051354 -0.201923  0.3662940 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 5  0.6288535 -0.201923 -0.0873943 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 [144]
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 6337--6337
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 6363--6363
 []\T1/lmtt/m/n/10 #> 6  0.2794271 -0.201923  0.3369920 10.27033 0.3588164 1.273
 849 200.1076[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #>   sim.id id inv.Cl(inv==1) inv.Cl(inv==2) inv.Ka(inv==1) i
 nv.Ka(inv==2)[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 1      2  1       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 2      2  2       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 3      2  3       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 4      2  4       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 5      2  5       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 6      2  6       0.269099    -0.03113882     -0.2495935  
   -0.07401625[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #>   eye.Cl(eye==1) eye.Cl(eye==2) eye.Ka(eye==1) eye.Ka(eye=
 =2) iov.Cl(occ==1)[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 1      0.1241993    0.041788101    0.046696060     -0.4757
 259    -0.12703256[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 2     -0.2429869   -0.272713695    0.535736941     -0.2558
 208    -0.07818270[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 3     -0.2394184   -0.191109523   -0.008623256      0.2089
 974    -0.10398049[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 4     -0.1136205    0.009124802   -0.061481545      0.1693
 383     0.28689686[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 5     -0.0571466    0.079101905    0.020527524     -0.3797
 383    -0.08602325[] 
  []
 
 
-Overfull \hbox (69.7488pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (69.7488pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 6      0.3404940    0.181620316   -0.230666768     -0.2565
 292    -0.06364471[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #>   iov.Cl(occ==2) iov.Ka(occ==1) iov.Ka(occ==2)       V2   
     V3      TCl[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 1     0.03439817    0.013110729     0.05902598 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 2     0.12976537    0.097348229     0.01634439 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 3    -0.02100928    0.064078040    -0.12742109 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 4     0.02594699   -0.095784927     0.25669770 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 5     0.04611064    0.123204785     0.02336934 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 6    -0.03241107   -0.005876249     0.13239904 40.11784 29
 6.8096 18.42138[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #>        eta.Cl       TKA      eta.Ka        Q      Kin     
  Kout     EC50[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 1  0.41059476 0.1568122  0.21051066 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 2  0.12890626 0.1568122 -0.20523053 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 3 -0.03656252 0.1568122  0.01471664 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 4 -0.18554527 0.1568122 -0.62093051 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 5 -0.04484490 0.1568122 -0.06739060 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 6374--6374
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 6400--6400
 []\T1/lmtt/m/n/10 #> 6  0.48614515 0.1568122 -0.35082813 10.97538 1.775872 0.87
 55069 200.0143[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 6382--6382
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 6408--6408
 []\T1/lmtt/m/n/10 eye.Cl = (eye == 1) * \TS1/lmtt/m/n/10 `\T1/lmtt/m/n/10 eye.C
 l(eye==1)\TS1/lmtt/m/n/10 ` \T1/lmtt/m/n/10 + (eye == 2) * \TS1/lmtt/m/n/10 `\T
 1/lmtt/m/n/10 eye.Cl(eye==2)\TS1/lmtt/m/n/10 `[] 
@@ -3073,13 +3063,13 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-163-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-163-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-163-1.p
-df  used on input line 6427.
+df  used on input line 6453.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [146]
-Underfull \hbox (badness 2486) in paragraph at lines 6429--6432
+Underfull \hbox (badness 2486) in paragraph at lines 6455--6458
 \T1/mdput/m/n/10 (+20) This spec-i-fies the pa-ram-e-ters \T1/lmtt/m/n/10 trans
 it(number of transit compartments,
  []
@@ -3091,10 +3081,10 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-164-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-164-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-164-1.p
-df  used on input line 6461.
+df  used on input line 6487.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Underfull \hbox (badness 2818) in paragraph at lines 6477--6483
+Underfull \hbox (badness 2818) in paragraph at lines 6503--6509
 []\T1/mdput/m/n/10 (+20) Internally, the \T1/lmtt/m/n/10 transit \T1/mdput/m/n/
 10 (+20) syn-tax uses ei-ther the cur-rently de-fined cmt
  []
@@ -3102,19 +3092,19 @@ Underfull \hbox (badness 2818) in paragraph at lines 6477--6483
 [148 <./rxode2-manual_files/figure-latex/unnamed-chunk-164-1.pdf>]
 Chapter 13.
 
-Overfull \vbox (1.75671pt too high) detected at line 6535
+Overfull \vbox (1.75671pt too high) detected at line 6561
  []
 
 [149
 
 ]
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6556--6556
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6582--6582
 []\T1/lmtt/m/n/10 #>      KA      V2       Q      V3     Kin    Kout    EC50   
    Tz     amp[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 6556--6556
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 6582--6582
 []\T1/lmtt/m/n/10 #>   0.294  40.200  10.500 297.000   1.000   1.000 200.000   
 8.000   0.100[] 
  []
@@ -3125,7 +3115,7 @@ File: rxode2-manual_files/figure-latex/individual-covariates-1.pdf Graphic file
  (type pdf)
 <use rxode2-manual_files/figure-latex/individual-covariates-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/individual-covariates
--1.pdf  used on input line 6564.
+-1.pdf  used on input line 6590.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3137,7 +3127,7 @@ File: rxode2-manual_files/figure-latex/time-varying-linear-central-1.pdf Graphi
 c file (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-linear-central-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-linear-c
-entral-1.pdf  used on input line 6651.
+entral-1.pdf  used on input line 6677.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 7963) has occurred while \output is active []
@@ -3149,7 +3139,7 @@ File: rxode2-manual_files/figure-latex/time-varying-linear-effect-1.pdf Graphic
  file (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-linear-effect-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-linear-e
-ffect-1.pdf  used on input line 6659.
+ffect-1.pdf  used on input line 6685.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 6364) has occurred while \output is active []
@@ -3162,7 +3152,7 @@ File: rxode2-manual_files/figure-latex/time-varying-constant-central-1.pdf Grap
 hic file (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-constant-central-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-constant
--central-1.pdf  used on input line 6706.
+-central-1.pdf  used on input line 6732.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3174,7 +3164,7 @@ File: rxode2-manual_files/figure-latex/time-varying-constant-effect-1.pdf Graph
 ic file (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-constant-effect-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-constant
--effect-1.pdf  used on input line 6714.
+-effect-1.pdf  used on input line 6740.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [155 <./rxode2-manual_files/figure-latex/time-varying-constant-central-1.pdf> <
 ./rxode2-manual_files/figure-latex/time-varying-constant-effect-1.pdf>]
@@ -3184,7 +3174,7 @@ File: rxode2-manual_files/figure-latex/time-varying-nocb-central-1.pdf Graphic
 file (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-nocb-central-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-nocb-cen
-tral-1.pdf  used on input line 6756.
+tral-1.pdf  used on input line 6782.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3196,14 +3186,14 @@ File: rxode2-manual_files/figure-latex/time-varying-nocb-effect-1.pdf Graphic f
 ile (type pdf)
 <use rxode2-manual_files/figure-latex/time-varying-nocb-effect-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/time-varying-nocb-eff
-ect-1.pdf  used on input line 6764.
+ect-1.pdf  used on input line 6790.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [157 <./rxode2-manual_files/figure-latex/time-varying-nocb-central-1.pdf> <./rx
 ode2-manual_files/figure-latex/time-varying-nocb-effect-1.pdf>] [158]
-Underfull \hbox (badness 10000) in paragraph at lines 6872--6874
+Underfull \hbox (badness 10000) in paragraph at lines 6898--6900
 
  []
 
@@ -3214,7 +3204,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-171-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-171-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-171-1.p
-df  used on input line 6905.
+df  used on input line 6931.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [160 <./rxode2-manual_files/figure-latex/unnamed-chunk-171-1.pdf>]
 <rxode2-manual_files/figure-latex/unnamed-chunk-173-1.pdf, id=1574, 469.755pt x
@@ -3223,7 +3213,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-173-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-173-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-173-1.p
-df  used on input line 6971.
+df  used on input line 6997.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3235,7 +3225,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-174-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-174-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-174-1.p
-df  used on input line 6993.
+df  used on input line 7019.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3247,44 +3237,44 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-175-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-175-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-175-1.p
-df  used on input line 7021.
+df  used on input line 7047.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [163 <./rxode2-manual_files/figure-latex/unnamed-chunk-174-1.pdf>] [164 <./rxod
 e2-manual_files/figure-latex/unnamed-chunk-175-1.pdf>]
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 et(amt=1, time=50, until=58, ii=1.5) %>% # Add dosing every 1
 .5 months[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 rxSolve(nSub=2, nStud=2, omega=omega, sigma=lotri(prop.err ~ 
 0.05^2),[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 plot(pt, q, qp, pstar) # Plot it, plotting the variables of i
 nterest[] 
  []
 
 
-Overfull \hbox (59.24883pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (59.24883pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 #> unhandled error message: EE:[lsoda] 70000 steps taken befo
 re reaching tout[] 
  []
 
 
-Overfull \hbox (127.49863pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (127.49863pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 #> In rxSolve_(object, .ctl, .nms, .xtra, params, events, ini
 ts, setupOnly = .setupOnly) :[] 
  []
 
 
-Overfull \hbox (101.2487pt too wide) in paragraph at lines 7081--7081
+Overfull \hbox (101.2487pt too wide) in paragraph at lines 7107--7107
 []\T1/lmtt/m/n/10 #>  Some ID(s) could not solve the ODEs correctly; These valu
 es are replaced with NA.[] 
  []
@@ -3295,7 +3285,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-177-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-177-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-177-1.p
-df  used on input line 7108.
+df  used on input line 7134.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 5008) has occurred while \output is active []
@@ -3307,7 +3297,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-178-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-178-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-178-1.p
-df  used on input line 7136.
+df  used on input line 7162.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3320,7 +3310,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-179-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-179-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-179-1.p
-df  used on input line 7198.
+df  used on input line 7224.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3332,7 +3322,7 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-186-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-186-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-186-1.p
-df  used on input line 7338.
+df  used on input line 7364.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3344,44 +3334,44 @@ File: rxode2-manual_files/figure-latex/unnamed-chunk-188-1.pdf Graphic file (ty
 pe pdf)
 <use rxode2-manual_files/figure-latex/unnamed-chunk-188-1.pdf>
 Package pdftex.def Info: rxode2-manual_files/figure-latex/unnamed-chunk-188-1.p
-df  used on input line 7372.
+df  used on input line 7398.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 [172 <./rxode2-manual_files/figure-latex/unnamed-chunk-186-1.pdf>] [173 <./rxod
 e2-manual_files/figure-latex/unnamed-chunk-188-1.pdf>]
-Underfull \vbox (badness 10000) detected at line 7462
+Underfull \vbox (badness 10000) detected at line 7488
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7462
+Underfull \vbox (badness 10000) detected at line 7488
  []
 
 [174]
-Underfull \vbox (badness 10000) detected at line 7507
+Underfull \vbox (badness 10000) detected at line 7533
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [175] [176]
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 7571--7571
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 7597--7597
 []\T1/lmtt/m/n/10 rxPkg(idr, package="myPackage"); ## Add the idr model to your
  package[] 
  []
 
 
-Overfull \hbox (64.49881pt too wide) in paragraph at lines 7617--7617
+Overfull \hbox (64.49881pt too wide) in paragraph at lines 7643--7643
 []\T1/lmtt/m/n/10 devtools::build() # build the package so you can submit it to
  places like CRAN[] 
  []
 
 [177]
-Overfull \hbox (106.49869pt too wide) in paragraph at lines 7648--7648
+Overfull \hbox (106.49869pt too wide) in paragraph at lines 7674--7674
 []\T1/lmtt/m/n/10 use_package("rxode2", "Depends") ##  library(rxode2) on load;
  Can use imports instead.[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 7648--7648
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 7674--7674
 []\T1/lmtt/m/n/10 rxUse(); # Update the compiled rxode2 sources for all of your
  packages[] 
  []
@@ -3398,7 +3388,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  18536 strings out of 480247
- 316256 string characters out of 5896152
+ 316256 string characters out of 5896151
  775250 words of memory out of 5000000
  35162 multiletter control sequences out of 15000+600000
  633596 words of font info for 366 fonts, out of 8000000 for 9000
@@ -3415,7 +3405,7 @@ b></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/adobe/utopia/putri8a.pfb>
-Output written on rxode2-manual.pdf (183 pages, 1658503 bytes).
+Output written on rxode2-manual.pdf (183 pages, 1664770 bytes).
 PDF statistics:
  2132 PDF objects out of 2487 (max. 8388607)
  1763 compressed objects within 18 object streams

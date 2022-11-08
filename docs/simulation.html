@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Simulation | rxode2 user manual</title>
   <meta name="description" content="This book is the user manual for rxode2" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Simulation | rxode2 user manual" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
 
 
-<meta name="date" content="2022-09-04" />
+<meta name="date" content="2022-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,10 +55,10 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.24/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.26/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
@@ -883,9 +883,9 @@ covariance matrix is to use <code>lotri()</code>:</p>
 <span id="cb192-33"><a href="simulation.html#cb192-33" aria-hidden="true"></a>                <span class="dt">omega=</span><span class="kw">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="co">## etas are variances</span></span>
 <span id="cb192-34"><a href="simulation.html#cb192-34" aria-hidden="true"></a>                <span class="dt">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
 <span id="cb192-35"><a href="simulation.html#cb192-35" aria-hidden="true"></a>                <span class="dt">iCov=</span><span class="kw">data.frame</span>(<span class="dt">WT=</span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="dt">CLCR=</span><span class="kw">rnorm</span>(<span class="dv">1000</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
-<span id="cb192-36"><a href="simulation.html#cb192-36" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>);</span>
-<span id="cb192-37"><a href="simulation.html#cb192-37" aria-hidden="true"></a></span>
-<span id="cb192-38"><a href="simulation.html#cb192-38" aria-hidden="true"></a><span class="kw">print</span>(sim)</span></code></pre></div>
+<span id="cb192-36"><a href="simulation.html#cb192-36" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>);</span></code></pre></div>
+<pre><code>#&gt; ℹ thetaMat has too many items, ignored: &#39;tlag&#39;</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="simulation.html#cb194-1" aria-hidden="true"></a><span class="kw">print</span>(sim)</span></code></pre></div>
 <pre><code>#&gt; ── Solved rxode2 object ──
 #&gt; ── Parameters ($params): ──
 #&gt; # A tibble: 10,000 × 9
@@ -921,29 +921,30 @@ covariance matrix is to use <code>lotri()</code>:</p>
 #&gt; 5      1     1 7.81    301. 313.  0.559 0.00540  2.30    62.2  69.3
 #&gt; 6      1     2 0.0833 2582.  71.7 1.09  0.0376  -0.0849  35.7 105. 
 #&gt; # … with 49,994 more rows</code></pre>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="simulation.html#cb194-1" aria-hidden="true"></a><span class="co">### Notice that the simulation time-points change for the individual</span></span>
-<span id="cb194-2"><a href="simulation.html#cb194-2" aria-hidden="true"></a></span>
-<span id="cb194-3"><a href="simulation.html#cb194-3" aria-hidden="true"></a><span class="co">### If you want the same sampling time-points you can do that as well:</span></span>
-<span id="cb194-4"><a href="simulation.html#cb194-4" aria-hidden="true"></a>evw &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb194-5"><a href="simulation.html#cb194-5" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
-<span id="cb194-6"><a href="simulation.html#cb194-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="dt">length.out=</span><span class="dv">50</span>) <span class="op">%&gt;%</span></span>
-<span id="cb194-7"><a href="simulation.html#cb194-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</span>
-<span id="cb194-8"><a href="simulation.html#cb194-8" aria-hidden="true"></a></span>
-<span id="cb194-9"><a href="simulation.html#cb194-9" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx1, theta, evw,  <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
-<span id="cb194-10"><a href="simulation.html#cb194-10" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>thetaMat,</span>
-<span id="cb194-11"><a href="simulation.html#cb194-11" aria-hidden="true"></a>                <span class="co">## Match boundaries of problem</span></span>
-<span id="cb194-12"><a href="simulation.html#cb194-12" aria-hidden="true"></a>                <span class="dt">thetaLower=</span><span class="dv">0</span>, </span>
-<span id="cb194-13"><a href="simulation.html#cb194-13" aria-hidden="true"></a>                <span class="dt">sigma=</span><span class="kw">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="co">## Sigmas are standard deviations</span></span>
-<span id="cb194-14"><a href="simulation.html#cb194-14" aria-hidden="true"></a>                <span class="dt">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
-<span id="cb194-15"><a href="simulation.html#cb194-15" aria-hidden="true"></a>                <span class="dt">omega=</span><span class="kw">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="co">## etas are variances</span></span>
-<span id="cb194-16"><a href="simulation.html#cb194-16" aria-hidden="true"></a>                <span class="dt">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
-<span id="cb194-17"><a href="simulation.html#cb194-17" aria-hidden="true"></a>                <span class="dt">iCov=</span><span class="kw">data.frame</span>(<span class="dt">WT=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="dt">CLCR=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
-<span id="cb194-18"><a href="simulation.html#cb194-18" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>,</span>
-<span id="cb194-19"><a href="simulation.html#cb194-19" aria-hidden="true"></a>                <span class="dt">resample=</span><span class="ot">TRUE</span>)</span>
-<span id="cb194-20"><a href="simulation.html#cb194-20" aria-hidden="true"></a></span>
-<span id="cb194-21"><a href="simulation.html#cb194-21" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;ipred&quot;</span>))</span></code></pre></div>
-<pre><code>#&gt; summarizing data...done</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="simulation.html#cb196-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="simulation.html#cb196-1" aria-hidden="true"></a><span class="co">### Notice that the simulation time-points change for the individual</span></span>
+<span id="cb196-2"><a href="simulation.html#cb196-2" aria-hidden="true"></a></span>
+<span id="cb196-3"><a href="simulation.html#cb196-3" aria-hidden="true"></a><span class="co">### If you want the same sampling time-points you can do that as well:</span></span>
+<span id="cb196-4"><a href="simulation.html#cb196-4" aria-hidden="true"></a>evw &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb196-5"><a href="simulation.html#cb196-5" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb196-6"><a href="simulation.html#cb196-6" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="dt">length.out=</span><span class="dv">50</span>) <span class="op">%&gt;%</span></span>
+<span id="cb196-7"><a href="simulation.html#cb196-7" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">id=</span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)</span>
+<span id="cb196-8"><a href="simulation.html#cb196-8" aria-hidden="true"></a></span>
+<span id="cb196-9"><a href="simulation.html#cb196-9" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx1, theta, evw,  <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb196-10"><a href="simulation.html#cb196-10" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>thetaMat,</span>
+<span id="cb196-11"><a href="simulation.html#cb196-11" aria-hidden="true"></a>                <span class="co">## Match boundaries of problem</span></span>
+<span id="cb196-12"><a href="simulation.html#cb196-12" aria-hidden="true"></a>                <span class="dt">thetaLower=</span><span class="dv">0</span>, </span>
+<span id="cb196-13"><a href="simulation.html#cb196-13" aria-hidden="true"></a>                <span class="dt">sigma=</span><span class="kw">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="co">## Sigmas are standard deviations</span></span>
+<span id="cb196-14"><a href="simulation.html#cb196-14" aria-hidden="true"></a>                <span class="dt">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
+<span id="cb196-15"><a href="simulation.html#cb196-15" aria-hidden="true"></a>                <span class="dt">omega=</span><span class="kw">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="co">## etas are variances</span></span>
+<span id="cb196-16"><a href="simulation.html#cb196-16" aria-hidden="true"></a>                <span class="dt">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
+<span id="cb196-17"><a href="simulation.html#cb196-17" aria-hidden="true"></a>                <span class="dt">iCov=</span><span class="kw">data.frame</span>(<span class="dt">WT=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="dt">CLCR=</span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
+<span id="cb196-18"><a href="simulation.html#cb196-18" aria-hidden="true"></a>                <span class="dt">dfSub=</span><span class="dv">74</span>, <span class="dt">dfObs=</span><span class="dv">476</span>,</span>
+<span id="cb196-19"><a href="simulation.html#cb196-19" aria-hidden="true"></a>                <span class="dt">resample=</span><span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; ℹ thetaMat has too many items, ignored: &#39;tlag&#39;</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="simulation.html#cb198-1" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;ipred&quot;</span>))</span></code></pre></div>
+<pre><code>#&gt; summarizing data...</code></pre>
+<pre><code>#&gt; done</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="simulation.html#cb201-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 </div>
 <div id="simulate-without-uncertainty-in-omega-or-sigma-parameters" class="section level3 hasAnchor" number="11.3.3">
@@ -951,33 +952,33 @@ covariance matrix is to use <code>lotri()</code>:</p>
 <p>If you do not wish to sample from the prior distributions of either
 the <code>omega</code> or <code>sigma</code> matrices, you can turn off this feature by
 specifying the <code>simVariability = FALSE</code> option when solving:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="simulation.html#cb197-1" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
-<span id="cb197-2"><a href="simulation.html#cb197-2" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb197-3"><a href="simulation.html#cb197-3" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
-<span id="cb197-4"><a href="simulation.html#cb197-4" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
-<span id="cb197-5"><a href="simulation.html#cb197-5" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl) <span class="co">## This is coded as a variable in the model</span></span>
-<span id="cb197-6"><a href="simulation.html#cb197-6" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
-<span id="cb197-7"><a href="simulation.html#cb197-7" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
-<span id="cb197-8"><a href="simulation.html#cb197-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
-<span id="cb197-9"><a href="simulation.html#cb197-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
-<span id="cb197-10"><a href="simulation.html#cb197-10" aria-hidden="true"></a>  e =<span class="st"> </span>eff<span class="op">+</span>eff.err</span>
-<span id="cb197-11"><a href="simulation.html#cb197-11" aria-hidden="true"></a>  cp =<span class="st"> </span>centr<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>cp.err)</span>
-<span id="cb197-12"><a href="simulation.html#cb197-12" aria-hidden="true"></a>})</span>
-<span id="cb197-13"><a href="simulation.html#cb197-13" aria-hidden="true"></a></span>
-<span id="cb197-14"><a href="simulation.html#cb197-14" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">TCl=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
-<span id="cb197-15"><a href="simulation.html#cb197-15" aria-hidden="true"></a>           <span class="dt">Q=</span><span class="fl">1.05E+01</span>, <span class="dt">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
-<span id="cb197-16"><a href="simulation.html#cb197-16" aria-hidden="true"></a>           <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
-<span id="cb197-17"><a href="simulation.html#cb197-17" aria-hidden="true"></a></span>
-<span id="cb197-18"><a href="simulation.html#cb197-18" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">lotri</span>(eff.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>, cp.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>)</span>
-<span id="cb197-19"><a href="simulation.html#cb197-19" aria-hidden="true"></a></span>
-<span id="cb197-20"><a href="simulation.html#cb197-20" aria-hidden="true"></a></span>
-<span id="cb197-21"><a href="simulation.html#cb197-21" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma,</span>
-<span id="cb197-22"><a href="simulation.html#cb197-22" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
-<span id="cb197-23"><a href="simulation.html#cb197-23" aria-hidden="true"></a>                <span class="dt">simVariability=</span><span class="ot">FALSE</span>)</span>
-<span id="cb197-24"><a href="simulation.html#cb197-24" aria-hidden="true"></a></span>
-<span id="cb197-25"><a href="simulation.html#cb197-25" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="simulation.html#cb202-1" aria-hidden="true"></a>mod &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb202-2"><a href="simulation.html#cb202-2" aria-hidden="true"></a>  <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb202-3"><a href="simulation.html#cb202-3" aria-hidden="true"></a>  C2 =<span class="st"> </span>centr<span class="op">/</span>V2;</span>
+<span id="cb202-4"><a href="simulation.html#cb202-4" aria-hidden="true"></a>  C3 =<span class="st"> </span>peri<span class="op">/</span>V3;</span>
+<span id="cb202-5"><a href="simulation.html#cb202-5" aria-hidden="true"></a>  CL =<span class="st">  </span>TCl<span class="op">*</span><span class="kw">exp</span>(eta.Cl) <span class="co">## This is coded as a variable in the model</span></span>
+<span id="cb202-6"><a href="simulation.html#cb202-6" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="op">-</span>KA<span class="op">*</span>depot;</span>
+<span id="cb202-7"><a href="simulation.html#cb202-7" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(centr) =<span class="st"> </span>KA<span class="op">*</span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C2 <span class="op">+</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb202-8"><a href="simulation.html#cb202-8" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(peri)  =<span class="st">                    </span>Q<span class="op">*</span>C2 <span class="op">-</span><span class="st"> </span>Q<span class="op">*</span>C3;</span>
+<span id="cb202-9"><a href="simulation.html#cb202-9" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(eff)  =<span class="st"> </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
+<span id="cb202-10"><a href="simulation.html#cb202-10" aria-hidden="true"></a>  e =<span class="st"> </span>eff<span class="op">+</span>eff.err</span>
+<span id="cb202-11"><a href="simulation.html#cb202-11" aria-hidden="true"></a>  cp =<span class="st"> </span>centr<span class="op">*</span>(<span class="dv">1</span><span class="op">+</span>cp.err)</span>
+<span id="cb202-12"><a href="simulation.html#cb202-12" aria-hidden="true"></a>})</span>
+<span id="cb202-13"><a href="simulation.html#cb202-13" aria-hidden="true"></a></span>
+<span id="cb202-14"><a href="simulation.html#cb202-14" aria-hidden="true"></a>theta &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">KA=</span><span class="fl">2.94E-01</span>, <span class="dt">TCl=</span><span class="fl">1.86E+01</span>, <span class="dt">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb202-15"><a href="simulation.html#cb202-15" aria-hidden="true"></a>           <span class="dt">Q=</span><span class="fl">1.05E+01</span>, <span class="dt">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb202-16"><a href="simulation.html#cb202-16" aria-hidden="true"></a>           <span class="dt">Kin=</span><span class="dv">1</span>, <span class="dt">Kout=</span><span class="dv">1</span>, <span class="dt">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
+<span id="cb202-17"><a href="simulation.html#cb202-17" aria-hidden="true"></a></span>
+<span id="cb202-18"><a href="simulation.html#cb202-18" aria-hidden="true"></a>sigma &lt;-<span class="st"> </span><span class="kw">lotri</span>(eff.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>, cp.err <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span>)</span>
+<span id="cb202-19"><a href="simulation.html#cb202-19" aria-hidden="true"></a></span>
+<span id="cb202-20"><a href="simulation.html#cb202-20" aria-hidden="true"></a></span>
+<span id="cb202-21"><a href="simulation.html#cb202-21" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma,</span>
+<span id="cb202-22"><a href="simulation.html#cb202-22" aria-hidden="true"></a>                <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb202-23"><a href="simulation.html#cb202-23" aria-hidden="true"></a>                <span class="dt">simVariability=</span><span class="ot">FALSE</span>)</span>
+<span id="cb202-24"><a href="simulation.html#cb202-24" aria-hidden="true"></a></span>
+<span id="cb202-25"><a href="simulation.html#cb202-25" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
 <pre><code>#&gt; summarizing data...done</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="simulation.html#cb199-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="simulation.html#cb204-1" aria-hidden="true"></a><span class="kw">plot</span>(s)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <p>Note since realizations of <code>omega</code> and <code>sigma</code> were not simulated,
 <code>$omega.list</code> and <code>$sigma.list</code> both return <code>NULL</code>.</p>
@@ -992,10 +993,10 @@ computing power.</p>
 <p>You can also speed up simulation by using the multi-cores to generate
 random deviates with the threefry simulation engine. This is
 controlled by the <code>nCoresRV</code> parameter. For example:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="simulation.html#cb200-1" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma, <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
-<span id="cb200-2"><a href="simulation.html#cb200-2" aria-hidden="true"></a>                <span class="dt">nCoresRV=</span><span class="dv">2</span>)</span>
-<span id="cb200-3"><a href="simulation.html#cb200-3" aria-hidden="true"></a></span>
-<span id="cb200-4"><a href="simulation.html#cb200-4" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="simulation.html#cb205-1" aria-hidden="true"></a>sim  &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(mod, theta, ev, <span class="dt">omega=</span>omega, <span class="dt">nSub=</span><span class="dv">100</span>, <span class="dt">sigma=</span>sigma, <span class="dt">thetaMat=</span>tMat, <span class="dt">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb205-2"><a href="simulation.html#cb205-2" aria-hidden="true"></a>                <span class="dt">nCoresRV=</span><span class="dv">2</span>)</span>
+<span id="cb205-3"><a href="simulation.html#cb205-3" aria-hidden="true"></a></span>
+<span id="cb205-4"><a href="simulation.html#cb205-4" aria-hidden="true"></a>s &lt;-sim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="kw">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>))</span></code></pre></div>
 <pre><code>#&gt; summarizing data...done</code></pre>
 <p>The default for this is <code>1</code> core since the result depends on the
 number of cores and the random seed you use in your simulation as well
@@ -1013,50 +1014,50 @@ OpenMP thread-capable compile.</p>
 solve ODEs. Additionally, rxode2 can use an arbitrary data frame with
 individualized events. For example when using <code>nlmixr</code>, you could use
 the <code>rxode2/vignettes/theo_sd</code> data frame</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="simulation.html#cb202-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
-<span id="cb202-2"><a href="simulation.html#cb202-2" aria-hidden="true"></a><span class="co">### Load data from nlmixr</span></span>
-<span id="cb202-3"><a href="simulation.html#cb202-3" aria-hidden="true"></a>d &lt;-<span class="st"> </span>qs<span class="op">::</span><span class="kw">qread</span>(<span class="st">&quot;rxode2/vignettes/theo_sd.qs&quot;</span>)</span>
-<span id="cb202-4"><a href="simulation.html#cb202-4" aria-hidden="true"></a></span>
-<span id="cb202-5"><a href="simulation.html#cb202-5" aria-hidden="true"></a><span class="co">### Create rxode2 model</span></span>
-<span id="cb202-6"><a href="simulation.html#cb202-6" aria-hidden="true"></a>theo &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
-<span id="cb202-7"><a href="simulation.html#cb202-7" aria-hidden="true"></a>    tka <span class="op">~</span><span class="st"> </span><span class="fl">0.45</span> <span class="co"># Log Ka</span></span>
-<span id="cb202-8"><a href="simulation.html#cb202-8" aria-hidden="true"></a>    tcl <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="co"># Log Cl</span></span>
-<span id="cb202-9"><a href="simulation.html#cb202-9" aria-hidden="true"></a>    tv <span class="op">~</span><span class="st"> </span><span class="fl">3.45</span>    <span class="co"># Log V</span></span>
-<span id="cb202-10"><a href="simulation.html#cb202-10" aria-hidden="true"></a>    eta.ka <span class="op">~</span><span class="st"> </span><span class="fl">0.6</span></span>
-<span id="cb202-11"><a href="simulation.html#cb202-11" aria-hidden="true"></a>    eta.cl <span class="op">~</span><span class="st"> </span><span class="fl">0.3</span></span>
-<span id="cb202-12"><a href="simulation.html#cb202-12" aria-hidden="true"></a>    eta.v <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span></span>
-<span id="cb202-13"><a href="simulation.html#cb202-13" aria-hidden="true"></a>    ka &lt;-<span class="st"> </span><span class="kw">exp</span>(tka <span class="op">+</span><span class="st"> </span>eta.ka)</span>
-<span id="cb202-14"><a href="simulation.html#cb202-14" aria-hidden="true"></a>    cl &lt;-<span class="st"> </span><span class="kw">exp</span>(tcl <span class="op">+</span><span class="st"> </span>eta.cl)</span>
-<span id="cb202-15"><a href="simulation.html#cb202-15" aria-hidden="true"></a>    v &lt;-<span class="st"> </span><span class="kw">exp</span>(tv <span class="op">+</span><span class="st"> </span>eta.v)</span>
-<span id="cb202-16"><a href="simulation.html#cb202-16" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>ka <span class="op">*</span><span class="st"> </span>depot</span>
-<span id="cb202-17"><a href="simulation.html#cb202-17" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>ka <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>cl <span class="op">/</span><span class="st"> </span>v <span class="op">*</span><span class="st"> </span>center</span>
-<span id="cb202-18"><a href="simulation.html#cb202-18" aria-hidden="true"></a>    cp =<span class="st"> </span>center <span class="op">/</span><span class="st"> </span>v</span>
-<span id="cb202-19"><a href="simulation.html#cb202-19" aria-hidden="true"></a>})</span>
-<span id="cb202-20"><a href="simulation.html#cb202-20" aria-hidden="true"></a></span>
-<span id="cb202-21"><a href="simulation.html#cb202-21" aria-hidden="true"></a><span class="co">### Create parameter dataset</span></span>
-<span id="cb202-22"><a href="simulation.html#cb202-22" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb202-23"><a href="simulation.html#cb202-23" aria-hidden="true"></a>parsDf &lt;-<span class="st"> </span><span class="kw">tribble</span>(</span>
-<span id="cb202-24"><a href="simulation.html#cb202-24" aria-hidden="true"></a>  <span class="op">~</span><span class="st"> </span>eta.ka, <span class="op">~</span><span class="st"> </span>eta.cl, <span class="op">~</span><span class="st"> </span>eta.v, </span>
-<span id="cb202-25"><a href="simulation.html#cb202-25" aria-hidden="true"></a>  <span class="fl">0.105</span>, <span class="fl">-0.487</span>, <span class="fl">-0.080</span>,</span>
-<span id="cb202-26"><a href="simulation.html#cb202-26" aria-hidden="true"></a>  <span class="fl">0.221</span>, <span class="fl">0.144</span>, <span class="fl">0.021</span>,</span>
-<span id="cb202-27"><a href="simulation.html#cb202-27" aria-hidden="true"></a>  <span class="fl">0.368</span>, <span class="fl">0.031</span>, <span class="fl">0.058</span>,</span>
-<span id="cb202-28"><a href="simulation.html#cb202-28" aria-hidden="true"></a> <span class="fl">-0.277</span>, <span class="fl">-0.015</span>, <span class="fl">-0.007</span>,</span>
-<span id="cb202-29"><a href="simulation.html#cb202-29" aria-hidden="true"></a> <span class="fl">-0.046</span>, <span class="fl">-0.155</span>, <span class="fl">-0.142</span>,</span>
-<span id="cb202-30"><a href="simulation.html#cb202-30" aria-hidden="true"></a> <span class="fl">-0.382</span>, <span class="fl">0.367</span>, <span class="fl">0.203</span>,</span>
-<span id="cb202-31"><a href="simulation.html#cb202-31" aria-hidden="true"></a> <span class="fl">-0.791</span>, <span class="fl">0.160</span>, <span class="fl">0.047</span>,</span>
-<span id="cb202-32"><a href="simulation.html#cb202-32" aria-hidden="true"></a> <span class="fl">-0.181</span>, <span class="fl">0.168</span>, <span class="fl">0.096</span>,</span>
-<span id="cb202-33"><a href="simulation.html#cb202-33" aria-hidden="true"></a>  <span class="fl">1.420</span>, <span class="fl">0.042</span>, <span class="fl">0.012</span>,</span>
-<span id="cb202-34"><a href="simulation.html#cb202-34" aria-hidden="true"></a> <span class="fl">-0.738</span>, <span class="fl">-0.391</span>, <span class="fl">-0.170</span>,</span>
-<span id="cb202-35"><a href="simulation.html#cb202-35" aria-hidden="true"></a>  <span class="fl">0.790</span>, <span class="fl">0.281</span>, <span class="fl">0.146</span>,</span>
-<span id="cb202-36"><a href="simulation.html#cb202-36" aria-hidden="true"></a> <span class="fl">-0.527</span>, <span class="fl">-0.126</span>, <span class="fl">-0.198</span>) <span class="op">%&gt;%</span></span>
-<span id="cb202-37"><a href="simulation.html#cb202-37" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tka =</span> <span class="fl">0.451</span>, <span class="dt">tcl =</span> <span class="fl">1.017</span>, <span class="dt">tv =</span> <span class="fl">3.449</span>)</span>
-<span id="cb202-38"><a href="simulation.html#cb202-38" aria-hidden="true"></a></span>
-<span id="cb202-39"><a href="simulation.html#cb202-39" aria-hidden="true"></a><span class="co">### Now solve the dataset</span></span>
-<span id="cb202-40"><a href="simulation.html#cb202-40" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d)</span>
-<span id="cb202-41"><a href="simulation.html#cb202-41" aria-hidden="true"></a></span>
-<span id="cb202-42"><a href="simulation.html#cb202-42" aria-hidden="true"></a><span class="kw">plot</span>(solveData, cp)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="simulation.html#cb207-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb207-2"><a href="simulation.html#cb207-2" aria-hidden="true"></a><span class="co">### Load data from nlmixr</span></span>
+<span id="cb207-3"><a href="simulation.html#cb207-3" aria-hidden="true"></a>d &lt;-<span class="st"> </span>qs<span class="op">::</span><span class="kw">qread</span>(<span class="st">&quot;rxode2/vignettes/theo_sd.qs&quot;</span>)</span>
+<span id="cb207-4"><a href="simulation.html#cb207-4" aria-hidden="true"></a></span>
+<span id="cb207-5"><a href="simulation.html#cb207-5" aria-hidden="true"></a><span class="co">### Create rxode2 model</span></span>
+<span id="cb207-6"><a href="simulation.html#cb207-6" aria-hidden="true"></a>theo &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb207-7"><a href="simulation.html#cb207-7" aria-hidden="true"></a>    tka <span class="op">~</span><span class="st"> </span><span class="fl">0.45</span> <span class="co"># Log Ka</span></span>
+<span id="cb207-8"><a href="simulation.html#cb207-8" aria-hidden="true"></a>    tcl <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="co"># Log Cl</span></span>
+<span id="cb207-9"><a href="simulation.html#cb207-9" aria-hidden="true"></a>    tv <span class="op">~</span><span class="st"> </span><span class="fl">3.45</span>    <span class="co"># Log V</span></span>
+<span id="cb207-10"><a href="simulation.html#cb207-10" aria-hidden="true"></a>    eta.ka <span class="op">~</span><span class="st"> </span><span class="fl">0.6</span></span>
+<span id="cb207-11"><a href="simulation.html#cb207-11" aria-hidden="true"></a>    eta.cl <span class="op">~</span><span class="st"> </span><span class="fl">0.3</span></span>
+<span id="cb207-12"><a href="simulation.html#cb207-12" aria-hidden="true"></a>    eta.v <span class="op">~</span><span class="st"> </span><span class="fl">0.1</span></span>
+<span id="cb207-13"><a href="simulation.html#cb207-13" aria-hidden="true"></a>    ka &lt;-<span class="st"> </span><span class="kw">exp</span>(tka <span class="op">+</span><span class="st"> </span>eta.ka)</span>
+<span id="cb207-14"><a href="simulation.html#cb207-14" aria-hidden="true"></a>    cl &lt;-<span class="st"> </span><span class="kw">exp</span>(tcl <span class="op">+</span><span class="st"> </span>eta.cl)</span>
+<span id="cb207-15"><a href="simulation.html#cb207-15" aria-hidden="true"></a>    v &lt;-<span class="st"> </span><span class="kw">exp</span>(tv <span class="op">+</span><span class="st"> </span>eta.v)</span>
+<span id="cb207-16"><a href="simulation.html#cb207-16" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>ka <span class="op">*</span><span class="st"> </span>depot</span>
+<span id="cb207-17"><a href="simulation.html#cb207-17" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>ka <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>cl <span class="op">/</span><span class="st"> </span>v <span class="op">*</span><span class="st"> </span>center</span>
+<span id="cb207-18"><a href="simulation.html#cb207-18" aria-hidden="true"></a>    cp =<span class="st"> </span>center <span class="op">/</span><span class="st"> </span>v</span>
+<span id="cb207-19"><a href="simulation.html#cb207-19" aria-hidden="true"></a>})</span>
+<span id="cb207-20"><a href="simulation.html#cb207-20" aria-hidden="true"></a></span>
+<span id="cb207-21"><a href="simulation.html#cb207-21" aria-hidden="true"></a><span class="co">### Create parameter dataset</span></span>
+<span id="cb207-22"><a href="simulation.html#cb207-22" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb207-23"><a href="simulation.html#cb207-23" aria-hidden="true"></a>parsDf &lt;-<span class="st"> </span><span class="kw">tribble</span>(</span>
+<span id="cb207-24"><a href="simulation.html#cb207-24" aria-hidden="true"></a>  <span class="op">~</span><span class="st"> </span>eta.ka, <span class="op">~</span><span class="st"> </span>eta.cl, <span class="op">~</span><span class="st"> </span>eta.v, </span>
+<span id="cb207-25"><a href="simulation.html#cb207-25" aria-hidden="true"></a>  <span class="fl">0.105</span>, <span class="fl">-0.487</span>, <span class="fl">-0.080</span>,</span>
+<span id="cb207-26"><a href="simulation.html#cb207-26" aria-hidden="true"></a>  <span class="fl">0.221</span>, <span class="fl">0.144</span>, <span class="fl">0.021</span>,</span>
+<span id="cb207-27"><a href="simulation.html#cb207-27" aria-hidden="true"></a>  <span class="fl">0.368</span>, <span class="fl">0.031</span>, <span class="fl">0.058</span>,</span>
+<span id="cb207-28"><a href="simulation.html#cb207-28" aria-hidden="true"></a> <span class="fl">-0.277</span>, <span class="fl">-0.015</span>, <span class="fl">-0.007</span>,</span>
+<span id="cb207-29"><a href="simulation.html#cb207-29" aria-hidden="true"></a> <span class="fl">-0.046</span>, <span class="fl">-0.155</span>, <span class="fl">-0.142</span>,</span>
+<span id="cb207-30"><a href="simulation.html#cb207-30" aria-hidden="true"></a> <span class="fl">-0.382</span>, <span class="fl">0.367</span>, <span class="fl">0.203</span>,</span>
+<span id="cb207-31"><a href="simulation.html#cb207-31" aria-hidden="true"></a> <span class="fl">-0.791</span>, <span class="fl">0.160</span>, <span class="fl">0.047</span>,</span>
+<span id="cb207-32"><a href="simulation.html#cb207-32" aria-hidden="true"></a> <span class="fl">-0.181</span>, <span class="fl">0.168</span>, <span class="fl">0.096</span>,</span>
+<span id="cb207-33"><a href="simulation.html#cb207-33" aria-hidden="true"></a>  <span class="fl">1.420</span>, <span class="fl">0.042</span>, <span class="fl">0.012</span>,</span>
+<span id="cb207-34"><a href="simulation.html#cb207-34" aria-hidden="true"></a> <span class="fl">-0.738</span>, <span class="fl">-0.391</span>, <span class="fl">-0.170</span>,</span>
+<span id="cb207-35"><a href="simulation.html#cb207-35" aria-hidden="true"></a>  <span class="fl">0.790</span>, <span class="fl">0.281</span>, <span class="fl">0.146</span>,</span>
+<span id="cb207-36"><a href="simulation.html#cb207-36" aria-hidden="true"></a> <span class="fl">-0.527</span>, <span class="fl">-0.126</span>, <span class="fl">-0.198</span>) <span class="op">%&gt;%</span></span>
+<span id="cb207-37"><a href="simulation.html#cb207-37" aria-hidden="true"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">tka =</span> <span class="fl">0.451</span>, <span class="dt">tcl =</span> <span class="fl">1.017</span>, <span class="dt">tv =</span> <span class="fl">3.449</span>)</span>
+<span id="cb207-38"><a href="simulation.html#cb207-38" aria-hidden="true"></a></span>
+<span id="cb207-39"><a href="simulation.html#cb207-39" aria-hidden="true"></a><span class="co">### Now solve the dataset</span></span>
+<span id="cb207-40"><a href="simulation.html#cb207-40" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d)</span>
+<span id="cb207-41"><a href="simulation.html#cb207-41" aria-hidden="true"></a></span>
+<span id="cb207-42"><a href="simulation.html#cb207-42" aria-hidden="true"></a><span class="kw">plot</span>(solveData, cp)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="simulation.html#cb203-1" aria-hidden="true"></a><span class="kw">print</span>(solveData)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="simulation.html#cb208-1" aria-hidden="true"></a><span class="kw">print</span>(solveData)</span></code></pre></div>
 <pre><code>#&gt; ── Solved rxode2 object ──
 #&gt; ── Parameters ($params): ──
 #&gt; # A tibble: 12 × 1
@@ -1088,12 +1089,12 @@ the <code>rxode2/vignettes/theo_sd</code> data frame</p>
 #&gt; 5     1  2.02  2.86  3.67  34.8  7.68   0.996     267.
 #&gt; 6     1  3.82  2.86  3.67  34.8  6.38   0.00581   222.
 #&gt; # … with 126 more rows</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="simulation.html#cb205-1" aria-hidden="true"></a><span class="co">### Of course the fasest way to solve if you don&#39;t care about the rxode2 extra parameters is</span></span>
-<span id="cb205-2"><a href="simulation.html#cb205-2" aria-hidden="true"></a></span>
-<span id="cb205-3"><a href="simulation.html#cb205-3" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d, <span class="dt">returnType=</span><span class="st">&quot;data.frame&quot;</span>)</span>
-<span id="cb205-4"><a href="simulation.html#cb205-4" aria-hidden="true"></a></span>
-<span id="cb205-5"><a href="simulation.html#cb205-5" aria-hidden="true"></a><span class="co">### solved data</span></span>
-<span id="cb205-6"><a href="simulation.html#cb205-6" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">as.tbl</span>(solveData)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="simulation.html#cb210-1" aria-hidden="true"></a><span class="co">### Of course the fasest way to solve if you don&#39;t care about the rxode2 extra parameters is</span></span>
+<span id="cb210-2"><a href="simulation.html#cb210-2" aria-hidden="true"></a></span>
+<span id="cb210-3"><a href="simulation.html#cb210-3" aria-hidden="true"></a>solveData &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(theo, parsDf, d, <span class="dt">returnType=</span><span class="st">&quot;data.frame&quot;</span>)</span>
+<span id="cb210-4"><a href="simulation.html#cb210-4" aria-hidden="true"></a></span>
+<span id="cb210-5"><a href="simulation.html#cb210-5" aria-hidden="true"></a><span class="co">### solved data</span></span>
+<span id="cb210-6"><a href="simulation.html#cb210-6" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">as.tbl</span>(solveData)</span></code></pre></div>
 <pre><code>#&gt; # A tibble: 132 × 8
 #&gt;       id  time    ka    cl     v    cp   depot center
 #&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -1108,7 +1109,7 @@ the <code>rxode2/vignettes/theo_sd</code> data frame</p>
 #&gt;  9     1  9.05  2.86  3.67  34.8  3.68 1.77e-9  128. 
 #&gt; 10     1 12.1   2.86  3.67  34.8  2.66 9.43e-9   92.6
 #&gt; # … with 122 more rows</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="simulation.html#cb207-1" aria-hidden="true"></a>data.table<span class="op">::</span><span class="kw">data.table</span>(solveData)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="simulation.html#cb212-1" aria-hidden="true"></a>data.table<span class="op">::</span><span class="kw">data.table</span>(solveData)</span></code></pre></div>
 <pre><code>#&gt;      id  time       ka       cl        v        cp         depot    center
 #&gt;   1:  1  0.00 2.857651 3.669297 34.81332 0.0000000  3.199920e+02   0.00000
 #&gt;   2:  1  0.25 2.857651 3.669297 34.81332 4.6240421  1.566295e+02 160.97825
