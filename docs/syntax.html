@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 rxode2 syntax | rxode2 user manual</title>
   <meta name="description" content="This book is the user manual for rxode2" />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 rxode2 syntax | rxode2 user manual" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew Fidler, Melissa Hallow, Wenping Wang" />
 
 
-<meta name="date" content="2022-11-07" />
+<meta name="date" content="2023-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,12 +53,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.26/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
 <script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
 <link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
@@ -131,6 +131,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -169,9 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="gettingStarted.html"><a href="gettingStarted.html"><i class="fa fa-check"></i><b>5</b> Getting Started</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-ode-parameters-and-initial-conditions"><i class="fa fa-check"></i><b>5.1</b> Specify ODE parameters and initial conditions</a></li>
-<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode2"><i class="fa fa-check"></i><b>5.2</b> Specify Dosing and sampling in rxode2</a></li>
-<li class="chapter" data-level="5.3" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.3</b> Solving ODEs</a></li>
+<li class="chapter" data-level="5.1" data-path="gettingStarted.html"><a href="gettingStarted.html#specify-dosing-and-sampling-in-rxode2"><i class="fa fa-check"></i><b>5.1</b> Specify Dosing and sampling in rxode2</a></li>
+<li class="chapter" data-level="5.2" data-path="gettingStarted.html"><a href="gettingStarted.html#solving-odes"><i class="fa fa-check"></i><b>5.2</b> Solving ODEs</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>6</b> rxode2 syntax</a>
 <ul>
@@ -249,7 +252,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="solve.html"><a href="solve.html#general-solving-options"><i class="fa fa-check"></i><b>9.1</b> General Solving Options</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#rxcontrol"><i class="fa fa-check"></i><b>9.1.1</b> rxControl</a></li>
+<li class="chapter" data-level="9.1.1" data-path="solve.html"><a href="solve.html#object"><i class="fa fa-check"></i><b>9.1.1</b> object</a></li>
+<li class="chapter" data-level="9.1.2" data-path="solve.html"><a href="solve.html#params"><i class="fa fa-check"></i><b>9.1.2</b> params</a></li>
+<li class="chapter" data-level="9.1.3" data-path="solve.html"><a href="solve.html#events-1"><i class="fa fa-check"></i><b>9.1.3</b> events</a></li>
+<li class="chapter" data-level="9.1.4" data-path="solve.html"><a href="solve.html#inits"><i class="fa fa-check"></i><b>9.1.4</b> inits</a></li>
+<li class="chapter" data-level="9.1.5" data-path="solve.html"><a href="solve.html#sigdig"><i class="fa fa-check"></i><b>9.1.5</b> sigdig</a></li>
+<li class="chapter" data-level="9.1.6" data-path="solve.html"><a href="solve.html#atol"><i class="fa fa-check"></i><b>9.1.6</b> atol</a></li>
+<li class="chapter" data-level="9.1.7" data-path="solve.html"><a href="solve.html#rtol"><i class="fa fa-check"></i><b>9.1.7</b> rtol</a></li>
+<li class="chapter" data-level="9.1.8" data-path="solve.html"><a href="solve.html#atolsens"><i class="fa fa-check"></i><b>9.1.8</b> atolSens</a></li>
+<li class="chapter" data-level="9.1.9" data-path="solve.html"><a href="solve.html#rtolsens"><i class="fa fa-check"></i><b>9.1.9</b> rtolSens</a></li>
+<li class="chapter" data-level="9.1.10" data-path="solve.html"><a href="solve.html#maxsteps"><i class="fa fa-check"></i><b>9.1.10</b> maxsteps</a></li>
+<li class="chapter" data-level="9.1.11" data-path="solve.html"><a href="solve.html#hmin"><i class="fa fa-check"></i><b>9.1.11</b> hmin</a></li>
+<li class="chapter" data-level="9.1.12" data-path="solve.html"><a href="solve.html#hmax"><i class="fa fa-check"></i><b>9.1.12</b> hmax</a></li>
+<li class="chapter" data-level="9.1.13" data-path="solve.html"><a href="solve.html#hmaxsd"><i class="fa fa-check"></i><b>9.1.13</b> hmaxSd</a></li>
+<li class="chapter" data-level="9.1.14" data-path="solve.html"><a href="solve.html#hini"><i class="fa fa-check"></i><b>9.1.14</b> hini</a></li>
+<li class="chapter" data-level="9.1.15" data-path="solve.html"><a href="solve.html#maxordn"><i class="fa fa-check"></i><b>9.1.15</b> maxordn</a></li>
+<li class="chapter" data-level="9.1.16" data-path="solve.html"><a href="solve.html#maxords"><i class="fa fa-check"></i><b>9.1.16</b> maxords</a></li>
+<li class="chapter" data-level="9.1.17" data-path="solve.html"><a href="solve.html#mxhnil"><i class="fa fa-check"></i><b>9.1.17</b> mxhnil</a></li>
+<li class="chapter" data-level="9.1.18" data-path="solve.html"><a href="solve.html#hmxi"><i class="fa fa-check"></i><b>9.1.18</b> hmxi</a></li>
+<li class="chapter" data-level="9.1.19" data-path="solve.html"><a href="solve.html#istatereset"><i class="fa fa-check"></i><b>9.1.19</b> istateReset</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="solve.html"><a href="solve.html#inductive-linerization-options"><i class="fa fa-check"></i><b>9.2</b> Inductive Linerization Options</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="solve.html"><a href="solve.html#indlinmatexptype"><i class="fa fa-check"></i><b>9.2.1</b> indLinMatExpType</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solve.html"><a href="solve.html#indlinmatexporder"><i class="fa fa-check"></i><b>9.2.2</b> indLinMatExpOrder</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solve.html"><a href="solve.html#indlinphitol"><i class="fa fa-check"></i><b>9.2.3</b> indLinPhiTol</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solve.html"><a href="solve.html#indlinphim"><i class="fa fa-check"></i><b>9.2.4</b> indLinPhiM</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="solve.html"><a href="solve.html#steady-state-solving-options"><i class="fa fa-check"></i><b>9.3</b> Steady State Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="solve.html"><a href="solve.html#minss"><i class="fa fa-check"></i><b>9.3.1</b> minSS</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solve.html"><a href="solve.html#maxss"><i class="fa fa-check"></i><b>9.3.2</b> maxSS</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solve.html"><a href="solve.html#strictss"><i class="fa fa-check"></i><b>9.3.3</b> strictSS</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solve.html"><a href="solve.html#infssstep"><i class="fa fa-check"></i><b>9.3.4</b> infSSstep</a></li>
+<li class="chapter" data-level="9.3.5" data-path="solve.html"><a href="solve.html#ssatol"><i class="fa fa-check"></i><b>9.3.5</b> ssAtol</a></li>
+<li class="chapter" data-level="9.3.6" data-path="solve.html"><a href="solve.html#ssrtol"><i class="fa fa-check"></i><b>9.3.6</b> ssRtol</a></li>
+<li class="chapter" data-level="9.3.7" data-path="solve.html"><a href="solve.html#ssatolsens"><i class="fa fa-check"></i><b>9.3.7</b> ssAtolSens</a></li>
+<li class="chapter" data-level="9.3.8" data-path="solve.html"><a href="solve.html#ssrtolsens"><i class="fa fa-check"></i><b>9.3.8</b> ssRtolSens</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="solve.html"><a href="solve.html#rxode2-numeric-stability-options"><i class="fa fa-check"></i><b>9.4</b> rxode2 numeric stability options</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="solve.html"><a href="solve.html#maxatolrtolfactor"><i class="fa fa-check"></i><b>9.4.1</b> maxAtolRtolFactor</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solve.html"><a href="solve.html#statetrim"><i class="fa fa-check"></i><b>9.4.2</b> stateTrim</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solve.html"><a href="solve.html#safezero"><i class="fa fa-check"></i><b>9.4.3</b> safeZero</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solve.html"><a href="solve.html#sumtype"><i class="fa fa-check"></i><b>9.4.4</b> sumType</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solve.html"><a href="solve.html#prodtype"><i class="fa fa-check"></i><b>9.4.5</b> prodType</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solve.html"><a href="solve.html#maxwhile"><i class="fa fa-check"></i><b>9.4.6</b> maxwhile</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="solve.html"><a href="solve.html#linear-compartment-model-sensitivity-options"><i class="fa fa-check"></i><b>9.5</b> Linear compartment model sensitivity options</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="solve.html"><a href="solve.html#senstype"><i class="fa fa-check"></i><b>9.5.1</b> sensType</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solve.html"><a href="solve.html#lindiff"><i class="fa fa-check"></i><b>9.5.2</b> linDiff</a></li>
+<li class="chapter" data-level="9.5.3" data-path="solve.html"><a href="solve.html#lindiffcentral"><i class="fa fa-check"></i><b>9.5.3</b> linDiffCentral</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="solve.html"><a href="solve.html#covariate-solving-options"><i class="fa fa-check"></i><b>9.6</b> Covariate Solving Options</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="solve.html"><a href="solve.html#icov"><i class="fa fa-check"></i><b>9.6.1</b> iCov</a></li>
+<li class="chapter" data-level="9.6.2" data-path="solve.html"><a href="solve.html#covsinterpolation"><i class="fa fa-check"></i><b>9.6.2</b> covsInterpolation</a></li>
+<li class="chapter" data-level="9.6.3" data-path="solve.html"><a href="solve.html#addcov"><i class="fa fa-check"></i><b>9.6.3</b> addCov</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="solve.html"><a href="solve.html#simulation-options"><i class="fa fa-check"></i><b>9.7</b> Simulation options</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="solve.html"><a href="solve.html#seed"><i class="fa fa-check"></i><b>9.7.1</b> seed</a></li>
+<li class="chapter" data-level="9.7.2" data-path="solve.html"><a href="solve.html#nsim"><i class="fa fa-check"></i><b>9.7.2</b> nsim</a></li>
+<li class="chapter" data-level="9.7.3" data-path="solve.html"><a href="solve.html#thetamat"><i class="fa fa-check"></i><b>9.7.3</b> thetaMat</a></li>
+<li class="chapter" data-level="9.7.4" data-path="solve.html"><a href="solve.html#thetalower"><i class="fa fa-check"></i><b>9.7.4</b> thetaLower</a></li>
+<li class="chapter" data-level="9.7.5" data-path="solve.html"><a href="solve.html#thetaupper"><i class="fa fa-check"></i><b>9.7.5</b> thetaUpper</a></li>
+<li class="chapter" data-level="9.7.6" data-path="solve.html"><a href="solve.html#thetadf"><i class="fa fa-check"></i><b>9.7.6</b> thetaDf</a></li>
+<li class="chapter" data-level="9.7.7" data-path="solve.html"><a href="solve.html#thetaischol"><i class="fa fa-check"></i><b>9.7.7</b> thetaIsChol</a></li>
+<li class="chapter" data-level="9.7.8" data-path="solve.html"><a href="solve.html#nstud"><i class="fa fa-check"></i><b>9.7.8</b> nStud</a></li>
+<li class="chapter" data-level="9.7.9" data-path="solve.html"><a href="solve.html#omega"><i class="fa fa-check"></i><b>9.7.9</b> omega</a></li>
+<li class="chapter" data-level="9.7.10" data-path="solve.html"><a href="solve.html#omegaischol"><i class="fa fa-check"></i><b>9.7.10</b> omegaIsChol</a></li>
+<li class="chapter" data-level="9.7.11" data-path="solve.html"><a href="solve.html#omegaseparation"><i class="fa fa-check"></i><b>9.7.11</b> omegaSeparation</a></li>
+<li class="chapter" data-level="9.7.12" data-path="solve.html"><a href="solve.html#omegaxform"><i class="fa fa-check"></i><b>9.7.12</b> omegaXform</a></li>
+<li class="chapter" data-level="9.7.13" data-path="solve.html"><a href="solve.html#omegalower"><i class="fa fa-check"></i><b>9.7.13</b> omegaLower</a></li>
+<li class="chapter" data-level="9.7.14" data-path="solve.html"><a href="solve.html#omegaupper"><i class="fa fa-check"></i><b>9.7.14</b> omegaUpper</a></li>
+<li class="chapter" data-level="9.7.15" data-path="solve.html"><a href="solve.html#omegadf"><i class="fa fa-check"></i><b>9.7.15</b> omegaDf</a></li>
+<li class="chapter" data-level="9.7.16" data-path="solve.html"><a href="solve.html#nsub"><i class="fa fa-check"></i><b>9.7.16</b> nSub</a></li>
+<li class="chapter" data-level="9.7.17" data-path="solve.html"><a href="solve.html#dfsub"><i class="fa fa-check"></i><b>9.7.17</b> dfSub</a></li>
+<li class="chapter" data-level="9.7.18" data-path="solve.html"><a href="solve.html#sigma"><i class="fa fa-check"></i><b>9.7.18</b> sigma</a></li>
+<li class="chapter" data-level="9.7.19" data-path="solve.html"><a href="solve.html#sigmalower"><i class="fa fa-check"></i><b>9.7.19</b> sigmaLower</a></li>
+<li class="chapter" data-level="9.7.20" data-path="solve.html"><a href="solve.html#sigmaupper"><i class="fa fa-check"></i><b>9.7.20</b> sigmaUpper</a></li>
+<li class="chapter" data-level="9.7.21" data-path="solve.html"><a href="solve.html#sigmaxform"><i class="fa fa-check"></i><b>9.7.21</b> sigmaXform</a></li>
+<li class="chapter" data-level="9.7.22" data-path="solve.html"><a href="solve.html#sigmadf"><i class="fa fa-check"></i><b>9.7.22</b> sigmaDf</a></li>
+<li class="chapter" data-level="9.7.23" data-path="solve.html"><a href="solve.html#sigmaischol"><i class="fa fa-check"></i><b>9.7.23</b> sigmaIsChol</a></li>
+<li class="chapter" data-level="9.7.24" data-path="solve.html"><a href="solve.html#sigmaseparation"><i class="fa fa-check"></i><b>9.7.24</b> sigmaSeparation</a></li>
+<li class="chapter" data-level="9.7.25" data-path="solve.html"><a href="solve.html#dfobs"><i class="fa fa-check"></i><b>9.7.25</b> dfObs</a></li>
+<li class="chapter" data-level="9.7.26" data-path="solve.html"><a href="solve.html#resample"><i class="fa fa-check"></i><b>9.7.26</b> resample</a></li>
+<li class="chapter" data-level="9.7.27" data-path="solve.html"><a href="solve.html#resampleid"><i class="fa fa-check"></i><b>9.7.27</b> resampleID</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="solve.html"><a href="solve.html#rxode2-output-options"><i class="fa fa-check"></i><b>9.8</b> rxode2 output options</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="solve.html"><a href="solve.html#returntype"><i class="fa fa-check"></i><b>9.8.1</b> returnType</a></li>
+<li class="chapter" data-level="9.8.2" data-path="solve.html"><a href="solve.html#adddosing"><i class="fa fa-check"></i><b>9.8.2</b> addDosing</a></li>
+<li class="chapter" data-level="9.8.3" data-path="solve.html"><a href="solve.html#keep"><i class="fa fa-check"></i><b>9.8.3</b> keep</a></li>
+<li class="chapter" data-level="9.8.4" data-path="solve.html"><a href="solve.html#drop"><i class="fa fa-check"></i><b>9.8.4</b> drop</a></li>
+<li class="chapter" data-level="9.8.5" data-path="solve.html"><a href="solve.html#idfactor"><i class="fa fa-check"></i><b>9.8.5</b> idFactor</a></li>
+<li class="chapter" data-level="9.8.6" data-path="solve.html"><a href="solve.html#subsetnonmem"><i class="fa fa-check"></i><b>9.8.6</b> subsetNonmem</a></li>
+<li class="chapter" data-level="9.8.7" data-path="solve.html"><a href="solve.html#scale"><i class="fa fa-check"></i><b>9.8.7</b> scale</a></li>
+<li class="chapter" data-level="9.8.8" data-path="solve.html"><a href="solve.html#amountunits"><i class="fa fa-check"></i><b>9.8.8</b> amountUnits</a></li>
+<li class="chapter" data-level="9.8.9" data-path="solve.html"><a href="solve.html#timeunits"><i class="fa fa-check"></i><b>9.8.9</b> timeUnits</a></li>
+<li class="chapter" data-level="9.8.10" data-path="solve.html"><a href="solve.html#theta"><i class="fa fa-check"></i><b>9.8.10</b> theta</a></li>
+<li class="chapter" data-level="9.8.11" data-path="solve.html"><a href="solve.html#eta"><i class="fa fa-check"></i><b>9.8.11</b> eta</a></li>
+<li class="chapter" data-level="9.8.12" data-path="solve.html"><a href="solve.html#from"><i class="fa fa-check"></i><b>9.8.12</b> from</a></li>
+<li class="chapter" data-level="9.8.13" data-path="solve.html"><a href="solve.html#to"><i class="fa fa-check"></i><b>9.8.13</b> to</a></li>
+<li class="chapter" data-level="9.8.14" data-path="solve.html"><a href="solve.html#length.out"><i class="fa fa-check"></i><b>9.8.14</b> length.out</a></li>
+<li class="chapter" data-level="9.8.15" data-path="solve.html"><a href="solve.html#by"><i class="fa fa-check"></i><b>9.8.15</b> by</a></li>
+<li class="chapter" data-level="9.8.16" data-path="solve.html"><a href="solve.html#warnidsort"><i class="fa fa-check"></i><b>9.8.16</b> warnIdSort</a></li>
+<li class="chapter" data-level="9.8.17" data-path="solve.html"><a href="solve.html#warndrop"><i class="fa fa-check"></i><b>9.8.17</b> warnDrop</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="solve.html"><a href="solve.html#internal-rxode2-options"><i class="fa fa-check"></i><b>9.9</b> Internal rxode2 options</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="solve.html"><a href="solve.html#ndisplayprogress"><i class="fa fa-check"></i><b>9.9.1</b> nDisplayProgress</a></li>
+<li class="chapter" data-level="9.9.2" data-path="solve.html"><a href="solve.html#simvariability"><i class="fa fa-check"></i><b>9.9.2</b> simVariability</a></li>
+<li class="chapter" data-level="9.9.3" data-path="solve.html"><a href="solve.html#section"><i class="fa fa-check"></i><b>9.9.3</b> …</a></li>
+<li class="chapter" data-level="9.9.4" data-path="solve.html"><a href="solve.html#a"><i class="fa fa-check"></i><b>9.9.4</b> a</a></li>
+<li class="chapter" data-level="9.9.5" data-path="solve.html"><a href="solve.html#b"><i class="fa fa-check"></i><b>9.9.5</b> b</a></li>
+<li class="chapter" data-level="9.9.6" data-path="solve.html"><a href="solve.html#updateobject"><i class="fa fa-check"></i><b>9.9.6</b> updateObject</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="solve.html"><a href="solve.html#parallelthreaded-solve"><i class="fa fa-check"></i><b>9.10</b> Parallel/Threaded Solve</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="solve.html"><a href="solve.html#cores"><i class="fa fa-check"></i><b>9.10.1</b> cores</a></li>
+<li class="chapter" data-level="9.10.2" data-path="solve.html"><a href="solve.html#ncoresrv"><i class="fa fa-check"></i><b>9.10.2</b> nCoresRV</a></li>
+<li class="chapter" data-level="9.10.3" data-path="solve.html"><a href="solve.html#nllikalloc"><i class="fa fa-check"></i><b>9.10.3</b> nLlikAlloc</a></li>
+<li class="chapter" data-level="9.10.4" data-path="solve.html"><a href="solve.html#usestdpow"><i class="fa fa-check"></i><b>9.10.4</b> useStdPow</a></li>
+<li class="chapter" data-level="9.10.5" data-path="solve.html"><a href="solve.html#natimehandle"><i class="fa fa-check"></i><b>9.10.5</b> naTimeHandle</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="output.html"><a href="output.html"><i class="fa fa-check"></i><b>10</b> rxode2 output</a>
@@ -520,99 +647,191 @@ how <code>rxode2</code> numbers the compartments.</p>
 <p>rxode2 automatically assigns compartment numbers when parsing. For
 example, with the Mavoglurant PBPK model the following model may be
 used:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="syntax.html#cb31-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
-<span id="cb31-2"><a href="syntax.html#cb31-2" aria-hidden="true"></a>pbpk &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
-<span id="cb31-3"><a href="syntax.html#cb31-3" aria-hidden="true"></a>    KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
-<span id="cb31-4"><a href="syntax.html#cb31-4" aria-hidden="true"></a>    KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
-<span id="cb31-5"><a href="syntax.html#cb31-5" aria-hidden="true"></a>    KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
-<span id="cb31-6"><a href="syntax.html#cb31-6" aria-hidden="true"></a>    CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
-<span id="cb31-7"><a href="syntax.html#cb31-7" aria-hidden="true"></a>    KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
-<span id="cb31-8"><a href="syntax.html#cb31-8" aria-hidden="true"></a>    KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
-<span id="cb31-9"><a href="syntax.html#cb31-9" aria-hidden="true"></a></span>
-<span id="cb31-10"><a href="syntax.html#cb31-10" aria-hidden="true"></a>    <span class="co">## Regional blood flows</span></span>
-<span id="cb31-11"><a href="syntax.html#cb31-11" aria-hidden="true"></a>    <span class="co"># Cardiac output (L/h) from White et al (1968)</span></span>
-<span id="cb31-12"><a href="syntax.html#cb31-12" aria-hidden="true"></a>    CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
-<span id="cb31-13"><a href="syntax.html#cb31-13" aria-hidden="true"></a>    QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-14"><a href="syntax.html#cb31-14" aria-hidden="true"></a>    QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-15"><a href="syntax.html#cb31-15" aria-hidden="true"></a>    QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-16"><a href="syntax.html#cb31-16" aria-hidden="true"></a>    QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-17"><a href="syntax.html#cb31-17" aria-hidden="true"></a>    QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-18"><a href="syntax.html#cb31-18" aria-hidden="true"></a>    QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-19"><a href="syntax.html#cb31-19" aria-hidden="true"></a>    QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-20"><a href="syntax.html#cb31-20" aria-hidden="true"></a>    QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-21"><a href="syntax.html#cb31-21" aria-hidden="true"></a>    QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-22"><a href="syntax.html#cb31-22" aria-hidden="true"></a>    QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-23"><a href="syntax.html#cb31-23" aria-hidden="true"></a>    <span class="co"># Hepatic artery blood flow</span></span>
-<span id="cb31-24"><a href="syntax.html#cb31-24" aria-hidden="true"></a>    QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); </span>
-<span id="cb31-25"><a href="syntax.html#cb31-25" aria-hidden="true"></a>    QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-26"><a href="syntax.html#cb31-26" aria-hidden="true"></a>    QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb31-27"><a href="syntax.html#cb31-27" aria-hidden="true"></a>    QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
-<span id="cb31-28"><a href="syntax.html#cb31-28" aria-hidden="true"></a>    QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
-<span id="cb31-29"><a href="syntax.html#cb31-29" aria-hidden="true"></a></span>
-<span id="cb31-30"><a href="syntax.html#cb31-30" aria-hidden="true"></a>    <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
-<span id="cb31-31"><a href="syntax.html#cb31-31" aria-hidden="true"></a>    VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
-<span id="cb31-32"><a href="syntax.html#cb31-32" aria-hidden="true"></a>    VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
-<span id="cb31-33"><a href="syntax.html#cb31-33" aria-hidden="true"></a>    VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
-<span id="cb31-34"><a href="syntax.html#cb31-34" aria-hidden="true"></a>    VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
-<span id="cb31-35"><a href="syntax.html#cb31-35" aria-hidden="true"></a>    VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
-<span id="cb31-36"><a href="syntax.html#cb31-36" aria-hidden="true"></a>    VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
-<span id="cb31-37"><a href="syntax.html#cb31-37" aria-hidden="true"></a>    VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
-<span id="cb31-38"><a href="syntax.html#cb31-38" aria-hidden="true"></a>    VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
-<span id="cb31-39"><a href="syntax.html#cb31-39" aria-hidden="true"></a>    VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb31-40"><a href="syntax.html#cb31-40" aria-hidden="true"></a>    VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
-<span id="cb31-41"><a href="syntax.html#cb31-41" aria-hidden="true"></a>    VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
-<span id="cb31-42"><a href="syntax.html#cb31-42" aria-hidden="true"></a>    VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
-<span id="cb31-43"><a href="syntax.html#cb31-43" aria-hidden="true"></a>    VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
-<span id="cb31-44"><a href="syntax.html#cb31-44" aria-hidden="true"></a>    VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb31-45"><a href="syntax.html#cb31-45" aria-hidden="true"></a>    VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb31-46"><a href="syntax.html#cb31-46" aria-hidden="true"></a>    VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb31-47"><a href="syntax.html#cb31-47" aria-hidden="true"></a></span>
-<span id="cb31-48"><a href="syntax.html#cb31-48" aria-hidden="true"></a>    <span class="co">## Fixed parameters</span></span>
-<span id="cb31-49"><a href="syntax.html#cb31-49" aria-hidden="true"></a>    BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
-<span id="cb31-50"><a href="syntax.html#cb31-50" aria-hidden="true"></a>    fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
-<span id="cb31-51"><a href="syntax.html#cb31-51" aria-hidden="true"></a>    fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
-<span id="cb31-52"><a href="syntax.html#cb31-52" aria-hidden="true"></a></span>
-<span id="cb31-53"><a href="syntax.html#cb31-53" aria-hidden="true"></a>    KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
-<span id="cb31-54"><a href="syntax.html#cb31-54" aria-hidden="true"></a>    KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
-<span id="cb31-55"><a href="syntax.html#cb31-55" aria-hidden="true"></a>    KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
-<span id="cb31-56"><a href="syntax.html#cb31-56" aria-hidden="true"></a>    KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb31-57"><a href="syntax.html#cb31-57" aria-hidden="true"></a>    KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb31-58"><a href="syntax.html#cb31-58" aria-hidden="true"></a>    KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
-<span id="cb31-59"><a href="syntax.html#cb31-59" aria-hidden="true"></a>    KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb31-60"><a href="syntax.html#cb31-60" aria-hidden="true"></a>    KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
-<span id="cb31-61"><a href="syntax.html#cb31-61" aria-hidden="true"></a>    KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
-<span id="cb31-62"><a href="syntax.html#cb31-62" aria-hidden="true"></a></span>
-<span id="cb31-63"><a href="syntax.html#cb31-63" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
-<span id="cb31-64"><a href="syntax.html#cb31-64" aria-hidden="true"></a>    S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
-<span id="cb31-65"><a href="syntax.html#cb31-65" aria-hidden="true"></a>    C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
-<span id="cb31-66"><a href="syntax.html#cb31-66" aria-hidden="true"></a></span>
-<span id="cb31-67"><a href="syntax.html#cb31-67" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
-<span id="cb31-68"><a href="syntax.html#cb31-68" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
-<span id="cb31-69"><a href="syntax.html#cb31-69" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
-<span id="cb31-70"><a href="syntax.html#cb31-70" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
-<span id="cb31-71"><a href="syntax.html#cb31-71" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
-<span id="cb31-72"><a href="syntax.html#cb31-72" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
-<span id="cb31-73"><a href="syntax.html#cb31-73" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
-<span id="cb31-74"><a href="syntax.html#cb31-74" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
-<span id="cb31-75"><a href="syntax.html#cb31-75" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
-<span id="cb31-76"><a href="syntax.html#cb31-76" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
-<span id="cb31-77"><a href="syntax.html#cb31-77" aria-hidden="true"></a><span class="st">      </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span></span>
-<span id="cb31-78"><a href="syntax.html#cb31-78" aria-hidden="true"></a><span class="st">      </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span><span class="st"> </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
-<span id="cb31-79"><a href="syntax.html#cb31-79" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
-<span id="cb31-80"><a href="syntax.html#cb31-80" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
-<span id="cb31-81"><a href="syntax.html#cb31-81" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
-<span id="cb31-82"><a href="syntax.html#cb31-82" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
-<span id="cb31-83"><a href="syntax.html#cb31-83" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
-<span id="cb31-84"><a href="syntax.html#cb31-84" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
-<span id="cb31-85"><a href="syntax.html#cb31-85" aria-hidden="true"></a><span class="st">      </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
-<span id="cb31-86"><a href="syntax.html#cb31-86" aria-hidden="true"></a><span class="st">      </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
-<span id="cb31-87"><a href="syntax.html#cb31-87" aria-hidden="true"></a><span class="st">      </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
-<span id="cb31-88"><a href="syntax.html#cb31-88" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
-<span id="cb31-89"><a href="syntax.html#cb31-89" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="syntax.html#cb24-1" aria-hidden="true"></a><span class="kw">library</span>(rxode2)</span>
+<span id="cb24-2"><a href="syntax.html#cb24-2" aria-hidden="true"></a>pbpk &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb24-3"><a href="syntax.html#cb24-3" aria-hidden="true"></a>    KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
+<span id="cb24-4"><a href="syntax.html#cb24-4" aria-hidden="true"></a>    KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
+<span id="cb24-5"><a href="syntax.html#cb24-5" aria-hidden="true"></a>    KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
+<span id="cb24-6"><a href="syntax.html#cb24-6" aria-hidden="true"></a>    CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
+<span id="cb24-7"><a href="syntax.html#cb24-7" aria-hidden="true"></a>    KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
+<span id="cb24-8"><a href="syntax.html#cb24-8" aria-hidden="true"></a>    KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
+<span id="cb24-9"><a href="syntax.html#cb24-9" aria-hidden="true"></a></span>
+<span id="cb24-10"><a href="syntax.html#cb24-10" aria-hidden="true"></a>    <span class="co">## Regional blood flows</span></span>
+<span id="cb24-11"><a href="syntax.html#cb24-11" aria-hidden="true"></a>    <span class="co"># Cardiac output (L/h) from White et al (1968)</span></span>
+<span id="cb24-12"><a href="syntax.html#cb24-12" aria-hidden="true"></a>    CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
+<span id="cb24-13"><a href="syntax.html#cb24-13" aria-hidden="true"></a>    QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-14"><a href="syntax.html#cb24-14" aria-hidden="true"></a>    QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-15"><a href="syntax.html#cb24-15" aria-hidden="true"></a>    QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-16"><a href="syntax.html#cb24-16" aria-hidden="true"></a>    QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-17"><a href="syntax.html#cb24-17" aria-hidden="true"></a>    QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-18"><a href="syntax.html#cb24-18" aria-hidden="true"></a>    QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-19"><a href="syntax.html#cb24-19" aria-hidden="true"></a>    QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-20"><a href="syntax.html#cb24-20" aria-hidden="true"></a>    QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-21"><a href="syntax.html#cb24-21" aria-hidden="true"></a>    QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-22"><a href="syntax.html#cb24-22" aria-hidden="true"></a>    QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-23"><a href="syntax.html#cb24-23" aria-hidden="true"></a>    <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb24-24"><a href="syntax.html#cb24-24" aria-hidden="true"></a>    QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); </span>
+<span id="cb24-25"><a href="syntax.html#cb24-25" aria-hidden="true"></a>    QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-26"><a href="syntax.html#cb24-26" aria-hidden="true"></a>    QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb24-27"><a href="syntax.html#cb24-27" aria-hidden="true"></a>    QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
+<span id="cb24-28"><a href="syntax.html#cb24-28" aria-hidden="true"></a>    QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
+<span id="cb24-29"><a href="syntax.html#cb24-29" aria-hidden="true"></a></span>
+<span id="cb24-30"><a href="syntax.html#cb24-30" aria-hidden="true"></a>    <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb24-31"><a href="syntax.html#cb24-31" aria-hidden="true"></a>    VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
+<span id="cb24-32"><a href="syntax.html#cb24-32" aria-hidden="true"></a>    VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
+<span id="cb24-33"><a href="syntax.html#cb24-33" aria-hidden="true"></a>    VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
+<span id="cb24-34"><a href="syntax.html#cb24-34" aria-hidden="true"></a>    VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
+<span id="cb24-35"><a href="syntax.html#cb24-35" aria-hidden="true"></a>    VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
+<span id="cb24-36"><a href="syntax.html#cb24-36" aria-hidden="true"></a>    VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
+<span id="cb24-37"><a href="syntax.html#cb24-37" aria-hidden="true"></a>    VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
+<span id="cb24-38"><a href="syntax.html#cb24-38" aria-hidden="true"></a>    VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
+<span id="cb24-39"><a href="syntax.html#cb24-39" aria-hidden="true"></a>    VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb24-40"><a href="syntax.html#cb24-40" aria-hidden="true"></a>    VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb24-41"><a href="syntax.html#cb24-41" aria-hidden="true"></a>    VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
+<span id="cb24-42"><a href="syntax.html#cb24-42" aria-hidden="true"></a>    VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
+<span id="cb24-43"><a href="syntax.html#cb24-43" aria-hidden="true"></a>    VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb24-44"><a href="syntax.html#cb24-44" aria-hidden="true"></a>    VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb24-45"><a href="syntax.html#cb24-45" aria-hidden="true"></a>    VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb24-46"><a href="syntax.html#cb24-46" aria-hidden="true"></a>    VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb24-47"><a href="syntax.html#cb24-47" aria-hidden="true"></a></span>
+<span id="cb24-48"><a href="syntax.html#cb24-48" aria-hidden="true"></a>    <span class="co">## Fixed parameters</span></span>
+<span id="cb24-49"><a href="syntax.html#cb24-49" aria-hidden="true"></a>    BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb24-50"><a href="syntax.html#cb24-50" aria-hidden="true"></a>    fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb24-51"><a href="syntax.html#cb24-51" aria-hidden="true"></a>    fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb24-52"><a href="syntax.html#cb24-52" aria-hidden="true"></a></span>
+<span id="cb24-53"><a href="syntax.html#cb24-53" aria-hidden="true"></a>    KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb24-54"><a href="syntax.html#cb24-54" aria-hidden="true"></a>    KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb24-55"><a href="syntax.html#cb24-55" aria-hidden="true"></a>    KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb24-56"><a href="syntax.html#cb24-56" aria-hidden="true"></a>    KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb24-57"><a href="syntax.html#cb24-57" aria-hidden="true"></a>    KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb24-58"><a href="syntax.html#cb24-58" aria-hidden="true"></a>    KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb24-59"><a href="syntax.html#cb24-59" aria-hidden="true"></a>    KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb24-60"><a href="syntax.html#cb24-60" aria-hidden="true"></a>    KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb24-61"><a href="syntax.html#cb24-61" aria-hidden="true"></a>    KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb24-62"><a href="syntax.html#cb24-62" aria-hidden="true"></a></span>
+<span id="cb24-63"><a href="syntax.html#cb24-63" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
+<span id="cb24-64"><a href="syntax.html#cb24-64" aria-hidden="true"></a>    S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
+<span id="cb24-65"><a href="syntax.html#cb24-65" aria-hidden="true"></a>    C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
+<span id="cb24-66"><a href="syntax.html#cb24-66" aria-hidden="true"></a></span>
+<span id="cb24-67"><a href="syntax.html#cb24-67" aria-hidden="true"></a>    <span class="co">##-----------------------------------------</span></span>
+<span id="cb24-68"><a href="syntax.html#cb24-68" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
+<span id="cb24-69"><a href="syntax.html#cb24-69" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
+<span id="cb24-70"><a href="syntax.html#cb24-70" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
+<span id="cb24-71"><a href="syntax.html#cb24-71" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
+<span id="cb24-72"><a href="syntax.html#cb24-72" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
+<span id="cb24-73"><a href="syntax.html#cb24-73" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
+<span id="cb24-74"><a href="syntax.html#cb24-74" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
+<span id="cb24-75"><a href="syntax.html#cb24-75" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
+<span id="cb24-76"><a href="syntax.html#cb24-76" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
+<span id="cb24-77"><a href="syntax.html#cb24-77" aria-hidden="true"></a><span class="st">      </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span></span>
+<span id="cb24-78"><a href="syntax.html#cb24-78" aria-hidden="true"></a><span class="st">      </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span><span class="st"> </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
+<span id="cb24-79"><a href="syntax.html#cb24-79" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
+<span id="cb24-80"><a href="syntax.html#cb24-80" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
+<span id="cb24-81"><a href="syntax.html#cb24-81" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
+<span id="cb24-82"><a href="syntax.html#cb24-82" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
+<span id="cb24-83"><a href="syntax.html#cb24-83" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
+<span id="cb24-84"><a href="syntax.html#cb24-84" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
+<span id="cb24-85"><a href="syntax.html#cb24-85" aria-hidden="true"></a><span class="st">      </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
+<span id="cb24-86"><a href="syntax.html#cb24-86" aria-hidden="true"></a><span class="st">      </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
+<span id="cb24-87"><a href="syntax.html#cb24-87" aria-hidden="true"></a><span class="st">      </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
+<span id="cb24-88"><a href="syntax.html#cb24-88" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
+<span id="cb24-89"><a href="syntax.html#cb24-89" aria-hidden="true"></a>})</span></code></pre></div>
+<pre><code>#&gt; using C compiler: ‘gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0’
+#&gt; In file included from /usr/share/R/include/R.h:71,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:8,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /usr/share/R/include/R_ext/Complex.h:80:6: warning: ISO C99 doesn’t support unnamed structs/unions [-Wpedantic]
+#&gt;    80 |     };
+#&gt;       |      ^
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:78:18: warning: redefinition of typedef ‘t_F’ [-Wpedantic]
+#&gt;    78 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:276:18: note: previous declaration of ‘t_F’ with type ‘t_F’ {aka ‘double (*)(int,  int,  double,  double,  double *)’}
+#&gt;   276 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:79:18: warning: redefinition of typedef ‘t_LAG’ [-Wpedantic]
+#&gt;    79 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:277:18: note: previous declaration of ‘t_LAG’ with type ‘t_LAG’ {aka ‘double (*)(int,  int,  double)’}
+#&gt;   277 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:80:18: warning: redefinition of typedef ‘t_RATE’ [-Wpedantic]
+#&gt;    80 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:278:18: note: previous declaration of ‘t_RATE’ with type ‘t_RATE’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   278 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:81:18: warning: redefinition of typedef ‘t_DUR’ [-Wpedantic]
+#&gt;    81 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:279:18: note: previous declaration of ‘t_DUR’ with type ‘t_DUR’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   279 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:83:16: warning: redefinition of typedef ‘t_calc_mtime’ [-Wpedantic]
+#&gt;    83 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:281:16: note: previous declaration of ‘t_calc_mtime’ with type ‘t_calc_mtime’ {aka ‘void (*)(int,  double *)’}
+#&gt;   281 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:85:16: warning: redefinition of typedef ‘t_ME’ [-Wpedantic]
+#&gt;    85 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:283:16: note: previous declaration of ‘t_ME’ with type ‘t_ME’ {aka ‘void (*)(int,  double,  double,  double *, const double *)’}
+#&gt;   283 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:86:16: warning: redefinition of typedef ‘t_IndF’ [-Wpedantic]
+#&gt;    86 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_0d8d3c8f765b9ace54057fc27aa07891_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:284:16: note: previous declaration of ‘t_IndF’ with type ‘t_IndF’ {aka ‘void (*)(int,  double,  double,  double *)’}
+#&gt;   284 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~</code></pre>
 <p>If you look at the summary, you can see where rxode2 assigned the compartment number(s)</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="syntax.html#cb32-1" aria-hidden="true"></a><span class="kw">summary</span>(pbpk)</span></code></pre></div>
-<pre><code>#&gt; rxode2 2.0.11 model named rx_291007fc063b6ec76a6a1e59198481c3 model (✔ ready). 
-#&gt; DLL: /home/matt/.cache/R/rxode2/rx_291007fc063b6ec76a6a1e59198481c3__.rxd/rx_291007fc063b6ec76a6a1e59198481c3_.so
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="syntax.html#cb26-1" aria-hidden="true"></a><span class="kw">summary</span>(pbpk)</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.13.9000 model named rx_0d8d3c8f765b9ace54057fc27aa07891 model (✔ ready). 
+#&gt; DLL: /tmp/RtmpOvvReS/rxode2/rx_0d8d3c8f765b9ace54057fc27aa07891__.rxd/rx_0d8d3c8f765b9ace54057fc27aa07891_.so
 #&gt; NULL
 #&gt; 
 #&gt; Calculated Variables:
@@ -713,102 +932,194 @@ lead to less data modification between multiple tools.</p>
 simply need to pre-declare the compartments with <code>cmt</code>. For example
 specifying is <code>Venous_Blood</code> and <code>Skin</code> to be the 1st and 2nd
 compartments, respectively, is simple:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="syntax.html#cb34-1" aria-hidden="true"></a>pbpk2 &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
-<span id="cb34-2"><a href="syntax.html#cb34-2" aria-hidden="true"></a>  <span class="co">## Now this is the first compartment, ie cmt=1</span></span>
-<span id="cb34-3"><a href="syntax.html#cb34-3" aria-hidden="true"></a>  <span class="kw">cmt</span>(Venous_Blood)</span>
-<span id="cb34-4"><a href="syntax.html#cb34-4" aria-hidden="true"></a>  <span class="co">## Skin may be a compartment you wish to dose to as well,</span></span>
-<span id="cb34-5"><a href="syntax.html#cb34-5" aria-hidden="true"></a>  <span class="co">##  so it is now cmt=2</span></span>
-<span id="cb34-6"><a href="syntax.html#cb34-6" aria-hidden="true"></a>  <span class="kw">cmt</span>(Skin) </span>
-<span id="cb34-7"><a href="syntax.html#cb34-7" aria-hidden="true"></a>  KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
-<span id="cb34-8"><a href="syntax.html#cb34-8" aria-hidden="true"></a>  KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
-<span id="cb34-9"><a href="syntax.html#cb34-9" aria-hidden="true"></a>  KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
-<span id="cb34-10"><a href="syntax.html#cb34-10" aria-hidden="true"></a>  CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
-<span id="cb34-11"><a href="syntax.html#cb34-11" aria-hidden="true"></a>  KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
-<span id="cb34-12"><a href="syntax.html#cb34-12" aria-hidden="true"></a>  KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
-<span id="cb34-13"><a href="syntax.html#cb34-13" aria-hidden="true"></a></span>
-<span id="cb34-14"><a href="syntax.html#cb34-14" aria-hidden="true"></a>  <span class="co">## Regional blood flows</span></span>
-<span id="cb34-15"><a href="syntax.html#cb34-15" aria-hidden="true"></a>  <span class="co"># Cardiac output (L/h) from White et al (1968)m</span></span>
-<span id="cb34-16"><a href="syntax.html#cb34-16" aria-hidden="true"></a>  CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
-<span id="cb34-17"><a href="syntax.html#cb34-17" aria-hidden="true"></a>  QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-18"><a href="syntax.html#cb34-18" aria-hidden="true"></a>  QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-19"><a href="syntax.html#cb34-19" aria-hidden="true"></a>  QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-20"><a href="syntax.html#cb34-20" aria-hidden="true"></a>  QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-21"><a href="syntax.html#cb34-21" aria-hidden="true"></a>  QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-22"><a href="syntax.html#cb34-22" aria-hidden="true"></a>  QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-23"><a href="syntax.html#cb34-23" aria-hidden="true"></a>  QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-24"><a href="syntax.html#cb34-24" aria-hidden="true"></a>  QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-25"><a href="syntax.html#cb34-25" aria-hidden="true"></a>  QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-26"><a href="syntax.html#cb34-26" aria-hidden="true"></a>  QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-27"><a href="syntax.html#cb34-27" aria-hidden="true"></a>  QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); <span class="co"># Hepatic artery blood flow</span></span>
-<span id="cb34-28"><a href="syntax.html#cb34-28" aria-hidden="true"></a>  QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-29"><a href="syntax.html#cb34-29" aria-hidden="true"></a>  QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
-<span id="cb34-30"><a href="syntax.html#cb34-30" aria-hidden="true"></a>  QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
-<span id="cb34-31"><a href="syntax.html#cb34-31" aria-hidden="true"></a>  QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
-<span id="cb34-32"><a href="syntax.html#cb34-32" aria-hidden="true"></a></span>
-<span id="cb34-33"><a href="syntax.html#cb34-33" aria-hidden="true"></a>  <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
-<span id="cb34-34"><a href="syntax.html#cb34-34" aria-hidden="true"></a>  VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
-<span id="cb34-35"><a href="syntax.html#cb34-35" aria-hidden="true"></a>  VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
-<span id="cb34-36"><a href="syntax.html#cb34-36" aria-hidden="true"></a>  VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
-<span id="cb34-37"><a href="syntax.html#cb34-37" aria-hidden="true"></a>  VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
-<span id="cb34-38"><a href="syntax.html#cb34-38" aria-hidden="true"></a>  VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
-<span id="cb34-39"><a href="syntax.html#cb34-39" aria-hidden="true"></a>  VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
-<span id="cb34-40"><a href="syntax.html#cb34-40" aria-hidden="true"></a>  VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
-<span id="cb34-41"><a href="syntax.html#cb34-41" aria-hidden="true"></a>  VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
-<span id="cb34-42"><a href="syntax.html#cb34-42" aria-hidden="true"></a>  VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb34-43"><a href="syntax.html#cb34-43" aria-hidden="true"></a>  VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
-<span id="cb34-44"><a href="syntax.html#cb34-44" aria-hidden="true"></a>  VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
-<span id="cb34-45"><a href="syntax.html#cb34-45" aria-hidden="true"></a>  VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
-<span id="cb34-46"><a href="syntax.html#cb34-46" aria-hidden="true"></a>  VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
-<span id="cb34-47"><a href="syntax.html#cb34-47" aria-hidden="true"></a>  VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb34-48"><a href="syntax.html#cb34-48" aria-hidden="true"></a>  VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb34-49"><a href="syntax.html#cb34-49" aria-hidden="true"></a>  VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
-<span id="cb34-50"><a href="syntax.html#cb34-50" aria-hidden="true"></a></span>
-<span id="cb34-51"><a href="syntax.html#cb34-51" aria-hidden="true"></a>  <span class="co">## Fixed parameters</span></span>
-<span id="cb34-52"><a href="syntax.html#cb34-52" aria-hidden="true"></a>  BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
-<span id="cb34-53"><a href="syntax.html#cb34-53" aria-hidden="true"></a>  fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
-<span id="cb34-54"><a href="syntax.html#cb34-54" aria-hidden="true"></a>  fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
-<span id="cb34-55"><a href="syntax.html#cb34-55" aria-hidden="true"></a></span>
-<span id="cb34-56"><a href="syntax.html#cb34-56" aria-hidden="true"></a>  KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
-<span id="cb34-57"><a href="syntax.html#cb34-57" aria-hidden="true"></a>  KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
-<span id="cb34-58"><a href="syntax.html#cb34-58" aria-hidden="true"></a>  KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
-<span id="cb34-59"><a href="syntax.html#cb34-59" aria-hidden="true"></a>  KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb34-60"><a href="syntax.html#cb34-60" aria-hidden="true"></a>  KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb34-61"><a href="syntax.html#cb34-61" aria-hidden="true"></a>  KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
-<span id="cb34-62"><a href="syntax.html#cb34-62" aria-hidden="true"></a>  KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
-<span id="cb34-63"><a href="syntax.html#cb34-63" aria-hidden="true"></a>  KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
-<span id="cb34-64"><a href="syntax.html#cb34-64" aria-hidden="true"></a>  KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
-<span id="cb34-65"><a href="syntax.html#cb34-65" aria-hidden="true"></a></span>
-<span id="cb34-66"><a href="syntax.html#cb34-66" aria-hidden="true"></a></span>
-<span id="cb34-67"><a href="syntax.html#cb34-67" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
-<span id="cb34-68"><a href="syntax.html#cb34-68" aria-hidden="true"></a>  S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
-<span id="cb34-69"><a href="syntax.html#cb34-69" aria-hidden="true"></a>  C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
-<span id="cb34-70"><a href="syntax.html#cb34-70" aria-hidden="true"></a></span>
-<span id="cb34-71"><a href="syntax.html#cb34-71" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
-<span id="cb34-72"><a href="syntax.html#cb34-72" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
-<span id="cb34-73"><a href="syntax.html#cb34-73" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
-<span id="cb34-74"><a href="syntax.html#cb34-74" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
-<span id="cb34-75"><a href="syntax.html#cb34-75" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
-<span id="cb34-76"><a href="syntax.html#cb34-76" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
-<span id="cb34-77"><a href="syntax.html#cb34-77" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
-<span id="cb34-78"><a href="syntax.html#cb34-78" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
-<span id="cb34-79"><a href="syntax.html#cb34-79" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
-<span id="cb34-80"><a href="syntax.html#cb34-80" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
-<span id="cb34-81"><a href="syntax.html#cb34-81" aria-hidden="true"></a><span class="st">    </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span><span class="st"> </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span></span>
-<span id="cb34-82"><a href="syntax.html#cb34-82" aria-hidden="true"></a><span class="st">    </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
-<span id="cb34-83"><a href="syntax.html#cb34-83" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
-<span id="cb34-84"><a href="syntax.html#cb34-84" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
-<span id="cb34-85"><a href="syntax.html#cb34-85" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
-<span id="cb34-86"><a href="syntax.html#cb34-86" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
-<span id="cb34-87"><a href="syntax.html#cb34-87" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
-<span id="cb34-88"><a href="syntax.html#cb34-88" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
-<span id="cb34-89"><a href="syntax.html#cb34-89" aria-hidden="true"></a><span class="st">    </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
-<span id="cb34-90"><a href="syntax.html#cb34-90" aria-hidden="true"></a><span class="st">    </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
-<span id="cb34-91"><a href="syntax.html#cb34-91" aria-hidden="true"></a><span class="st">    </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
-<span id="cb34-92"><a href="syntax.html#cb34-92" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
-<span id="cb34-93"><a href="syntax.html#cb34-93" aria-hidden="true"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="syntax.html#cb28-1" aria-hidden="true"></a>pbpk2 &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb28-2"><a href="syntax.html#cb28-2" aria-hidden="true"></a>  <span class="co">## Now this is the first compartment, ie cmt=1</span></span>
+<span id="cb28-3"><a href="syntax.html#cb28-3" aria-hidden="true"></a>  <span class="kw">cmt</span>(Venous_Blood)</span>
+<span id="cb28-4"><a href="syntax.html#cb28-4" aria-hidden="true"></a>  <span class="co">## Skin may be a compartment you wish to dose to as well,</span></span>
+<span id="cb28-5"><a href="syntax.html#cb28-5" aria-hidden="true"></a>  <span class="co">##  so it is now cmt=2</span></span>
+<span id="cb28-6"><a href="syntax.html#cb28-6" aria-hidden="true"></a>  <span class="kw">cmt</span>(Skin) </span>
+<span id="cb28-7"><a href="syntax.html#cb28-7" aria-hidden="true"></a>  KbBR =<span class="st"> </span><span class="kw">exp</span>(lKbBR)</span>
+<span id="cb28-8"><a href="syntax.html#cb28-8" aria-hidden="true"></a>  KbMU =<span class="st"> </span><span class="kw">exp</span>(lKbMU)</span>
+<span id="cb28-9"><a href="syntax.html#cb28-9" aria-hidden="true"></a>  KbAD =<span class="st"> </span><span class="kw">exp</span>(lKbAD)</span>
+<span id="cb28-10"><a href="syntax.html#cb28-10" aria-hidden="true"></a>  CLint=<span class="st"> </span><span class="kw">exp</span>(lCLint <span class="op">+</span><span class="st"> </span>eta.LClint)</span>
+<span id="cb28-11"><a href="syntax.html#cb28-11" aria-hidden="true"></a>  KbBO =<span class="st"> </span><span class="kw">exp</span>(lKbBO)</span>
+<span id="cb28-12"><a href="syntax.html#cb28-12" aria-hidden="true"></a>  KbRB =<span class="st"> </span><span class="kw">exp</span>(lKbRB)</span>
+<span id="cb28-13"><a href="syntax.html#cb28-13" aria-hidden="true"></a></span>
+<span id="cb28-14"><a href="syntax.html#cb28-14" aria-hidden="true"></a>  <span class="co">## Regional blood flows</span></span>
+<span id="cb28-15"><a href="syntax.html#cb28-15" aria-hidden="true"></a>  <span class="co"># Cardiac output (L/h) from White et al (1968)m</span></span>
+<span id="cb28-16"><a href="syntax.html#cb28-16" aria-hidden="true"></a>  CO  =<span class="st"> </span>(<span class="fl">187.00</span><span class="op">*</span>WT<span class="op">^</span><span class="fl">0.81</span>)<span class="op">*</span><span class="dv">60</span><span class="op">/</span><span class="dv">1000</span>; </span>
+<span id="cb28-17"><a href="syntax.html#cb28-17" aria-hidden="true"></a>  QHT =<span class="st"> </span><span class="fl">4.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-18"><a href="syntax.html#cb28-18" aria-hidden="true"></a>  QBR =<span class="st"> </span><span class="fl">12.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-19"><a href="syntax.html#cb28-19" aria-hidden="true"></a>  QMU =<span class="st"> </span><span class="fl">17.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-20"><a href="syntax.html#cb28-20" aria-hidden="true"></a>  QAD =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-21"><a href="syntax.html#cb28-21" aria-hidden="true"></a>  QSK =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-22"><a href="syntax.html#cb28-22" aria-hidden="true"></a>  QSP =<span class="st"> </span><span class="fl">3.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-23"><a href="syntax.html#cb28-23" aria-hidden="true"></a>  QPA =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-24"><a href="syntax.html#cb28-24" aria-hidden="true"></a>  QLI =<span class="st"> </span><span class="fl">25.5</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-25"><a href="syntax.html#cb28-25" aria-hidden="true"></a>  QST =<span class="st"> </span><span class="fl">1.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-26"><a href="syntax.html#cb28-26" aria-hidden="true"></a>  QGU =<span class="st"> </span><span class="fl">14.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-27"><a href="syntax.html#cb28-27" aria-hidden="true"></a>  QHA =<span class="st"> </span>QLI <span class="op">-</span><span class="st"> </span>(QSP <span class="op">+</span><span class="st"> </span>QPA <span class="op">+</span><span class="st"> </span>QST <span class="op">+</span><span class="st"> </span>QGU); <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb28-28"><a href="syntax.html#cb28-28" aria-hidden="true"></a>  QBO =<span class="st"> </span><span class="fl">5.0</span> <span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-29"><a href="syntax.html#cb28-29" aria-hidden="true"></a>  QKI =<span class="st"> </span><span class="fl">19.0</span><span class="op">*</span>CO<span class="op">/</span><span class="dv">100</span>;</span>
+<span id="cb28-30"><a href="syntax.html#cb28-30" aria-hidden="true"></a>  QRB =<span class="st"> </span>CO <span class="op">-</span><span class="st"> </span>(QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI);</span>
+<span id="cb28-31"><a href="syntax.html#cb28-31" aria-hidden="true"></a>  QLU =<span class="st"> </span>QHT <span class="op">+</span><span class="st"> </span>QBR <span class="op">+</span><span class="st"> </span>QMU <span class="op">+</span><span class="st"> </span>QAD <span class="op">+</span><span class="st"> </span>QSK <span class="op">+</span><span class="st"> </span>QLI <span class="op">+</span><span class="st"> </span>QBO <span class="op">+</span><span class="st"> </span>QKI <span class="op">+</span><span class="st"> </span>QRB;</span>
+<span id="cb28-32"><a href="syntax.html#cb28-32" aria-hidden="true"></a></span>
+<span id="cb28-33"><a href="syntax.html#cb28-33" aria-hidden="true"></a>  <span class="co">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb28-34"><a href="syntax.html#cb28-34" aria-hidden="true"></a>  VLU =<span class="st"> </span>(<span class="fl">0.76</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.051</span>;</span>
+<span id="cb28-35"><a href="syntax.html#cb28-35" aria-hidden="true"></a>  VHT =<span class="st"> </span>(<span class="fl">0.47</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.030</span>;</span>
+<span id="cb28-36"><a href="syntax.html#cb28-36" aria-hidden="true"></a>  VBR =<span class="st"> </span>(<span class="fl">2.00</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.036</span>;</span>
+<span id="cb28-37"><a href="syntax.html#cb28-37" aria-hidden="true"></a>  VMU =<span class="st"> </span>(<span class="fl">40.00</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.041</span>;</span>
+<span id="cb28-38"><a href="syntax.html#cb28-38" aria-hidden="true"></a>  VAD =<span class="st"> </span>(<span class="fl">21.42</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">0.916</span>;</span>
+<span id="cb28-39"><a href="syntax.html#cb28-39" aria-hidden="true"></a>  VSK =<span class="st"> </span>(<span class="fl">3.71</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.116</span>;</span>
+<span id="cb28-40"><a href="syntax.html#cb28-40" aria-hidden="true"></a>  VSP =<span class="st"> </span>(<span class="fl">0.26</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.054</span>;</span>
+<span id="cb28-41"><a href="syntax.html#cb28-41" aria-hidden="true"></a>  VPA =<span class="st"> </span>(<span class="fl">0.14</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.045</span>;</span>
+<span id="cb28-42"><a href="syntax.html#cb28-42" aria-hidden="true"></a>  VLI =<span class="st"> </span>(<span class="fl">2.57</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb28-43"><a href="syntax.html#cb28-43" aria-hidden="true"></a>  VST =<span class="st"> </span>(<span class="fl">0.21</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb28-44"><a href="syntax.html#cb28-44" aria-hidden="true"></a>  VGU =<span class="st"> </span>(<span class="fl">1.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.043</span>;</span>
+<span id="cb28-45"><a href="syntax.html#cb28-45" aria-hidden="true"></a>  VBO =<span class="st"> </span>(<span class="fl">14.29</span><span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.990</span>;</span>
+<span id="cb28-46"><a href="syntax.html#cb28-46" aria-hidden="true"></a>  VKI =<span class="st"> </span>(<span class="fl">0.44</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.050</span>;</span>
+<span id="cb28-47"><a href="syntax.html#cb28-47" aria-hidden="true"></a>  VAB =<span class="st"> </span>(<span class="fl">2.81</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb28-48"><a href="syntax.html#cb28-48" aria-hidden="true"></a>  VVB =<span class="st"> </span>(<span class="fl">5.62</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb28-49"><a href="syntax.html#cb28-49" aria-hidden="true"></a>  VRB =<span class="st"> </span>(<span class="fl">3.86</span> <span class="op">*</span>WT<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="fl">1.040</span>;</span>
+<span id="cb28-50"><a href="syntax.html#cb28-50" aria-hidden="true"></a></span>
+<span id="cb28-51"><a href="syntax.html#cb28-51" aria-hidden="true"></a>  <span class="co">## Fixed parameters</span></span>
+<span id="cb28-52"><a href="syntax.html#cb28-52" aria-hidden="true"></a>  BP =<span class="st"> </span><span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb28-53"><a href="syntax.html#cb28-53" aria-hidden="true"></a>  fup =<span class="st"> </span><span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb28-54"><a href="syntax.html#cb28-54" aria-hidden="true"></a>  fub =<span class="st"> </span>fup<span class="op">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb28-55"><a href="syntax.html#cb28-55" aria-hidden="true"></a></span>
+<span id="cb28-56"><a href="syntax.html#cb28-56" aria-hidden="true"></a>  KbLU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb28-57"><a href="syntax.html#cb28-57" aria-hidden="true"></a>  KbHT =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb28-58"><a href="syntax.html#cb28-58" aria-hidden="true"></a>  KbSK =<span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb28-59"><a href="syntax.html#cb28-59" aria-hidden="true"></a>  KbSP =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb28-60"><a href="syntax.html#cb28-60" aria-hidden="true"></a>  KbPA =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb28-61"><a href="syntax.html#cb28-61" aria-hidden="true"></a>  KbLI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb28-62"><a href="syntax.html#cb28-62" aria-hidden="true"></a>  KbST =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb28-63"><a href="syntax.html#cb28-63" aria-hidden="true"></a>  KbGU =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb28-64"><a href="syntax.html#cb28-64" aria-hidden="true"></a>  KbKI =<span class="st"> </span><span class="kw">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb28-65"><a href="syntax.html#cb28-65" aria-hidden="true"></a></span>
+<span id="cb28-66"><a href="syntax.html#cb28-66" aria-hidden="true"></a></span>
+<span id="cb28-67"><a href="syntax.html#cb28-67" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
+<span id="cb28-68"><a href="syntax.html#cb28-68" aria-hidden="true"></a>  S15 =<span class="st"> </span>VVB<span class="op">*</span>BP<span class="op">/</span><span class="dv">1000</span>;</span>
+<span id="cb28-69"><a href="syntax.html#cb28-69" aria-hidden="true"></a>  C15 =<span class="st"> </span>Venous_Blood<span class="op">/</span>S15</span>
+<span id="cb28-70"><a href="syntax.html#cb28-70" aria-hidden="true"></a></span>
+<span id="cb28-71"><a href="syntax.html#cb28-71" aria-hidden="true"></a>  <span class="co">##-----------------------------------------</span></span>
+<span id="cb28-72"><a href="syntax.html#cb28-72" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Lungs) =<span class="st"> </span>QLU<span class="op">*</span>(Venous_Blood<span class="op">/</span>VVB <span class="op">-</span><span class="st"> </span>Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU);</span>
+<span id="cb28-73"><a href="syntax.html#cb28-73" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Heart) =<span class="st"> </span>QHT<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT);</span>
+<span id="cb28-74"><a href="syntax.html#cb28-74" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Brain) =<span class="st"> </span>QBR<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR);</span>
+<span id="cb28-75"><a href="syntax.html#cb28-75" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Muscles) =<span class="st"> </span>QMU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU);</span>
+<span id="cb28-76"><a href="syntax.html#cb28-76" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Adipose) =<span class="st"> </span>QAD<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD);</span>
+<span id="cb28-77"><a href="syntax.html#cb28-77" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Skin) =<span class="st"> </span>QSK<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK);</span>
+<span id="cb28-78"><a href="syntax.html#cb28-78" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Spleen) =<span class="st"> </span>QSP<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP);</span>
+<span id="cb28-79"><a href="syntax.html#cb28-79" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Pancreas) =<span class="st"> </span>QPA<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA);</span>
+<span id="cb28-80"><a href="syntax.html#cb28-80" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Liver) =<span class="st"> </span>QHA<span class="op">*</span>Arterial_Blood<span class="op">/</span>VAB <span class="op">+</span><span class="st"> </span>QSP<span class="op">*</span>Spleen<span class="op">/</span>KbSP<span class="op">/</span>VSP <span class="op">+</span></span>
+<span id="cb28-81"><a href="syntax.html#cb28-81" aria-hidden="true"></a><span class="st">    </span>QPA<span class="op">*</span>Pancreas<span class="op">/</span>KbPA<span class="op">/</span>VPA <span class="op">+</span><span class="st"> </span>QST<span class="op">*</span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST <span class="op">+</span><span class="st"> </span>QGU<span class="op">*</span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU <span class="op">-</span></span>
+<span id="cb28-82"><a href="syntax.html#cb28-82" aria-hidden="true"></a><span class="st">    </span>CLint<span class="op">*</span>fub<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">-</span><span class="st"> </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI;</span>
+<span id="cb28-83"><a href="syntax.html#cb28-83" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Stomach) =<span class="st"> </span>QST<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Stomach<span class="op">/</span>KbST<span class="op">/</span>VST);</span>
+<span id="cb28-84"><a href="syntax.html#cb28-84" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Gut) =<span class="st"> </span>QGU<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Gut<span class="op">/</span>KbGU<span class="op">/</span>VGU);</span>
+<span id="cb28-85"><a href="syntax.html#cb28-85" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Bones) =<span class="st"> </span>QBO<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO);</span>
+<span id="cb28-86"><a href="syntax.html#cb28-86" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Kidneys) =<span class="st"> </span>QKI<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI);</span>
+<span id="cb28-87"><a href="syntax.html#cb28-87" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Arterial_Blood) =<span class="st"> </span>QLU<span class="op">*</span>(Lungs<span class="op">/</span>KbLU<span class="op">/</span>VLU <span class="op">-</span><span class="st"> </span>Arterial_Blood<span class="op">/</span>VAB);</span>
+<span id="cb28-88"><a href="syntax.html#cb28-88" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Venous_Blood) =<span class="st"> </span>QHT<span class="op">*</span>Heart<span class="op">/</span>KbHT<span class="op">/</span>VHT <span class="op">+</span><span class="st"> </span>QBR<span class="op">*</span>Brain<span class="op">/</span>KbBR<span class="op">/</span>VBR <span class="op">+</span></span>
+<span id="cb28-89"><a href="syntax.html#cb28-89" aria-hidden="true"></a><span class="st">    </span>QMU<span class="op">*</span>Muscles<span class="op">/</span>KbMU<span class="op">/</span>VMU <span class="op">+</span><span class="st"> </span>QAD<span class="op">*</span>Adipose<span class="op">/</span>KbAD<span class="op">/</span>VAD <span class="op">+</span><span class="st"> </span>QSK<span class="op">*</span>Skin<span class="op">/</span>KbSK<span class="op">/</span>VSK <span class="op">+</span></span>
+<span id="cb28-90"><a href="syntax.html#cb28-90" aria-hidden="true"></a><span class="st">    </span>QLI<span class="op">*</span>Liver<span class="op">/</span>KbLI<span class="op">/</span>VLI <span class="op">+</span><span class="st"> </span>QBO<span class="op">*</span>Bones<span class="op">/</span>KbBO<span class="op">/</span>VBO <span class="op">+</span><span class="st"> </span>QKI<span class="op">*</span>Kidneys<span class="op">/</span>KbKI<span class="op">/</span>VKI <span class="op">+</span></span>
+<span id="cb28-91"><a href="syntax.html#cb28-91" aria-hidden="true"></a><span class="st">    </span>QRB<span class="op">*</span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB <span class="op">-</span><span class="st"> </span>QLU<span class="op">*</span>Venous_Blood<span class="op">/</span>VVB;</span>
+<span id="cb28-92"><a href="syntax.html#cb28-92" aria-hidden="true"></a>  d<span class="op">/</span><span class="kw">dt</span>(Rest_of_Body) =<span class="st"> </span>QRB<span class="op">*</span>(Arterial_Blood<span class="op">/</span>VAB <span class="op">-</span><span class="st"> </span>Rest_of_Body<span class="op">/</span>KbRB<span class="op">/</span>VRB);</span>
+<span id="cb28-93"><a href="syntax.html#cb28-93" aria-hidden="true"></a>})</span></code></pre></div>
+<pre><code>#&gt; using C compiler: ‘gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0’
+#&gt; In file included from /usr/share/R/include/R.h:71,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:8,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /usr/share/R/include/R_ext/Complex.h:80:6: warning: ISO C99 doesn’t support unnamed structs/unions [-Wpedantic]
+#&gt;    80 |     };
+#&gt;       |      ^
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:78:18: warning: redefinition of typedef ‘t_F’ [-Wpedantic]
+#&gt;    78 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:276:18: note: previous declaration of ‘t_F’ with type ‘t_F’ {aka ‘double (*)(int,  int,  double,  double,  double *)’}
+#&gt;   276 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:79:18: warning: redefinition of typedef ‘t_LAG’ [-Wpedantic]
+#&gt;    79 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:277:18: note: previous declaration of ‘t_LAG’ with type ‘t_LAG’ {aka ‘double (*)(int,  int,  double)’}
+#&gt;   277 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:80:18: warning: redefinition of typedef ‘t_RATE’ [-Wpedantic]
+#&gt;    80 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:278:18: note: previous declaration of ‘t_RATE’ with type ‘t_RATE’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   278 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:81:18: warning: redefinition of typedef ‘t_DUR’ [-Wpedantic]
+#&gt;    81 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:279:18: note: previous declaration of ‘t_DUR’ with type ‘t_DUR’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   279 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:83:16: warning: redefinition of typedef ‘t_calc_mtime’ [-Wpedantic]
+#&gt;    83 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:281:16: note: previous declaration of ‘t_calc_mtime’ with type ‘t_calc_mtime’ {aka ‘void (*)(int,  double *)’}
+#&gt;   281 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:85:16: warning: redefinition of typedef ‘t_ME’ [-Wpedantic]
+#&gt;    85 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:283:16: note: previous declaration of ‘t_ME’ with type ‘t_ME’ {aka ‘void (*)(int,  double,  double,  double *, const double *)’}
+#&gt;   283 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:86:16: warning: redefinition of typedef ‘t_IndF’ [-Wpedantic]
+#&gt;    86 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_dcbef58b165c0a4cbc2c9a323d7584cd_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:284:16: note: previous declaration of ‘t_IndF’ with type ‘t_IndF’ {aka ‘void (*)(int,  double,  double,  double *)’}
+#&gt;   284 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~</code></pre>
 <p>You can see this change in the simple printout</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="syntax.html#cb35-1" aria-hidden="true"></a>pbpk2</span></code></pre></div>
-<pre><code>#&gt; rxode2 2.0.11 model named rx_8538903f734422ef88399de66a046870 model (✔ ready). 
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="syntax.html#cb30-1" aria-hidden="true"></a>pbpk2</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.13.9000 model named rx_dcbef58b165c0a4cbc2c9a323d7584cd model (✔ ready). 
 #&gt; x$state: Venous_Blood, Skin, Lungs, Heart, Brain, Muscles, Adipose, Spleen, Pancreas, Liver, Stomach, Gut, Bones, Kidneys, Arterial_Blood, Rest_of_Body
 #&gt; x$params: lKbBR, lKbMU, lKbAD, lCLint, eta.LClint, lKbBO, lKbRB, WT, BP, fup
 #&gt; x$lhs: KbBR, KbMU, KbAD, CLint, KbBO, KbRB, CO, QHT, QBR, QMU, QAD, QSK, QSP, QPA, QLI, QST, QGU, QHA, QBO, QKI, QRB, QLU, VLU, VHT, VBR, VMU, VAD, VSK, VSP, VPA, VLI, VST, VGU, VBO, VKI, VAB, VVB, VRB, fub, KbLU, KbHT, KbSK, KbSP, KbPA, KbLI, KbST, KbGU, KbKI, S15, C15</code></pre>
@@ -820,14 +1131,106 @@ compartments, respectively, is simple:</p>
 solving internals, you cannot add fake compartments to the model until
 after all the differential equations are defined.</p>
 <p>For example this is legal:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="syntax.html#cb37-1" aria-hidden="true"></a>ode<span class="fl">.1</span>c.ka &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
-<span id="cb37-2"><a href="syntax.html#cb37-2" aria-hidden="true"></a>    C2 =<span class="st"> </span>center<span class="op">/</span>V;</span>
-<span id="cb37-3"><a href="syntax.html#cb37-3" aria-hidden="true"></a>    d <span class="op">/</span><span class="st"> </span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>KA <span class="op">*</span><span class="st"> </span>depot</span>
-<span id="cb37-4"><a href="syntax.html#cb37-4" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>KA <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2</span>
-<span id="cb37-5"><a href="syntax.html#cb37-5" aria-hidden="true"></a>    <span class="kw">cmt</span>(eff);</span>
-<span id="cb37-6"><a href="syntax.html#cb37-6" aria-hidden="true"></a>})</span>
-<span id="cb37-7"><a href="syntax.html#cb37-7" aria-hidden="true"></a><span class="kw">print</span>(ode<span class="fl">.1</span>c.ka)</span></code></pre></div>
-<pre><code>#&gt; rxode2 2.0.11 model named rx_4caaa6b18411f9babd3e3aafb7840fd4 model (✔ ready). 
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="syntax.html#cb32-1" aria-hidden="true"></a>ode<span class="fl">.1</span>c.ka &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
+<span id="cb32-2"><a href="syntax.html#cb32-2" aria-hidden="true"></a>    C2 =<span class="st"> </span>center<span class="op">/</span>V;</span>
+<span id="cb32-3"><a href="syntax.html#cb32-3" aria-hidden="true"></a>    d <span class="op">/</span><span class="st"> </span><span class="kw">dt</span>(depot) =<span class="st"> </span><span class="op">-</span>KA <span class="op">*</span><span class="st"> </span>depot</span>
+<span id="cb32-4"><a href="syntax.html#cb32-4" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(center) =<span class="st"> </span>KA <span class="op">*</span><span class="st"> </span>depot <span class="op">-</span><span class="st"> </span>CL<span class="op">*</span>C2</span>
+<span id="cb32-5"><a href="syntax.html#cb32-5" aria-hidden="true"></a>    <span class="kw">cmt</span>(eff);</span>
+<span id="cb32-6"><a href="syntax.html#cb32-6" aria-hidden="true"></a>})</span></code></pre></div>
+<pre><code>#&gt; using C compiler: ‘gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0’
+#&gt; In file included from /usr/share/R/include/R.h:71,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:8,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /usr/share/R/include/R_ext/Complex.h:80:6: warning: ISO C99 doesn’t support unnamed structs/unions [-Wpedantic]
+#&gt;    80 |     };
+#&gt;       |      ^
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:78:18: warning: redefinition of typedef ‘t_F’ [-Wpedantic]
+#&gt;    78 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:276:18: note: previous declaration of ‘t_F’ with type ‘t_F’ {aka ‘double (*)(int,  int,  double,  double,  double *)’}
+#&gt;   276 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
+#&gt;       |                  ^~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:79:18: warning: redefinition of typedef ‘t_LAG’ [-Wpedantic]
+#&gt;    79 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:277:18: note: previous declaration of ‘t_LAG’ with type ‘t_LAG’ {aka ‘double (*)(int,  int,  double)’}
+#&gt;   277 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:80:18: warning: redefinition of typedef ‘t_RATE’ [-Wpedantic]
+#&gt;    80 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:278:18: note: previous declaration of ‘t_RATE’ with type ‘t_RATE’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   278 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:81:18: warning: redefinition of typedef ‘t_DUR’ [-Wpedantic]
+#&gt;    81 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:279:18: note: previous declaration of ‘t_DUR’ with type ‘t_DUR’ {aka ‘double (*)(int,  int,  double,  double)’}
+#&gt;   279 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
+#&gt;       |                  ^~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:83:16: warning: redefinition of typedef ‘t_calc_mtime’ [-Wpedantic]
+#&gt;    83 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:281:16: note: previous declaration of ‘t_calc_mtime’ with type ‘t_calc_mtime’ {aka ‘void (*)(int,  double *)’}
+#&gt;   281 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
+#&gt;       |                ^~~~~~~~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:85:16: warning: redefinition of typedef ‘t_ME’ [-Wpedantic]
+#&gt;    85 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:283:16: note: previous declaration of ‘t_ME’ with type ‘t_ME’ {aka ‘void (*)(int,  double,  double,  double *, const double *)’}
+#&gt;   283 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
+#&gt;       |                ^~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:86:16: warning: redefinition of typedef ‘t_IndF’ [-Wpedantic]
+#&gt;    86 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~
+#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
+#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
+#&gt;                  from rx_cd29660413c35ed2495a372cb7cc0487_.c:115:
+#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:284:16: note: previous declaration of ‘t_IndF’ with type ‘t_IndF’ {aka ‘void (*)(int,  double,  double,  double *)’}
+#&gt;   284 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
+#&gt;       |                ^~~~~~</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="syntax.html#cb34-1" aria-hidden="true"></a><span class="kw">print</span>(ode<span class="fl">.1</span>c.ka)</span></code></pre></div>
+<pre><code>#&gt; rxode2 2.0.13.9000 model named rx_cd29660413c35ed2495a372cb7cc0487 model (✔ ready). 
 #&gt; $state: depot, center
 #&gt; $stateExtra: eff
 #&gt; $params: V, KA, CL

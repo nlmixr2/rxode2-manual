@@ -39,6 +39,10 @@ for help:
 -   `rxode2` tutorial (accessible in tutorials in Rstudio 1.3+)
 -   `rxode2` [github
     discussions](https://github.com/nlmixr2/rxode2/discussions)
+    
+- There is an [Chinese `rxode2` manual translated by Fu
+  Yongchao](https://s0521.github.io/rxode2_chs/) which was translated
+  based on the manual dated June 9, 2023.
 
 This book was assembled on `r date()` with rxode2 version
 `r packageVersion("rxode2")` automatically by github actions.
