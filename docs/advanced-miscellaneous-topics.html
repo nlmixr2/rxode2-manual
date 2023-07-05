@@ -1200,11 +1200,11 @@ in <code>rxControl()</code> or <code>rxSolve()</code>).</p>
 <div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="advanced-miscellaneous-topics.html#cb319-1" aria-hidden="true"></a>bench &lt;-<span class="st"> </span><span class="kw">microbenchmark</span>(<span class="kw">runFor</span>(), <span class="kw">runSapply</span>(), <span class="kw">runSingleThread</span>(),<span class="kw">run2Thread</span>())</span>
 <span id="cb319-2"><a href="advanced-miscellaneous-topics.html#cb319-2" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb319-3"><a href="advanced-miscellaneous-topics.html#cb319-3" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
-<span id="cb319-4"><a href="advanced-miscellaneous-topics.html#cb319-4" aria-hidden="true"></a><span class="co">#&gt;               expr       min       lq      mean    median        uq       max</span></span>
-<span id="cb319-5"><a href="advanced-miscellaneous-topics.html#cb319-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 226.15820 230.7579 243.22972 237.99745 242.83007 526.66555</span></span>
-<span id="cb319-6"><a href="advanced-miscellaneous-topics.html#cb319-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 227.60148 233.3769 239.82478 241.06274 242.72300 295.61188</span></span>
-<span id="cb319-7"><a href="advanced-miscellaneous-topics.html#cb319-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  21.67092  23.0014  23.46411  23.47942  23.87948  30.52206</span></span>
-<span id="cb319-8"><a href="advanced-miscellaneous-topics.html#cb319-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  12.84359  13.6482  13.99618  14.09172  14.27220  16.54704</span></span>
+<span id="cb319-4"><a href="advanced-miscellaneous-topics.html#cb319-4" aria-hidden="true"></a><span class="co">#&gt;               expr       min        lq      mean    median        uq       max</span></span>
+<span id="cb319-5"><a href="advanced-miscellaneous-topics.html#cb319-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 221.52904 224.53362 230.50298 226.55532 229.52575 499.55070</span></span>
+<span id="cb319-6"><a href="advanced-miscellaneous-topics.html#cb319-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 220.90154 225.60848 231.40003 226.88348 229.59026 492.54267</span></span>
+<span id="cb319-7"><a href="advanced-miscellaneous-topics.html#cb319-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  21.00395  21.68517  22.64487  22.29470  22.66506  33.93919</span></span>
+<span id="cb319-8"><a href="advanced-miscellaneous-topics.html#cb319-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  12.62902  13.03897  13.54841  13.41709  13.56646  24.87075</span></span>
 <span id="cb319-9"><a href="advanced-miscellaneous-topics.html#cb319-9" aria-hidden="true"></a><span class="co">#&gt;  neval</span></span>
 <span id="cb319-10"><a href="advanced-miscellaneous-topics.html#cb319-10" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
 <span id="cb319-11"><a href="advanced-miscellaneous-topics.html#cb319-11" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
@@ -1228,22 +1228,22 @@ the solving.</p>
 <span id="cb320-8"><a href="advanced-miscellaneous-topics.html#cb320-8" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb320-9"><a href="advanced-miscellaneous-topics.html#cb320-9" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb320-10"><a href="advanced-miscellaneous-topics.html#cb320-10" aria-hidden="true"></a><span class="co">#&gt;           expr       min        lq     mean    median       uq      max neval</span></span>
-<span id="cb320-11"><a href="advanced-miscellaneous-topics.html#cb320-11" aria-hidden="true"></a><span class="co">#&gt;   runThread(1) 21.217093 22.603772 27.77254 23.976837 28.87527 70.02361   100</span></span>
-<span id="cb320-12"><a href="advanced-miscellaneous-topics.html#cb320-12" aria-hidden="true"></a><span class="co">#&gt;   runThread(2) 12.647233 14.029550 16.82615 14.708023 17.75534 33.80651   100</span></span>
-<span id="cb320-13"><a href="advanced-miscellaneous-topics.html#cb320-13" aria-hidden="true"></a><span class="co">#&gt;   runThread(3)  9.892849 10.957928 14.73565 11.726385 15.54481 30.18948   100</span></span>
-<span id="cb320-14"><a href="advanced-miscellaneous-topics.html#cb320-14" aria-hidden="true"></a><span class="co">#&gt;   runThread(4)  8.390000  9.344577 12.71494  9.855669 14.46360 36.42976   100</span></span>
-<span id="cb320-15"><a href="advanced-miscellaneous-topics.html#cb320-15" aria-hidden="true"></a><span class="co">#&gt;   runThread(5)  7.743284  8.525385 12.01956 10.095110 13.32747 33.56991   100</span></span>
-<span id="cb320-16"><a href="advanced-miscellaneous-topics.html#cb320-16" aria-hidden="true"></a><span class="co">#&gt;   runThread(6)  7.237351  8.058066 11.45158  8.898332 11.16910 41.71598   100</span></span>
-<span id="cb320-17"><a href="advanced-miscellaneous-topics.html#cb320-17" aria-hidden="true"></a><span class="co">#&gt;   runThread(7)  7.147392  7.801658 12.64134  9.426020 15.24159 43.21039   100</span></span>
-<span id="cb320-18"><a href="advanced-miscellaneous-topics.html#cb320-18" aria-hidden="true"></a><span class="co">#&gt;   runThread(8)  6.721420  7.542280 11.73857  9.032715 12.25422 31.74301   100</span></span>
-<span id="cb320-19"><a href="advanced-miscellaneous-topics.html#cb320-19" aria-hidden="true"></a><span class="co">#&gt;   runThread(9)  8.169215  9.164979 14.30070  9.960441 14.85892 39.81410   100</span></span>
-<span id="cb320-20"><a href="advanced-miscellaneous-topics.html#cb320-20" aria-hidden="true"></a><span class="co">#&gt;  runThread(10)  7.834896  9.214598 16.42769 11.906840 20.09549 39.07519   100</span></span>
-<span id="cb320-21"><a href="advanced-miscellaneous-topics.html#cb320-21" aria-hidden="true"></a><span class="co">#&gt;  runThread(11)  7.910969  8.837327 15.26403  9.976056 16.47040 43.97615   100</span></span>
-<span id="cb320-22"><a href="advanced-miscellaneous-topics.html#cb320-22" aria-hidden="true"></a><span class="co">#&gt;  runThread(12)  8.095937  8.524579 14.64636  9.975169 15.94399 34.84128   100</span></span>
-<span id="cb320-23"><a href="advanced-miscellaneous-topics.html#cb320-23" aria-hidden="true"></a><span class="co">#&gt;  runThread(13)  7.713107  8.582307 15.86284 12.621961 19.97018 34.43492   100</span></span>
-<span id="cb320-24"><a href="advanced-miscellaneous-topics.html#cb320-24" aria-hidden="true"></a><span class="co">#&gt;  runThread(14)  7.541924  8.420599 16.65419 11.219531 26.18666 39.54343   100</span></span>
-<span id="cb320-25"><a href="advanced-miscellaneous-topics.html#cb320-25" aria-hidden="true"></a><span class="co">#&gt;  runThread(15)  7.896863  8.376005 15.42602 11.019405 20.21669 43.64940   100</span></span>
-<span id="cb320-26"><a href="advanced-miscellaneous-topics.html#cb320-26" aria-hidden="true"></a><span class="co">#&gt;  runThread(16)  7.593061  9.427874 18.12144 14.903820 29.99918 37.54062   100</span></span>
+<span id="cb320-11"><a href="advanced-miscellaneous-topics.html#cb320-11" aria-hidden="true"></a><span class="co">#&gt;   runThread(1) 20.478632 21.238959 27.76242 23.806887 32.67021 61.74166   100</span></span>
+<span id="cb320-12"><a href="advanced-miscellaneous-topics.html#cb320-12" aria-hidden="true"></a><span class="co">#&gt;   runThread(2) 12.382024 13.296515 18.63013 15.698400 21.20031 48.97627   100</span></span>
+<span id="cb320-13"><a href="advanced-miscellaneous-topics.html#cb320-13" aria-hidden="true"></a><span class="co">#&gt;   runThread(3)  9.758075 10.551780 14.68611 12.750122 15.72262 27.19474   100</span></span>
+<span id="cb320-14"><a href="advanced-miscellaneous-topics.html#cb320-14" aria-hidden="true"></a><span class="co">#&gt;   runThread(4)  8.302496  9.188338 12.29240 10.429770 13.91077 25.11170   100</span></span>
+<span id="cb320-15"><a href="advanced-miscellaneous-topics.html#cb320-15" aria-hidden="true"></a><span class="co">#&gt;   runThread(5)  7.570208  8.403296 11.98074 10.073218 13.40568 33.56223   100</span></span>
+<span id="cb320-16"><a href="advanced-miscellaneous-topics.html#cb320-16" aria-hidden="true"></a><span class="co">#&gt;   runThread(6)  7.197837  8.040814 10.37280  8.962774 11.86176 21.34960   100</span></span>
+<span id="cb320-17"><a href="advanced-miscellaneous-topics.html#cb320-17" aria-hidden="true"></a><span class="co">#&gt;   runThread(7)  7.019912  8.176984 13.29175 10.411661 17.10394 33.58193   100</span></span>
+<span id="cb320-18"><a href="advanced-miscellaneous-topics.html#cb320-18" aria-hidden="true"></a><span class="co">#&gt;   runThread(8)  6.814645  8.462036 15.66626 11.357105 20.79003 37.21024   100</span></span>
+<span id="cb320-19"><a href="advanced-miscellaneous-topics.html#cb320-19" aria-hidden="true"></a><span class="co">#&gt;   runThread(9)  7.897544  9.981732 17.75131 13.465383 22.35634 44.87879   100</span></span>
+<span id="cb320-20"><a href="advanced-miscellaneous-topics.html#cb320-20" aria-hidden="true"></a><span class="co">#&gt;  runThread(10)  7.875182  9.151114 16.99347 12.023134 20.34318 39.12266   100</span></span>
+<span id="cb320-21"><a href="advanced-miscellaneous-topics.html#cb320-21" aria-hidden="true"></a><span class="co">#&gt;  runThread(11)  7.824056  8.911672 15.19120 12.085762 19.58844 40.93842   100</span></span>
+<span id="cb320-22"><a href="advanced-miscellaneous-topics.html#cb320-22" aria-hidden="true"></a><span class="co">#&gt;  runThread(12)  7.750037  8.936590 16.06225 11.450040 19.73431 45.88040   100</span></span>
+<span id="cb320-23"><a href="advanced-miscellaneous-topics.html#cb320-23" aria-hidden="true"></a><span class="co">#&gt;  runThread(13)  7.784521  9.299858 16.33838 13.143767 19.42095 38.70954   100</span></span>
+<span id="cb320-24"><a href="advanced-miscellaneous-topics.html#cb320-24" aria-hidden="true"></a><span class="co">#&gt;  runThread(14)  7.225379  9.376242 17.94548 13.285951 31.00986 38.27920   100</span></span>
+<span id="cb320-25"><a href="advanced-miscellaneous-topics.html#cb320-25" aria-hidden="true"></a><span class="co">#&gt;  runThread(15)  7.386251  8.896935 16.68194 11.767271 28.35965 33.54668   100</span></span>
+<span id="cb320-26"><a href="advanced-miscellaneous-topics.html#cb320-26" aria-hidden="true"></a><span class="co">#&gt;  runThread(16)  7.597419  9.869726 19.29197 18.183483 30.53563 35.07168   100</span></span>
 <span id="cb320-27"><a href="advanced-miscellaneous-topics.html#cb320-27" aria-hidden="true"></a><span class="kw">autoplot</span>(bench)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-180-1.png" width="100%" /></p>
 <p>There can be a suite spot in speed vs number or cores. The system type
@@ -1329,7 +1329,7 @@ automatic building of the pkgdown website.</p>
 <span id="cb321-67"><a href="advanced-miscellaneous-topics.html#cb321-67" aria-hidden="true"></a>Stoplapply &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb321-68"><a href="advanced-miscellaneous-topics.html#cb321-68" aria-hidden="true"></a>  </span>
 <span id="cb321-69"><a href="advanced-miscellaneous-topics.html#cb321-69" aria-hidden="true"></a><span class="kw">print</span>(Stoplapply <span class="op">-</span><span class="st"> </span>Startlapply)</span>
-<span id="cb321-70"><a href="advanced-miscellaneous-topics.html#cb321-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 13.68241 secs</span></span></code></pre></div>
+<span id="cb321-70"><a href="advanced-miscellaneous-topics.html#cb321-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 14.80478 secs</span></span></code></pre></div>
 <p>By applying some of the new parallel solving concepts you can simply
 run the same simulation both with less code and faster:</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="advanced-miscellaneous-topics.html#cb322-1" aria-hidden="true"></a>rx &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
@@ -1368,7 +1368,7 @@ run the same simulation both with less code and faster:</p>
 <span id="cb322-34"><a href="advanced-miscellaneous-topics.html#cb322-34" aria-hidden="true"></a>res &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx, ev, <span class="dt">omega=</span>omega, <span class="dt">returnType=</span><span class="st">&quot;data.table&quot;</span>)</span>
 <span id="cb322-35"><a href="advanced-miscellaneous-topics.html#cb322-35" aria-hidden="true"></a>endParallel &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb322-36"><a href="advanced-miscellaneous-topics.html#cb322-36" aria-hidden="true"></a><span class="kw">print</span>(endParallel <span class="op">-</span><span class="st"> </span>startParallel)</span>
-<span id="cb322-37"><a href="advanced-miscellaneous-topics.html#cb322-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.1143248 secs</span></span></code></pre></div>
+<span id="cb322-37"><a href="advanced-miscellaneous-topics.html#cb322-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.1319878 secs</span></span></code></pre></div>
 <p>You can see a striking time difference between the two methods; A few
 things to keep in mind:</p>
 <ul>
