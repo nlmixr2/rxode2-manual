@@ -513,98 +513,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb287-19"><a href="advanced-miscellaneous-topics.html#cb287-19" aria-hidden="true"></a>    <span class="kw">eff</span>(<span class="dv">0</span>) =<span class="st"> </span><span class="dv">1</span>  <span class="co">## This specifies that the effect compartment starts at 1.</span></span>
 <span id="cb287-20"><a href="advanced-miscellaneous-topics.html#cb287-20" aria-hidden="true"></a>    d<span class="op">/</span><span class="kw">dt</span>(eff) =<span class="st">  </span>Kin <span class="op">-</span><span class="st"> </span>Kout<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>C2<span class="op">/</span>(EC50<span class="op">+</span>C2))<span class="op">*</span>eff;</span>
 <span id="cb287-21"><a href="advanced-miscellaneous-topics.html#cb287-21" aria-hidden="true"></a>})</span></code></pre></div>
-<pre><code>#&gt; using C compiler: ‘gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0’
-#&gt; In file included from /usr/share/R/include/R.h:71,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:8,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /usr/share/R/include/R_ext/Complex.h:80:6: warning: ISO C99 doesn’t support unnamed structs/unions [-Wpedantic]
-#&gt;    80 |     };
-#&gt;       |      ^
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:78:18: warning: redefinition of typedef ‘t_F’ [-Wpedantic]
-#&gt;    78 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
-#&gt;       |                  ^~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:276:18: note: previous declaration of ‘t_F’ with type ‘t_F’ {aka ‘double (*)(int,  int,  double,  double,  double *)’}
-#&gt;   276 | typedef double (*t_F)(int _cSub,  int _cmt, double _amt, double t, double *y);
-#&gt;       |                  ^~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:79:18: warning: redefinition of typedef ‘t_LAG’ [-Wpedantic]
-#&gt;    79 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
-#&gt;       |                  ^~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:277:18: note: previous declaration of ‘t_LAG’ with type ‘t_LAG’ {aka ‘double (*)(int,  int,  double)’}
-#&gt;   277 | typedef double (*t_LAG)(int _cSub,  int _cmt, double t);
-#&gt;       |                  ^~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:80:18: warning: redefinition of typedef ‘t_RATE’ [-Wpedantic]
-#&gt;    80 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
-#&gt;       |                  ^~~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:278:18: note: previous declaration of ‘t_RATE’ with type ‘t_RATE’ {aka ‘double (*)(int,  int,  double,  double)’}
-#&gt;   278 | typedef double (*t_RATE)(int _cSub,  int _cmt, double _amt, double t);
-#&gt;       |                  ^~~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:81:18: warning: redefinition of typedef ‘t_DUR’ [-Wpedantic]
-#&gt;    81 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
-#&gt;       |                  ^~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:279:18: note: previous declaration of ‘t_DUR’ with type ‘t_DUR’ {aka ‘double (*)(int,  int,  double,  double)’}
-#&gt;   279 | typedef double (*t_DUR)(int _cSub,  int _cmt, double _amt, double t);
-#&gt;       |                  ^~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:83:16: warning: redefinition of typedef ‘t_calc_mtime’ [-Wpedantic]
-#&gt;    83 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
-#&gt;       |                ^~~~~~~~~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:281:16: note: previous declaration of ‘t_calc_mtime’ with type ‘t_calc_mtime’ {aka ‘void (*)(int,  double *)’}
-#&gt;   281 | typedef void (*t_calc_mtime)(int cSub, double *mtime);
-#&gt;       |                ^~~~~~~~~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:85:16: warning: redefinition of typedef ‘t_ME’ [-Wpedantic]
-#&gt;    85 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
-#&gt;       |                ^~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:283:16: note: previous declaration of ‘t_ME’ with type ‘t_ME’ {aka ‘void (*)(int,  double,  double,  double *, const double *)’}
-#&gt;   283 | typedef void (*t_ME)(int _cSub, double _t, double t, double *_mat, const double *__zzStateVar__);
-#&gt;       |                ^~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:86:16: warning: redefinition of typedef ‘t_IndF’ [-Wpedantic]
-#&gt;    86 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
-#&gt;       |                ^~~~~~
-#&gt; In file included from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parse.h:52,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2/include/rxode2.h:13,
-#&gt;                  from /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2_model_shared.h:3,
-#&gt;                  from rx_7dd76a37faa16e86ab16294346867dc6_.c:117:
-#&gt; /home/matt/R/x86_64-pc-linux-gnu-library/4.3/rxode2parse/include/rxode2parseStruct.h:284:16: note: previous declaration of ‘t_IndF’ with type ‘t_IndF’ {aka ‘void (*)(int,  double,  double,  double *)’}
-#&gt;   284 | typedef void (*t_IndF)(int _cSub, double _t, double t, double *_mat);
-#&gt;       |                ^~~~~~</code></pre>
+<pre><code>#&gt; using C compiler: ‘gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0’</code></pre>
 <div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="advanced-miscellaneous-topics.html#cb289-1" aria-hidden="true"></a>ev &lt;-<span class="st"> </span><span class="kw">et</span>(<span class="dt">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="op">%&gt;%</span></span>
 <span id="cb289-2"><a href="advanced-miscellaneous-topics.html#cb289-2" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dt">amt=</span><span class="dv">10000</span>, <span class="dt">cmt=</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
 <span id="cb289-3"><a href="advanced-miscellaneous-topics.html#cb289-3" aria-hidden="true"></a><span class="st">    </span><span class="kw">et</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="dt">length.out=</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
@@ -1201,10 +1110,10 @@ in <code>rxControl()</code> or <code>rxSolve()</code>).</p>
 <span id="cb319-2"><a href="advanced-miscellaneous-topics.html#cb319-2" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb319-3"><a href="advanced-miscellaneous-topics.html#cb319-3" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb319-4"><a href="advanced-miscellaneous-topics.html#cb319-4" aria-hidden="true"></a><span class="co">#&gt;               expr       min        lq      mean    median        uq       max</span></span>
-<span id="cb319-5"><a href="advanced-miscellaneous-topics.html#cb319-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 221.52904 224.53362 230.50298 226.55532 229.52575 499.55070</span></span>
-<span id="cb319-6"><a href="advanced-miscellaneous-topics.html#cb319-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 220.90154 225.60848 231.40003 226.88348 229.59026 492.54267</span></span>
-<span id="cb319-7"><a href="advanced-miscellaneous-topics.html#cb319-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  21.00395  21.68517  22.64487  22.29470  22.66506  33.93919</span></span>
-<span id="cb319-8"><a href="advanced-miscellaneous-topics.html#cb319-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  12.62902  13.03897  13.54841  13.41709  13.56646  24.87075</span></span>
+<span id="cb319-5"><a href="advanced-miscellaneous-topics.html#cb319-5" aria-hidden="true"></a><span class="co">#&gt;           runFor() 219.96920 223.36571 229.32637 226.46691 229.51033 489.19368</span></span>
+<span id="cb319-6"><a href="advanced-miscellaneous-topics.html#cb319-6" aria-hidden="true"></a><span class="co">#&gt;        runSapply() 220.81197 224.75044 230.54048 226.41406 228.98152 501.75268</span></span>
+<span id="cb319-7"><a href="advanced-miscellaneous-topics.html#cb319-7" aria-hidden="true"></a><span class="co">#&gt;  runSingleThread()  21.05118  21.55619  22.08855  21.97944  22.55486  28.39060</span></span>
+<span id="cb319-8"><a href="advanced-miscellaneous-topics.html#cb319-8" aria-hidden="true"></a><span class="co">#&gt;       run2Thread()  12.44908  12.99530  13.39082  13.31769  13.60972  20.75444</span></span>
 <span id="cb319-9"><a href="advanced-miscellaneous-topics.html#cb319-9" aria-hidden="true"></a><span class="co">#&gt;  neval</span></span>
 <span id="cb319-10"><a href="advanced-miscellaneous-topics.html#cb319-10" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
 <span id="cb319-11"><a href="advanced-miscellaneous-topics.html#cb319-11" aria-hidden="true"></a><span class="co">#&gt;    100</span></span>
@@ -1228,22 +1137,22 @@ the solving.</p>
 <span id="cb320-8"><a href="advanced-miscellaneous-topics.html#cb320-8" aria-hidden="true"></a><span class="kw">print</span>(bench)</span>
 <span id="cb320-9"><a href="advanced-miscellaneous-topics.html#cb320-9" aria-hidden="true"></a><span class="co">#&gt; Unit: milliseconds</span></span>
 <span id="cb320-10"><a href="advanced-miscellaneous-topics.html#cb320-10" aria-hidden="true"></a><span class="co">#&gt;           expr       min        lq     mean    median       uq      max neval</span></span>
-<span id="cb320-11"><a href="advanced-miscellaneous-topics.html#cb320-11" aria-hidden="true"></a><span class="co">#&gt;   runThread(1) 20.478632 21.238959 27.76242 23.806887 32.67021 61.74166   100</span></span>
-<span id="cb320-12"><a href="advanced-miscellaneous-topics.html#cb320-12" aria-hidden="true"></a><span class="co">#&gt;   runThread(2) 12.382024 13.296515 18.63013 15.698400 21.20031 48.97627   100</span></span>
-<span id="cb320-13"><a href="advanced-miscellaneous-topics.html#cb320-13" aria-hidden="true"></a><span class="co">#&gt;   runThread(3)  9.758075 10.551780 14.68611 12.750122 15.72262 27.19474   100</span></span>
-<span id="cb320-14"><a href="advanced-miscellaneous-topics.html#cb320-14" aria-hidden="true"></a><span class="co">#&gt;   runThread(4)  8.302496  9.188338 12.29240 10.429770 13.91077 25.11170   100</span></span>
-<span id="cb320-15"><a href="advanced-miscellaneous-topics.html#cb320-15" aria-hidden="true"></a><span class="co">#&gt;   runThread(5)  7.570208  8.403296 11.98074 10.073218 13.40568 33.56223   100</span></span>
-<span id="cb320-16"><a href="advanced-miscellaneous-topics.html#cb320-16" aria-hidden="true"></a><span class="co">#&gt;   runThread(6)  7.197837  8.040814 10.37280  8.962774 11.86176 21.34960   100</span></span>
-<span id="cb320-17"><a href="advanced-miscellaneous-topics.html#cb320-17" aria-hidden="true"></a><span class="co">#&gt;   runThread(7)  7.019912  8.176984 13.29175 10.411661 17.10394 33.58193   100</span></span>
-<span id="cb320-18"><a href="advanced-miscellaneous-topics.html#cb320-18" aria-hidden="true"></a><span class="co">#&gt;   runThread(8)  6.814645  8.462036 15.66626 11.357105 20.79003 37.21024   100</span></span>
-<span id="cb320-19"><a href="advanced-miscellaneous-topics.html#cb320-19" aria-hidden="true"></a><span class="co">#&gt;   runThread(9)  7.897544  9.981732 17.75131 13.465383 22.35634 44.87879   100</span></span>
-<span id="cb320-20"><a href="advanced-miscellaneous-topics.html#cb320-20" aria-hidden="true"></a><span class="co">#&gt;  runThread(10)  7.875182  9.151114 16.99347 12.023134 20.34318 39.12266   100</span></span>
-<span id="cb320-21"><a href="advanced-miscellaneous-topics.html#cb320-21" aria-hidden="true"></a><span class="co">#&gt;  runThread(11)  7.824056  8.911672 15.19120 12.085762 19.58844 40.93842   100</span></span>
-<span id="cb320-22"><a href="advanced-miscellaneous-topics.html#cb320-22" aria-hidden="true"></a><span class="co">#&gt;  runThread(12)  7.750037  8.936590 16.06225 11.450040 19.73431 45.88040   100</span></span>
-<span id="cb320-23"><a href="advanced-miscellaneous-topics.html#cb320-23" aria-hidden="true"></a><span class="co">#&gt;  runThread(13)  7.784521  9.299858 16.33838 13.143767 19.42095 38.70954   100</span></span>
-<span id="cb320-24"><a href="advanced-miscellaneous-topics.html#cb320-24" aria-hidden="true"></a><span class="co">#&gt;  runThread(14)  7.225379  9.376242 17.94548 13.285951 31.00986 38.27920   100</span></span>
-<span id="cb320-25"><a href="advanced-miscellaneous-topics.html#cb320-25" aria-hidden="true"></a><span class="co">#&gt;  runThread(15)  7.386251  8.896935 16.68194 11.767271 28.35965 33.54668   100</span></span>
-<span id="cb320-26"><a href="advanced-miscellaneous-topics.html#cb320-26" aria-hidden="true"></a><span class="co">#&gt;  runThread(16)  7.597419  9.869726 19.29197 18.183483 30.53563 35.07168   100</span></span>
+<span id="cb320-11"><a href="advanced-miscellaneous-topics.html#cb320-11" aria-hidden="true"></a><span class="co">#&gt;   runThread(1) 20.699979 21.548146 27.78396 24.517599 32.59787 48.50340   100</span></span>
+<span id="cb320-12"><a href="advanced-miscellaneous-topics.html#cb320-12" aria-hidden="true"></a><span class="co">#&gt;   runThread(2) 12.444752 13.340898 18.67385 14.788809 21.17433 56.33712   100</span></span>
+<span id="cb320-13"><a href="advanced-miscellaneous-topics.html#cb320-13" aria-hidden="true"></a><span class="co">#&gt;   runThread(3)  9.837725 10.643792 14.95068 12.950750 17.77851 36.20777   100</span></span>
+<span id="cb320-14"><a href="advanced-miscellaneous-topics.html#cb320-14" aria-hidden="true"></a><span class="co">#&gt;   runThread(4)  8.286275  9.161382 12.64188 10.393226 15.24781 35.39060   100</span></span>
+<span id="cb320-15"><a href="advanced-miscellaneous-topics.html#cb320-15" aria-hidden="true"></a><span class="co">#&gt;   runThread(5)  7.596137  8.449493 11.64829 10.060700 13.46303 25.31566   100</span></span>
+<span id="cb320-16"><a href="advanced-miscellaneous-topics.html#cb320-16" aria-hidden="true"></a><span class="co">#&gt;   runThread(6)  7.280553  8.080288 11.09303  9.455375 12.82990 29.70034   100</span></span>
+<span id="cb320-17"><a href="advanced-miscellaneous-topics.html#cb320-17" aria-hidden="true"></a><span class="co">#&gt;   runThread(7)  7.181426  8.457598 14.69123 10.868876 18.54358 34.32124   100</span></span>
+<span id="cb320-18"><a href="advanced-miscellaneous-topics.html#cb320-18" aria-hidden="true"></a><span class="co">#&gt;   runThread(8)  6.931295  8.335980 15.25477 11.521083 21.02826 37.12846   100</span></span>
+<span id="cb320-19"><a href="advanced-miscellaneous-topics.html#cb320-19" aria-hidden="true"></a><span class="co">#&gt;   runThread(9)  8.167171 10.118099 18.16331 13.429360 22.17132 44.79231   100</span></span>
+<span id="cb320-20"><a href="advanced-miscellaneous-topics.html#cb320-20" aria-hidden="true"></a><span class="co">#&gt;  runThread(10)  7.855525  9.158983 16.98575 11.133724 20.85389 48.68034   100</span></span>
+<span id="cb320-21"><a href="advanced-miscellaneous-topics.html#cb320-21" aria-hidden="true"></a><span class="co">#&gt;  runThread(11)  7.827332  9.235872 16.90721 12.636639 20.55233 45.73870   100</span></span>
+<span id="cb320-22"><a href="advanced-miscellaneous-topics.html#cb320-22" aria-hidden="true"></a><span class="co">#&gt;  runThread(12)  7.989066  9.389672 16.52327 11.448698 20.01860 35.19067   100</span></span>
+<span id="cb320-23"><a href="advanced-miscellaneous-topics.html#cb320-23" aria-hidden="true"></a><span class="co">#&gt;  runThread(13)  7.651301  9.518185 17.11667 13.248414 21.17909 34.66261   100</span></span>
+<span id="cb320-24"><a href="advanced-miscellaneous-topics.html#cb320-24" aria-hidden="true"></a><span class="co">#&gt;  runThread(14)  7.538157  8.743661 16.65013 11.257993 25.01667 34.25926   100</span></span>
+<span id="cb320-25"><a href="advanced-miscellaneous-topics.html#cb320-25" aria-hidden="true"></a><span class="co">#&gt;  runThread(15)  7.426287  9.316685 16.92813 12.872177 21.14388 39.59585   100</span></span>
+<span id="cb320-26"><a href="advanced-miscellaneous-topics.html#cb320-26" aria-hidden="true"></a><span class="co">#&gt;  runThread(16)  7.491950 10.073048 18.12361 14.850590 29.80882 34.08425   100</span></span>
 <span id="cb320-27"><a href="advanced-miscellaneous-topics.html#cb320-27" aria-hidden="true"></a><span class="kw">autoplot</span>(bench)</span></code></pre></div>
 <p><img src="rxode2-manual_files/figure-html/unnamed-chunk-180-1.png" width="100%" /></p>
 <p>There can be a suite spot in speed vs number or cores. The system type
@@ -1329,7 +1238,7 @@ automatic building of the pkgdown website.</p>
 <span id="cb321-67"><a href="advanced-miscellaneous-topics.html#cb321-67" aria-hidden="true"></a>Stoplapply &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb321-68"><a href="advanced-miscellaneous-topics.html#cb321-68" aria-hidden="true"></a>  </span>
 <span id="cb321-69"><a href="advanced-miscellaneous-topics.html#cb321-69" aria-hidden="true"></a><span class="kw">print</span>(Stoplapply <span class="op">-</span><span class="st"> </span>Startlapply)</span>
-<span id="cb321-70"><a href="advanced-miscellaneous-topics.html#cb321-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 14.80478 secs</span></span></code></pre></div>
+<span id="cb321-70"><a href="advanced-miscellaneous-topics.html#cb321-70" aria-hidden="true"></a><span class="co">#&gt; Time difference of 13.90472 secs</span></span></code></pre></div>
 <p>By applying some of the new parallel solving concepts you can simply
 run the same simulation both with less code and faster:</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="advanced-miscellaneous-topics.html#cb322-1" aria-hidden="true"></a>rx &lt;-<span class="st"> </span><span class="kw">rxode2</span>({</span>
@@ -1368,7 +1277,7 @@ run the same simulation both with less code and faster:</p>
 <span id="cb322-34"><a href="advanced-miscellaneous-topics.html#cb322-34" aria-hidden="true"></a>res &lt;-<span class="st"> </span><span class="kw">rxSolve</span>(rx, ev, <span class="dt">omega=</span>omega, <span class="dt">returnType=</span><span class="st">&quot;data.table&quot;</span>)</span>
 <span id="cb322-35"><a href="advanced-miscellaneous-topics.html#cb322-35" aria-hidden="true"></a>endParallel &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</span>
 <span id="cb322-36"><a href="advanced-miscellaneous-topics.html#cb322-36" aria-hidden="true"></a><span class="kw">print</span>(endParallel <span class="op">-</span><span class="st"> </span>startParallel)</span>
-<span id="cb322-37"><a href="advanced-miscellaneous-topics.html#cb322-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.1319878 secs</span></span></code></pre></div>
+<span id="cb322-37"><a href="advanced-miscellaneous-topics.html#cb322-37" aria-hidden="true"></a><span class="co">#&gt; Time difference of 0.1317852 secs</span></span></code></pre></div>
 <p>You can see a striking time difference between the two methods; A few
 things to keep in mind:</p>
 <ul>
