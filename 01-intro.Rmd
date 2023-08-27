@@ -49,11 +49,11 @@ This book was assembled on `r date()` with rxode2 version
 
 # Authors and Acknowledgments {#author}
 
-```{r echo=FALSE, results='asis'}
+```{r introAuthors, echo=FALSE, results='asis'}
 cat(paste(gsub("^#", "##", readLines('rxode2/authors.md')), collapse="\n"), "\n\n")
 ```
 
 # Related R packages {#related}
 
-```{r child='rxode2/man-roxygen/rmdhunks/related-R-chunk.Rmd'}
+```{r introRelated, child='rxode2/man-roxygen/rmdhunks/related-R-chunk.Rmd'}
 ```

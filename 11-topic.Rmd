@@ -5,7 +5,7 @@ This covers advanced or miscellaneous topics in `rxode2`
 
 ## Covariates in rxode2
 
-```{r echo=FALSE, results='asis'}
+```{r topicCov, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/covariates.Rmd"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -13,7 +13,7 @@ cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
 
 ## Shiny and rxode2
 
-```{r echo=FALSE, results='asis'}
+```{r topicShiny, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/shiny.Rmd"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -21,7 +21,7 @@ cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
 
 ## Using rxode2 with a pipeline
 
-```{r echo=FALSE, results='asis'}
+```{r topicPipeline, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/pipeline.Rmdh"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -29,7 +29,7 @@ cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
 
 ## Speeding up rxode2
 
-```{r echo=FALSE, results='asis'}
+```{r topicSpeed, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/speed.Rmdh"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -37,7 +37,7 @@ cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
 
 ## Integrating rxode2 models in your package
 
-```{r echo=FALSE, results='asis'}
+```{r topicPkg, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/packages.Rmdh"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -45,7 +45,7 @@ cat(gsub("(^|\n) *(#+) +", "\\1##\\2 ",
 
 ## Stiff ODEs with Jacobian Specification 
 
-```{r echo=FALSE, results='asis'}
+```{r topicStiff, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *(#+) +", "\\1###\\2 ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/stiff.Rmdh"),
                                   envir = environment(), quiet = TRUE))), sep="\n")

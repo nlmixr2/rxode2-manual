@@ -1,6 +1,6 @@
 # Getting Started {#gettingStarted}
 
-```{r echo=FALSE, results='asis'}
+```{r gettingStarted, echo=FALSE, results='asis'}
 cat(unlist(knitr::knit_child(text = gsub("vignette", "section",
                                          gsub("http.*events\\.html", "#events", readLines('rxode2/man/rmdhunks/rxode2-intro-chunk.Rmd'))),
                              envir = environment(), quiet = TRUE)), sep="\n")

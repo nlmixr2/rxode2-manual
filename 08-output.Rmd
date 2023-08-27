@@ -1,6 +1,6 @@
 # rxode2 output {#output}
 
-```{r echo=FALSE, results='asis'}
+```{r eventTableOutput, echo=FALSE, results='asis'}
 cat(unlist(knitr::knit_child(text = gsub("^#", "##", readLines("rxode2/vignettes/df.Rmdh")),
                              envir = environment(), quiet = TRUE)), sep="\n")
 ```

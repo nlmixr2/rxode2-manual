@@ -4,12 +4,12 @@ This section is for example models to get you started in common
 simulation scenarios.
 
 
-```{r child='rxode2/man-roxygen/rmdhunks/model-types.Rmd'}
+```{r modelTypes, child='rxode2/man-roxygen/rmdhunks/model-types.Rmd'}
 ```
 
 ## Weight based dosing 
 
-```{r echo=FALSE, results='asis'}
+```{r wtBased, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *# ", "\\1### ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/rxode2-wt.Rmd"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -17,7 +17,7 @@ cat(gsub("(^|\n) *# ", "\\1### ",
 
 ## Inter-occasion and other nesting examples
 
-```{r echo=FALSE, results='asis'}
+```{r iov, echo=FALSE, results='asis'}
 cat(gsub("(^|\n) *# ", "\\1## ",
          unlist(knitr::knit_child(text = readLines("rxode2/man-roxygen/rmdhunks/nesting.Rmdh"),
                                   envir = environment(), quiet = TRUE))), sep="\n")
@@ -25,5 +25,5 @@ cat(gsub("(^|\n) *# ", "\\1## ",
 
 ## Transit compartment models
 
-```{r child='rxode2/man-roxygen/rmdhunks/transit-compartments.Rmdh'}
+```{r transit, child='rxode2/man-roxygen/rmdhunks/transit-compartments.Rmdh'}
 ```

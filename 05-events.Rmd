@@ -1,6 +1,6 @@
 # rxode2 events {#events}
 
-```{r echo=FALSE, results='asis'}
+```{r eventTable, echo=FALSE, results='asis'}
 cat(unlist(knitr::knit_child(text = gsub("rxode2-event-table.html", "#et",
                                          gsub("rxode2-events-classic.html", "#classic-et", gsub("^#", "##", readLines("rxode2/vignettes/rxode2-event-types.Rmdh")))),
                              envir = environment(), quiet = TRUE)), sep="\n")
@@ -8,10 +8,10 @@ cat(unlist(knitr::knit_child(text = gsub("rxode2-event-table.html", "#et",
 
 ## Classic rxode2 events {#classic-et}
 
-```{r child='rxode2/vignettes/events-classic.Rmdh'}
+```{r eventTableClassic, child='rxode2/vignettes/events-classic.Rmdh'}
 ```
 
-```{r echo=FALSE, results='asis'}
+```{r eventTableDataset, echo=FALSE, results='asis'}
 cat(unlist(knitr::knit_child(text = gsub("^#", "##", readLines("rxode2/man/rmdhunks/rxode2-datasets.Rmd")),
                              envir = environment(), quiet = TRUE)), sep="\n")
 ```

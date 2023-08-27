@@ -31,7 +31,7 @@ describes the communication of variables between `R` and the
 
 ## Syntax
 
-```{r echo=FALSE, results='asis'}
+```{r syntax1, echo=FALSE, results='asis'}
 cat(unlist(knitr::knit_child(text = gsub("vignette", "section",
                                          gsub("http.*event.*\\.html", "#events", readLines('rxode2/man/rmdhunks/rxode2-syntax-hunk.Rmd'))),
                              envir = environment(), quiet = TRUE)), sep="\n")
@@ -47,18 +47,18 @@ Below is an example of how rxode2 numbers compartments
 
 ### How rxode2 numbers compartments
 
-```{r child='rxode2/man/rmdhunks/rxode2-cmt-assign.Rmd'}
+```{r syntaxCmt, child='rxode2/man/rmdhunks/rxode2-cmt-assign.Rmd'}
 ```
 
 
 ### Changing compartments by pre-declaring with `cmt()`
 
 
-```{r child='rxode2/man/rmdhunks/rxode2-cmt-preassign-1.Rmd'}
+```{r syntaxCmt, child='rxode2/man/rmdhunks/rxode2-cmt-preassign-1.Rmd'}
 ```
 
 ### Appending compartments to the model with `cmt()`
 
-```{r child='rxode2/man/rmdhunks/rxode2-cmt-preassign-2.Rmd'}
+```{r syntaxCmtAppend, child='rxode2/man/rmdhunks/rxode2-cmt-preassign-2.Rmd'}
 ```
 
