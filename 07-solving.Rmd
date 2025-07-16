@@ -128,8 +128,8 @@ not reset the `ISTATE` variable with doses.
 ## Inductive Linerization Options
 
 ### indLinMatExpType
-`indLinMatExpType` This is them matrix exponential type that
-is use for rxode2.  Currently the following are supported:
+`indLinMatExpType` This is the matrix exponential type that
+is used for rxode2. Currently the following are supported:
 
 * `Al-Mohy` Uses the exponential matrix method of Al-Mohy Higham (2009)
 
